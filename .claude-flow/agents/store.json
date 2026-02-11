@@ -1,0 +1,18 @@
+{
+  "agents": {
+    "agent-1770833009736-mol6yt": {
+      "agentId": "agent-1770833009736-mol6yt",
+      "agentType": "cto",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-11T18:03:29.736Z",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    }
+  },
+  "version": "3.0.0"
+}

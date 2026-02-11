@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import './page.css'
 
 export default function Home() {
@@ -19,13 +18,10 @@ export default function Home() {
       <section className="hero">
         <div className="container">
           <div className="hero-visual">
-            <Image 
+            <img 
               src="/images/bad-design-1.png" 
               alt="Bad UX examples" 
-              width={600} 
-              height={400}
               className="hero-image"
-              priority
             />
           </div>
           <p className="hero-label">Digital Growth Partner for Small Businesses</p>
@@ -99,39 +95,39 @@ export default function Home() {
           <h2>Projects That Moved the Needle</h2>
           
           <div className="work-grid">
-            <div className="work-item">
+            <a href="https://uxoxo.xyz/portfolio/designing-developing-mirco-interactions-for-northern-trusts-corporate-website/" target="_blank" rel="noopener noreferrer" className="work-item">
               <div className="work-image">
-                <Image src="/images/bankk.webp" alt="Northern Trust" width={400} height={250} />
+                <img src="/images/bankk.webp" alt="Northern Trust" />
               </div>
               <div className="work-content">
                 <h3>Design & Development for a Suite of Animations at Northern Trust</h3>
-                <p>Read more about the process</p>
+                <p>Read more about the process →</p>
               </div>
-            </div>
+            </a>
             
-            <div className="work-item">
+            <a href="https://uxoxo.xyz/portfolio/designing-a-custom-healthcare-real-estate-investment-portal" target="_blank" rel="noopener noreferrer" className="work-item">
               <div className="work-image">
-                <Image src="/images/nursing-home-money.webp" alt="Healthcare Portal" width={400} height={250} />
+                <img src="/images/nursing-home-money.webp" alt="Healthcare Portal" />
               </div>
               <div className="work-content">
                 <h3>Designing a Custom Healthcare Real Estate Investment Portal</h3>
-                <p>Read all about it</p>
+                <p>Read all about it →</p>
               </div>
-            </div>
+            </a>
             
-            <div className="work-item">
+            <a href="https://uxoxo.xyz/portfolio/green-goods-a-biodiversity-impact-platform/" target="_blank" rel="noopener noreferrer" className="work-item">
               <div className="work-image">
-                <Image src="/images/garden-money.webp" alt="Green Goods" width={400} height={250} />
+                <img src="/images/garden-money.webp" alt="Green Goods" />
               </div>
               <div className="work-content">
                 <h3>Software to Fund Biodiversity Gardens & Track Ecological Impact at Scale</h3>
-                <p>Read about the app</p>
+                <p>Read about the app →</p>
               </div>
-            </div>
+            </a>
             
             <div className="work-item">
               <div className="work-image">
-                <Image src="/images/sparkblox.webp" alt="Sparkblox" width={400} height={250} />
+                <img src="/images/sparkblox.webp" alt="Sparkblox" />
               </div>
               <div className="work-content">
                 <h3>Designing Sparkblox, our No-Code Toolkit for Products Leveraging the Blockchain</h3>
@@ -141,7 +137,7 @@ export default function Home() {
             
             <div className="work-item">
               <div className="work-image">
-                <Image src="/images/financial-org.webp" alt="POS System" width={400} height={250} />
+                <img src="/images/financial-org.webp" alt="POS System" />
               </div>
               <div className="work-content">
                 <h3>Designing a Buyer-Facing POS System for Customizable Products</h3>
@@ -158,7 +154,7 @@ export default function Home() {
           <h2>Writing on Design, Code & Strategy</h2>
           
           <div className="thoughts-grid">
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/health-is-wealth-building-retirement-funds-through-healthy-living/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
                 <div className="thought-placeholder">🌱</div>
               </div>
@@ -166,9 +162,9 @@ export default function Home() {
                 <h3>Design a Self-Funded Retirement System Through Healthy Living</h3>
                 <span className="read-time">2 min</span>
               </div>
-            </div>
+            </a>
             
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/dynamic-visions-the-intersection-of-art-and-economics-in-nfts/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
                 <div className="thought-placeholder">🎨</div>
               </div>
@@ -176,19 +172,19 @@ export default function Home() {
                 <h3>Designing at the intersection of Blockchain, Art, and Economics</h3>
                 <span className="read-time">5 min</span>
               </div>
-            </div>
+            </a>
             
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/setting-up-ssh-with-vs-code-for-amazon-lightsail/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
-                <Image src="/images/code-terminal.webp" alt="SSH Setup" width={300} height={180} />
+                <img src="/images/code-terminal.webp" alt="SSH Setup" />
               </div>
               <div className="thought-content">
                 <h3>Setting up SSH with VS Code for Amazon Lightsail</h3>
                 <span className="read-time">3 min</span>
               </div>
-            </div>
+            </a>
             
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/poshmark-social-media-meets-ecommerce/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
                 <div className="thought-placeholder">🛒</div>
               </div>
@@ -196,27 +192,27 @@ export default function Home() {
                 <h3>Poshmark: Social Media Behavior & eCommerce Incentives</h3>
                 <span className="read-time">7 min</span>
               </div>
-            </div>
+            </a>
             
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/google-analytics-scroll-tracking/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
-                <Image src="/images/scroll-tracking.webp" alt="Scroll Tracking" width={300} height={180} />
+                <img src="/images/scroll-tracking.webp" alt="Scroll Tracking" />
               </div>
               <div className="thought-content">
                 <h3>Google Analytics: Find Out How Far Users Are Scrolling with Scroll Event Tracking</h3>
                 <span className="read-time">1 min</span>
               </div>
-            </div>
+            </a>
             
-            <div className="thought-item">
+            <a href="https://uxoxo.xyz/google-analytics-cross-domain-tracking/" target="_blank" rel="noopener noreferrer" className="thought-item">
               <div className="thought-image">
-                <Image src="/images/cross-domain-tracking.webp" alt="Cross Domain Tracking" width={300} height={180} />
+                <img src="/images/cross-domain-tracking.webp" alt="Cross Domain Tracking" />
               </div>
               <div className="thought-content">
                 <h3>Google Analytics: How To Set Up & Test Cross Domain Tracking in GA & Tag Manager</h3>
                 <span className="read-time">4 min</span>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </section>
@@ -225,8 +221,9 @@ export default function Home() {
         <div className="container">
           <div className="influences-grid">
             <div className="influences-image">
-              <Image src="/images/me-low.jpg" alt="Martin Dabrowski" width={300} height={400} className="profile-image" />
+              <img src="/images/me-low.jpg" alt="Martin Dabrowski" className="profile-image" />
             </div>
+            
             <div className="influences-content">
               <p className="section-label">Influences and Current Work</p>
               <p>
