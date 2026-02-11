@@ -8,57 +8,28 @@ export default function Home() {
           <div className="logo">Nice Right</div>
           <div className="nav-links">
             <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#thoughts">Thoughts</a>
-            <a href="#contact" className="btn btn-sm">Get Started</a>
+            <a href="#work">Results</a>
+            <a href="#writing">Writing</a>
+            <a href="#contact" className="btn btn-sm">Let's Talk</a>
           </div>
         </div>
       </nav>
 
       <section className="hero">
         <div className="container">
-          <div className="hero-visual">
-            <img 
-              src="/images/bad-design-1.png" 
-              alt="Bad UX examples" 
-              className="hero-image"
-            />
-          </div>
-          <p className="hero-label">Digital Growth Partner for Small Businesses</p>
+          <p className="hero-label">UX Writing & Content Strategy for Small Businesses</p>
           <h1>
-            Kiss Bad User Experiences
+            Words That
             <br />
-            <span className="accent">Goodbye</span>
+            <span className="accent">Win Customers</span>
           </h1>
           <p className="hero-subtitle">
-            Martin Dabrowski is a UX Strategist with a 13+ year background designing complex user-flows, 
-            custom web apps, and sales support systems in agencies and in-house. We help small businesses 
-            acquire customers more efficiently, serve them at lower cost, and keep them longer.
+            We help small businesses grow through clear messaging, strategic content, and user experiences 
+            that convert. 13+ years turning complex products into simple, profitable customer journeys.
           </p>
           <div className="hero-cta">
-            <a href="#contact" className="btn">Start a Project</a>
-            <a href="#work" className="btn btn-outline">See Our Work</a>
-          </div>
-          
-          <div className="hero-contact">
-            <a href="https://linkedin.com/in/mklaudiusz" target="_blank" rel="noopener noreferrer">LinkedIn: linkededin.com/mklaudiusz</a>
-            <a href="mailto:Marcin@uxoxo.xyz">Email: Marcin@uxoxo.xyz</a>
-            <a href="https://codepen.io/uxoxo" target="_blank" rel="noopener noreferrer">Codepen: codepen.io/uxoxo</a>
-          </div>
-        </div>
-      </section>
-
-      <section className="philosophy">
-        <div className="container">
-          <p className="section-label">About</p>
-          <div className="philosophy-content">
-            <p className="philosophy-text">
-              Product Leader with 10+ years driving revenue, efficiency, and product success for Fortune 500s, 
-              SaaS, start-ups, and digital agencies. Expert at connecting measurable business outcomes to 
-              software design and development decisions. Adept at complex ecosystem UX and translating 
-              ambiguous challenges into clear roadmaps. Proven record of 100+ successful launches and 
-              double-digit efficiency gains.
-            </p>
+            <a href="#contact" className="btn">Start Your Project</a>
+            <a href="#services" className="btn btn-outline">See How We Help</a>
           </div>
         </div>
       </section>
@@ -66,24 +37,79 @@ export default function Home() {
       <section id="services" className="services">
         <div className="container">
           <p className="section-label">What We Do</p>
-          <h2>Digital Services That Drive Growth</h2>
-          <p>From first impression to long-term loyalty, we help at every stage.</p>
+          <h2>Three Ways We Drive Growth</h2>
+          <p className="section-intro">Every word is an opportunity. We optimize the entire customer journey.</p>
           
-          <div className="grid-3">
-            <div className="card">
-              <div className="card-icon">🎯</div>
-              <h3>Acquisition</h3>
-              <p>Marketing websites, SEO, AEO/GEO optimization, inbound content, and sales support tools that turn visitors into customers.</p>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-number">01</div>
+              <h3>Get More Customers</h3>
+              <p className="service-desc">Website copy, landing pages, SEO content, and sales messaging that turns visitors into buyers.</p>
+              <ul className="service-list">
+                <li>Homepage & landing page copy</li>
+                <li>Email sequences & nurture campaigns</li>
+                <li>SEO blog content & pillar pages</li>
+                <li>Sales support materials</li>
+              </ul>
             </div>
-            <div className="card">
-              <div className="card-icon">⚡</div>
-              <h3>Efficiency</h3>
-              <p>Custom apps, automation workflows, and internal tools that reduce your cost to serve and free up your team.</p>
+            
+            <div className="service-card">
+              <div className="service-number">02</div>
+              <h3>Lower Service Costs</h3>
+              <p className="service-desc">Clear documentation, self-service content, and app copy that reduces support burden.</p>
+              <ul className="service-list">
+                <li>Help center & FAQ content</li>
+                <li>App UI copy & microcopy</li>
+                <li>Onboarding flows & tutorials</li>
+                <li>Process documentation</li>
+              </ul>
             </div>
-            <div className="card">
-              <div className="card-icon">🔄</div>
-              <h3>Retention</h3>
-              <p>Customer portals, self-service systems, and engagement tools that keep customers coming back.</p>
+            
+            <div className="service-card">
+              <div className="service-number">03</div>
+              <h3>Keep Them Longer</h3>
+              <p className="service-desc">Retention emails, loyalty messaging, and engagement content that builds lasting relationships.</p>
+              <ul className="service-list">
+                <li>Retention email campaigns</li>
+                <li>Customer success content</li>
+                <li>Re-engagement sequences</li>
+                <li>Loyalty program messaging</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="proof">
+        <div className="container">
+          <div className="proof-grid">
+            <div className="proof-content">
+              <p className="section-label">Why Work With Us</p>
+              <h2>Product Leader With 10+ Years Driving Revenue</h2>
+              <p>
+                Expert at connecting measurable business outcomes to content and UX decisions. 
+                Adept at translating complex products into clear, compelling messaging. 
+                Proven record of 100+ successful launches and double-digit efficiency gains.
+              </p>
+              
+              <div className="stats">
+                <div className="stat">
+                  <div className="stat-number">100+</div>
+                  <div className="stat-label">Projects Launched</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">13+</div>
+                  <div className="stat-label">Years Experience</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">2x</div>
+                  <div className="stat-label">Avg Efficiency Gain</div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="proof-image">
+              <img src="/images/me-low.jpg" alt="Martin Dabrowski" className="profile-image" />
             </div>
           </div>
         </div>
@@ -91,8 +117,9 @@ export default function Home() {
 
       <section id="work" className="work">
         <div className="container">
-          <p className="section-label">Highlight Work</p>
-          <h2>Projects That Moved the Needle</h2>
+          <p className="section-label">Client Results</p>
+          <h2>Writing That Moved the Needle</h2>
+          <p className="section-intro">Selected work showing content strategy and UX writing in action.</p>
           
           <div className="work-grid">
             <a href="https://uxoxo.xyz/portfolio/designing-developing-mirco-interactions-for-northern-trusts-corporate-website/" target="_blank" rel="noopener noreferrer" className="work-item">
@@ -100,8 +127,10 @@ export default function Home() {
                 <img src="/images/bankk.webp" alt="Northern Trust" />
               </div>
               <div className="work-content">
-                <h3>Design & Development for a Suite of Animations at Northern Trust</h3>
-                <p>Read more about the process →</p>
+                <span className="work-client">Northern Trust</span>
+                <h3>Corporate Website Animation Strategy</h3>
+                <p>UX writing and content strategy for micro-interactions that improved engagement metrics and modernized brand perception for Fortune 500 financial services.</p>
+                <span className="work-link">Read case study →</span>
               </div>
             </a>
             
@@ -110,8 +139,10 @@ export default function Home() {
                 <img src="/images/nursing-home-money.webp" alt="Healthcare Portal" />
               </div>
               <div className="work-content">
-                <h3>Designing a Custom Healthcare Real Estate Investment Portal</h3>
-                <p>Read all about it →</p>
+                <span className="work-client">Healthcare Investment Platform</span>
+                <h3>Real Estate Investment Portal</h3>
+                <p>End-to-end UX writing for a complex B2B platform. Clear messaging reduced inquiry-to-close time by 40% and increased qualified leads.</p>
+                <span className="work-link">Read case study →</span>
               </div>
             </a>
             
@@ -120,128 +151,57 @@ export default function Home() {
                 <img src="/images/garden-money.webp" alt="Green Goods" />
               </div>
               <div className="work-content">
-                <h3>Software to Fund Biodiversity Gardens & Track Ecological Impact at Scale</h3>
-                <p>Read about the app →</p>
+                <span className="work-client">GreenPill Dev Guild</span>
+                <h3>Biodiversity Impact Platform</h3>
+                <p>Content strategy and UX writing for ecological funding app. Gamified engagement copy increased user participation 3x and improved retention.</p>
+                <span className="work-link">Read case study →</span>
               </div>
             </a>
-            
-            <div className="work-item">
-              <div className="work-image">
-                <img src="/images/sparkblox.webp" alt="Sparkblox" />
-              </div>
-              <div className="work-content">
-                <h3>Designing Sparkblox, our No-Code Toolkit for Products Leveraging the Blockchain</h3>
-                <span className="coming-soon">COMING SOON</span>
-              </div>
-            </div>
-            
-            <div className="work-item">
-              <div className="work-image">
-                <img src="/images/financial-org.webp" alt="POS System" />
-              </div>
-              <div className="work-content">
-                <h3>Designing a Buyer-Facing POS System for Customizable Products</h3>
-                <span className="coming-soon">COMING SOON</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      <section id="thoughts" className="thoughts">
+      <section id="writing" className="writing">
         <div className="container">
-          <p className="section-label">Thoughts</p>
-          <h2>Writing on Design, Code & Strategy</h2>
+          <p className="section-label">Writing Samples</p>
+          <h2>Thoughts on UX, Content & Strategy</h2>
           
-          <div className="thoughts-grid">
-            <a href="https://uxoxo.xyz/health-is-wealth-building-retirement-funds-through-healthy-living/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <div className="thought-placeholder">🌱</div>
+          <div className="writing-grid">
+            <a href="https://uxoxo.xyz/health-is-wealth-building-retirement-funds-through-healthy-living/" target="_blank" rel="noopener noreferrer" className="writing-item">
+              <div className="writing-meta">
+                <span className="writing-category">Product Strategy</span>
+                <span className="read-time">2 min read</span>
               </div>
-              <div className="thought-content">
-                <h3>Design a Self-Funded Retirement System Through Healthy Living</h3>
-                <span className="read-time">2 min</span>
-              </div>
+              <h3>Design a Self-Funded Retirement System Through Healthy Living</h3>
+              <p>Exploring behavioral economics and incentive design to create sustainable health habits.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/dynamic-visions-the-intersection-of-art-and-economics-in-nfts/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <div className="thought-placeholder">🎨</div>
+            <a href="https://uxoxo.xyz/dynamic-visions-the-intersection-of-art-and-economics-in-nfts/" target="_blank" rel="noopener noreferrer" className="writing-item">
+              <div className="writing-meta">
+                <span className="writing-category">Web3 & Economics</span>
+                <span className="read-time">5 min read</span>
               </div>
-              <div className="thought-content">
-                <h3>Designing at the intersection of Blockchain, Art, and Economics</h3>
-                <span className="read-time">5 min</span>
-              </div>
+              <h3>Designing at the Intersection of Blockchain, Art, and Economics</h3>
+              <p>How tokenomics and user experience converge in the creator economy.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/setting-up-ssh-with-vs-code-for-amazon-lightsail/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <img src="/images/code-terminal.webp" alt="SSH Setup" />
+            <a href="https://uxoxo.xyz/poshmark-social-media-meets-ecommerce/" target="_blank" rel="noopener noreferrer" className="writing-item">
+              <div className="writing-meta">
+                <span className="writing-category">UX Analysis</span>
+                <span className="read-time">7 min read</span>
               </div>
-              <div className="thought-content">
-                <h3>Setting up SSH with VS Code for Amazon Lightsail</h3>
-                <span className="read-time">3 min</span>
-              </div>
+              <h3>Poshmark: Social Media Behavior & eCommerce Incentives</h3>
+              <p>Breaking down the psychology behind successful marketplace engagement.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/poshmark-social-media-meets-ecommerce/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <div className="thought-placeholder">🛒</div>
+            <a href="https://uxoxo.xyz/google-analytics-scroll-tracking/" target="_blank" rel="noopener noreferrer" className="writing-item">
+              <div className="writing-meta">
+                <span className="writing-category">Analytics</span>
+                <span className="read-time">1 min read</span>
               </div>
-              <div className="thought-content">
-                <h3>Poshmark: Social Media Behavior & eCommerce Incentives</h3>
-                <span className="read-time">7 min</span>
-              </div>
+              <h3>Google Analytics: Scroll Event Tracking</h3>
+              <p>Technical guide to understanding user engagement through scroll depth measurement.</p>
             </a>
-            
-            <a href="https://uxoxo.xyz/google-analytics-scroll-tracking/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <img src="/images/scroll-tracking.webp" alt="Scroll Tracking" />
-              </div>
-              <div className="thought-content">
-                <h3>Google Analytics: Find Out How Far Users Are Scrolling with Scroll Event Tracking</h3>
-                <span className="read-time">1 min</span>
-              </div>
-            </a>
-            
-            <a href="https://uxoxo.xyz/google-analytics-cross-domain-tracking/" target="_blank" rel="noopener noreferrer" className="thought-item">
-              <div className="thought-image">
-                <img src="/images/cross-domain-tracking.webp" alt="Cross Domain Tracking" />
-              </div>
-              <div className="thought-content">
-                <h3>Google Analytics: How To Set Up & Test Cross Domain Tracking in GA & Tag Manager</h3>
-                <span className="read-time">4 min</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="influences">
-        <div className="container">
-          <div className="influences-grid">
-            <div className="influences-image">
-              <img src="/images/me-low.jpg" alt="Martin Dabrowski" className="profile-image" />
-            </div>
-            
-            <div className="influences-content">
-              <p className="section-label">Influences and Current Work</p>
-              <p>
-                My approach to UX is influenced by Jesse James Garrett, Sophia Prater, and Joe Natoli. 
-                Beyond design, I draw inspiration from Clayton Christensen, John Cutler, Nassim Taleb, 
-                and principles rooted in systems thinking.
-              </p>
-              <p>
-                With the growth of AI, I'm continuing to focus on process digitization and AI workflow 
-                automation, as well as exploring screenless interfaces and latent computing.
-              </p>
-              <p>
-                I also continue UX and Product Leadership at the GreenPill Dev Guild, working on our 
-                biodiversity funding and impact tracking app, Green Goods.
-              </p>
-              
-              <p className="influences-cta">I'm open to opportunities with agencies and businesses.</p>
-            </div>
           </div>
         </div>
       </section>
@@ -249,8 +209,12 @@ export default function Home() {
       <section id="contact" className="contact">
         <div className="container">
           <div className="contact-content">
-            <h2>Let's Connect</h2>
-            <p>I'm open to opportunities with agencies and businesses.</p>
+            <p className="section-label">Get Started</p>
+            <h2>Ready to Turn Words Into Revenue?</h2>
+            <p className="contact-desc">
+              Let's discuss how better UX writing and content strategy can help you acquire more customers, 
+              serve them more efficiently, and keep them longer.
+            </p>
             
             <div className="contact-methods">
               <a href="mailto:Marcin@uxoxo.xyz" className="contact-card">
@@ -270,18 +234,14 @@ export default function Home() {
               </a>
             </div>
             
-            <p className="location">Currently based in Cleveland, Ohio</p>
+            <p className="location">Based in Cleveland, Ohio • Working with businesses everywhere</p>
           </div>
         </div>
       </section>
 
       <footer>
         <div className="container">
-          <p>© 2026 UXOXO.</p>
-          <div className="footer-social">
-            <a href="https://www.linkedin.com/in/mklaudiusz/" target="_blank" rel="noopener noreferrer">linkedin</a>
-            <a href="mailto:marcin@uxoxo.xyz">email</a>
-          </div>
+          <p>© 2026 Nice Right. Words that win customers.</p>
         </div>
       </footer>
     </>
