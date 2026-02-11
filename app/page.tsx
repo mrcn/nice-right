@@ -8,28 +8,30 @@ export default function Home() {
           <div className="logo">Nice Right</div>
           <div className="nav-links">
             <a href="#services">Services</a>
-            <a href="#work">Results</a>
-            <a href="#writing">Writing</a>
-            <a href="#contact" className="btn btn-sm">Let's Talk</a>
+            <a href="#work">Work</a>
+            <a href="#insights">Insights</a>
+            <a href="#contact" className="btn btn-sm">Start Project</a>
           </div>
         </div>
       </nav>
 
       <section className="hero">
         <div className="container">
-          <p className="hero-label">UX Writing & Content Strategy for Small Businesses</p>
+          <p className="hero-label">Digital Growth Partner for Small Businesses</p>
           <h1>
-            Words That
+            More Customers.
             <br />
-            <span className="accent">Win Customers</span>
+            Lower Costs.
+            <br />
+            <span className="accent">Better Retention.</span>
           </h1>
           <p className="hero-subtitle">
-            We help small businesses grow through clear messaging, strategic content, and user experiences 
-            that convert. 13+ years turning complex products into simple, profitable customer journeys.
+            We build websites, apps, and digital systems that help small businesses grow. 
+            From first impression to long-term loyalty, we optimize every touchpoint for results.
           </p>
           <div className="hero-cta">
-            <a href="#contact" className="btn">Start Your Project</a>
-            <a href="#services" className="btn btn-outline">See How We Help</a>
+            <a href="#contact" className="btn">Discuss Your Project</a>
+            <a href="#services" className="btn btn-outline">See Our Services</a>
           </div>
         </div>
       </section>
@@ -38,42 +40,42 @@ export default function Home() {
         <div className="container">
           <p className="section-label">What We Do</p>
           <h2>Three Ways We Drive Growth</h2>
-          <p className="section-intro">Every word is an opportunity. We optimize the entire customer journey.</p>
+          <p className="section-intro">Every digital touchpoint is an opportunity. We build systems that work together.</p>
           
           <div className="services-grid">
             <div className="service-card">
               <div className="service-number">01</div>
               <h3>Get More Customers</h3>
-              <p className="service-desc">Website copy, landing pages, SEO content, and sales messaging that turns visitors into buyers.</p>
+              <p className="service-desc">Marketing websites, landing pages, and inbound systems that turn visitors into qualified leads.</p>
               <ul className="service-list">
-                <li>Homepage & landing page copy</li>
-                <li>Email sequences & nurture campaigns</li>
-                <li>SEO blog content & pillar pages</li>
-                <li>Sales support materials</li>
+                <li>High-converting websites & landing pages</li>
+                <li>SEO, AEO, GEO optimization</li>
+                <li>AI-powered content systems</li>
+                <li>Sales support tools & automation</li>
               </ul>
             </div>
             
             <div className="service-card">
               <div className="service-number">02</div>
               <h3>Lower Service Costs</h3>
-              <p className="service-desc">Clear documentation, self-service content, and app copy that reduces support burden.</p>
+              <p className="service-desc">Custom apps, self-service portals, and automation that reduce manual work and support burden.</p>
               <ul className="service-list">
-                <li>Help center & FAQ content</li>
-                <li>App UI copy & microcopy</li>
-                <li>Onboarding flows & tutorials</li>
-                <li>Process documentation</li>
+                <li>Custom web applications</li>
+                <li>Customer self-service portals</li>
+                <li>Internal tools & workflows</li>
+                <li>Process automation</li>
               </ul>
             </div>
             
             <div className="service-card">
               <div className="service-number">03</div>
               <h3>Keep Them Longer</h3>
-              <p className="service-desc">Retention emails, loyalty messaging, and engagement content that builds lasting relationships.</p>
+              <p className="service-desc">Engagement systems, retention programs, and loyalty tools that maximize customer lifetime value.</p>
               <ul className="service-list">
-                <li>Retention email campaigns</li>
-                <li>Customer success content</li>
-                <li>Re-engagement sequences</li>
-                <li>Loyalty program messaging</li>
+                <li>Customer engagement platforms</li>
+                <li>Retention & loyalty systems</li>
+                <li>Re-engagement campaigns</li>
+                <li>Proofs of concept & MVPs</li>
               </ul>
             </div>
           </div>
@@ -87,9 +89,10 @@ export default function Home() {
               <p className="section-label">Why Work With Us</p>
               <h2>Product Leader With 10+ Years Driving Revenue</h2>
               <p>
-                Expert at connecting measurable business outcomes to content and UX decisions. 
-                Adept at translating complex products into clear, compelling messaging. 
-                Proven record of 100+ successful launches and double-digit efficiency gains.
+                Expert at connecting measurable business outcomes to digital strategy. 
+                From complex enterprise systems to scrappy startup MVPs, we know how to 
+                build what actually moves the needle. Proven record of 100+ successful 
+                launches and double-digit efficiency gains.
               </p>
               
               <div className="stats">
@@ -117,86 +120,86 @@ export default function Home() {
 
       <section id="work" className="work">
         <div className="container">
-          <p className="section-label">Client Results</p>
-          <h2>Writing That Moved the Needle</h2>
-          <p className="section-intro">Selected work showing content strategy and UX writing in action.</p>
+          <p className="section-label">Selected Work</p>
+          <h2>Projects That Moved the Needle</h2>
+          <p className="section-intro">Real results for real businesses. Every project focused on measurable outcomes.</p>
           
           <div className="work-grid">
-            <a href="https://uxoxo.xyz/portfolio/designing-developing-mirco-interactions-for-northern-trusts-corporate-website/" target="_blank" rel="noopener noreferrer" className="work-item">
+            <a href="/work/northern-trust" className="work-item">
               <div className="work-image">
                 <img src="/images/bankk.webp" alt="Northern Trust" />
               </div>
               <div className="work-content">
                 <span className="work-client">Northern Trust</span>
-                <h3>Corporate Website Animation Strategy</h3>
-                <p>UX writing and content strategy for micro-interactions that improved engagement metrics and modernized brand perception for Fortune 500 financial services.</p>
-                <span className="work-link">Read case study →</span>
+                <h3>Corporate Website & Animation System</h3>
+                <p>Design and development of micro-interactions for Fortune 500 financial services. Improved engagement metrics and modernized brand perception.</p>
+                <span className="work-link">View case study →</span>
               </div>
             </a>
             
-            <a href="https://uxoxo.xyz/portfolio/designing-a-custom-healthcare-real-estate-investment-portal" target="_blank" rel="noopener noreferrer" className="work-item">
+            <a href="/work/healthcare-real-estate" className="work-item">
               <div className="work-image">
                 <img src="/images/nursing-home-money.webp" alt="Healthcare Portal" />
               </div>
               <div className="work-content">
                 <span className="work-client">Healthcare Investment Platform</span>
                 <h3>Real Estate Investment Portal</h3>
-                <p>End-to-end UX writing for a complex B2B platform. Clear messaging reduced inquiry-to-close time by 40% and increased qualified leads.</p>
-                <span className="work-link">Read case study →</span>
+                <p>Custom B2B platform connecting healthcare providers with property opportunities. Reduced inquiry-to-close time by 40%.</p>
+                <span className="work-link">View case study →</span>
               </div>
             </a>
             
-            <a href="https://uxoxo.xyz/portfolio/green-goods-a-biodiversity-impact-platform/" target="_blank" rel="noopener noreferrer" className="work-item">
+            <a href="/work/green-goods" className="work-item">
               <div className="work-image">
                 <img src="/images/garden-money.webp" alt="Green Goods" />
               </div>
               <div className="work-content">
                 <span className="work-client">GreenPill Dev Guild</span>
                 <h3>Biodiversity Impact Platform</h3>
-                <p>Content strategy and UX writing for ecological funding app. Gamified engagement copy increased user participation 3x and improved retention.</p>
-                <span className="work-link">Read case study →</span>
+                <p>Software to fund ecological gardens and track environmental impact at scale. Gamified engagement increased participation 3x.</p>
+                <span className="work-link">View case study →</span>
               </div>
             </a>
           </div>
         </div>
       </section>
 
-      <section id="writing" className="writing">
+      <section id="insights" className="insights">
         <div className="container">
-          <p className="section-label">Writing Samples</p>
-          <h2>Thoughts on UX, Content & Strategy</h2>
+          <p className="section-label">Insights</p>
+          <h2>Thinking on Product, UX & Growth</h2>
           
-          <div className="writing-grid">
-            <a href="https://uxoxo.xyz/health-is-wealth-building-retirement-funds-through-healthy-living/" target="_blank" rel="noopener noreferrer" className="writing-item">
-              <div className="writing-meta">
-                <span className="writing-category">Product Strategy</span>
+          <div className="insights-grid">
+            <a href="/blog/health-is-wealth" className="insight-item">
+              <div className="insight-meta">
+                <span className="insight-category">Product Strategy</span>
                 <span className="read-time">2 min read</span>
               </div>
               <h3>Design a Self-Funded Retirement System Through Healthy Living</h3>
               <p>Exploring behavioral economics and incentive design to create sustainable health habits.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/dynamic-visions-the-intersection-of-art-and-economics-in-nfts/" target="_blank" rel="noopener noreferrer" className="writing-item">
-              <div className="writing-meta">
-                <span className="writing-category">Web3 & Economics</span>
+            <a href="/blog/blockchain-art-economics" className="insight-item">
+              <div className="insight-meta">
+                <span className="insight-category">Web3 & Economics</span>
                 <span className="read-time">5 min read</span>
               </div>
               <h3>Designing at the Intersection of Blockchain, Art, and Economics</h3>
               <p>How tokenomics and user experience converge in the creator economy.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/poshmark-social-media-meets-ecommerce/" target="_blank" rel="noopener noreferrer" className="writing-item">
-              <div className="writing-meta">
-                <span className="writing-category">UX Analysis</span>
+            <a href="/blog/poshmark-social-commerce" className="insight-item">
+              <div className="insight-meta">
+                <span className="insight-category">UX Analysis</span>
                 <span className="read-time">7 min read</span>
               </div>
               <h3>Poshmark: Social Media Behavior & eCommerce Incentives</h3>
               <p>Breaking down the psychology behind successful marketplace engagement.</p>
             </a>
             
-            <a href="https://uxoxo.xyz/google-analytics-scroll-tracking/" target="_blank" rel="noopener noreferrer" className="writing-item">
-              <div className="writing-meta">
-                <span className="writing-category">Analytics</span>
+            <a href="/blog/google-analytics-scroll-tracking" className="insight-item">
+              <div className="insight-meta">
+                <span className="insight-category">Analytics</span>
                 <span className="read-time">1 min read</span>
               </div>
               <h3>Google Analytics: Scroll Event Tracking</h3>
@@ -210,10 +213,10 @@ export default function Home() {
         <div className="container">
           <div className="contact-content">
             <p className="section-label">Get Started</p>
-            <h2>Ready to Turn Words Into Revenue?</h2>
+            <h2>Ready to Grow Smarter?</h2>
             <p className="contact-desc">
-              Let's discuss how better UX writing and content strategy can help you acquire more customers, 
-              serve them more efficiently, and keep them longer.
+              Let's discuss how we can help you acquire more customers, serve them more efficiently, 
+              and keep them longer. From quick wins to long-term strategy.
             </p>
             
             <div className="contact-methods">
@@ -241,7 +244,7 @@ export default function Home() {
 
       <footer>
         <div className="container">
-          <p>© 2026 Nice Right. Words that win customers.</p>
+          <p>© 2026 Nice Right. Digital growth for small businesses.</p>
         </div>
       </footer>
     </>
