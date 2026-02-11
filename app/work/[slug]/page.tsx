@@ -8,6 +8,14 @@ interface WorkPostProps {
   params: { slug: string }
 }
 
+export function generateStaticParams() {
+  return [
+    { slug: 'northern-trust' },
+    { slug: 'healthcare-real-estate' },
+    { slug: 'green-goods' },
+  ]
+}
+
 export async function generateMetadata({ params }: WorkPostProps): Promise<Metadata> {
   return {
     title: 'Case Study | Nice Right',

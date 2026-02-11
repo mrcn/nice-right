@@ -9,6 +9,17 @@ interface BlogPostProps {
   params: { slug: string }
 }
 
+export function generateStaticParams() {
+  return [
+    { slug: 'health-is-wealth' },
+    { slug: 'blockchain-art-economics' },
+    { slug: 'ssh-vscode-lightsail' },
+    { slug: 'poshmark-social-commerce' },
+    { slug: 'google-analytics-scroll-tracking' },
+    { slug: 'google-analytics-cross-domain' },
+  ]
+}
+
 export async function generateMetadata({ params }: BlogPostProps): Promise<Metadata> {
   // In production, fetch post data based on slug
   return {
