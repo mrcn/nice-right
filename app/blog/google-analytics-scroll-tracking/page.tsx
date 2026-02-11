@@ -44,7 +44,7 @@ export default function ScrollTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://onewithux.com/wp-content/uploads/2019/11/step1-configure-variables.webm" type="video/webm" />
+                <source src="/videos/tutorials/step1-configure-variables.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -53,7 +53,7 @@ export default function ScrollTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://onewithux.com/wp-content/uploads/2019/11/step2-create-trigger.webm" type="video/webm" />
+                <source src="/videos/tutorials/step2-create-trigger.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -62,7 +62,7 @@ export default function ScrollTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://onewithux.com/wp-content/uploads/2019/11/step3-create-tag.webm" type="video/webm" />
+                <source src="/videos/tutorials/step3-create-tag.webm" type="video/webm" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -71,7 +71,7 @@ export default function ScrollTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://onewithux.com/wp-content/uploads/2019/11/step4-test.mp4" type="video/mp4" />
+                <source src="/videos/tutorials/step4-test.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
