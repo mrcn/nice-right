@@ -25,7 +25,7 @@ export default function HealthcareRealEstatePage() {
       <article className="case-study">
         <div className="container">
           <header className="case-header">
-            <span className="case-client">Real Estate Investment Company</span>
+            <span className="case-client">Healthcare Investment Platform</span>
             <h1>Designing a Custom Healthcare Real Estate Investment Portal</h1>
             <p className="case-subtitle">
               Creating a mobile responsive web app for managing and selling healthcare facilities.

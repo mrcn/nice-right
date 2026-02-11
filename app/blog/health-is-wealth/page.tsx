@@ -2,7 +2,7 @@ import Link from 'next/link'
 import './page.css'
 
 export const metadata = {
-  title: 'Design a Self-Funded Retirement System Through Healthy Living | Nice Right',
+  title: 'Health Is Wealth: Building Retirement Funds Through Healthy Living | Nice Right',
   description: 'Imagine a future where your retirement fund grows simply because you took care of your health.',
 }
 
@@ -29,20 +29,20 @@ export default function HealthIsWealthPage() {
               <span className="post-dot">•</span>
               <span className="post-date">April 28, 2022</span>
               <span className="post-dot">•</span>
-              <span className="post-read-time">2 min read</span>
+              <span className="post-read-time">5 min read</span>
             </div>
-            <h1 className="post-title">Design a Self-Funded Retirement System Through Healthy Living</h1>
+            <h1 className="post-title">Health Is Wealth: Building Retirement Funds Through Healthy Living</h1>
             <p className="post-subtitle">Imagine a future where your retirement fund grows simply because you took care of your health.</p>
           </header>
 
           <div className="post-content">
-            <p>What if every step you take, every healthy choice you make, could contribute to your financial future?</p>
+            <p>Imagine a future where your retirement fund grows simply because you took care of your health. What if every step you take, every healthy choice you make, could contribute to your financial future?</p>
 
-            <p>Here&apos;s how it could work: people could be paid for making healthy choices by selling their activity data and earning interest through high-yield, compounding funds.</p>
+            <p>Here is how it could work: people could be paid for making healthy choices by selling their activity data and earning interest through high-yield, compounding funds.</p>
 
-            <h2>The Foundation of a Health-Driven Retirement</h2>
+            <h3>The Foundation of a Health-Driven Retirement</h3>
 
-            <p>Programs like this are already taking shape. For example, my insurance company offers up to $1,000 annually for participating in Fitbit challenges, like walking or exercising. Now imagine a system where rewards aren&apos;t tied to insurance premiums but are funded through alternative streams.</p>
+            <p>Programs like this are already taking shape. For example, my insurance company offers up to $1,000 annually for participating in Fitbit challenges, like walking or exercising. Now imagine a system where rewards are not tied to insurance premiums but are funded through alternative streams.</p>
 
             <p>One option is data monetization: wearable devices like Fitbit already collect health activity data. Users could sell this data directly to organizations like health brands, public health agencies, or pharmaceutical companies through secure, anonymized platforms. These organizations value this data for research, product development, and understanding health trends.</p>
 
@@ -50,15 +50,23 @@ export default function HealthIsWealthPage() {
 
             <p>These rewards could then be deposited into high-yield accounts powered by decentralized finance (DeFi) protocols. These accounts, which redistribute fees and lending interest to users, can amplify small payouts into meaningful savings over time.</p>
 
-            <p>These types of systems bypass the need for traditional insurance programs for funding, creating a direct link between healthy behaviors and financial growth.</p>
+            <p>These types of systems bypass the need for traditional insurance programs for funding, creating a direct link between healthy behaviors and financial growth, accessible to anyone willing to participate.</p>
+
+            <h3>Technology Meets Wellbeing</h3>
+
+            <p>Technology would be the key enabler of this system. Wearable devices, smart contracts, and blockchain platforms could securely collect, monetize, and anonymize health data while automating deposits into retirement accounts. The combination of user control, transparency, and decentralized finance could make health-driven savings accessible to everyone.</p>
+
+            <h3>Addressing Concerns</h3>
+
+            <p>Of course, privacy and sustainability are critical factors. Platforms would need to give users full control over their data and ensure transparency in how it is used. Meanwhile, maintaining high APY rates would depend on ongoing innovation in decentralized finance and broader adoption of these protocols.</p>
           </div>
 
           <footer className="post-footer">
             <div className="post-tags">
-              <span className="tag">Web3</span>
-              <span className="tag">Health</span>
-              <span className="tag">DeFi</span>
               <span className="tag">Product Strategy</span>
+              <span className="tag">Health Tech</span>
+              <span className="tag">DeFi</span>
+              <span className="tag">Wearables</span>
             </div>
             
             <nav className="post-nav">

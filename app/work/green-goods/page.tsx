@@ -25,7 +25,7 @@ export default function GreenGoodsPage() {
       <article className="case-study">
         <div className="container">
           <header className="case-header">
-            <span className="case-client">Green Goods</span>
+            <span className="case-client">GreenPill Dev Guild</span>
             <h1>Green Goods: A Biodiversity Impact Platform</h1>
             <p className="case-subtitle">
               A blockchain-powered Progressive Web App that streamlines the capture, verification, and rewarding of biodiversity conservation efforts.

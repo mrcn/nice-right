@@ -2,11 +2,11 @@ import Link from 'next/link'
 import './page.css'
 
 export const metadata = {
-  title: 'Google Analytics: How To Set Up & Test Cross Domain Tracking in GA & Tag Manager | Nice Right',
-  description: 'Configure multiple domains to report to a single Google Analytics view.',
+  title: 'Google Analytics Cross-Domain Tracking | Nice Right',
+  description: 'How to configure cross-domain tracking in Google Analytics for multiple domains.',
 }
 
-export default function GoogleAnalyticsCrossDomainPage() {
+export default function CrossDomainTrackingPage() {
   return (
     <>
       <nav className="nav">
@@ -25,59 +25,118 @@ export default function GoogleAnalyticsCrossDomainPage() {
         <div className="container">
           <header className="post-header">
             <div className="post-meta">
-              <span className="post-category">Coding & Config</span>
+              <span className="post-category">Analytics</span>
               <span className="post-dot">•</span>
-              <span className="post-date">April 28, 2022</span>
+              <span className="post-date">May 4, 2019</span>
               <span className="post-dot">•</span>
-              <span className="post-read-time">8 min read</span>
+              <span className="post-read-time">4 min read</span>
             </div>
-            <h1 className="post-title">Google Analytics: How To Set Up & Test Cross Domain Tracking in GA & Tag Manager</h1>
-            <p className="post-subtitle">Configure multiple domains to report to a single Google Analytics view.</p>
+            <h1 className="post-title">Google Analytics Cross-Domain Tracking</h1>
+            <p className="post-subtitle">How to configure cross-domain tracking in Google Analytics for multiple domains.</p>
           </header>
 
           <div className="post-content">
             <h2>Making Sure Your Properties Are Set Up Correctly</h2>
 
-            <p>If your business website spans multiple domains, you might want each domain to report to a separate Google Analytics property or view. Alternatively, there are strong arguments for having all domains report to a single view. Fortunately, it&apos;s relatively simple to configure either setup.</p>
+            <p>If your business website spans multiple domains, you might want each domain to report to a separate Google Analytics property or view. Alternatively, there are strong arguments for having all domains report to a single view. Fortunately, it is relatively simple to configure either setup.</p>
 
-            <p>If you&apos;d like to learn why you might want all your domains and sub-domains reporting to a single view, you can email me and ask.</p>
+            <p>If you would like to learn why you might want all your domains and sub-domains reporting to a single view, <a href="mailto:marcin@martind93.sg-host.com">you can email me and ask</a>.</p>
 
-            <p>But here I&apos;m going to show you how I did it.</p>
+            <p>But here I am going to show you how I did it.</p>
 
-            <h2>Step 1: Create a Cross-Domain Tracking &quot;Auto Link&quot; Variable in Google Tag Manager (GTM)</h2>
+            <h2>Step 1: Create a Cross-Domain Tracking Auto Link Variable in Google Tag Manager (GTM)</h2>
 
-            <ul>
-              <li>Open Google Tag Manager (GTM).</li>
-              <li>Create a new Auto Link Domains variable.</li>
-              <li>Add all the domains you want to link together in this variable.</li>
-            </ul>
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/1-cross-domain-01.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
 
-            <p>Example: <code>example.com, example2.com</code>.</p>
+            <ol>
+              <li>Open <strong>Google Tag Manager (GTM)</strong>.</li>
+              <li>Create a new <strong>Auto Link Domains</strong> variable.</li>
+              <li>Add all the domains you want to link together in this variable. Example: <code>example.com, example2.com</code>.</li>
+            </ol>
 
-            <p>This variable will define which domains are linked. Later, you&apos;ll use it to configure your tags</p>
+            <p>This variable will define which domains are linked. Later, you will use it to configure your tags.</p>
 
-            <h2>Step 2: Create a Google &quot;Universal Analytics&quot; Tag & Modify Configuration in Google Tag Manager</h2>
+            <h2>Step 2: Create a Google Universal Analytics Tag &amp; Modify Configuration in Google Tag Manager</h2>
 
-            <p>Now that you&apos;ve created the variable, let&apos;s use it in a Universal Analytics pageview tag.</p>
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/2-cross-domain-02.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
 
-            <ul>
-              <li>In GTM, create or edit your Universal Analytics pageview tag.</li>
-              <li>Under Google Analytics Settings, select the correct UA variable.</li>
-            </ul>
+            <p>Now that you have created the variable, let us use it in a Universal Analytics pageview tag.</p>
 
-            <p>This determines which Google Analytics property will receive the data.</p>
+            <ol>
+              <li>In GTM, create or edit your Universal Analytics <strong>pageview tag</strong>.</li>
+              <li>Under <strong>Google Analytics Settings</strong>, select the correct UA variable. This determines which Google Analytics property will receive the data.</li>
+            </ol>
 
             <h3>Fields to Set</h3>
 
-            <p><strong>allowLinker: true</strong></p>
+            <ul>
+              <li><strong>allowLinker: true</strong> - This setting ensures that data is passed across domains, preserving session continuity. If you omit a domain in your Auto Link variable, tracking will break when users navigate to that domain.</li>
+              <li><strong>cookieName: _rollup</strong> - Use a shared cookie name across all linked domains. In this guide, we use <code>_rollup</code> to indicate that the data is part of a consolidated view. You can choose a different name if preferred.</li>
+            </ul>
 
-            <p>This setting ensures that data is passed across domains, preserving session continuity. If you omit a domain in your Auto Link variable, tracking will break when users navigate to that domain.</p>
+            <h3>Tag Configuration</h3>
 
-            <p><strong>cookieName: _rollup</strong></p>
+            <p>In the <strong>Cross-Domain Tracking</strong> section, select the variable you created earlier (<code>Auto Link Domains</code>). Initially, you might see &quot;true&quot; entered manually, but make sure to replace it with the correct variable name.</p>
 
-            <p>Use a shared cookie name across all linked domains. In this guide, we use <code>_rollup</code> to indicate that the data is part of a consolidated view. You can choose a different name if preferred.</p>
+            <p>Now that we have a variable which auto-magically links your domains together, we are going to put it to work inside of our pageview tag. Make sure to select the correct UA variable under &quot;Google Analytics Settings.&quot; The view corresponding to the UA code here is the one which all our data will display to.</p>
 
-            <p>Ta...</p>
+            <h3>Testing: Real Time Reporting Method</h3>
+
+            <p>You can do it in &quot;real time&quot; by visiting the domains you linked together and viewing the real time reports. If you, a single user, is showing up as 2 or more users (1 user per page), then it is not correctly set up. However, if you have lots of traffic on your site this method will not work. You simply will not be able to tell if the difference between the numbers is significant or accurate.</p>
+
+            <h2>Step 3: The UTM Method of Testing The Success of Your Cross Domain Tracking</h2>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/3-creating-utm-and-browsing-site.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <h3>3.1 Create UTM and Browse All Domains</h3>
+
+            <h3>3.2 The UTM Method</h3>
+
+            <p>This method tracks a user&apos;s journey using a UTM parameter.</p>
+
+            <ol>
+              <li><strong>Create a UTM link</strong> using the <a href="https://ga-dev-tools.appspot.com/campaign-url-builder/">Google Campaign URL Builder</a>.</li>
+              <li>Visit your site with the UTM link and navigate across all linked domains.</li>
+              <li>In Google Analytics:
+                <ul>
+                  <li>Go to <strong>Behavior &gt; Site Content &gt; All Pages</strong>.</li>
+                  <li>Create a segment using your UTM source as the traffic source.</li>
+                  <li>Apply the segment to view all pages visited during the session. The list should show pages from all linked domains in order of visitation.</li>
+                </ul>
+              </li>
+            </ol>
+
+            <p><strong>Tip:</strong> Ensure the view you are using does not filter out your IP address. Filtering your own traffic can lead to misleading results.</p>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/4-create-segment-from-utm-and-view-pages.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <h2>Troubleshooting Common Issues</h2>
+
+            <ul>
+              <li><strong>Session Breaks:</strong> Double-check your Auto Link Domains variable to ensure all linked domains are included.</li>
+              <li><strong>Cookie Errors:</strong> Verify that all linked domains use the same cookie name in their configurations.</li>
+              <li><strong>Real-Time Testing Fails:</strong> Use the UTM method for precise results.</li>
+            </ul>
           </div>
 
           <footer className="post-footer">
@@ -85,6 +144,7 @@ export default function GoogleAnalyticsCrossDomainPage() {
               <span className="tag">Google Analytics</span>
               <span className="tag">GTM</span>
               <span className="tag">Cross-Domain</span>
+              <span className="tag">Tutorial</span>
             </div>
             
             <nav className="post-nav">

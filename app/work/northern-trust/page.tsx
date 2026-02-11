@@ -216,11 +216,104 @@ export default function NorthernTrustPage() {
               <p>
                 Large header images required slower transitions to achieve the desired effect without blocking access to content below.
               </p>
-              
-              <h3>Documentation</h3>
+            </section>
+
+            <section className="case-section">
+              <h2>Micro-Interaction Videos</h2>
               <p>
-                All design details were recorded in an easily accessible codepen for later transition to the company&apos;s official design library.
+                Below are video demonstrations of the various micro-interactions and animations developed for Northern Trust&apos;s corporate website. These showcase the hero load sequences, scroll-based transitions, interactive components, and hover states implemented across the site.
               </p>
+              
+              <div className="video-grid">
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/gbGHvEiZT7Y" 
+                    title="Northern Trust Micro-Interaction 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/7IIi7cutMzY" 
+                    title="Northern Trust Micro-Interaction 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/v432vRNkRbY" 
+                    title="Northern Trust Micro-Interaction 3"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/NWuMI7CY1Cc" 
+                    title="Northern Trust Micro-Interaction 4"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/DKmFuTVYvj4" 
+                    title="Northern Trust Micro-Interaction 5"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/fcjiQzf_GVM" 
+                    title="Northern Trust Micro-Interaction 6"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/ztjUp1OetQI" 
+                    title="Northern Trust Micro-Interaction 7"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/z9GDUW84NrA" 
+                    title="Northern Trust Micro-Interaction 8"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/ahSfTIIveBI" 
+                    title="Northern Trust Micro-Interaction 9"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/kjYDEI3vRLA" 
+                    title="Northern Trust Micro-Interaction 10"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+                <div className="video-item">
+                  <iframe 
+                    src="https://www.youtube.com/embed/w3mZ-qDJW6o" 
+                    title="Northern Trust Micro-Interaction 11"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
             </section>
           </div>
 
