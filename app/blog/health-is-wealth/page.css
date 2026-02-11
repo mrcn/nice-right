@@ -85,30 +85,48 @@ body {
   font-size: 0.85rem;
 }
 
-/* Case Study */
-.case-study {
+/* Blog Post */
+.blog-post {
   padding-top: 140px;
   padding-bottom: 80px;
   background: var(--primary);
   min-height: 100vh;
 }
 
-.case-header {
+.post-header {
   margin-bottom: 64px;
   text-align: center;
 }
 
-.case-client {
-  display: inline-block;
+.post-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.post-category {
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
-  margin-bottom: 16px;
 }
 
-.case-header h1 {
+.post-dot {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.post-date,
+.post-read-time {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.post-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   color: var(--text);
@@ -117,64 +135,35 @@ body {
   letter-spacing: -0.02em;
 }
 
-.case-subtitle {
+.post-subtitle {
   font-size: 1.25rem;
   color: var(--text-muted);
   line-height: 1.6;
   max-width: 600px;
-  margin: 0 auto 40px;
+  margin: 0 auto;
 }
 
-.case-meta {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  flex-wrap: wrap;
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.meta-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.meta-label {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-dim);
-}
-
-.meta-value {
-  font-size: 0.95rem;
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* Case Content */
-.case-content {
+/* Post Content */
+.post-content {
   font-size: 1.125rem;
   line-height: 1.8;
 }
 
-.case-section {
-  margin-bottom: 64px;
+.post-content p {
+  margin-bottom: 24px;
+  color: var(--text-muted);
 }
 
-.case-section h2 {
+.post-content h2 {
   font-size: 1.75rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 24px;
+  margin: 56px 0 24px;
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
 
-.case-section h3 {
+.post-content h3 {
   font-size: 1.35rem;
   font-weight: 600;
   color: var(--text);
@@ -182,40 +171,65 @@ body {
   letter-spacing: -0.01em;
 }
 
-.case-section p {
-  margin-bottom: 24px;
-  color: var(--text-muted);
-}
-
-.case-section ul,
-.case-section ol {
+.post-content ul,
+.post-content ol {
   margin-bottom: 24px;
   padding-left: 24px;
 }
 
-.case-section li {
+.post-content li {
   margin-bottom: 12px;
   color: var(--text-muted);
 }
 
-.case-section blockquote {
+.post-content blockquote {
   border-left: 3px solid var(--accent);
   padding-left: 24px;
   margin: 40px 0;
   font-style: italic;
 }
 
-.case-section blockquote p {
+.post-content blockquote p {
   font-size: 1.25rem;
   color: var(--text);
   margin: 0;
 }
 
-/* Case Footer */
-.case-footer {
+.post-content a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.post-content a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* Post Footer */
+.post-footer {
   margin-top: 80px;
   padding-top: 48px;
   border-top: 1px solid var(--border);
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.tag {
+  padding: 8px 16px;
+  background: var(--secondary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.post-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -255,27 +269,23 @@ body {
     display: none;
   }
   
-  .case-study {
+  .blog-post {
     padding-top: 100px;
   }
   
-  .case-header h1 {
+  .post-title {
     font-size: 1.75rem;
   }
   
-  .case-subtitle {
+  .post-subtitle {
     font-size: 1.1rem;
   }
   
-  .case-meta {
-    gap: 24px;
-  }
-  
-  .case-content {
+  .post-content {
     font-size: 1rem;
   }
   
-  .case-section h2 {
+  .post-content h2 {
     font-size: 1.4rem;
   }
 }
