@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import '../[slug]/work-post.css'
+import '../page.css'
 
 export const metadata: Metadata = {
   title: 'Northern Trust Micro-Interactions | Nice Right',
