@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import './blog-post.css'
+import './page.css'
 
 // This would be replaced with actual data fetching
 const blogPosts = [
