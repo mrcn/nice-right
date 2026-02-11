@@ -15,9 +15,9 @@ export default function GreenGoodsPage() {
           <Link href="/" className="logo">Nice Right</Link>
           <div className="nav-links">
             <a href="/#services">Services</a>
-            <a href="/#work">Results</a>
-            <a href="/blog">Writing</a>
-            <a href="/#contact" className="btn btn-sm">Let&apos;s Talk</a>
+            <a href="/#work">Work</a>
+            <a href="/blog">Insights</a>
+            <a href="/#contact" className="btn btn-sm">Start Project</a>
           </div>
         </div>
       </nav>
@@ -258,14 +258,14 @@ export default function GreenGoodsPage() {
           </div>
 
           <footer className="case-footer">
-            <Link href="/#work" className="back-link">← All case studies</Link>
+            <Link href="/work" className="back-link">← All Work</Link>
           </footer>
         </div>
       </article>
 
-      <footer className="page-footer">
+      <footer className="site-footer">
         <div className="container">
-          <p>© 2026 Nice Right. Words that win customers.</p>
+          <p>© 2026 Nice Right. Digital growth for small businesses.</p>
         </div>
       </footer>
     </>
