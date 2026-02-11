@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import './page.css'
 
 export default function Home() {
@@ -8,8 +9,8 @@ export default function Home() {
           <div className="logo">Nice Right</div>
           <div className="nav-links">
             <a href="#services">Services</a>
-            <a href="#approach">Approach</a>
             <a href="#work">Work</a>
+            <a href="#thoughts">Thoughts</a>
             <a href="#contact" className="btn btn-sm">Get Started</a>
           </div>
         </div>
@@ -17,21 +18,51 @@ export default function Home() {
 
       <section className="hero">
         <div className="container">
+          <div className="hero-visual">
+            <Image 
+              src="/images/bad-design-1.png" 
+              alt="Bad UX examples" 
+              width={600} 
+              height={400}
+              className="hero-image"
+              priority
+            />
+          </div>
           <p className="hero-label">Digital Growth Partner for Small Businesses</p>
           <h1>
-            More Customers.
+            Kiss Bad User Experiences
             <br />
-            Lower Costs.
-            <br />
-            <span className="accent">Better Retention.</span>
+            <span className="accent">Goodbye</span>
           </h1>
           <p className="hero-subtitle">
-            We build websites, apps, and marketing systems that help small businesses 
+            Martin Dabrowski is a UX Strategist with a 13+ year background designing complex user-flows, 
+            custom web apps, and sales support systems in agencies and in-house. We help small businesses 
             acquire customers more efficiently, serve them at lower cost, and keep them longer.
           </p>
           <div className="hero-cta">
             <a href="#contact" className="btn">Start a Project</a>
-            <a href="#services" className="btn btn-outline">See Services</a>
+            <a href="#work" className="btn btn-outline">See Our Work</a>
+          </div>
+          
+          <div className="hero-contact">
+            <a href="https://linkedin.com/in/mklaudiusz" target="_blank" rel="noopener noreferrer">LinkedIn: linkededin.com/mklaudiusz</a>
+            <a href="mailto:Marcin@uxoxo.xyz">Email: Marcin@uxoxo.xyz</a>
+            <a href="https://codepen.io/uxoxo" target="_blank" rel="noopener noreferrer">Codepen: codepen.io/uxoxo</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="philosophy">
+        <div className="container">
+          <p className="section-label">About</p>
+          <div className="philosophy-content">
+            <p className="philosophy-text">
+              Product Leader with 10+ years driving revenue, efficiency, and product success for Fortune 500s, 
+              SaaS, start-ups, and digital agencies. Expert at connecting measurable business outcomes to 
+              software design and development decisions. Adept at complex ecosystem UX and translating 
+              ambiguous challenges into clear roadmaps. Proven record of 100+ successful launches and 
+              double-digit efficiency gains.
+            </p>
           </div>
         </div>
       </section>
@@ -62,81 +93,157 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="approach" className="approach">
+      <section id="work" className="work">
         <div className="container">
-          <div className="approach-grid">
-            <div>
-              <p className="section-label">How We Work</p>
-              <h2>Built for Small Business Reality</h2>
-              <p>No bloated processes. No enterprise overhead. Just focused work that delivers results.</p>
-              
-              <ul className="approach-list">
-                <li><strong>Fast to launch</strong> — MVPs in weeks, not months</li>
-                <li><strong>Clear communication</strong> — No jargon, regular updates
-                </li>
-                <li><strong>Measurable outcomes</strong> — We track what matters to you
-                </li>
-                <li><strong>Flexible engagement</strong> — Project-based or ongoing support</li>
-              </ul>
+          <p className="section-label">Highlight Work</p>
+          <h2>Projects That Moved the Needle</h2>
+          
+          <div className="work-grid">
+            <div className="work-item">
+              <div className="work-image">
+                <Image src="/images/bankk.webp" alt="Northern Trust" width={400} height={250} />
+              </div>
+              <div className="work-content">
+                <h3>Design & Development for a Suite of Animations at Northern Trust</h3>
+                <p>Read more about the process</p>
+              </div>
             </div>
-            <div className="approach-stats">
-              <div className="stat">
-                <div className="stat-number">100+</div>
-                <div className="stat-label">Projects Launched</div>
+            
+            <div className="work-item">
+              <div className="work-image">
+                <Image src="/images/nursing-home-money.webp" alt="Healthcare Portal" width={400} height={250} />
               </div>
-              <div className="stat">
-                <div className="stat-number">13+</div>
-                <div className="stat-label">Years Experience</div>
+              <div className="work-content">
+                <h3>Designing a Custom Healthcare Real Estate Investment Portal</h3>
+                <p>Read all about it</p>
               </div>
-              <div className="stat">
-                <div className="stat-number">2x</div>
-                <div className="stat-label">Avg Efficiency Gain</div>
+            </div>
+            
+            <div className="work-item">
+              <div className="work-image">
+                <Image src="/images/garden-money.webp" alt="Green Goods" width={400} height={250} />
+              </div>
+              <div className="work-content">
+                <h3>Software to Fund Biodiversity Gardens & Track Ecological Impact at Scale</h3>
+                <p>Read about the app</p>
+              </div>
+            </div>
+            
+            <div className="work-item">
+              <div className="work-image">
+                <Image src="/images/sparkblox.webp" alt="Sparkblox" width={400} height={250} />
+              </div>
+              <div className="work-content">
+                <h3>Designing Sparkblox, our No-Code Toolkit for Products Leveraging the Blockchain</h3>
+                <span className="coming-soon">COMING SOON</span>
+              </div>
+            </div>
+            
+            <div className="work-item">
+              <div className="work-image">
+                <Image src="/images/financial-org.webp" alt="POS System" width={400} height={250} />
+              </div>
+              <div className="work-content">
+                <h3>Designing a Buyer-Facing POS System for Customizable Products</h3>
+                <span className="coming-soon">COMING SOON</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="work" className="work">
+      <section id="thoughts" className="thoughts">
         <div className="container">
-          <p className="section-label">Selected Work</p>
-          <h2>Projects That Moved the Needle</h2>
+          <p className="section-label">Thoughts</p>
+          <h2>Writing on Design, Code & Strategy</h2>
           
-          <div className="work-grid">
-            <div className="work-item">
-              <div className="work-content">
-                <h3>Healthcare Real Estate Portal</h3>
-                <p>Custom investment platform connecting healthcare providers with property opportunities. Reduced inquiry-to-close time by 40%.</p>
-                <div className="work-tags">
-                  <span>Web App</span>
-                  <span>UX Design</span>
-                  <span>Development</span>
-                </div>
+          <div className="thoughts-grid">
+            <div className="thought-item">
+              <div className="thought-image">
+                <div className="thought-placeholder">🌱</div>
+              </div>
+              <div className="thought-content">
+                <h3>Design a Self-Funded Retirement System Through Healthy Living</h3>
+                <span className="read-time">2 min</span>
               </div>
             </div>
             
-            <div className="work-item">
-              <div className="work-content">
-                <h3>Biodiversity Impact Platform</h3>
-                <p>Software to fund ecological gardens and track environmental impact at scale. Gamified engagement increased participation 3x.</p>
-                <div className="work-tags">
-                  <span>Product Strategy</span>
-                  <span>Full Stack</span>
-                  <span>Impact Tracking</span>
-                </div>
+            <div className="thought-item">
+              <div className="thought-image">
+                <div className="thought-placeholder">🎨</div>
+              </div>
+              <div className="thought-content">
+                <h3>Designing at the intersection of Blockchain, Art, and Economics</h3>
+                <span className="read-time">5 min</span>
               </div>
             </div>
             
-            <div className="work-item">
-              <div className="work-content">
-                <h3>Corporate Micro-Interactions</h3>
-                <p>Animation system for Fortune 500 corporate site. Improved engagement metrics and modernized brand perception.</p>
-                <div className="work-tags">
-                  <span>Animation</span>
-                  <span>Frontend</span>
-                  <span>Design System</span>
-                </div>
+            <div className="thought-item">
+              <div className="thought-image">
+                <Image src="/images/code-terminal.webp" alt="SSH Setup" width={300} height={180} />
               </div>
+              <div className="thought-content">
+                <h3>Setting up SSH with VS Code for Amazon Lightsail</h3>
+                <span className="read-time">3 min</span>
+              </div>
+            </div>
+            
+            <div className="thought-item">
+              <div className="thought-image">
+                <div className="thought-placeholder">🛒</div>
+              </div>
+              <div className="thought-content">
+                <h3>Poshmark: Social Media Behavior & eCommerce Incentives</h3>
+                <span className="read-time">7 min</span>
+              </div>
+            </div>
+            
+            <div className="thought-item">
+              <div className="thought-image">
+                <Image src="/images/scroll-tracking.webp" alt="Scroll Tracking" width={300} height={180} />
+              </div>
+              <div className="thought-content">
+                <h3>Google Analytics: Find Out How Far Users Are Scrolling with Scroll Event Tracking</h3>
+                <span className="read-time">1 min</span>
+              </div>
+            </div>
+            
+            <div className="thought-item">
+              <div className="thought-image">
+                <Image src="/images/cross-domain-tracking.webp" alt="Cross Domain Tracking" width={300} height={180} />
+              </div>
+              <div className="thought-content">
+                <h3>Google Analytics: How To Set Up & Test Cross Domain Tracking in GA & Tag Manager</h3>
+                <span className="read-time">4 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="influences">
+        <div className="container">
+          <div className="influences-grid">
+            <div className="influences-image">
+              <Image src="/images/me-low.jpg" alt="Martin Dabrowski" width={300} height={400} className="profile-image" />
+            </div>
+            <div className="influences-content">
+              <p className="section-label">Influences and Current Work</p>
+              <p>
+                My approach to UX is influenced by Jesse James Garrett, Sophia Prater, and Joe Natoli. 
+                Beyond design, I draw inspiration from Clayton Christensen, John Cutler, Nassim Taleb, 
+                and principles rooted in systems thinking.
+              </p>
+              <p>
+                With the growth of AI, I'm continuing to focus on process digitization and AI workflow 
+                automation, as well as exploring screenless interfaces and latent computing.
+              </p>
+              <p>
+                I also continue UX and Product Leadership at the GreenPill Dev Guild, working on our 
+                biodiversity funding and impact tracking app, Green Goods.
+              </p>
+              
+              <p className="influences-cta">I'm open to opportunities with agencies and businesses.</p>
             </div>
           </div>
         </div>
@@ -145,15 +252,15 @@ export default function Home() {
       <section id="contact" className="contact">
         <div className="container">
           <div className="contact-content">
-            <h2>Ready to grow smarter?</h2>
-            <p>Tell us what you're building. We'll respond within 24 hours.</p>
+            <h2>Let's Connect</h2>
+            <p>I'm open to opportunities with agencies and businesses.</p>
             
             <div className="contact-methods">
-              <a href="mailto:hello@niceright.co" className="contact-card">
+              <a href="mailto:Marcin@uxoxo.xyz" className="contact-card">
                 <div className="contact-icon">✉️</div>
                 <div>
                   <strong>Email</strong>
-                  <span>hello@niceright.co</span>
+                  <span>Marcin@uxoxo.xyz</span>
                 </div>
               </a>
               
@@ -161,17 +268,23 @@ export default function Home() {
                 <div className="contact-icon">💼</div>
                 <div>
                   <strong>LinkedIn</strong>
-                  <span>Connect with us</span>
+                  <span>Connect with me</span>
                 </div>
               </a>
             </div>
+            
+            <p className="location">Currently based in Cleveland, Ohio</p>
           </div>
         </div>
       </section>
 
       <footer>
         <div className="container">
-          <p>© 2026 Nice Right. Built for small businesses that want to grow.</p>
+          <p>© 2026 UXOXO.</p>
+          <div className="footer-social">
+            <a href="https://www.linkedin.com/in/mklaudiusz/" target="_blank" rel="noopener noreferrer">linkedin</a>
+            <a href="mailto:marcin@uxoxo.xyz">email</a>
+          </div>
         </div>
       </footer>
     </>
