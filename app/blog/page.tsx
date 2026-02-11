@@ -55,8 +55,8 @@ const blogPosts = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Writing | Nice Right',
-  description: 'Thoughts on UX writing, content strategy, and product design.',
+  title: 'Insights | Nice Right',
+  description: 'Thinking on product, UX, and growth strategy.',
 }
 
 export default function BlogIndex() {
@@ -67,20 +67,20 @@ export default function BlogIndex() {
           <Link href="/" className="logo">Nice Right</Link>
           <div className="nav-links">
             <a href="/#services">Services</a>
-            <a href="/#work">Results</a>
-            <a href="/blog">Writing</a>
-            <a href="/#contact" className="btn btn-sm">Let's Talk</a>
+            <a href="/#work">Work</a>
+            <a href="/blog">Insights</a>
+            <a href="/#contact" className="btn btn-sm">Start Project</a>
           </div>
         </div>
       </nav>
 
       <section className="blog-header">
         <div className="container">
-          <p className="section-label">Writing</p>
-          <h1>Thoughts on UX, Content & Strategy</h1>
+          <p className="section-label">Insights</p>
+          <h1>Thinking on Product, UX & Growth</h1>
           <p className="blog-intro">
-            Insights on UX writing, content strategy, product design, and the intersection 
-            of technology and human behavior.
+            Insights on digital strategy, product design, user experience, and the intersection 
+            of technology and business growth.
           </p>
         </div>
       </section>
@@ -108,7 +108,7 @@ export default function BlogIndex() {
 
       <footer className="page-footer">
         <div className="container">
-          <p>© 2026 Nice Right. Words that win customers.</p>
+          <p>© 2026 Nice Right. Digital growth for small businesses.</p>
         </div>
       </footer>
     </>
