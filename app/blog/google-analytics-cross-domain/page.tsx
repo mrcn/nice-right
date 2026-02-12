@@ -48,7 +48,7 @@ export default function CrossDomainTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/1-cross-domain-01.mp4" type="video/mp4" />
+                <source src="/videos/cross-domain/1-cross-domain-01.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -65,7 +65,7 @@ export default function CrossDomainTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/2-cross-domain-02.mp4" type="video/mp4" />
+                <source src="/videos/cross-domain/2-cross-domain-02.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -98,7 +98,7 @@ export default function CrossDomainTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/3-creating-utm-and-browsing-site.mp4" type="video/mp4" />
+                <source src="/videos/cross-domain/3-creating-utm-and-browsing-site.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -125,7 +125,7 @@ export default function CrossDomainTrackingPage() {
 
             <div className="video-container">
               <video controls width="100%">
-                <source src="https://uxoxo.xyz/wp-content/uploads/2019/05/4-create-segment-from-utm-and-view-pages.mp4" type="video/mp4" />
+                <source src="/videos/cross-domain/4-create-segment-from-utm-and-view-pages.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

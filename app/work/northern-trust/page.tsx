@@ -225,28 +225,34 @@ export default function NorthernTrustPage() {
               </p>
               
               <div className="video-grid">
-                <div className="video-item">
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
                   <iframe 
                     src="https://www.youtube.com/embed/gbGHvEiZT7Y" 
                     title="Northern Trust Micro-Interaction 1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
                   />
                 </div>
-                <div className="video-item">
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
                   <iframe 
                     src="https://www.youtube.com/embed/7IIi7cutMzY" 
                     title="Northern Trust Micro-Interaction 2"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
                   />
                 </div>
-                <div className="video-item">
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
                   <iframe 
                     src="https://www.youtube.com/embed/v432vRNkRbY" 
                     title="Northern Trust Micro-Interaction 3"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
                   />
                 </div>
                 <div className="video-item">
