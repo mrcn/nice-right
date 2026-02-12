@@ -200,10 +200,19 @@ export default function Home() {
             <a href="/blog/google-analytics-scroll-tracking" className="insight-item">
               <div className="insight-meta">
                 <span className="insight-category">Analytics</span>
-                <span className="read-time">1 min read</span>
+                <span className="read-time">4 min read</span>
               </div>
               <h3>Google Analytics: Scroll Event Tracking</h3>
               <p>Technical guide to understanding user engagement through scroll depth measurement.</p>
+            </a>
+
+            <a href="/blog/ssh-vscode-lightsail" className="insight-item">
+              <div className="insight-meta">
+                <span className="insight-category">Coding & Config</span>
+                <span className="read-time">3 min read</span>
+              </div>
+              <h3>Setting up SSH with VS Code for Amazon Lightsail</h3>
+              <p>Connect VS Code to your Amazon Lightsail instance for seamless remote development.</p>
             </a>
           </div>
         </div>

@@ -1,0 +1,16 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-02-12T00:31:41.251231Z",
+  "depends_on": [
+    "fn-1-ac7.2"
+  ],
+  "epic": "fn-1-ac7",
+  "id": "fn-1-ac7.4",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-1-ac7.4.md",
+  "status": "todo",
+  "title": "Sales Process: Lead Flow, Qualification, Proposals",
+  "updated_at": "2026-02-12T00:32:53.247552Z"
+}

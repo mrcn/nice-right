@@ -1,0 +1,13 @@
+{
+  "branch_name": "fn-lead-gen",
+  "created_at": "2026-02-12T00:31:13.598319Z",
+  "depends_on_epics": [],
+  "id": "fn-1-ac7",
+  "next_task": 1,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "spec_path": ".flow/specs/fn-1-ac7.md",
+  "status": "open",
+  "title": "Commission-Based Lead Generation System",
+  "updated_at": "2026-02-12T00:31:26.747433Z"
+}

@@ -40,7 +40,7 @@ export default function CrossDomainTrackingPage() {
 
             <p>If your business website spans multiple domains, you might want each domain to report to a separate Google Analytics property or view. Alternatively, there are strong arguments for having all domains report to a single view. Fortunately, it is relatively simple to configure either setup.</p>
 
-            <p>If you would like to learn why you might want all your domains and sub-domains reporting to a single view, <a href="mailto:marcin@martind93.sg-host.com">you can email me and ask</a>.</p>
+            <p>If you would like to learn why you might want all your domains and sub-domains reporting to a single view, <a href="mailto:Marcin@uxoxo.xyz">you can email me and ask</a>.</p>
 
             <p>But here I am going to show you how I did it.</p>
 

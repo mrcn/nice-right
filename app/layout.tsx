@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Nice Right | UX Writing & Content Strategy for Small Businesses',
-  description: 'We help small businesses grow through clear messaging, strategic content, and user experiences that convert. UX writing that drives acquisition, efficiency, and retention.',
+  title: 'Nice Right | Digital Growth Partner for Small Businesses',
+  description: 'We help small businesses grow through better websites, apps, and digital systems. Focus on customer acquisition, service efficiency, and retention.',
 }
 
 export default function RootLayout({

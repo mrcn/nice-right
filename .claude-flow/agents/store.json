@@ -12,6 +12,19 @@
       "createdAt": "2026-02-11T18:03:29.736Z",
       "model": "sonnet",
       "modelRoutedBy": "explicit"
+    },
+    "agent-1770856202719-tdqdto": {
+      "agentId": "agent-1770856202719-tdqdto",
+      "agentType": "cto",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-12T00:30:02.719Z",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
     }
   },
   "version": "3.0.0"
