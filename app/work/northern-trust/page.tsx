@@ -96,6 +96,19 @@ export default function NorthernTrustPage() {
                 The hero section animation activates upon page load, featuring an interactive line progressively drawn across the page, sequential fade-in of nearby elements, cued by the line animation&apos;s left-to-right motion, gradient exposure, and progressive fade-ins. This required custom motion eases crafted specifically for this demo. The sequence concludes by highlighting tiles on the right side of the screen, subtly directing viewer attention.
               </p>
               
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/gbGHvEiZT7Y" 
+                    title="Hero Load Sequence"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
+              
               <h3>Revealing Page Elements During Scroll</h3>
               <p>
                 I developed scroll-based transitions to enhance user engagement utilizing primary design elements and content on the page. Prototyped using HTML, CSS, and GSAP (GreenSock Animation Platform), based on visual designs provided by the client.
@@ -103,6 +116,19 @@ export default function NorthernTrustPage() {
               <p>
                 Key feature: I ensured these animations are highly flexible by reviewing the existing HTML structure and tailoring the code to it. By appending CSS attributes to design elements you&apos;d like to animate, the elements can be predictably animated without altering existing HTML or CSS structure.
               </p>
+              
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/7IIi7cutMzY" 
+                    title="Scroll-Based Transitions"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
               
               <h3>Animated Interactive Vue Component</h3>
               <p>
@@ -112,10 +138,46 @@ export default function NorthernTrustPage() {
                 I used Vue.js for tab functionality intended as a simple copy/paste solution with CDN reference. Vue was chosen to meet specific technical constraints, and as an opportunity to work with Vue.js.
               </p>
               
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/v432vRNkRbY" 
+                    title="Vue.js Tab Component"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
+              
               <h3>Key Section Fade-ins</h3>
               <p>
                 Based on designs provided by the client via Figma, I developed fade-in animations for key sections intended to draw more attention. I cleaned up the provided SVG files for easier programmatic manipulation. Coded with GSAP.js. We explored numerous transition states.
               </p>
+              
+              <div className="video-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/NWuMI7CY1Cc" 
+                    title="Promo Card Animation 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/DKmFuTVYvj4" 
+                    title="Promo Card Animation 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
             </section>
 
             <section className="case-section">
@@ -179,6 +241,17 @@ export default function NorthernTrustPage() {
                 The horizontal axis represented the implementation effort required, while the vertical axis indicated the potential impact on user experience. This approach allowed us to visually prioritize elements that offered high impact with relatively low implementation effort.
               </p>
               
+              <div style={{marginTop: '24px', marginBottom: '32px'}}>
+                <img 
+                  src="/images/impact-return-matrix-for-design.webp" 
+                  alt="Impact/Effort Matrix for Design Prioritization"
+                  style={{width: '100%', maxWidth: '800px', borderRadius: '8px', display: 'block', margin: '0 auto'}}
+                />
+                <p style={{textAlign: 'center', fontSize: '0.9rem', color: '#888', marginTop: '12px'}}>
+                  Visual mapping technique showing design elements prioritized by impact vs. effort
+                </p>
+              </div>
+              
               <h3>Collaborative Decision-Making</h3>
               <p>
                 The initial mapping was done collaboratively with the core team. This ensured that both creative and technical perspectives were considered in the prioritization process.
@@ -207,116 +280,103 @@ export default function NorthernTrustPage() {
                 As frequently interacted elements, buttons required responsive, quick, and elegant animations that balanced branding opportunities with usability.
               </p>
               
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/fcjiQzf_GVM" 
+                    title="Button Animation Exploration"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
+              
               <h3>Cards</h3>
               <p>
                 I modified the design system to include a hover state, emphasizing copy over imagery to reflect the content hierarchy.
               </p>
               
+              <div className="video-grid" style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/ztjUp1OetQI" 
+                    title="Card Animation Exploration 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/z9GDUW84NrA" 
+                    title="Card Animation Exploration 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
+              
               <h3>Headers</h3>
               <p>
                 Large header images required slower transitions to achieve the desired effect without blocking access to content below.
               </p>
+              
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
+                  <iframe 
+                    src="https://www.youtube.com/embed/ahSfTIIveBI" 
+                    title="Header Zoom Animation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
+                  />
+                </div>
+              </div>
             </section>
 
             <section className="case-section">
-              <h2>Micro-Interaction Videos</h2>
+              <h2>Additional Finalized Animations</h2>
+              
+              <h3>Final Card Implementation</h3>
               <p>
-                Below are video demonstrations of the various micro-interactions and animations developed for Northern Trust&apos;s corporate website. These showcase the hero load sequences, scroll-based transitions, interactive components, and hover states implemented across the site.
+                The final card hover state increases copy real estate and centrality, creating a more engaging user experience while maintaining brand consistency.
               </p>
               
-              <div className="video-grid">
-                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
-                  <iframe 
-                    src="https://www.youtube.com/embed/gbGHvEiZT7Y" 
-                    title="Northern Trust Micro-Interaction 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
-                  />
-                </div>
-                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
-                  <iframe 
-                    src="https://www.youtube.com/embed/7IIi7cutMzY" 
-                    title="Northern Trust Micro-Interaction 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
-                  />
-                </div>
-                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden'}}>
-                  <iframe 
-                    src="https://www.youtube.com/embed/v432vRNkRbY" 
-                    title="Northern Trust Micro-Interaction 3"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/NWuMI7CY1Cc" 
-                    title="Northern Trust Micro-Interaction 4"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/DKmFuTVYvj4" 
-                    title="Northern Trust Micro-Interaction 5"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/fcjiQzf_GVM" 
-                    title="Northern Trust Micro-Interaction 6"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/ztjUp1OetQI" 
-                    title="Northern Trust Micro-Interaction 7"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/z9GDUW84NrA" 
-                    title="Northern Trust Micro-Interaction 8"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
-                  <iframe 
-                    src="https://www.youtube.com/embed/ahSfTIIveBI" 
-                    title="Northern Trust Micro-Interaction 9"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </div>
-                <div className="video-item">
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
                   <iframe 
                     src="https://www.youtube.com/embed/kjYDEI3vRLA" 
-                    title="Northern Trust Micro-Interaction 10"
+                    title="Final Card Animation"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
                   />
                 </div>
-                <div className="video-item">
+              </div>
+            </section>
+
+            <section className="case-section">
+              <h2>Documentation &amp; Handoff</h2>
+              <p>
+                All design details were recorded in an accessible CodePen for easy transition to the company&apos;s official design library. This ensured that the development team could easily implement and maintain the animations going forward.
+              </p>
+              
+              <div className="video-container" style={{marginTop: '24px', marginBottom: '40px'}}>
+                <div className="video-item" style={{paddingBottom: '56.25%', position: 'relative', height: 0, overflow: 'hidden', borderRadius: '8px', background: '#141414'}}>
                   <iframe 
                     src="https://www.youtube.com/embed/w3mZ-qDJW6o" 
-                    title="Northern Trust Micro-Interaction 11"
+                    title="Final Documentation"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
+                    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 'none'}}
                   />
                 </div>
               </div>
