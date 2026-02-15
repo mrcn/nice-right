@@ -17,7 +17,7 @@ export default function RootLayout({
       <body>
         <Script
           defer
-          data-domain="nice-right.com"
+          data-domain="niceright.co"
           src="https://plausible.io/js/script.js"
           strategy="afterInteractive"
         />
