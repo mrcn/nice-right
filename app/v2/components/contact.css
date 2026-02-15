@@ -1,0 +1,189 @@
+/* ===== CONTACT TOGGLE ===== */
+.v2 .v2-contact-toggle {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--v2-bg-alt);
+  border-radius: 40px;
+  margin-bottom: 32px;
+}
+
+.v2 .v2-contact-toggle-btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 36px;
+  background: transparent;
+  color: var(--v2-text-muted);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.v2 .v2-contact-toggle-btn:hover {
+  color: var(--v2-text);
+}
+
+.v2 .v2-contact-toggle-btn.v2-active {
+  background: var(--v2-card-bg);
+  color: var(--v2-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== CALENDLY CONTAINER ===== */
+.v2 .v2-calendly-container {
+  border-radius: var(--v2-radius);
+  box-shadow: var(--v2-shadow);
+  overflow: hidden;
+  background: var(--v2-card-bg);
+  margin-bottom: 40px;
+}
+
+.v2 .v2-calendly-container iframe {
+  display: block;
+  border: none;
+}
+
+/* ===== PROJECT FORM ===== */
+.v2 .v2-project-form-wrapper {
+  margin-bottom: 40px;
+}
+
+.v2 .v2-project-form {
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.v2 .v2-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.v2 .v2-form-field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--v2-text);
+}
+
+.v2 .v2-form-field input,
+.v2 .v2-form-field textarea {
+  padding: 12px 16px;
+  border: 1.5px solid var(--v2-border);
+  border-radius: 10px;
+  background: var(--v2-card-bg);
+  color: var(--v2-text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  resize: vertical;
+}
+
+.v2 .v2-form-field input::placeholder,
+.v2 .v2-form-field textarea::placeholder {
+  color: var(--v2-text-dim);
+}
+
+.v2 .v2-form-field input:focus,
+.v2 .v2-form-field textarea:focus {
+  border-color: var(--v2-accent);
+  box-shadow: 0 0 0 3px rgba(11, 138, 110, 0.12);
+}
+
+.v2 .v2-form-submit {
+  width: 100%;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ===== FORM SUCCESS STATE ===== */
+.v2 .v2-form-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 48px 24px;
+}
+
+.v2 .v2-form-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--v2-accent);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.v2 .v2-form-success p {
+  font-size: 1.1rem;
+  color: var(--v2-text);
+  font-weight: 500;
+}
+
+/* ===== TESTIMONIAL ===== */
+.v2 .v2-testimonial {
+  max-width: 520px;
+  margin: 0 auto 40px;
+  padding: 28px 32px;
+  background: var(--v2-bg-alt);
+  border-radius: var(--v2-radius);
+  border-left: 4px solid var(--v2-accent);
+  text-align: left;
+}
+
+.v2 .v2-testimonial-quote {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--v2-text);
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.v2 .v2-testimonial-attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.v2 .v2-testimonial-attribution strong {
+  font-size: 0.9rem;
+  color: var(--v2-text);
+}
+
+.v2 .v2-testimonial-attribution span {
+  font-size: 0.8rem;
+  color: var(--v2-text-dim);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  .v2 .v2-contact-toggle {
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--v2-radius);
+  }
+
+  .v2 .v2-contact-toggle-btn {
+    border-radius: 12px;
+  }
+
+  .v2 .v2-testimonial {
+    padding: 20px 20px;
+  }
+
+  .v2 .v2-calendly-container iframe {
+    height: 580px;
+  }
+}
