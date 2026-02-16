@@ -1,0 +1,1082 @@
+/* ==========================================================================
+   V7 — Noir Editorial
+   Dark magazine-spread homepage for Nice Right
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. CSS Variables
+   -------------------------------------------------------------------------- */
+.v7 {
+  --v7-bg: #0A0A0A;
+  --v7-bg-alt: #111111;
+  --v7-bg-card: #161616;
+  --v7-text: #F5F5F0;
+  --v7-text-muted: #999990;
+  --v7-text-dim: #666660;
+  --v7-accent: #FF4D00;
+  --v7-accent-hover: #FF6B2C;
+  --v7-amber: #FFB800;
+  --v7-border: #222220;
+  --v7-radius: 2px;
+
+  --v7-font-heading: var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
+  --v7-font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --v7-font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base / Reset (scoped to .v7)
+   -------------------------------------------------------------------------- */
+.v7 {
+  background: var(--v7-bg);
+  color: var(--v7-text);
+  font-family: var(--v7-font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.v7 *,
+.v7 *::before,
+.v7 *::after {
+  box-sizing: border-box;
+}
+
+.v7 h1, .v7 h2, .v7 h3, .v7 h4 {
+  font-family: var(--v7-font-heading);
+  font-weight: 400;
+  line-height: 1.1;
+  margin: 0;
+  text-transform: none;
+}
+
+.v7 h1 {
+  font-size: clamp(4rem, 8vw, 8rem);
+}
+
+.v7 h2 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.v7 h3 {
+  font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+}
+
+.v7 p {
+  margin: 0 0 1em;
+}
+
+.v7 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v7 img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.v7 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Grain Overlay
+   -------------------------------------------------------------------------- */
+.v7::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Container
+   -------------------------------------------------------------------------- */
+.v7-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.v7-container-wide {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   5. Section Label
+   -------------------------------------------------------------------------- */
+.v7-section-label {
+  font-family: var(--v7-font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v7-accent);
+  margin-bottom: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Buttons
+   -------------------------------------------------------------------------- */
+.v7-btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background: var(--v7-accent);
+  color: #fff;
+  font-family: var(--v7-font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  border-radius: var(--v7-radius);
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.v7-btn:hover {
+  background: var(--v7-accent-hover);
+  transform: translateY(-1px);
+}
+
+.v7-btn-outline {
+  background: transparent;
+  border: 1px solid var(--v7-border);
+  color: var(--v7-text);
+}
+
+.v7-btn-outline:hover {
+  border-color: var(--v7-accent);
+  color: var(--v7-accent);
+  background: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   7. Reveal Animations
+   -------------------------------------------------------------------------- */
+.v7-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v7-reveal.v7-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.v7-reveal-delay-1 { transition-delay: 0.1s; }
+.v7-reveal-delay-2 { transition-delay: 0.2s; }
+.v7-reveal-delay-3 { transition-delay: 0.3s; }
+.v7-reveal-delay-4 { transition-delay: 0.4s; }
+
+/* --------------------------------------------------------------------------
+   8. Nav
+   -------------------------------------------------------------------------- */
+.v7-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: background 0.3s ease, padding 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.v7-nav.v7-nav-scrolled {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 0;
+}
+
+.v7-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.v7-nav-logo {
+  font-family: var(--v7-font-heading);
+  font-size: 1.5rem;
+  color: var(--v7-text);
+  letter-spacing: -0.02em;
+}
+
+.v7-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.v7-nav-links a {
+  font-family: var(--v7-font-body);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--v7-text-muted);
+  transition: color 0.2s ease;
+  letter-spacing: 0.01em;
+}
+
+.v7-nav-links a:hover {
+  color: var(--v7-text);
+}
+
+.v7-nav-cta {
+  padding: 10px 24px !important;
+  background: var(--v7-accent);
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  border-radius: var(--v7-radius);
+  font-size: 0.8rem !important;
+  transition: background 0.25s ease !important;
+}
+
+.v7-nav-cta:hover {
+  background: var(--v7-accent-hover);
+  color: #fff !important;
+}
+
+.v7-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.v7-nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--v7-text);
+  margin: 5px 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* --------------------------------------------------------------------------
+   9. Hero
+   -------------------------------------------------------------------------- */
+.v7-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 120px;
+  position: relative;
+}
+
+.v7-hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.v7-hero-text {
+  position: relative;
+}
+
+.v7-hero-text h1 {
+  margin-bottom: 28px;
+  line-height: 1.05;
+}
+
+.v7-hero-text h1 .v7-char {
+  display: inline-block;
+  opacity: 0;
+}
+
+.v7-hero-sub {
+  font-size: 1.15rem;
+  color: var(--v7-text-muted);
+  line-height: 1.75;
+  max-width: 520px;
+  margin-bottom: 24px;
+}
+
+.v7-hero-trust {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.v7-hero-trust span {
+  font-family: var(--v7-font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v7-text-dim);
+}
+
+.v7-hero-cta {
+  margin-bottom: 16px;
+}
+
+.v7-hero-micro {
+  font-size: 0.85rem;
+  color: var(--v7-text-dim);
+}
+
+.v7-hero-image {
+  position: relative;
+}
+
+.v7-hero-image img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--v7-radius);
+  transform: rotate(1.5deg);
+  border: 1px solid var(--v7-border);
+  filter: grayscale(20%) contrast(1.05);
+}
+
+.v7-hero-image::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border: 1px solid var(--v7-border);
+  border-radius: var(--v7-radius);
+  transform: rotate(-1deg);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   10. Section Spacing
+   -------------------------------------------------------------------------- */
+.v7-section {
+  padding: 120px 0;
+}
+
+.v7-section-header {
+  margin-bottom: 64px;
+}
+
+.v7-section-header h2 {
+  max-width: 700px;
+}
+
+.v7-section-cta {
+  text-align: center;
+  margin-top: 64px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Drop Cap
+   -------------------------------------------------------------------------- */
+.v7-dropcap::first-letter {
+  font-family: var(--v7-font-heading);
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 12px;
+  margin-top: 6px;
+  color: var(--v7-accent);
+}
+
+/* --------------------------------------------------------------------------
+   12. How It Works
+   -------------------------------------------------------------------------- */
+.v7-how {
+  padding: 120px 0;
+  background: var(--v7-bg);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.v7-step-card {
+  background: var(--v7-bg-card);
+  padding: 40px 32px;
+  border-radius: var(--v7-radius);
+  border: 1px solid var(--v7-border);
+  position: relative;
+}
+
+.v7-step-number {
+  font-family: var(--v7-font-heading);
+  font-size: 3.5rem;
+  color: var(--v7-accent);
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.v7-step-card h3 {
+  margin-bottom: 12px;
+}
+
+.v7-step-card p {
+  color: var(--v7-text-muted);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. Services
+   -------------------------------------------------------------------------- */
+.v7-services {
+  padding: 120px 0;
+  background: var(--v7-bg-alt);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.v7-service-card {
+  background: var(--v7-bg-card);
+  padding: 36px 32px;
+  border-radius: var(--v7-radius);
+  border: 1px solid var(--v7-border);
+  border-left: 3px solid var(--v7-accent);
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.v7-service-card:hover {
+  border-left-color: var(--v7-accent-hover);
+  transform: translateY(-2px);
+}
+
+.v7-service-card h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.v7-service-quote {
+  font-family: var(--v7-font-heading);
+  font-style: italic;
+  color: var(--v7-text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.v7-service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.v7-service-features li {
+  font-size: 0.9rem;
+  color: var(--v7-text-muted);
+  padding-left: 16px;
+  position: relative;
+}
+
+.v7-service-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 4px;
+  height: 4px;
+  background: var(--v7-accent);
+  border-radius: 50%;
+}
+
+/* --------------------------------------------------------------------------
+   14. Proof / Results
+   -------------------------------------------------------------------------- */
+.v7-results {
+  padding: 120px 0;
+  background: var(--v7-bg);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.v7-stat-number {
+  font-family: var(--v7-font-heading);
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--v7-accent);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.v7-stat-label {
+  font-size: 0.9rem;
+  color: var(--v7-text-muted);
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.v7-casestudies-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 64px;
+}
+
+.v7-result-card {
+  display: block;
+  background: var(--v7-bg-card);
+  border: 1px solid var(--v7-border);
+  border-radius: var(--v7-radius);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.v7-result-card:hover {
+  transform: translateY(-4px);
+}
+
+.v7-result-image {
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.v7-result-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.v7-result-card:hover .v7-result-image img {
+  transform: scale(1.05);
+}
+
+.v7-result-body {
+  padding: 24px;
+}
+
+.v7-result-client {
+  font-family: var(--v7-font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--v7-accent);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.v7-result-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.v7-result-body p {
+  font-size: 0.9rem;
+  color: var(--v7-text-muted);
+  margin-bottom: 12px;
+}
+
+.v7-result-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--v7-accent);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+/* About card within results */
+.v7-about-card {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  background: var(--v7-bg-card);
+  border: 1px solid var(--v7-border);
+  border-radius: var(--v7-radius);
+  padding: 32px;
+}
+
+.v7-about-card img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  filter: grayscale(20%);
+}
+
+.v7-about-card p {
+  color: var(--v7-text-muted);
+  font-size: 0.95rem;
+}
+
+.v7-about-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
+   15. Pullquote / Testimonials
+   -------------------------------------------------------------------------- */
+.v7-testimonials {
+  padding: 120px 0;
+  background: var(--v7-bg-alt);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-testimonial-card {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+
+.v7-testimonial-card + .v7-testimonial-card {
+  margin-top: 80px;
+  padding-top: 80px;
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-testimonial-quote-mark {
+  font-family: var(--v7-font-heading);
+  font-size: 8rem;
+  line-height: 0.6;
+  color: var(--v7-accent);
+  opacity: 0.25;
+  display: block;
+  margin-bottom: 8px;
+  user-select: none;
+}
+
+.v7-testimonial-text {
+  font-family: var(--v7-font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--v7-text);
+  margin-bottom: 24px;
+}
+
+.v7-testimonial-author {
+  font-family: var(--v7-font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--v7-text-dim);
+}
+
+/* --------------------------------------------------------------------------
+   16. FAQ
+   -------------------------------------------------------------------------- */
+.v7-faq {
+  padding: 120px 0;
+  background: var(--v7-bg);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.v7-faq-item {
+  border-bottom: 1px solid var(--v7-border);
+}
+
+.v7-faq-item:first-child {
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--v7-font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--v7-text);
+  gap: 16px;
+  transition: color 0.2s ease;
+}
+
+.v7-faq-question:hover {
+  color: var(--v7-accent);
+}
+
+.v7-faq-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.v7-faq-icon::before,
+.v7-faq-icon::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.v7-faq-icon::before {
+  width: 20px;
+  height: 2px;
+  top: 9px;
+  left: 0;
+}
+
+.v7-faq-icon::after {
+  width: 2px;
+  height: 20px;
+  top: 0;
+  left: 9px;
+}
+
+.v7-faq-item.v7-faq-open .v7-faq-icon::after {
+  transform: rotate(90deg);
+}
+
+.v7-faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.v7-faq-item.v7-faq-open .v7-faq-answer {
+  max-height: 400px;
+}
+
+.v7-faq-answer-inner {
+  padding-bottom: 24px;
+  color: var(--v7-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   17. Contact
+   -------------------------------------------------------------------------- */
+.v7-contact {
+  padding: 120px 0;
+  background: var(--v7-bg-alt);
+  border-top: 1px solid var(--v7-border);
+}
+
+.v7-contact-inner {
+  text-align: center;
+}
+
+.v7-contact-inner h2 {
+  margin-bottom: 12px;
+}
+
+.v7-contact-inner > p {
+  color: var(--v7-text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 48px;
+}
+
+.v7-cal-container {
+  max-width: 680px;
+  margin: 0 auto 48px;
+  background: var(--v7-bg-card);
+  border: 1px solid var(--v7-border);
+  border-radius: var(--v7-radius);
+  padding: 24px;
+  min-height: 520px;
+}
+
+.v7-cal-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--v7-text-muted);
+  gap: 16px;
+}
+
+.v7-cal-skeleton-spinner {
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--v7-border);
+  border-top-color: var(--v7-accent);
+  border-radius: 50%;
+  animation: v7-spin 0.8s linear infinite;
+}
+
+@keyframes v7-spin {
+  to { transform: rotate(360deg); }
+}
+
+.v7-contact-methods {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.v7-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 24px;
+  background: var(--v7-bg-card);
+  border: 1px solid var(--v7-border);
+  border-radius: var(--v7-radius);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.v7-contact-card:hover {
+  border-color: var(--v7-accent);
+  transform: translateY(-2px);
+}
+
+.v7-contact-icon {
+  color: var(--v7-accent);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.v7-contact-card strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--v7-text);
+}
+
+.v7-contact-card span {
+  font-size: 0.8rem;
+  color: var(--v7-text-dim);
+}
+
+/* --------------------------------------------------------------------------
+   18. Footer
+   -------------------------------------------------------------------------- */
+.v7-footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--v7-border);
+  background: var(--v7-bg);
+}
+
+.v7-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.v7-footer-logo {
+  font-family: var(--v7-font-heading);
+  font-size: 1.2rem;
+  color: var(--v7-text);
+}
+
+.v7-footer-copy {
+  font-size: 0.8rem;
+  color: var(--v7-text-dim);
+}
+
+.v7-footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.v7-footer-links a {
+  font-size: 0.8rem;
+  color: var(--v7-text-dim);
+  transition: color 0.2s ease;
+}
+
+.v7-footer-links a:hover {
+  color: var(--v7-accent);
+}
+
+/* --------------------------------------------------------------------------
+   19. Responsive — Tablet (768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .v7-hero {
+    padding: 120px 0 80px;
+  }
+
+  .v7-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .v7-hero-image {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .v7-hero-trust {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+
+  .v7-steps-grid,
+  .v7-services-grid,
+  .v7-casestudies-grid,
+  .v7-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .v7-section,
+  .v7-how,
+  .v7-services,
+  .v7-results,
+  .v7-testimonials,
+  .v7-faq,
+  .v7-contact {
+    padding: 80px 0;
+  }
+
+  .v7-testimonial-quote-mark {
+    font-size: 5rem;
+  }
+
+  .v7-about-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .v7-footer-inner {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .v7-nav-links {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(10, 10, 10, 0.97);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 99;
+  }
+
+  .v7-nav-links.v7-nav-open {
+    display: flex;
+  }
+
+  .v7-nav-links a {
+    font-size: 1.2rem;
+  }
+
+  .v7-nav-toggle {
+    display: block;
+    z-index: 101;
+  }
+
+  .v7-testimonial-card + .v7-testimonial-card {
+    margin-top: 48px;
+    padding-top: 48px;
+  }
+
+  .v7-contact-methods {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .v7-contact-card {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   20. Responsive — Mobile (480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .v7 h1 {
+    font-size: clamp(2.8rem, 10vw, 4rem);
+  }
+
+  .v7 h2 {
+    font-size: clamp(2rem, 7vw, 2.8rem);
+  }
+
+  .v7-container {
+    padding: 0 16px;
+  }
+
+  .v7-hero {
+    padding: 100px 0 60px;
+  }
+
+  .v7-step-card,
+  .v7-service-card {
+    padding: 28px 20px;
+  }
+
+  .v7-btn {
+    padding: 14px 28px;
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .v7-hero-image {
+    max-width: 260px;
+  }
+
+  .v7-cal-container {
+    padding: 16px;
+  }
+
+  .v7-section,
+  .v7-how,
+  .v7-services,
+  .v7-results,
+  .v7-testimonials,
+  .v7-faq,
+  .v7-contact {
+    padding: 64px 0;
+  }
+
+  .v7-stat-number {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  .v7-testimonial-text {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+
+  .v7-testimonial-quote-mark {
+    font-size: 4rem;
+  }
+}

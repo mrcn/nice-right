@@ -1,0 +1,1413 @@
+/* ============================================================
+   V12 — "Swiss Precision"
+   International Typographic Style / Swiss Design
+   Josef Muller-Brockmann, Massimo Vignelli
+   ============================================================
+   Grid: 12-column, 1200px max, 8px baseline
+   Color: Red (#FF0000) as sole accent
+   Typography: Inter — clean, mathematical
+   No shadows. No gradients. No border-radius. Pure flatness.
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   0. CUSTOM PROPERTIES
+   ---------------------------------------------------------- */
+
+.v12 {
+  --v12-bg: #FFFFFF;
+  --v12-bg-alt: #F5F5F5;
+  --v12-text: #000000;
+  --v12-text-muted: #666666;
+  --v12-red: #FF0000;
+  --v12-border: #000000;
+  --v12-border-light: #E0E0E0;
+
+  --v12-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --v12-max-width: 1200px;
+  --v12-gutter: 24px;
+  --v12-col: calc((var(--v12-max-width) - 11 * var(--v12-gutter)) / 12);
+
+  font-family: var(--v12-font);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--v12-text);
+  background: var(--v12-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ----------------------------------------------------------
+   1. RESET & BASE
+   ---------------------------------------------------------- */
+
+.v12 *,
+.v12 *::before,
+.v12 *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.v12 img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.v12 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v12 ul {
+  list-style: none;
+}
+
+.v12 h1,
+.v12 h2,
+.v12 h3 {
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.v12 h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+}
+
+.v12 h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.v12 h3 {
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
+}
+
+.v12 blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* ----------------------------------------------------------
+   2. SKIP LINK
+   ---------------------------------------------------------- */
+
+.v12-skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: var(--v12-text);
+  color: var(--v12-bg);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.v12-skip-link:focus {
+  top: 16px;
+}
+
+/* ----------------------------------------------------------
+   3. CONTAINER
+   ---------------------------------------------------------- */
+
+.v12-container {
+  width: 100%;
+  max-width: var(--v12-max-width);
+  margin: 0 auto;
+  padding: 0 var(--v12-gutter);
+}
+
+/* ----------------------------------------------------------
+   4. SHARED: LABELS, BUTTONS, RULES, SECTION GRID
+   ---------------------------------------------------------- */
+
+/* Red uppercase labels — Swiss wayfinding */
+.v12-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v12-red);
+  margin-bottom: 16px;
+}
+
+/* Primary CTA — flat, black, red hover */
+.v12-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--v12-text);
+  color: var(--v12-bg);
+  font-family: var(--v12-font);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 2px solid var(--v12-text);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.v12-btn:hover {
+  background: var(--v12-red);
+  border-color: var(--v12-red);
+  color: var(--v12-bg);
+}
+
+/* Horizontal red rule — section divider */
+.v12-rule,
+.v12-hero-rule {
+  width: 100%;
+  height: 2px;
+  background: var(--v12-red);
+}
+
+/* Section number — large, left margin */
+.v12-section-number {
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--v12-border-light);
+  user-select: none;
+  min-width: 120px;
+  padding-top: 8px;
+}
+
+/* Asymmetric section grid: number left, content right */
+.v12-section-grid {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
+}
+
+/* Section body — the right column of content */
+.v12-section-body {
+  min-width: 0;
+}
+
+/* Section header */
+.v12-section-header {
+  margin-bottom: 56px;
+}
+
+.v12-section-header h2 {
+  max-width: 600px;
+}
+
+/* Section CTA block */
+.v12-section-cta {
+  margin-top: 56px;
+}
+
+.v12-section-cta-micro {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  color: var(--v12-text-muted);
+}
+
+/* All sections share vertical rhythm */
+.v12-section {
+  padding: 96px 0;
+}
+
+/* ----------------------------------------------------------
+   5. NAV
+   ---------------------------------------------------------- */
+
+.v12-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--v12-bg);
+  transition: box-shadow 0.2s;
+}
+
+.v12-nav--scrolled {
+  box-shadow: 0 1px 0 var(--v12-border-light);
+}
+
+.v12-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--v12-max-width);
+  margin: 0 auto;
+  padding: 0 var(--v12-gutter);
+  height: 64px;
+}
+
+.v12-nav-logo {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.v12-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.v12-nav-links a {
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v12-text-muted);
+  transition: color 0.2s;
+  position: relative;
+}
+
+.v12-nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--v12-red);
+  transition: width 0.2s ease;
+}
+
+.v12-nav-links a:hover {
+  color: var(--v12-text);
+}
+
+.v12-nav-links a:hover::after {
+  width: 100%;
+}
+
+.v12-nav-cta {
+  padding: 8px 24px;
+  border: 2px solid var(--v12-text) !important;
+  color: var(--v12-text) !important;
+  font-weight: 600 !important;
+  transition: background 0.2s, color 0.2s !important;
+}
+
+.v12-nav-cta::after {
+  display: none !important;
+}
+
+.v12-nav-cta:hover {
+  background: var(--v12-red) !important;
+  border-color: var(--v12-red) !important;
+  color: var(--v12-bg) !important;
+}
+
+/* ----------------------------------------------------------
+   6. HERO
+   ---------------------------------------------------------- */
+
+.v12-hero {
+  padding-top: 128px;
+  padding-bottom: 80px;
+}
+
+.v12-hero-grid {
+  display: grid;
+  grid-template-columns: 7fr 5fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.v12-hero-content {
+  padding-right: 16px;
+}
+
+.v12-hero-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v12-red);
+  margin-bottom: 24px;
+}
+
+.v12-hero h1 {
+  margin-bottom: 24px;
+}
+
+.v12-hero-sub {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--v12-text-muted);
+  max-width: 520px;
+  margin-bottom: 32px;
+}
+
+/* Trust indicators — horizontal, separated by red bars */
+.v12-hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.v12-hero-trust span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v12-text-muted);
+}
+
+.v12-hero-trust-sep {
+  width: 24px;
+  height: 2px;
+  background: var(--v12-red);
+  flex-shrink: 0;
+}
+
+.v12-hero-cta {
+  margin-bottom: 16px;
+}
+
+.v12-hero-micro {
+  font-size: 0.8rem;
+  color: var(--v12-text-muted);
+}
+
+/* Portrait — desaturated, tight crop, no border-radius */
+.v12-hero-portrait {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.v12-hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+/* Red accent line on portrait */
+.v12-hero-portrait::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--v12-red);
+  z-index: 1;
+}
+
+/* ----------------------------------------------------------
+   7. HOW IT WORKS (Section 01)
+   ---------------------------------------------------------- */
+
+.v12-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.v12-step {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--v12-border-light);
+}
+
+.v12-step:last-child {
+  border-bottom: none;
+}
+
+.v12-step-number {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v12-red);
+  padding-top: 4px;
+}
+
+.v12-step-content h3 {
+  margin-bottom: 8px;
+}
+
+.v12-step-content p {
+  color: var(--v12-text-muted);
+  max-width: 560px;
+}
+
+/* ----------------------------------------------------------
+   8. SERVICES (Section 02)
+   ---------------------------------------------------------- */
+
+.v12-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--v12-border-light);
+}
+
+.v12-service-card {
+  background: var(--v12-bg);
+  padding: 40px 32px;
+  border-top: 2px solid var(--v12-border-light);
+  transition: border-color 0.2s;
+}
+
+.v12-service-card:hover {
+  border-top-color: var(--v12-red);
+}
+
+.v12-service-card h3 {
+  margin-bottom: 12px;
+  font-size: 1.25rem;
+}
+
+.v12-service-quote {
+  font-size: 0.875rem;
+  color: var(--v12-text-muted);
+  font-style: italic;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--v12-border-light);
+}
+
+.v12-service-features li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.9rem;
+  color: var(--v12-text-muted);
+  line-height: 1.75;
+}
+
+.v12-service-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 2px;
+  background: var(--v12-red);
+}
+
+/* ----------------------------------------------------------
+   9. PROOF / RESULTS (Section 03)
+   ---------------------------------------------------------- */
+
+/* Stats row — mathematical alignment */
+.v12-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-bottom: 64px;
+  border-top: 2px solid var(--v12-text);
+  border-bottom: 1px solid var(--v12-border-light);
+}
+
+.v12-stat {
+  padding: 32px 0;
+  border-right: 1px solid var(--v12-border-light);
+}
+
+.v12-stat:last-child {
+  border-right: none;
+}
+
+.v12-stat:first-child {
+  padding-right: 24px;
+}
+
+.v12-stat:nth-child(2) {
+  padding: 32px 24px;
+}
+
+.v12-stat:last-child {
+  padding-left: 24px;
+}
+
+.v12-stat-value {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 8px;
+}
+
+.v12-stat-value span {
+  color: var(--v12-text);
+}
+
+.v12-stat-label {
+  font-size: 0.8rem;
+  color: var(--v12-text-muted);
+  line-height: 1.5;
+}
+
+/* Case studies — horizontal layout */
+.v12-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.v12-case {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--v12-border-light);
+  text-decoration: none;
+  color: inherit;
+  transition: padding-left 0.2s ease;
+}
+
+.v12-case:hover {
+  padding-left: 4px;
+}
+
+.v12-case:last-child {
+  border-bottom: none;
+}
+
+.v12-case-image {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+}
+
+.v12-case-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(80%) contrast(1.05);
+  transition: filter 0.3s;
+}
+
+.v12-case:hover .v12-case-image img {
+  filter: grayscale(0%) contrast(1);
+}
+
+.v12-case-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.v12-case-client {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v12-red);
+  margin-bottom: 8px;
+}
+
+.v12-case-body h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.v12-case-body p {
+  font-size: 0.9rem;
+  color: var(--v12-text-muted);
+  margin-bottom: 12px;
+}
+
+.v12-case-link {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v12-text);
+  transition: color 0.2s;
+}
+
+.v12-case:hover .v12-case-link {
+  color: var(--v12-red);
+}
+
+/* About block */
+.v12-about {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 24px;
+  margin-top: 64px;
+  padding-top: 40px;
+  border-top: 2px solid var(--v12-text);
+}
+
+.v12-about-photo {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.1);
+}
+
+.v12-about-text p {
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.v12-about-sub {
+  font-size: 0.85rem !important;
+  color: var(--v12-text-muted);
+  margin-top: 8px;
+}
+
+/* ----------------------------------------------------------
+   10. TESTIMONIALS (Section 04)
+   ---------------------------------------------------------- */
+
+.v12-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 2px solid var(--v12-text);
+}
+
+.v12-testimonial {
+  padding: 40px 32px 40px 0;
+  border-bottom: 1px solid var(--v12-border-light);
+  border-right: 1px solid var(--v12-border-light);
+}
+
+.v12-testimonial:nth-child(2n) {
+  padding: 40px 0 40px 32px;
+  border-right: none;
+}
+
+.v12-testimonial:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.v12-testimonial-quote {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--v12-text);
+  margin-bottom: 24px;
+}
+
+.v12-testimonial-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.v12-testimonial-avatar {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--v12-bg-alt);
+  border: 1px solid var(--v12-border-light);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--v12-text-muted);
+  flex-shrink: 0;
+}
+
+.v12-testimonial-name {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.v12-testimonial-role {
+  font-size: 0.8rem;
+  color: var(--v12-text-muted);
+  margin-bottom: 4px;
+}
+
+.v12-testimonial-verify {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--v12-red);
+  transition: opacity 0.2s;
+}
+
+.v12-testimonial-verify:hover {
+  opacity: 0.7;
+}
+
+/* ----------------------------------------------------------
+   11. FAQ (Section 05)
+   ---------------------------------------------------------- */
+
+.v12-faq-list {
+  border-top: 2px solid var(--v12-text);
+}
+
+.v12-faq-item {
+  padding: 32px 0;
+  border-bottom: 1px solid var(--v12-border-light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.v12-faq-q {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.v12-faq-a {
+  font-size: 0.95rem;
+  color: var(--v12-text-muted);
+  line-height: 1.75;
+}
+
+/* ----------------------------------------------------------
+   12. CONTACT
+   ---------------------------------------------------------- */
+
+.v12-contact {
+  background: var(--v12-bg-alt);
+  border-top: 2px solid var(--v12-red);
+}
+
+.v12-contact-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.v12-contact-inner .v12-label {
+  display: inline-block;
+}
+
+.v12-contact-inner h2 {
+  margin-bottom: 16px;
+}
+
+.v12-contact-sub {
+  font-size: 1rem;
+  color: var(--v12-text-muted);
+  margin-bottom: 48px;
+}
+
+.v12-cal-container {
+  margin-bottom: 48px;
+  text-align: left;
+}
+
+.v12-cal-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+}
+
+.v12-cal-loading p {
+  font-size: 0.875rem;
+  color: var(--v12-text-muted);
+}
+
+.v12-cal-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--v12-border-light);
+  border-top-color: var(--v12-red);
+  animation: v12-spin 0.8s linear infinite;
+}
+
+@keyframes v12-spin {
+  to { transform: rotate(360deg); }
+}
+
+.v12-cal-fallback {
+  font-size: 0.95rem;
+  color: var(--v12-text-muted);
+  text-align: center;
+  max-width: 360px;
+}
+
+.v12-cal-fallback a {
+  color: var(--v12-red);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.v12-contact-alt {
+  font-size: 0.875rem;
+  color: var(--v12-text-muted);
+  margin-bottom: 24px;
+}
+
+.v12-contact-methods {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  background: var(--v12-border-light);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.v12-contact-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--v12-bg);
+  text-align: left;
+  transition: padding-left 0.2s ease;
+}
+
+.v12-contact-card:hover {
+  padding-left: 28px;
+}
+
+.v12-contact-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--v12-border-light);
+  flex-shrink: 0;
+}
+
+.v12-contact-card strong {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.v12-contact-card span {
+  font-size: 0.8rem;
+  color: var(--v12-text-muted);
+}
+
+/* ----------------------------------------------------------
+   13. FOOTER
+   ---------------------------------------------------------- */
+
+.v12-footer {
+  padding: 40px 0;
+  border-top: 2px solid var(--v12-text);
+}
+
+.v12-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.v12-footer-logo {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.v12-footer-copy {
+  font-size: 0.75rem;
+  color: var(--v12-text-muted);
+}
+
+/* ----------------------------------------------------------
+   14. ALTERNATE SECTION BACKGROUNDS
+   ---------------------------------------------------------- */
+
+.v12-services {
+  background: var(--v12-bg-alt);
+}
+
+.v12-testimonials {
+  background: var(--v12-bg);
+}
+
+.v12-faq {
+  background: var(--v12-bg-alt);
+}
+
+/* ----------------------------------------------------------
+   15. RESPONSIVE — TABLET (max-width: 960px)
+   ---------------------------------------------------------- */
+
+@media (max-width: 960px) {
+  .v12-section-grid {
+    grid-template-columns: 80px 1fr;
+    gap: 24px;
+  }
+
+  .v12-section-number {
+    font-size: clamp(3rem, 6vw, 5rem);
+    min-width: 80px;
+  }
+
+  .v12-hero-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .v12-services-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    background: none;
+  }
+
+  .v12-service-card {
+    border-top: 1px solid var(--v12-border-light);
+  }
+
+  .v12-service-card:first-child {
+    border-top: 2px solid var(--v12-text);
+  }
+
+  .v12-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .v12-case {
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+  }
+
+  .v12-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v12-testimonial,
+  .v12-testimonial:nth-child(2n) {
+    padding: 32px 0;
+    border-right: none;
+  }
+
+  .v12-faq-item {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .v12-nav-links {
+    gap: 20px;
+  }
+
+  .v12-nav-links a {
+    font-size: 0.75rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   16. RESPONSIVE — MOBILE (max-width: 680px)
+   ---------------------------------------------------------- */
+
+@media (max-width: 680px) {
+  .v12 {
+    --v12-gutter: 16px;
+  }
+
+  .v12-section {
+    padding: 64px 0;
+  }
+
+  .v12-section-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .v12-section-number {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.15;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .v12-section-grid {
+    position: relative;
+  }
+
+  .v12-section-header {
+    margin-bottom: 40px;
+  }
+
+  /* Nav — stacked logo, hidden links except CTA */
+  .v12-nav-inner {
+    height: 56px;
+  }
+
+  .v12-nav-links a:not(.v12-nav-cta) {
+    display: none;
+  }
+
+  .v12-nav-cta {
+    padding: 6px 16px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Hero — single column */
+  .v12-hero {
+    padding-top: 96px;
+    padding-bottom: 48px;
+  }
+
+  .v12-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .v12-hero-content {
+    padding-right: 0;
+  }
+
+  .v12-hero-portrait {
+    aspect-ratio: 3 / 2;
+    max-height: 320px;
+  }
+
+  .v12-hero-trust {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .v12-hero-trust-sep {
+    width: 16px;
+  }
+
+  /* Steps */
+  .v12-step {
+    grid-template-columns: 48px 1fr;
+    gap: 16px;
+    padding: 24px 0;
+  }
+
+  /* Services */
+  .v12-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v12-service-card {
+    padding: 32px 0;
+  }
+
+  /* Stats */
+  .v12-stats {
+    grid-template-columns: 1fr;
+    border-right: none;
+  }
+
+  .v12-stat {
+    border-right: none;
+    border-bottom: 1px solid var(--v12-border-light);
+    padding: 24px 0 !important;
+  }
+
+  .v12-stat:last-child {
+    border-bottom: none;
+  }
+
+  /* Cases */
+  .v12-case {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .v12-case-image {
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Testimonials */
+  .v12-testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v12-testimonial,
+  .v12-testimonial:nth-child(2n) {
+    padding: 24px 0;
+  }
+
+  /* FAQ */
+  .v12-faq-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 24px 0;
+  }
+
+  /* Contact */
+  .v12-contact-methods {
+    grid-template-columns: 1fr;
+  }
+
+  /* About */
+  .v12-about {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .v12-about-photo {
+    margin: 0 auto;
+  }
+
+  /* Footer */
+  .v12-footer-inner {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  /* Button */
+  .v12-btn {
+    width: 100%;
+    text-align: center;
+    padding: 14px 32px;
+  }
+
+  .v12-section-cta {
+    margin-top: 40px;
+  }
+}
+
+/* ----------------------------------------------------------
+   17. FOCUS STATES — Accessibility
+   ---------------------------------------------------------- */
+
+.v12 a:focus-visible,
+.v12 button:focus-visible {
+  outline: 2px solid var(--v12-red);
+  outline-offset: 2px;
+}
+
+/* ----------------------------------------------------------
+   18. REDUCED MOTION
+   ---------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .v12 *,
+  .v12 *::before,
+  .v12 *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   19. PRINT STYLES
+   ---------------------------------------------------------- */
+
+@media print {
+  .v12-nav,
+  .v12-hero-cta,
+  .v12-section-cta,
+  .v12-cal-container {
+    display: none;
+  }
+
+  .v12-section {
+    padding: 24px 0;
+    break-inside: avoid;
+  }
+
+  .v12-rule,
+  .v12-hero-rule {
+    height: 1px;
+    background: #000;
+  }
+}
+
+/* ----------------------------------------------------------
+   20. FINE-TUNING & POLISH
+   ---------------------------------------------------------- */
+
+/* Hover shift on step items */
+.v12-step {
+  transition: padding-left 0.2s ease;
+}
+
+.v12-step:hover {
+  padding-left: 4px;
+}
+
+/* Service card hover — red top border fully visible */
+.v12-service-card {
+  transition: border-color 0.2s, padding-left 0.2s;
+}
+
+.v12-service-card:hover {
+  padding-left: 36px;
+}
+
+/* Testimonial card subtle shift */
+.v12-testimonial {
+  transition: padding-left 0.2s ease;
+}
+
+.v12-testimonial:hover {
+  padding-left: 4px;
+}
+
+/* FAQ question highlight */
+.v12-faq-item {
+  transition: padding-left 0.2s ease;
+}
+
+.v12-faq-item:hover {
+  padding-left: 4px;
+}
+
+/* Link underline utility */
+.v12-link-underline {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--v12-border-light);
+  transition: text-decoration-color 0.2s;
+}
+
+.v12-link-underline:hover {
+  text-decoration-color: var(--v12-red);
+}
+
+/* Case study link arrow transition */
+.v12-case-link {
+  transition: color 0.2s, transform 0.2s;
+  display: inline-block;
+}
+
+.v12-case:hover .v12-case-link {
+  transform: translateX(4px);
+}
+
+/* Stat value color flicker on scroll reveal */
+.v12-stat-value {
+  transition: color 0.3s;
+}
+
+/* Section number — subtle red tint on section hover */
+.v12-section:hover .v12-section-number {
+  color: #FCEAEA;
+  transition: color 0.4s;
+}
+
+/* Hero portrait hover — slight desaturation lift */
+.v12-hero-portrait:hover img {
+  filter: grayscale(60%) contrast(1.1);
+  transition: filter 0.4s;
+}
+
+/* ----------------------------------------------------------
+   21. GRID DEBUGGING (uncomment to visualize)
+   ---------------------------------------------------------- */
+
+/*
+.v12-container {
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.05) 0,
+      rgba(255, 0, 0, 0.05) calc((100% - 11 * 24px) / 12),
+      transparent calc((100% - 11 * 24px) / 12),
+      transparent calc((100% - 11 * 24px) / 12 + 24px)
+    );
+  background-size: 100% 100%;
+}
+
+.v12 {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0,
+      transparent 7px,
+      rgba(0, 0, 255, 0.03) 7px,
+      rgba(0, 0, 255, 0.03) 8px
+    );
+}
+*/
+
+/* ----------------------------------------------------------
+   22. LARGE DESKTOP (min-width: 1400px)
+   ---------------------------------------------------------- */
+
+@media (min-width: 1400px) {
+  .v12-section-grid {
+    grid-template-columns: 160px 1fr;
+    gap: 64px;
+  }
+
+  .v12-section-number {
+    font-size: 8rem;
+    min-width: 160px;
+  }
+
+  .v12-hero-grid {
+    gap: 80px;
+  }
+
+  .v12-hero h1 {
+    font-size: 5rem;
+  }
+}
+
+/* ----------------------------------------------------------
+   23. DARK MODE OVERRIDE — not applicable to Swiss design
+   The Swiss Precision variant is ALWAYS light mode.
+   We force light regardless of system preference.
+   ---------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  .v12 {
+    color-scheme: light;
+    background: var(--v12-bg);
+    color: var(--v12-text);
+  }
+}
+
+/* ----------------------------------------------------------
+   24. SELECTION COLOR
+   ---------------------------------------------------------- */
+
+.v12 ::selection {
+  background: var(--v12-red);
+  color: var(--v12-bg);
+}
+
+.v12 ::-moz-selection {
+  background: var(--v12-red);
+  color: var(--v12-bg);
+}
+
+/* ----------------------------------------------------------
+   25. SCROLLBAR — minimal, precise
+   ---------------------------------------------------------- */
+
+.v12 ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.v12 ::-webkit-scrollbar-track {
+  background: var(--v12-bg);
+}
+
+.v12 ::-webkit-scrollbar-thumb {
+  background: var(--v12-border-light);
+}
+
+.v12 ::-webkit-scrollbar-thumb:hover {
+  background: var(--v12-text-muted);
+}
+
+/* ----------------------------------------------------------
+   26. BOTTOM PADDING for VariantSwitcher clearance
+   ---------------------------------------------------------- */
+
+.v12-footer {
+  padding-bottom: 96px;
+}
