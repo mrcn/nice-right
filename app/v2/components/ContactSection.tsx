@@ -5,46 +5,67 @@ import './contact.css'
 
 function CalEmbed() {
   useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://app.cal.com/embed/embed.js'
-    script.async = true
-    document.body.appendChild(script)
-
-    script.onload = () => {
-      // @ts-expect-error Cal is loaded via external script
-      if (window.Cal) {
-        // @ts-expect-error Cal is loaded via external script
-        window.Cal('init', { origin: 'https://cal.com' })
-        // @ts-expect-error Cal is loaded via external script
-        window.Cal('inline', {
-          elementOrSelector: '#cal-embed',
-          calLink: 'niceright/30min',
-          layout: 'month_view',
-          config: {
-            theme: 'light',
-          },
-        })
-        // @ts-expect-error Cal is loaded via external script
-        window.Cal('ui', {
-          hideEventTypeDetails: false,
-          layout: 'month_view',
-          cssVarsPerTheme: {
-            light: {
-              'cal-brand': '#0B8A6E',
-              'cal-text': '#1A1A1A',
-              'cal-text-emphasis': '#1A1A1A',
-              'cal-border-emphasis': '#E5E3DE',
-              'cal-bg': '#FAFAF8',
-              'cal-bg-emphasis': '#F3F1ED',
-            },
-          },
-        })
+    // Cal.com official embed snippet: set up queue BEFORE loading script
+    const w = window as unknown as Record<string, unknown>
+    const Cal = function (...args: unknown[]) {
+      const cal = Cal as unknown as {
+        loaded?: boolean
+        ns: Record<string, unknown>
+        q: unknown[][]
       }
+      if (!cal.loaded) {
+        cal.ns = {}
+        cal.q = cal.q || []
+        const script = document.createElement('script')
+        script.src = 'https://app.cal.com/embed/embed.js'
+        script.async = true
+        document.head.appendChild(script)
+        cal.loaded = true
+      }
+      if (args[0] === 'init') {
+        const api = function (...a: unknown[]) {
+          (api as unknown as { q: unknown[][] }).q =
+            (api as unknown as { q: unknown[][] }).q || []
+          ;(api as unknown as { q: unknown[][] }).q.push(a)
+        }
+        const namespace = args[1]
+        ;(api as unknown as { q: unknown[][] }).q = []
+        if (typeof namespace === 'string') {
+          cal.ns[namespace] = cal.ns[namespace] || api
+          ;(cal.ns[namespace] as unknown as { q: unknown[][] }).q.push(args)
+          cal.q.push(['initNamespace', namespace])
+        } else {
+          cal.q.push(args)
+        }
+        return
+      }
+      cal.q.push(args)
     }
+    ;(Cal as unknown as { q: unknown[][]; ns: Record<string, unknown> }).q = []
+    ;(Cal as unknown as { ns: Record<string, unknown> }).ns = {}
+    w.Cal = Cal
 
-    return () => {
-      if (script.parentNode) script.parentNode.removeChild(script)
-    }
+    // Now queue the Cal.com commands — they'll execute when embed.js loads
+    Cal('init', { origin: 'https://cal.com' })
+    Cal('inline', {
+      elementOrSelector: '#cal-embed',
+      calLink: 'niceright/30min',
+      layout: 'month_view',
+    })
+    Cal('ui', {
+      hideEventTypeDetails: false,
+      layout: 'month_view',
+      cssVarsPerTheme: {
+        light: {
+          'cal-brand': '#0B8A6E',
+          'cal-text': '#1A1A1A',
+          'cal-text-emphasis': '#1A1A1A',
+          'cal-border-emphasis': '#E5E3DE',
+          'cal-bg': '#FAFAF8',
+          'cal-bg-emphasis': '#F3F1ED',
+        },
+      },
+    })
   }, [])
 
   return (
