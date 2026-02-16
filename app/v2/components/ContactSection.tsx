@@ -44,7 +44,7 @@ export function ContactSection() {
           {mode === 'calendar' && (
             <div className="v2-calendly-container">
               <iframe
-                src="https://calendly.com/uxoxo/strategy-call?hide_gdpr_banner=1&background_color=fafaf8&text_color=1a1a1a&primary_color=0B8A6E"
+                src="https://calendly.com/niceright/30min?hide_gdpr_banner=1&background_color=fafaf8&text_color=1a1a1a&primary_color=0B8A6E"
                 width="100%"
                 height="660"
                 frameBorder="0"
