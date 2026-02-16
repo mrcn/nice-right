@@ -4,7 +4,7 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 const variants = [
-  { path: '/v6/', label: 'V6', title: 'Current' },
+  { path: '/', label: 'Current', title: 'Current Homepage' },
   { path: '/v7/', label: 'V7', title: 'Noir Editorial' },
   { path: '/v8/', label: 'V8', title: 'Brutalist RAW' },
   { path: '/v9/', label: 'V9', title: 'Immersive Cinematic' },
