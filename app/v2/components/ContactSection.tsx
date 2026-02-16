@@ -18,7 +18,7 @@ function CalEmbed() {
         // @ts-expect-error Cal is loaded via external script
         window.Cal('inline', {
           elementOrSelector: '#cal-embed',
-          calLink: 'dabro/30min',
+          calLink: 'niceright/30min',
           layout: 'month_view',
           config: {
             theme: 'light',
