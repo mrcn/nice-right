@@ -165,7 +165,7 @@ export function Testimonials() {
         }
 
         .v7-testimonials-container {
-          max-width: 960px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 

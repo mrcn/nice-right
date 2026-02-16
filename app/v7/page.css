@@ -105,7 +105,7 @@
    4. Container
    -------------------------------------------------------------------------- */
 .v7-container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
@@ -116,6 +116,31 @@
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
+}
+
+/* Fallback: ensure content appears even if GSAP fails to load.
+   GSAP sets inline styles before the animation delay fires,
+   so this only triggers if JS doesn't run or GSAP errors out. */
+@keyframes v7-fallback-reveal {
+  to { opacity: 1 !important; transform: none !important; }
+}
+
+/* Hero elements (CSS sets opacity: 0, GSAP fromTo reveals) */
+.v7-section-label,
+.v7-char,
+.v7-hero-sub,
+.v7-trust-line span,
+.v7-hero-cta,
+.v7-hero-micro,
+.v7-hero-image,
+/* Proof elements (CSS sets opacity: 0, GSAP fromTo reveals) */
+.v7-proof-header,
+.v7-proof-stat,
+.v7-case-card,
+.v7-about-card,
+/* page.css reveal class (unused but safety net) */
+.v7-reveal {
+  animation: v7-fallback-reveal 0.5s 2.5s both;
 }
 
 /* --------------------------------------------------------------------------

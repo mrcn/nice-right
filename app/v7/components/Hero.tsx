@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useMemo } from 'react'
+import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 
 /**
@@ -8,15 +8,25 @@ import gsap from 'gsap'
  *
  * Full-viewport hero with character-split GSAP cascade on the heading,
  * asymmetric 60/40 grid, parallax image, and sequential element reveals.
+ * Text is rendered as plain strings to avoid hydration mismatch — chars
+ * are split via DOM manipulation inside useEffect.
  */
 
-interface CharSpan {
-  char: string
-  index: number
-}
-
-function splitTextToChars(text: string): CharSpan[] {
-  return text.split('').map((char, index) => ({ char, index }))
+function splitIntoCharSpans(el: HTMLElement) {
+  const text = el.textContent || ''
+  el.textContent = ''
+  text.split('').forEach((char) => {
+    const span = document.createElement('span')
+    span.className = 'v7-char'
+    span.style.display = 'inline-block'
+    if (char === ' ') {
+      span.style.whiteSpace = 'pre'
+      span.textContent = '\u00A0'
+    } else {
+      span.textContent = char
+    }
+    el.appendChild(span)
+  })
 }
 
 export function Hero() {
@@ -30,14 +40,15 @@ export function Hero() {
   const imageRef = useRef<HTMLDivElement>(null)
   const labelRef = useRef<HTMLParagraphElement>(null)
 
-  const line1Chars = useMemo(() => splitTextToChars('grow your business.'), [])
-  const line2Chars = useMemo(() => splitTextToChars("i'll handle the tech."), [])
-
   useEffect(() => {
     const el = sectionRef.current
     if (!el) return
+
+    // Split text into char spans via DOM (avoids hydration mismatch)
+    if (line1Ref.current) splitIntoCharSpans(line1Ref.current)
+    if (line2Ref.current) splitIntoCharSpans(line2Ref.current)
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      // Show everything immediately for reduced-motion users
       el.querySelectorAll('.v7-char, .v7-hero-sub, .v7-trust-line, .v7-hero-cta, .v7-hero-micro, .v7-hero-image, .v7-section-label').forEach((node) => {
         ;(node as HTMLElement).style.opacity = '1'
         ;(node as HTMLElement).style.transform = 'none'
@@ -142,27 +153,11 @@ export function Hero() {
             <p ref={labelRef} className="v7-section-label">Nice Right</p>
             <h1 className="v7-hero-h1">
               <span ref={line1Ref} className="v7-hero-line v7-hero-line-1">
-                {line1Chars.map(({ char, index }) => (
-                  <span
-                    key={index}
-                    className="v7-char"
-                    style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </span>
-                ))}
+                grow your business.
               </span>
               <br />
               <span ref={line2Ref} className="v7-hero-line v7-hero-line-2">
-                {line2Chars.map(({ char, index }) => (
-                  <span
-                    key={index}
-                    className="v7-char"
-                    style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : undefined }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </span>
-                ))}
+                i&apos;ll handle the tech.
               </span>
             </h1>
             <p ref={subRef} className="v7-hero-sub">
@@ -200,8 +195,8 @@ export function Hero() {
           overflow: hidden;
         }
 
-        .v7-container {
-          max-width: 960px;
+        .v7-hero .v7-container {
+          max-width: 1200px;
           margin: 0 auto;
           padding: 0 24px;
           width: 100%;
@@ -210,7 +205,7 @@ export function Hero() {
         .v7-hero-grid {
           display: grid;
           grid-template-columns: 1.5fr 1fr;
-          gap: 48px;
+          gap: 64px;
           align-items: center;
         }
 
@@ -219,7 +214,7 @@ export function Hero() {
           z-index: 2;
         }
 
-        .v7-section-label {
+        .v7-hero .v7-section-label {
           font-family: 'JetBrains Mono', monospace;
           font-size: 0.75rem;
           letter-spacing: 0.14em;
@@ -256,7 +251,7 @@ export function Hero() {
           font-size: clamp(1rem, 1.5vw, 1.15rem);
           line-height: 1.7;
           color: rgba(245, 245, 240, 0.7);
-          max-width: 480px;
+          max-width: 520px;
           margin: 0 0 24px;
           opacity: 0;
         }
@@ -296,7 +291,7 @@ export function Hero() {
           opacity: 0;
         }
 
-        .v7-btn {
+        .v7-hero .v7-btn {
           display: inline-block;
           font-family: 'Inter', sans-serif;
           font-size: 0.95rem;
@@ -311,7 +306,7 @@ export function Hero() {
           cursor: pointer;
         }
 
-        .v7-btn:hover {
+        .v7-hero .v7-btn:hover {
           background: #FFB800;
           transform: translateY(-2px);
         }
@@ -375,7 +370,7 @@ export function Hero() {
             font-size: clamp(2rem, 9vw, 2.8rem);
           }
 
-          .v7-btn {
+          .v7-hero .v7-btn {
             width: 100%;
             text-align: center;
             padding: 14px 24px;

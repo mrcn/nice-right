@@ -170,7 +170,7 @@ export function Services() {
         }
 
         .v7-services-container {
-          max-width: 960px;
+          max-width: 1200px;
           margin: 0 auto;
         }
 
