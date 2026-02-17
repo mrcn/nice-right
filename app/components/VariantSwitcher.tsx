@@ -18,49 +18,84 @@ export function VariantSwitcher() {
   const pathname = usePathname()
 
   return (
-    <nav
-      aria-label="Design variants"
-      style={{
-        position: 'fixed',
-        bottom: 24,
-        left: '50%',
-        transform: 'translateX(-50%)',
-        zIndex: 9999,
-        display: 'flex',
-        gap: 4,
-        padding: 4,
-        background: 'rgba(0,0,0,0.85)',
-        backdropFilter: 'blur(12px)',
-        WebkitBackdropFilter: 'blur(12px)',
-        borderRadius: 40,
-        boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
-        fontFamily: 'var(--font-inter), system-ui, sans-serif',
-      }}
-    >
-      {variants.map((v) => {
-        const active = pathname === v.path || pathname === v.path.slice(0, -1)
-        return (
-          <Link
-            key={v.path}
-            href={v.path}
-            title={v.title}
-            style={{
-              padding: '8px 18px',
-              borderRadius: 36,
-              background: active ? '#fff' : 'transparent',
-              color: active ? '#000' : 'rgba(255,255,255,0.7)',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textDecoration: 'none',
-              letterSpacing: '0.03em',
-              transition: 'all 0.2s ease',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {v.label}
-          </Link>
-        )
-      })}
-    </nav>
+    <>
+      <nav
+        aria-label="Design variants"
+        className="variant-switcher"
+      >
+        {variants.map((v) => {
+          const active = pathname === v.path || pathname === v.path.slice(0, -1)
+          return (
+            <Link
+              key={v.path}
+              href={v.path}
+              title={v.title}
+              className={`variant-switcher-link ${active ? 'variant-switcher-active' : ''}`}
+            >
+              {v.label}
+            </Link>
+          )
+        })}
+      </nav>
+      <style>{`
+        .variant-switcher {
+          position: fixed;
+          bottom: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          display: flex;
+          gap: 4px;
+          padding: 4px;
+          background: rgba(0,0,0,0.85);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-radius: 40px;
+          box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+          font-family: var(--font-inter), system-ui, sans-serif;
+        }
+
+        .variant-switcher-link {
+          padding: 8px 18px;
+          border-radius: 36px;
+          background: transparent;
+          color: rgba(255,255,255,0.7);
+          font-size: 0.8rem;
+          font-weight: 700;
+          text-decoration: none;
+          letter-spacing: 0.03em;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+
+        .variant-switcher-link.variant-switcher-active {
+          background: #fff;
+          color: #000;
+        }
+
+        @media (max-width: 640px) {
+          .variant-switcher {
+            left: 12px;
+            right: 12px;
+            bottom: 16px;
+            transform: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            max-width: calc(100vw - 24px);
+          }
+
+          .variant-switcher::-webkit-scrollbar {
+            display: none;
+          }
+
+          .variant-switcher-link {
+            padding: 8px 14px;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+          }
+        }
+      `}</style>
+    </>
   )
 }
