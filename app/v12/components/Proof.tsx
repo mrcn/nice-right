@@ -184,8 +184,8 @@ export function Proof() {
 
             <div className="v12-about">
               <img
-                src="/images/me-low.jpg"
-                alt="Marcin Dabrowski"
+                src="/images/hero-abstract.svg"
+                alt="Nice Right"
                 className="v12-about-photo"
                 loading="lazy"
               />

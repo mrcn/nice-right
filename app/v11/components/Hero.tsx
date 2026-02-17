@@ -117,7 +117,7 @@ export function Hero() {
               </svg>
             </div>
             <div className="v11-hero-image">
-              <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+              <img src="/images/hero-abstract.svg" alt="Nice Right" />
             </div>
           </div>
         </div>

@@ -419,7 +419,7 @@ export function Proof() {
           {/* About */}
           <div className="v8-about-block v8-hidden v8-pop">
             <div className="v8-about-image">
-              <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+              <img src="/images/hero-abstract.svg" alt="Nice Right" />
             </div>
             <div className="v8-about-text">
               <p>

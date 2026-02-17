@@ -179,7 +179,7 @@ export function Hero() {
             </p>
           </div>
           <div ref={imageRef} className="v7-hero-image">
-            <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+            <img src="/images/hero-abstract.svg" alt="Nice Right" />
           </div>
         </div>
       </div>

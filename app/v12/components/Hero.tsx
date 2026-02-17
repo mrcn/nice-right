@@ -92,8 +92,8 @@ export function Hero() {
           </div>
           <div className="v12-hero-portrait">
             <img
-              src="/images/me-low.jpg"
-              alt="Marcin Dabrowski"
+              src="/images/hero-abstract.svg"
+              alt="Nice Right"
               loading="eager"
             />
           </div>

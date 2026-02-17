@@ -285,7 +285,7 @@ export function Hero() {
             </div>
 
             <div className="v8-hero-image v8-hidden">
-              <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+              <img src="/images/hero-abstract.svg" alt="Nice Right" />
             </div>
           </div>
         </div>

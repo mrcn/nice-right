@@ -450,7 +450,7 @@ export function Hero() {
           </div>
 
           <div className="v10-hero-portrait">
-            <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+            <img src="/images/hero-abstract.svg" alt="Nice Right" />
           </div>
         </div>
       </section>

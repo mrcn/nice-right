@@ -179,7 +179,7 @@ export function Proof() {
 
         {/* About */}
         <div className="v11-about-card">
-          <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+          <img src="/images/hero-abstract.svg" alt="Nice Right" />
           <div>
             <p className="v11-about-text">
               I&apos;m Marcin. 13 years building websites, 6 at a digital

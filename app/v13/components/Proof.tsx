@@ -208,8 +208,8 @@ export function Proof() {
         {/* About */}
         <div className="v13-about-card v13-glass-card">
           <img
-            src="/images/me-low.jpg"
-            alt="Marcin Dabrowski"
+            src="/images/hero-abstract.svg"
+            alt="Nice Right"
             className="v13-about-photo"
           />
           <div className="v13-about-text">

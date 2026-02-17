@@ -646,8 +646,8 @@ export function Proof() {
           {/* About */}
           <div className="v10-proof-about">
             <img
-              src="/images/me-low.jpg"
-              alt="Marcin Dabrowski"
+              src="/images/hero-abstract.svg"
+              alt="Nice Right"
               className="v10-proof-about-img"
               loading="lazy"
             />

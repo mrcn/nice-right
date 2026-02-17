@@ -256,7 +256,7 @@ export function Proof() {
         {/* About */}
         <div ref={aboutRef} className="v7-about-card">
           <div className="v7-about-image">
-            <img src="/images/me-low.jpg" alt="Marcin Dabrowski" />
+            <img src="/images/hero-abstract.svg" alt="Nice Right" />
           </div>
           <div className="v7-about-text">
             <p className="v7-about-bio">
