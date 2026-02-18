@@ -25,6 +25,48 @@
       "createdAt": "2026-02-12T00:30:02.719Z",
       "model": "sonnet",
       "modelRoutedBy": "explicit"
+    },
+    "agent-1771444058828-nq04zh": {
+      "agentId": "agent-1771444058828-nq04zh",
+      "agentType": "visual-engineering",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "sonnet",
+        "task": "Analyze current Nice Right v6 homepage at /Users/mkd/UXOXO/nice-right/app/page.tsx and /Users/mkd/UXOXO/nice-right/app/v2/page.css. Identify all visual problems making it look amateur/broken. Provide specific fixes for: 1) Remove version switcher (VariantSwitcher component), 2) Hide error badge, 3) Fix generic Bootstrap look, 4) Improve color palette (move away from teal), 5) Better typography, 6) More sophisticated spacing. Return exact CSS changes and which components to modify."
+      },
+      "createdAt": "2026-02-18T19:47:38.833Z",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771444060445-wxyjo6": {
+      "agentId": "agent-1771444060445-wxyjo6",
+      "agentType": "frontend-ui-ux",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "sonnet",
+        "task": "Audit Nice Right v6 for UX issues. Current page has: version switcher showing (should be hidden), 3 errors badge visible, calendar widget dark theme clashes with light page, Services cards misaligned borders, giant dark NR card looks placeholder. Fix: 1) Remove VariantSwitcher from page.tsx, 2) Fix error display, 3) Style calendar to match light theme, 4) Fix Services card alignment, 5) Redesign NR card or remove. Return file paths and exact code changes needed."
+      },
+      "createdAt": "2026-02-18T19:47:40.445Z",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771444062346-ugbg8n": {
+      "agentId": "agent-1771444062346-ugbg8n",
+      "agentType": "artistry",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "model": "opus",
+        "task": "Elevate Nice Right v6 from templated to bespoke professional agency. Current: Bootstrap teal buttons, dated italic tagline, basic fonts, generic spacing, looks like Carrd template. Transform to: sophisticated color palette (deep navy, warm neutrals, refined accent), premium typography (better font choices, proper hierarchy), intentional whitespace, subtle premium details (micro-interactions, refined borders). Think McKinsey-quality presentation meets boutique agency. Return design system changes: colors, typography, spacing rules, and visual effects."
+      },
+      "createdAt": "2026-02-18T19:47:42.347Z",
+      "model": "opus",
+      "modelRoutedBy": "explicit"
     }
   },
   "version": "3.0.0"

@@ -81,7 +81,9 @@
   font-family: inherit;
   font-size: 0.95rem;
   line-height: 1.5;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
   outline: none;
   resize: vertical;
 }
@@ -165,6 +167,39 @@
 .v2 .v2-testimonial-attribution span {
   font-size: 0.8rem;
   color: var(--v2-text-dim);
+}
+
+/* ===== CALENDAR EMBED ===== */
+.v2 .v2-cal-container {
+  max-width: 600px;
+  margin: 0 auto 32px;
+  min-height: 200px;
+}
+
+.v2 .v2-cal-skeleton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 16px;
+  color: var(--v2-text-dim);
+  font-size: 0.95rem;
+}
+
+.v2 .v2-cal-skeleton-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--v2-border);
+  border-top-color: var(--v2-accent);
+  border-radius: 50%;
+  animation: v2-spin 1s linear infinite;
+}
+
+@keyframes v2-spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ===== RESPONSIVE ===== */

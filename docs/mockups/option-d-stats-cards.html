@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option D: Stats-First Cards with Hover Reveals</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #0a0a0f;
+        color: #fafafa;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 100px 40px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .section-label {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: #6366f1;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      /* Service Section */
+      .service {
+        margin-bottom: 100px;
+      }
+
+      .service-header {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .service-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 6rem;
+        font-weight: 700;
+        color: #6366f1;
+        opacity: 0.3;
+        line-height: 1;
+      }
+
+      .service-title-group {
+        flex: 1;
+      }
+
+      .service-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .service-quote {
+        font-style: italic;
+        color: #9ca3af;
+        font-size: 1.125rem;
+      }
+
+      /* Stats Grid - THE BADASS CARDS */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .stat-card {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        border: 1px solid #2d2d44;
+        border-radius: 24px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+      }
+
+      .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1) 0%,
+          transparent 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .stat-card:hover::before {
+        opacity: 1;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #6366f1;
+        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+      }
+
+      /* Front of card (visible) */
+      .stat-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #fafafa;
+        margin-top: 8px;
+      }
+
+      .stat-sublabel {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 4px;
+      }
+
+      /* Hover reveal content */
+      .stat-reveal {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .stat-card:hover .stat-reveal {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-icon {
+        width: 48px;
+        height: 48px;
+        background: #6366f1;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+
+      .reveal-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 8px;
+      }
+
+      .reveal-desc {
+        font-size: 0.9rem;
+        color: #c7c7c7;
+        line-height: 1.5;
+      }
+
+      .reveal-cta {
+        margin-top: 16px;
+        font-size: 0.85rem;
+        color: #6366f1;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      @media (max-width: 1024px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .stat-card {
+          aspect-ratio: auto;
+          min-height: 200px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-header {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .service-number {
+          font-size: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What You Get</p>
+        <h2>Three ways I help<br />businesses grow</h2>
+      </div>
+
+      <!-- Service 1: Get Found -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">01</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Get Found & Get Customers</h3>
+            <p class="service-quote">
+              "I need a website that actually brings in business."
+            </p>
+          </div>
+        </div>
+
+            <div class="stats-grid">
+                <!-- Card 1 - REAL STAT -->
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">290%</div>
+                        <div class="stat-label">Traffic Growth</div>
+                        <div class="stat-sublabel">Home service company</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🌐</div>
+                        <div class="reveal-title">Conversion-Focused Websites</div>
+                        <div class="reveal-desc">Designed to turn visitors into paying customers, not just look pretty.</div>
+                        <div class="reveal-cta">See case study →</div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 - REAL STAT -->
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">12x</div>
+                        <div class="stat-label">More Leads</div>
+                        <div class="stat-sublabel">From the same site</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🔍</div>
+                        <div class="reveal-title">SEO That Works</div>
+                        <div class="reveal-desc">Technical optimization + content strategy to get you found first.</div>
+                        <div class="reveal-cta">See case study →</div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 - REAL STAT -->
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">80%</div>
+                        <div class="stat-label">Time Saved</div>
+                        <div class="stat-sublabel">Workflow automation</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">⚡</div>
+                        <div class="reveal-title">Workflow Automation</div>
+                        <div class="reveal-desc">Repetitive tasks on autopilot. You focus on the work only you can do.</div>
+                        <div class="reveal-cta">See case study →</div>
+                    </div>
+                </div>
+                
+                <!-- Card 4 - Northern Trust Case Study -->
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">500</div>
+                        <div class="stat-label">Fortune 500</div>
+                        <div class="stat-sublabel">Northern Trust web presence</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🏢</div>
+                        <div class="reveal-title">Enterprise Modernization</div>
+                        <div class="reveal-desc">Modernized Fortune 500 web presence with micro-interactions that boosted engagement.</div>
+                        <div class="reveal-cta">View case study →</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">🌐</div>
+              <div class="reveal-title">Conversion-Focused Websites</div>
+              <div class="reveal-desc">
+                Designed to turn visitors into paying customers, not just look
+                pretty.
+              </div>
+              <div class="reveal-cta">See example →</div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">#1</div>
+              <div class="stat-label">Google Ranking</div>
+              <div class="stat-sublabel">"Cleveland plumber"</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">🔍</div>
+              <div class="reveal-title">SEO That Works</div>
+              <div class="reveal-desc">
+                Technical optimization + content strategy to get you found
+                first.
+              </div>
+              <div class="reveal-cta">See rankings →</div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">12x</div>
+              <div class="stat-label">More Leads</div>
+              <div class="stat-sublabel">PPC Landing Page</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">📄</div>
+              <div class="reveal-title">Landing Pages That Convert</div>
+              <div class="reveal-desc">
+                Built for campaigns. Every element tested for maximum
+                conversion.
+              </div>
+              <div class="reveal-cta">See results →</div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">85%</div>
+              <div class="stat-label">More Reviews</div>
+              <div class="stat-sublabel">Google Business Setup</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">📍</div>
+              <div class="reveal-title">Local Search Domination</div>
+              <div class="reveal-desc">
+                Google Business optimization + local SEO for neighborhood
+                visibility.
+              </div>
+              <div class="reveal-cta">See local pack →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2: Save Time -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">02</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Save Time & Cut Costs</h3>
+            <p class="service-quote">
+              "I spend too much time on things a computer should handle."
+            </p>
+          </div>
+        </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">-40%</div>
+                        <div class="stat-label">Deal-Close Time</div>
+                        <div class="stat-sublabel">Healthcare Platform</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">⚡</div>
+                        <div class="reveal-title">Custom Apps & Dashboards</div>
+                        <div class="reveal-desc">Custom portal connecting providers with property opportunities.</div>
+                        <div class="reveal-cta">View case study →</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">40%</div>
+                        <div class="stat-label">Time Saved</div>
+                        <div class="stat-sublabel">Workflow Automation</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🤖</div>
+                        <div class="reveal-title">Workflow Automation</div>
+                        <div class="reveal-desc">Repetitive tasks on autopilot. You focus on the work only you can do.</div>
+                        <div class="reveal-cta">View case study →</div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">500</div>
+                        <div class="stat-label">Fortune 500</div>
+                        <div class="stat-sublabel">Northern Trust</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🏢</div>
+                        <div class="reveal-title">Enterprise Modernization</div>
+                        <div class="reveal-desc">Modernized Fortune 500 web presence with micro-interactions.</div>
+                        <div class="reveal-cta">View case study →</div>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Verified Impact</div>
+                        <div class="stat-sublabel">GreenPill Dev Guild</div>
+                    </div>
+                    <div class="stat-reveal">
+                        <div class="reveal-icon">🌱</div>
+                        <div class="reveal-title">Blockchain PWA</div>
+                        <div class="reveal-desc">Verified impact platform for conservation with on-chain attestations.</div>
+                        <div class="reveal-cta">View case study →</div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">⚡</div>
+              <div class="reveal-title">Custom Apps & Dashboards</div>
+              <div class="reveal-desc">
+                Built for your team. No more juggling spreadsheets.
+              </div>
+              <div class="reveal-cta">See dashboard →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">60%</div>
+              <div class="stat-label">Fewer Support Tickets</div>
+              <div class="stat-sublabel">Self-Service Portal</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">🚪</div>
+              <div class="reveal-title">Customer Portals</div>
+              <div class="reveal-desc">
+                Let customers help themselves. Password-protected, branded to
+                you.
+              </div>
+              <div class="reveal-cta">See portal →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">15hrs</div>
+              <div class="stat-label">Saved/Week</div>
+              <div class="stat-sublabel">Workflow Automation</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">🤖</div>
+              <div class="reveal-title">Workflow Automation</div>
+              <div class="reveal-desc">
+                Repetitive tasks on autopilot. You focus on the work only you
+                can do.
+              </div>
+              <div class="reveal-cta">See workflows →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">4.8★</div>
+              <div class="stat-label">Team Adoption</div>
+              <div class="stat-sublabel">Internal Tools</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">🛠️</div>
+              <div class="reveal-title">Internal Tools</div>
+              <div class="reveal-desc">
+                Your team will actually use these. Designed around their
+                workflow.
+              </div>
+              <div class="reveal-cta">See tools →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3: Keep Customers -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">03</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Keep Customers Coming Back</h3>
+            <p class="service-quote">
+              "I win customers but they don't stick around."
+            </p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">+28%</div>
+              <div class="stat-label">Repeat Business</div>
+              <div class="stat-sublabel">Loyalty Program</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">💎</div>
+              <div class="reveal-title">Loyalty Programs</div>
+              <div class="reveal-desc">
+                Turn one-time buyers into regulars. Points, rewards, VIP tiers.
+              </div>
+              <div class="reveal-cta">See program →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">45%</div>
+              <div class="stat-label">Open Rate</div>
+              <div class="stat-sublabel">Email Sequences</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">📧</div>
+              <div class="reveal-title">Email Sequences</div>
+              <div class="reveal-desc">
+                Stay top of mind. Automated nurture campaigns that feel
+                personal.
+              </div>
+              <div class="reveal-cta">See campaigns →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">4.2x</div>
+              <div class="stat-label">More Feedback</div>
+              <div class="stat-sublabel">Feedback System</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">💬</div>
+              <div class="reveal-title">Feedback Systems</div>
+              <div class="reveal-desc">
+                Learn what customers really think. Surveys, reviews, NPS
+                tracking.
+              </div>
+              <div class="reveal-cta">See system →</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div>
+              <div class="stat-number">3yr</div>
+              <div class="stat-label">Avg. Retention</div>
+              <div class="stat-sublabel">Analytics & Insights</div>
+            </div>
+            <div class="stat-reveal">
+              <div class="reveal-icon">📊</div>
+              <div class="reveal-title">Retention Analytics</div>
+              <div class="reveal-desc">
+                Know your numbers. Churn rate, LTV, cohort analysis.
+              </div>
+              <div class="reveal-cta">See dashboard →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

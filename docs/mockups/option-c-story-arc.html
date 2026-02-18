@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option C: Story Arc</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background: #faf9f7;
+        color: #1c1917;
+        line-height: 1.6;
+      }
+
+      /* Full viewport sections */
+      .story-section {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 80px 40px;
+        position: relative;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      /* Section 1: You Share */
+      .share-section {
+        background: #faf9f7;
+      }
+
+      .share-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .step-label {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #78716c;
+        margin-bottom: 24px;
+      }
+
+      h2 {
+        font-family: 'Crimson Pro', serif;
+        font-size: clamp(3rem, 6vw, 5rem);
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 32px;
+        color: #1c1917;
+      }
+
+      .lead-text {
+        font-size: 1.25rem;
+        color: #57534e;
+        max-width: 500px;
+        margin-bottom: 32px;
+      }
+
+      .visual-placeholder {
+        background: linear-gradient(135deg, #e7e5e4 0%, #d6d3d1 100%);
+        border-radius: 24px;
+        height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: #78716c;
+      }
+
+      /* Section 2: Services (cream background) */
+      .services-section {
+        background: #f5f3ef;
+      }
+
+      .services-header {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .service-story {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-bottom: 80px;
+        align-items: center;
+      }
+
+      .service-story:nth-child(even) {
+        direction: rtl;
+      }
+
+      .service-story:nth-child(even) > * {
+        direction: ltr;
+      }
+
+      .service-number {
+        font-family: 'Crimson Pro', serif;
+        font-size: 8rem;
+        font-weight: 700;
+        color: #d6d3d1;
+        line-height: 1;
+        margin-bottom: -40px;
+      }
+
+      .service-title {
+        font-family: 'Crimson Pro', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .service-quote {
+        font-style: italic;
+        font-size: 1.25rem;
+        color: #78716c;
+        margin-bottom: 32px;
+        padding-left: 24px;
+        border-left: 4px solid #65a30d;
+      }
+
+      .feature-list {
+        list-style: none;
+      }
+
+      .feature-list li {
+        padding: 12px 0;
+        padding-left: 32px;
+        position: relative;
+        font-size: 1.125rem;
+      }
+
+      .feature-list li::before {
+        content: '→';
+        position: absolute;
+        left: 0;
+        color: #65a30d;
+        font-weight: 700;
+      }
+
+      /* Section 3: You Grow */
+      .grow-section {
+        background: #1c1917;
+        color: #fafaf9;
+      }
+
+      .grow-section h2 {
+        color: #fafaf9;
+      }
+
+      .grow-section .lead-text {
+        color: #a8a29e;
+      }
+
+      .outcomes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .outcome {
+        text-align: center;
+      }
+
+      .outcome-number {
+        font-family: 'Crimson Pro', serif;
+        font-size: 4rem;
+        font-weight: 700;
+        color: #65a30d;
+        line-height: 1;
+      }
+
+      .outcome-label {
+        font-size: 1.125rem;
+        color: #d6d3d1;
+        margin-top: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .share-content,
+        .service-story {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .service-story:nth-child(even) {
+          direction: ltr;
+        }
+
+        .visual-placeholder {
+          height: 300px;
+        }
+
+        .outcomes {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Story Chapter 1: You Share -->
+    <section class="story-section share-section">
+      <div class="container">
+        <div class="share-content">
+          <div>
+            <p class="step-label">How It Works — Step 1</p>
+            <h2>You Share</h2>
+            <p class="lead-text">
+              Free 30-minute call. Tell me about your business and where you
+              feel stuck. I'll give you an honest take—even if the answer is
+              "you already have what you need."
+            </p>
+            <a
+              href="#services"
+              style="
+                display: inline-block;
+                padding: 16px 32px;
+                background: #1c1917;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+              "
+              >See what we can build →</a
+            >
+          </div>
+          <div class="visual-placeholder">
+            [Illustration: Conversation/Consultation]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Chapter 2: The Build (Services) -->
+    <section class="story-section services-section" id="services">
+      <div class="container">
+        <div class="services-header">
+          <p class="step-label">Then We Build One Of Three Things</p>
+          <h2 style="font-size: clamp(2rem, 4vw, 3.5rem)">
+            Depending on what you need most
+          </h2>
+        </div>
+
+        <!-- Service 1 -->
+        <div class="service-story">
+          <div class="visual-placeholder" style="height: 400px">
+            [Illustration: Discovery/Search]
+          </div>
+          <div>
+            <div class="service-number">01</div>
+            <h3 class="service-title">Get Found & Get Customers</h3>
+            <p class="service-quote">
+              "I need a website that actually brings in business."
+            </p>
+            <ul class="feature-list">
+              <li>Websites that turn visitors into paying customers</li>
+              <li>SEO so the right people find you first</li>
+              <li>Landing pages for campaigns & ads</li>
+              <li>Google Business & local search setup</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-story">
+          <div class="visual-placeholder" style="height: 400px">
+            [Illustration: Automation/Tools]
+          </div>
+          <div>
+            <div class="service-number">02</div>
+            <h3 class="service-title">Save Time & Cut Costs</h3>
+            <p class="service-quote">
+              "I spend too much time on things a computer should handle."
+            </p>
+            <ul class="feature-list">
+              <li>Custom apps & dashboards for your team</li>
+              <li>Customer self-service portals</li>
+              <li>Workflow automation that frees up your day</li>
+              <li>Internal tools your team will actually use</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-story">
+          <div class="visual-placeholder" style="height: 400px">
+            [Illustration: Retention/Loyalty]
+          </div>
+          <div>
+            <div class="service-number">03</div>
+            <h3 class="service-title">Keep Customers Coming Back</h3>
+            <p class="service-quote">
+              "I win customers but they don't stick around."
+            </p>
+            <ul class="feature-list">
+              <li>Loyalty programs</li>
+              <li>Email sequences that keep you top of mind</li>
+              <li>Customer feedback systems</li>
+              <li>Retention analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story Chapter 3: You Grow -->
+    <section class="story-section grow-section">
+      <div class="container">
+        <div class="share-content">
+          <div>
+            <p class="step-label" style="color: #78716c">
+              How It Works — Step 3
+            </p>
+            <h2>You Grow</h2>
+            <p class="lead-text">
+              Your phone rings more. Your calendar fills up. And I stick around
+              to help you keep improving.
+            </p>
+            <a
+              href="#contact"
+              style="
+                display: inline-block;
+                padding: 16px 32px;
+                background: #65a30d;
+                color: white;
+                text-decoration: none;
+                border-radius: 8px;
+                font-weight: 600;
+              "
+              >Book a Free Call →</a
+            >
+          </div>
+          <div>
+            <div class="outcomes">
+              <div class="outcome">
+                <div class="outcome-number">📞</div>
+                <div class="outcome-label">More calls</div>
+              </div>
+              <div class="outcome">
+                <div class="outcome-number">📅</div>
+                <div class="outcome-label">Full calendar</div>
+              </div>
+              <div class="outcome">
+                <div class="outcome-number">📈</div>
+                <div class="outcome-label">Keep growing</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

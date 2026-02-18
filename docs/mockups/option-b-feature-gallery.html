@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Option B: Feature Gallery</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: #0a0a0f;
+        color: #fafafa;
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 100px 40px;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 100px;
+      }
+
+      .section-label {
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        color: #6366f1;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+
+      /* Service Section - Dark Mode Gallery */
+      .service {
+        margin-bottom: 120px;
+      }
+
+      .service-header {
+        display: flex;
+        align-items: baseline;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .service-number {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 6rem;
+        font-weight: 700;
+        color: #6366f1;
+        opacity: 0.3;
+        line-height: 1;
+      }
+
+      .service-title-group {
+        flex: 1;
+      }
+
+      .service-title {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(1.75rem, 3vw, 2.5rem);
+        font-weight: 700;
+        margin-bottom: 12px;
+      }
+
+      .service-quote {
+        font-style: italic;
+        color: #9ca3af;
+        font-size: 1.125rem;
+      }
+
+      /* Feature Tiles Grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .feature-tile {
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        border: 1px solid #2d2d44;
+        border-radius: 24px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        cursor: pointer;
+      }
+
+      .feature-tile:hover {
+        transform: translateY(-8px) scale(1.02);
+        border-color: #6366f1;
+        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+      }
+
+      .feature-icon {
+        width: 64px;
+        height: 64px;
+        background: #6366f1;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.75rem;
+      }
+
+      .feature-label {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #fafafa;
+      }
+
+      @media (max-width: 1024px) {
+        .feature-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .feature-tile {
+          aspect-ratio: auto;
+          min-height: 200px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .service-header {
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .service-number {
+          font-size: 4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">What You Get</p>
+        <h2>Three ways I help<br />businesses grow</h2>
+      </div>
+
+      <!-- Service 1 -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">01</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Get Found & Get Customers</h3>
+            <p class="service-quote">
+              "I need a website that actually brings in business."
+            </p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-tile">
+            <div class="feature-icon">🌐</div>
+            <div class="feature-label">Websites that convert visitors</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">🔍</div>
+            <div class="feature-label">SEO optimization</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">📄</div>
+            <div class="feature-label">Landing pages for campaigns</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">📍</div>
+            <div class="feature-label">Google Business setup</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">02</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Save Time & Cut Costs</h3>
+            <p class="service-quote">
+              "I spend too much time on things a computer should handle."
+            </p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-tile">
+            <div class="feature-icon">⚡</div>
+            <div class="feature-label">Custom apps & dashboards</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">🚪</div>
+            <div class="feature-label">Self-service portals</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">🤖</div>
+            <div class="feature-label">Workflow automation</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">🛠️</div>
+            <div class="feature-label">Internal tools</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service">
+        <div class="service-header">
+          <div class="service-number">03</div>
+          <div class="service-title-group">
+            <h3 class="service-title">Keep Customers Coming Back</h3>
+            <p class="service-quote">
+              "I win customers but they don't stick around."
+            </p>
+          </div>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-tile">
+            <div class="feature-icon">💎</div>
+            <div class="feature-label">Loyalty programs</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">📧</div>
+            <div class="feature-label">Email sequences</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">💬</div>
+            <div class="feature-label">Feedback systems</div>
+          </div>
+          <div class="feature-tile">
+            <div class="feature-icon">📊</div>
+            <div class="feature-label">Retention analytics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

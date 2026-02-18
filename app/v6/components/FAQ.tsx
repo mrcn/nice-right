@@ -1,4 +1,4 @@
-import { CascadeGrid } from './CascadeGrid'
+import { CascadeGrid } from './CascadeGrid';
 
 export function FAQ() {
   return (
@@ -9,43 +9,51 @@ export function FAQ() {
           <h2>Before you book</h2>
         </div>
         <CascadeGrid className="v2-faq-grid v2-faq-flat">
-          <div className="v2-faq-item">
-            <p className="v2-faq-q">&ldquo;What if I&apos;m not sure what I need?&rdquo;</p>
+          <details className="v2-faq-item">
+            <summary className="v2-faq-q">
+              What if I'm not sure what I need?
+            </summary>
             <p className="v2-faq-a">
               That&apos;s the most common starting point &mdash; and exactly
               what the free call is for. I&apos;ll look at where your business
               is today and tell you plainly what would move the needle.
-              Sometimes it&apos;s a new site. Sometimes it&apos;s three
-              changes to the one you have.
+              Sometimes it&apos;s a new site. Sometimes it&apos;s three changes
+              to the one you have.
             </p>
-          </div>
-          <div className="v2-faq-item">
-            <p className="v2-faq-q">&ldquo;How long until I see results?&rdquo;</p>
+          </details>
+          <details className="v2-faq-item">
+            <summary className="v2-faq-q">
+              How long until I see results?
+            </summary>
             <p className="v2-faq-a">
-              Most projects go live within 4&ndash;8 weeks. Quick wins like
-              SEO fixes or conversion tweaks often show results within days.
-              Bigger outcomes build over your first 2&ndash;3 months.
+              Most projects go live within 4&ndash;8 weeks. Quick wins like SEO
+              fixes or conversion tweaks often show results within days. Bigger
+              outcomes build over your first 2&ndash;3 months.
             </p>
-          </div>
-          <div className="v2-faq-item">
-            <p className="v2-faq-q">&ldquo;Do I own everything you build?&rdquo;</p>
+          </details>
+          <details className="v2-faq-item">
+            <summary className="v2-faq-q">
+              Do I own everything you build?
+            </summary>
             <p className="v2-faq-a">
               Yes. Your domain, your code, your content. Always. No retainers,
               no lock-in contracts. Payment plans available, designed around
               your cash flow.
             </p>
-          </div>
-          <div className="v2-faq-item">
-            <p className="v2-faq-q">&ldquo;What does it cost?&rdquo;</p>
+          </details>
+          <details className="v2-faq-item">
+            <summary className="v2-faq-q">What does it cost?</summary>
             <p className="v2-faq-a">
               Most projects range from $3,000 to $15,000 depending on scope.
-              I&apos;ll give you an exact quote on our call &mdash; no surprises.
-              Payment plans available for every budget.
+              I&apos;ll give you an exact quote on our call &mdash; no
+              surprises. Payment plans available for every budget.
             </p>
-          </div>
+          </details>
         </CascadeGrid>
         <div className="v2-section-cta v2-reveal">
-          <a href="#contact" className="v2-btn">Book a Free Call</a>
+          <a href="#contact" className="v2-btn">
+            Book a Free Call
+          </a>
           <p className="v2-section-cta-micro">30 minutes, no commitment</p>
         </div>
       </div>
@@ -62,5 +70,5 @@ export function FAQ() {
         }
       `}</style>
     </section>
-  )
+  );
 }

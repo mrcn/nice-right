@@ -1,28 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none">
   <defs>
     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0B8A6E"/>
-      <stop offset="100%" stop-color="#06D6A0"/>
+      <stop offset="0%" stop-color="#D4A574"/>
+      <stop offset="100%" stop-color="#B8875A"/>
     </linearGradient>
     <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#FF4D00"/>
-      <stop offset="100%" stop-color="#FFB800"/>
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
     </linearGradient>
     <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0%" stop-color="#0B8A6E" stop-opacity="0.15"/>
-      <stop offset="100%" stop-color="#06D6A0" stop-opacity="0.05"/>
+      <stop offset="0%" stop-color="#D4A574" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#D4A574" stop-opacity="0.03"/>
     </linearGradient>
     <clipPath id="roundClip">
-      <rect x="0" y="0" width="800" height="1000" rx="12"/>
+      <rect x="0" y="0" width="800" height="1000" rx="6"/>
     </clipPath>
   </defs>
 
   <g clip-path="url(#roundClip)">
-    <!-- Background -->
-    <rect width="800" height="1000" fill="#0C1117"/>
+    <rect width="800" height="1000" fill="#0F172A"/>
 
-    <!-- Subtle grid -->
-    <g stroke="#ffffff" stroke-opacity="0.03" stroke-width="1">
+    <g stroke="#ffffff" stroke-opacity="0.04" stroke-width="1">
       <line x1="0" y1="200" x2="800" y2="200"/>
       <line x1="0" y1="400" x2="800" y2="400"/>
       <line x1="0" y1="600" x2="800" y2="600"/>
@@ -32,17 +30,14 @@
       <line x1="600" y1="0" x2="600" y2="1000"/>
     </g>
 
-    <!-- Large abstract shape - overlapping circles -->
-    <circle cx="320" cy="420" r="220" fill="url(#g1)" opacity="0.12"/>
-    <circle cx="500" cy="520" r="180" fill="url(#g2)" opacity="0.1"/>
-    <circle cx="420" cy="350" r="140" stroke="url(#g1)" stroke-width="1.5" opacity="0.25"/>
+    <circle cx="320" cy="420" r="220" fill="url(#g1)" opacity="0.15"/>
+    <circle cx="500" cy="520" r="180" fill="url(#g2)" opacity="0.3"/>
+    <circle cx="420" cy="350" r="140" stroke="url(#g1)" stroke-width="1.5" opacity="0.35"/>
 
-    <!-- Geometric angular forms -->
-    <polygon points="200,180 440,180 320,380" stroke="url(#g1)" stroke-width="1.5" fill="none" opacity="0.2"/>
-    <polygon points="380,450 620,450 500,650" stroke="url(#g2)" stroke-width="1" fill="none" opacity="0.15"/>
+    <polygon points="200,180 440,180 320,380" stroke="url(#g1)" stroke-width="1.5" fill="none" opacity="0.3"/>
+    <polygon points="380,450 620,450 500,650" stroke="url(#g2)" stroke-width="1" fill="none" opacity="0.25"/>
 
-    <!-- Floating dots pattern -->
-    <g fill="#0B8A6E" opacity="0.35">
+    <g fill="#D4A574" opacity="0.4">
       <circle cx="150" cy="300" r="3"/>
       <circle cx="180" cy="280" r="2"/>
       <circle cx="210" cy="310" r="2.5"/>
@@ -53,34 +48,27 @@
       <circle cx="700" cy="300" r="2"/>
     </g>
 
-    <!-- Connection lines -->
-    <g stroke="url(#g1)" stroke-width="1" opacity="0.15">
+    <g stroke="url(#g1)" stroke-width="1" opacity="0.2">
       <line x1="150" y1="300" x2="320" y2="420"/>
       <line x1="500" y1="520" x2="650" y2="680"/>
       <line x1="320" y1="420" x2="500" y2="520"/>
     </g>
 
-    <!-- Central monogram / abstract mark -->
-    <g transform="translate(300, 370)" opacity="0.9">
-      <!-- N shape -->
+    <g transform="translate(300, 370)" opacity="0.95">
       <path d="M0,120 L0,0 L60,120 L60,0" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <!-- R shape -->
-      <path d="M90,120 L90,0 L130,0 Q155,0 155,30 Q155,60 130,60 L90,60 L155,120" stroke="url(#g2)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M90,120 L90,0 L130,0 Q155,0 155,30 Q155,60 130,60 L90,60 L155,120" stroke="url(#g1)" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
 
-    <!-- Accent horizontal line -->
-    <rect x="100" y="550" width="240" height="2" rx="1" fill="url(#g1)" opacity="0.3"/>
-    <rect x="460" y="550" width="240" height="2" rx="1" fill="url(#g2)" opacity="0.2"/>
+    <rect x="100" y="550" width="240" height="2" rx="1" fill="url(#g1)" opacity="0.4"/>
+    <rect x="460" y="550" width="240" height="2" rx="1" fill="url(#g2)" opacity="0.3"/>
 
-    <!-- Decorative corner brackets -->
-    <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1.5">
+    <g stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5">
       <path d="M40,40 L40,80 M40,40 L80,40"/>
       <path d="M760,40 L760,80 M760,40 L720,40"/>
       <path d="M40,960 L40,920 M40,960 L80,960"/>
       <path d="M760,960 L760,920 M760,960 L720,960"/>
     </g>
 
-    <!-- Soft radial glow behind monogram -->
     <circle cx="400" cy="430" r="200" fill="url(#g3)"/>
   </g>
 </svg>
