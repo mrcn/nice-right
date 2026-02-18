@@ -5,23 +5,24 @@
 
 /* --- CSS Variables --- */
 .v8 {
-  --v8-bg: #F5F5F0;
-  --v8-bg-alt: #EDEDEA;
-  --v8-text: #0A0A0A;
+  --v8-bg: #fafaf8;
+  --v8-bg-alt: #ededea;
+  --v8-text: #1f2937;
   --v8-text-muted: #555;
-  --v8-blue: #0000FF;
-  --v8-red: #FF0000;
-  --v8-border: #0A0A0A;
-  --v8-border-thin: 1px solid #0A0A0A;
-  --v8-border-thick: 3px solid #0A0A0A;
-  --v8-radius: 0px;
+  --v8-blue: #1e3a8a;
+  --v8-red: #d4a574;
+  --v8-border: #1f2937;
+  --v8-border-thin: 1px solid #e5e7eb;
+  --v8-border-thick: 2px solid #1f2937;
+  --v8-radius: 12px;
+  --v8-transition: all 0.2s ease-out;
 
   --v8-font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
   --v8-font-heading: var(--font-inter), 'Inter', system-ui, sans-serif;
   --v8-font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
-  --v8-font-serif: var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+  --v8-font-serif:
+    var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
 }
-
 
 /* === BASE === */
 .v8 {
@@ -29,7 +30,7 @@
   color: var(--v8-text);
   font-family: var(--v8-font-body);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -39,12 +40,11 @@
 .v8 *::before,
 .v8 *::after {
   box-sizing: border-box;
-  border-radius: var(--v8-radius) !important;
+  border-radius: var(--v8-radius);
 }
 
-/* Kill smooth scroll — brutalist is INSTANT */
 .v8 {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth;
 }
 
 .v8 h1,
@@ -54,10 +54,10 @@
 .v8 h5,
 .v8 h6 {
   font-family: var(--v8-font-heading);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  line-height: 0.9;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
   margin: 0;
 }
 
@@ -71,14 +71,12 @@
   display: block;
 }
 
-
 /* === CONTAINER === */
 .v8-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 32px;
 }
-
 
 /* === SECTION LABEL === */
 .v8-section-label {
@@ -90,7 +88,6 @@
   color: var(--v8-text-muted);
   margin-bottom: 16px;
 }
-
 
 /* === BUTTONS === */
 .v8-btn {
@@ -117,8 +114,11 @@
 .v8-btn-nav {
   padding: 10px 24px;
   font-size: 0.75rem;
+  background: #1e3a8a;
+  border-radius: 8px;
+  text-transform: none;
+  font-weight: 600;
 }
-
 
 /* ============================================================
    NAV
@@ -146,10 +146,10 @@
 
 .v8-logo {
   font-family: var(--v8-font-heading);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.3rem;
   color: #fff;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: 0.05em;
 }
 
@@ -164,9 +164,10 @@
   font-weight: 500;
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  text-transform: none;
+  letter-spacing: 0.01em;
   text-decoration: none;
+  transition: color 0.2s ease-out;
 }
 
 .v8-nav-links a:hover {
@@ -183,7 +184,6 @@
   cursor: pointer;
   padding: 4px;
 }
-
 
 /* ============================================================
    HERO
@@ -286,7 +286,6 @@
   transform-origin: bottom right;
 }
 
-
 /* ============================================================
    HOW IT WORKS
    ============================================================ */
@@ -346,7 +345,6 @@
   margin-top: 64px;
   text-align: left;
 }
-
 
 /* ============================================================
    SERVICES
@@ -420,7 +418,6 @@
   margin-top: 64px;
   text-align: left;
 }
-
 
 /* ============================================================
    PROOF / RESULTS
@@ -584,7 +581,6 @@
   text-align: left;
 }
 
-
 /* ============================================================
    TESTIMONIALS
    ============================================================ */
@@ -620,7 +616,7 @@
   border-right: none;
 }
 
-.v8-testimonial-card:nth-last-child(-n+2) {
+.v8-testimonial-card:nth-last-child(-n + 2) {
   border-bottom: var(--v8-border-thick);
 }
 
@@ -708,7 +704,6 @@
   display: inline-block;
 }
 
-
 /* ============================================================
    FAQ
    ============================================================ */
@@ -769,7 +764,6 @@
   letter-spacing: 0.1em;
   margin-top: 12px;
 }
-
 
 /* ============================================================
    CONTACT
@@ -835,7 +829,9 @@
 }
 
 @keyframes v8-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .v8-contact-alt-text {
@@ -891,7 +887,6 @@
   color: var(--v8-blue);
 }
 
-
 /* ============================================================
    FOOTER
    ============================================================ */
@@ -911,7 +906,6 @@
   text-align: left;
 }
 
-
 /* ============================================================
    SECTION DIVIDER — Visible structure markers
    ============================================================ */
@@ -926,12 +920,10 @@
   background: var(--v8-bg-alt);
 }
 
-
 /* ============================================================
    RESPONSIVE — MOBILE (max-width: 768px)
    ============================================================ */
 @media (max-width: 768px) {
-
   .v8-container {
     padding: 0 20px;
   }
@@ -947,9 +939,9 @@
     top: 64px;
     left: 0;
     right: 0;
-    background: var(--v8-text);
-    border-bottom: var(--v8-border-thick);
-    border-bottom-color: var(--v8-blue);
+    background: #1f2937;
+    border: 2px solid #1f2937;
+    border-radius: 12px;
     flex-direction: column;
     padding: 24px 32px;
     gap: 20px;
@@ -1096,12 +1088,10 @@
   }
 }
 
-
 /* ============================================================
    TABLET BREAKPOINT (max-width: 1024px, min-width: 769px)
    ============================================================ */
 @media (max-width: 1024px) and (min-width: 769px) {
-
   .v8-hero-grid {
     grid-template-columns: 1fr 280px;
   }
@@ -1115,7 +1105,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
 
 /* ============================================================
    BRUTALIST DECORATIVE DETAILS
@@ -1229,7 +1218,6 @@
   border-bottom: 1px solid rgba(245, 245, 240, 0.15);
 }
 
-
 /* ============================================================
    SELECTION & SCROLLBAR — Brutalist overrides
    ============================================================ */
@@ -1250,7 +1238,6 @@
   background: var(--v8-text);
   border: 2px solid var(--v8-bg);
 }
-
 
 /* ============================================================
    GSAP VISIBILITY — Elements hidden before reveal

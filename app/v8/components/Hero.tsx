@@ -1,49 +1,49 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
+    const el = sectionRef.current;
+    if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       el.querySelectorAll('.v8-hidden').forEach((node) => {
-        ;(node as HTMLElement).style.opacity = '1'
-      })
-      return
+        (node as HTMLElement).style.opacity = '1';
+      });
+      return;
     }
 
     const ctx = gsap.context(() => {
       // Everything starts hidden
-      gsap.set('.v8-hidden', { opacity: 0 })
+      gsap.set('.v8-hidden', { opacity: 0 });
 
       // Hero elements: instant reveal on load
-      gsap.set('.v8-hero-h1', { opacity: 1, delay: 0.01 })
-      gsap.set('.v8-hero-sub', { opacity: 1, delay: 0.02 })
-      gsap.set('.v8-hero-image', { opacity: 1, delay: 0.03 })
+      gsap.set('.v8-hero-h1', { opacity: 1, delay: 0.01 });
+      gsap.set('.v8-hero-sub', { opacity: 1, delay: 0.02 });
+      gsap.set('.v8-hero-image', { opacity: 1, delay: 0.03 });
 
       // Trust line, CTA, micro: ScrollTrigger instant pop
-      const popEls = el.querySelectorAll('.v8-pop')
+      const popEls = el.querySelectorAll('.v8-pop');
       popEls.forEach((node, i) => {
         ScrollTrigger.create({
           trigger: node,
           start: 'top 90%',
           once: true,
           onEnter: () => {
-            gsap.set(node, { opacity: 1, delay: 0.01 * i })
+            gsap.set(node, { opacity: 1, delay: 0.01 * i });
           },
-        })
-      })
-    }, el)
+        });
+      });
+    }, el);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -81,11 +81,11 @@ export function Hero() {
 
         .v8-hero-h1 {
           font-family: 'Inter', sans-serif;
-          font-weight: 800;
+          font-weight: 700;
           font-size: clamp(5rem, 14vw, 14rem);
-          line-height: 0.85;
+          line-height: 1.1;
           color: #0A0A0A;
-          text-transform: uppercase;
+          text-transform: none;
           letter-spacing: -0.03em;
           margin: 0;
           margin-left: -2vw;
@@ -133,7 +133,7 @@ export function Hero() {
         .v8-trust-sep {
           width: 8px;
           height: 8px;
-          background: #FF0000;
+          background: #D4A574;
           display: inline-block;
           margin: 0 16px;
           border-radius: 0;
@@ -145,24 +145,24 @@ export function Hero() {
 
         .v8-hero-cta {
           display: inline-block;
-          background: #0000FF;
-          color: #FFFFFF;
+          background: transparent;
+          color: #1F2937;
           font-family: 'Inter', sans-serif;
-          font-weight: 800;
-          font-size: 1rem;
-          text-transform: uppercase;
-          letter-spacing: 0.1em;
-          padding: 20px 48px;
-          border: 3px solid #0A0A0A;
-          border-radius: 0;
+          font-weight: 600;
+          font-size: 1.1rem;
+          text-transform: none;
+          letter-spacing: 0;
+          padding: 18px 40px;
+          border: 2px solid #1F2937;
+          border-radius: 12px;
           text-decoration: none;
           cursor: pointer;
-          transition: none;
+          transition: all 0.2s ease-out;
         }
 
         .v8-hero-cta:hover {
-          background: #0A0A0A;
-          color: #F5F5F0;
+          background: #1F2937;
+          color: #FFFFFF;
         }
 
         .v8-hero-micro {
@@ -261,12 +261,14 @@ export function Hero() {
 
               <p className="v8-hero-sub v8-hidden">
                 Your customers are looking for you right now. I help small
-                businesses get found, win more customers, and keep them
-                coming back.
+                businesses get found, win more customers, and keep them coming
+                back.
               </p>
 
               <div className="v8-trust-line v8-hidden v8-pop">
-                <span className="v8-trust-item">CHICAGO&apos;S NORTHWEST SIDE</span>
+                <span className="v8-trust-item">
+                  CHICAGO&apos;S NORTHWEST SIDE
+                </span>
                 <span className="v8-trust-sep" />
                 <span className="v8-trust-item">100+ PROJECTS</span>
                 <span className="v8-trust-sep" />
@@ -280,7 +282,8 @@ export function Hero() {
               </div>
 
               <p className="v8-hero-micro v8-hidden v8-pop">
-                30 minutes. An honest look at what&apos;s possible for your business.
+                30 minutes. An honest look at what&apos;s possible for your
+                business.
               </p>
             </div>
 
@@ -291,5 +294,5 @@ export function Hero() {
         </div>
       </section>
     </>
-  )
+  );
 }

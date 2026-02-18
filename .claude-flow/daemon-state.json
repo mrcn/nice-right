@@ -1,46 +1,46 @@
 {
   "running": true,
-  "startedAt": "2026-02-11T18:03:25.019Z",
+  "startedAt": "2026-02-16T23:12:09.946Z",
   "workers": {
     "map": {
       "runCount": 0,
       "successCount": 0,
       "failureCount": 0,
       "averageDurationMs": 0,
-      "isRunning": false,
-      "nextRun": "2026-02-11T18:03:25.019Z"
+      "nextRun": "2026-02-16T23:12:09.946Z",
+      "isRunning": false
     },
     "audit": {
       "runCount": 0,
       "successCount": 0,
       "failureCount": 0,
       "averageDurationMs": 0,
-      "isRunning": false,
-      "nextRun": "2026-02-11T18:05:25.019Z"
+      "nextRun": "2026-02-16T23:14:09.947Z",
+      "isRunning": false
     },
     "optimize": {
       "runCount": 0,
       "successCount": 0,
       "failureCount": 0,
       "averageDurationMs": 0,
-      "isRunning": false,
-      "nextRun": "2026-02-11T18:07:25.019Z"
+      "nextRun": "2026-02-16T23:16:09.947Z",
+      "isRunning": false
     },
     "consolidate": {
       "runCount": 0,
       "successCount": 0,
       "failureCount": 0,
       "averageDurationMs": 0,
-      "isRunning": false,
-      "nextRun": "2026-02-11T18:09:25.019Z"
+      "nextRun": "2026-02-16T23:18:09.947Z",
+      "isRunning": false
     },
     "testgaps": {
       "runCount": 0,
       "successCount": 0,
       "failureCount": 0,
       "averageDurationMs": 0,
-      "isRunning": false,
-      "nextRun": "2026-02-11T18:11:25.019Z"
+      "nextRun": "2026-02-16T23:20:09.947Z",
+      "isRunning": false
     },
     "predict": {
       "runCount": 0,
@@ -59,8 +59,8 @@
   },
   "config": {
     "autoStart": false,
-    "logDir": "/Users/marcin/Code/nice-right/.claude-flow/logs",
-    "stateFile": "/Users/marcin/Code/nice-right/.claude-flow/daemon-state.json",
+    "logDir": "/Users/mkd/UXOXO/nice-right/.claude-flow/logs",
+    "stateFile": "/Users/mkd/UXOXO/nice-right/.claude-flow/daemon-state.json",
     "maxConcurrent": 2,
     "workerTimeoutMs": 300000,
     "resourceThresholds": {
@@ -126,5 +126,5 @@
       }
     ]
   },
-  "savedAt": "2026-02-11T18:03:25.019Z"
+  "savedAt": "2026-02-16T23:12:09.948Z"
 }

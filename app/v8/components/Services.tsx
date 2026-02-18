@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -20,7 +20,8 @@ const services = [
   },
   {
     title: 'SAVE TIME & CUT COSTS',
-    quote: '\u201cI spend too much time on things a computer should handle.\u201d',
+    quote:
+      '\u201cI spend too much time on things a computer should handle.\u201d',
     features: [
       'Custom apps & dashboards for your team',
       'Customer self-service portals',
@@ -40,39 +41,39 @@ const services = [
     ],
     align: 'left' as const,
   },
-]
+];
 
 export function Services() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
+    const el = sectionRef.current;
+    if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       el.querySelectorAll('.v8-hidden').forEach((node) => {
-        ;(node as HTMLElement).style.opacity = '1'
-      })
-      return
+        (node as HTMLElement).style.opacity = '1';
+      });
+      return;
     }
 
     const ctx = gsap.context(() => {
-      gsap.set('.v8-hidden', { opacity: 0 })
+      gsap.set('.v8-hidden', { opacity: 0 });
 
-      const revealEls = el.querySelectorAll('.v8-svc-reveal')
+      const revealEls = el.querySelectorAll('.v8-svc-reveal');
       revealEls.forEach((node) => {
         ScrollTrigger.create({
           trigger: node,
           start: 'top 85%',
           once: true,
           onEnter: () => {
-            gsap.set(node, { opacity: 1 })
+            gsap.set(node, { opacity: 1 });
           },
-        })
-      })
-    }, el)
+        });
+      });
+    }, el);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -111,17 +112,23 @@ export function Services() {
         }
 
         .v8-svc-list {
-          display: flex;
-          flex-direction: column;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 24px;
         }
 
         .v8-svc-card {
-          padding: 60px 0;
-          border-top: 3px solid #0A0A0A;
+          padding: 32px;
+          border: 1px solid #E5E7EB;
+          border-radius: 12px;
+          background: #FFFFFF;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+          transition: all 0.2s ease-out;
         }
 
-        .v8-svc-card:last-child {
-          border-bottom: 3px solid #0A0A0A;
+        .v8-svc-card:hover {
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+          transform: translateY(-4px);
         }
 
         .v8-svc-card-inner {
@@ -131,13 +138,13 @@ export function Services() {
 
         .v8-svc-title {
           font-family: 'Inter', sans-serif;
-          font-weight: 800;
-          font-size: clamp(2rem, 5vw, 4rem);
-          line-height: 1;
-          color: #0000FF;
-          text-transform: uppercase;
-          letter-spacing: -0.02em;
-          margin: 0 0 24px;
+          font-weight: 700;
+          font-size: clamp(1.5rem, 3vw, 2rem);
+          line-height: 1.2;
+          color: #1E3A8A;
+          text-transform: none;
+          letter-spacing: -0.01em;
+          margin: 0 0 16px;
         }
 
         .v8-svc-card--right .v8-svc-title {
@@ -176,7 +183,7 @@ export function Services() {
 
         .v8-svc-features li::before {
           content: '\u2014  ';
-          color: #FF0000;
+          color: #D4A574;
         }
 
         .v8-svc-card--right .v8-svc-features {
@@ -190,7 +197,7 @@ export function Services() {
 
         .v8-svc-card--right .v8-svc-features li::after {
           content: '  \u2014';
-          color: #FF0000;
+          color: #D4A574;
         }
 
         .v8-svc-bottom {
@@ -250,7 +257,7 @@ export function Services() {
 
           .v8-svc-card--right .v8-svc-features li::before {
             content: '\u2014  ';
-            color: #FF0000;
+            color: #D4A574;
           }
         }
 
@@ -266,7 +273,9 @@ export function Services() {
       <section ref={sectionRef} id="services" className="v8-services">
         <div className="v8-svc-inner">
           <p className="v8-svc-label v8-hidden v8-svc-reveal">SERVICES</p>
-          <h2 className="v8-svc-heading v8-hidden v8-svc-reveal">WHAT YOU GET</h2>
+          <h2 className="v8-svc-heading v8-hidden v8-svc-reveal">
+            WHAT YOU GET
+          </h2>
 
           <div className="v8-svc-list">
             {services.map((svc) => (
@@ -290,10 +299,12 @@ export function Services() {
           </div>
 
           <div className="v8-svc-bottom v8-hidden v8-svc-reveal">
-            <a href="#contact" className="v8-svc-cta">LET&apos;S TALK</a>
+            <a href="#contact" className="v8-svc-cta">
+              LET&apos;S TALK
+            </a>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }

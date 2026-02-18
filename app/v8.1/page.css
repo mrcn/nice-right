@@ -1,0 +1,336 @@
+/* ============================================================
+   V8.1 — BRUTALIST RAW REFINED
+   Enhanced UX/UI while maintaining brutalist core
+   ============================================================ */
+
+/* --- CSS Variables --- */
+.v8.v81 {
+  --v8-bg: #f5f5f0;
+  --v8-bg-alt: #ededea;
+  --v8-text: #0a0a0a;
+  --v8-text-muted: #555;
+  --v8-blue: #0000ff;
+  --v8-red: #ff0000;
+  --v8-border: #0a0a0a;
+  --v8-border-thin: 1px solid #0a0a0a;
+  --v8-border-thick: 3px solid #0a0a0a;
+  --v8-radius: 0px;
+
+  --v8-font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --v8-font-heading: var(--font-inter), 'Inter', system-ui, sans-serif;
+  --v8-font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+  --v8-font-serif:
+    var(--font-instrument-serif), 'Instrument Serif', Georgia, serif;
+
+  /* V8.1 additions */
+  --v8-shadow: 8px 8px 0px rgba(10, 10, 10, 0.1);
+  --v8-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --v8-hover-lift: translateY(-2px);
+}
+
+/* === BASE === */
+.v8.v81 {
+  background: var(--v8-bg);
+  color: var(--v8-text);
+  font-family: var(--v8-font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.v8.v81 *,
+.v8.v81 *::before,
+.v8.v81 *::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll enabled for V8.1 (better UX) */
+.v8.v81 {
+  scroll-behavior: smooth;
+}
+
+.v8.v81 h1,
+.v8.v81 h2,
+.v8.v81 h3,
+.v8.v81 h4,
+.v8.v81 h5,
+.v8.v81 h6 {
+  font-family: var(--v8-font-heading);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 0;
+}
+
+.v8.v81 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.v8.v81 img {
+  max-width: 100%;
+  display: block;
+}
+
+/* === SCROLL PROGRESS BAR === */
+.v81-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: var(--v8-blue);
+  z-index: 1000;
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+/* === CONTAINER === */
+.v8-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* === SECTION LABEL === */
+.v8-section-label {
+  font-family: var(--v8-font-mono);
+  font-weight: 500;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--v8-text-muted);
+  margin-bottom: 16px;
+}
+
+/* === BUTTONS === */
+.v8-btn {
+  display: inline-block;
+  background: var(--v8-blue);
+  color: #fff;
+  font-family: var(--v8-font-heading);
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 18px 40px;
+  border: 3px solid var(--v8-border);
+  border-radius: var(--v8-radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--v8-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.v8-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--v8-text);
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.v8-btn:hover {
+  color: var(--v8-bg);
+  transform: var(--v8-hover-lift);
+  box-shadow: var(--v8-shadow);
+}
+
+.v8-btn:hover::before {
+  left: 0;
+}
+
+.v8-btn-nav {
+  padding: 12px 24px;
+  font-size: 0.75rem;
+}
+
+/* === STICKY CTA === */
+.v81-sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 100;
+  background: var(--v8-blue);
+  color: #fff;
+  font-family: var(--v8-font-heading);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 16px 28px;
+  border: 3px solid var(--v8-border);
+  border-radius: var(--v8-radius);
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--v8-transition);
+  box-shadow: var(--v8-shadow);
+  opacity: 0;
+  transform: translateY(100px);
+  pointer-events: none;
+}
+
+.v81-sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.v81-sticky-cta:hover {
+  background: var(--v8-text);
+  transform: var(--v8-hover-lift);
+  box-shadow: 12px 12px 0px rgba(10, 10, 10, 0.15);
+}
+
+/* === FOOTER === */
+.v81-footer {
+  background: var(--v8-text);
+  color: var(--v8-bg);
+  padding: 80px 0 40px;
+  border-top: 3px solid var(--v8-border);
+}
+
+.v81-footer-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.v81-footer-brand p {
+  font-family: var(--v8-font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--v8-bg);
+  opacity: 0.7;
+  margin: 16px 0 0;
+}
+
+.v81-footer-logo {
+  font-family: var(--v8-font-heading);
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--v8-bg);
+  letter-spacing: -0.02em;
+}
+
+.v81-footer-col h4 {
+  font-family: var(--v8-font-mono);
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--v8-bg);
+  margin: 0 0 16px;
+}
+
+.v81-footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.v81-footer-col li {
+  margin: 8px 0;
+}
+
+.v81-footer-col a {
+  font-family: var(--v8-font-mono);
+  font-size: 0.8rem;
+  color: var(--v8-bg);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.v81-footer-col a:hover {
+  opacity: 1;
+  color: var(--v8-blue);
+}
+
+.v81-footer-bottom {
+  max-width: 1400px;
+  margin: 64px auto 0;
+  padding: 32px 40px 0;
+  border-top: 1px solid rgba(245, 245, 240, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.v81-footer-bottom p {
+  font-family: var(--v8-font-mono);
+  font-size: 0.75rem;
+  color: var(--v8-bg);
+  opacity: 0.5;
+  margin: 0;
+}
+
+.v81-footer-social {
+  display: flex;
+  gap: 16px;
+}
+
+.v81-footer-social a {
+  font-family: var(--v8-font-mono);
+  font-size: 0.75rem;
+  color: var(--v8-bg);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.v81-footer-social a:hover {
+  opacity: 1;
+  color: var(--v8-blue);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .v81-footer-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+    gap: 32px;
+  }
+
+  .v81-footer-bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 32px 20px 0;
+  }
+
+  .v81-sticky-cta {
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .v81-footer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === UTILITY === */
+.v81-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

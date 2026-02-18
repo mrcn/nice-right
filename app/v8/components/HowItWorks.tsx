@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const steps = [
   {
@@ -22,39 +22,39 @@ const steps = [
     title: 'YOU GROW',
     body: 'Your phone rings more. Your calendar fills up. And I stick around to help you keep improving.',
   },
-]
+];
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const el = sectionRef.current
-    if (!el) return
+    const el = sectionRef.current;
+    if (!el) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       el.querySelectorAll('.v8-hidden').forEach((node) => {
-        ;(node as HTMLElement).style.opacity = '1'
-      })
-      return
+        (node as HTMLElement).style.opacity = '1';
+      });
+      return;
     }
 
     const ctx = gsap.context(() => {
-      gsap.set('.v8-hidden', { opacity: 0 })
+      gsap.set('.v8-hidden', { opacity: 0 });
 
-      const revealEls = el.querySelectorAll('.v8-how-reveal')
+      const revealEls = el.querySelectorAll('.v8-how-reveal');
       revealEls.forEach((node) => {
         ScrollTrigger.create({
           trigger: node,
           start: 'top 85%',
           once: true,
           onEnter: () => {
-            gsap.set(node, { opacity: 1 })
+            gsap.set(node, { opacity: 1 });
           },
-        })
-      })
-    }, el)
+        });
+      });
+    }, el);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -75,8 +75,8 @@ export function HowItWorks() {
           font-family: 'JetBrains Mono', monospace;
           font-size: 0.7rem;
           font-weight: 400;
-          text-transform: uppercase;
-          letter-spacing: 0.2em;
+          text-transform: none;
+          letter-spacing: 0.05em;
           color: #0A0A0A;
           margin: 0 0 16px;
         }
@@ -94,33 +94,33 @@ export function HowItWorks() {
 
         .v8-how-grid {
           display: grid;
-          grid-template-columns: 40% 30% 30%;
-          gap: 0;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
         }
 
         .v8-step {
-          border-left: 3px solid #0A0A0A;
-          padding: 40px 32px;
-        }
-
-        .v8-step:first-child {
-          border-left: none;
+          border: 1px solid #E5E7EB;
+          border-radius: 12px;
+          padding: 32px;
+          background: #FFFFFF;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+          transition: all 0.2s ease-out;
         }
 
         .v8-step-num {
           font-family: 'Inter', sans-serif;
-          font-weight: 800;
-          font-size: clamp(4rem, 6vw, 8rem);
+          font-weight: 700;
+          font-size: clamp(3rem, 5vw, 4rem);
           line-height: 1;
-          color: #0000FF;
+          color: #1E3A8A;
           margin: 0 0 24px;
         }
 
         .v8-step-title {
           font-family: 'Inter', sans-serif;
-          font-weight: 800;
+          font-weight: 700;
           font-size: clamp(1.2rem, 2vw, 1.8rem);
-          text-transform: uppercase;
+          text-transform: none;
           color: #0A0A0A;
           letter-spacing: -0.01em;
           margin: 0 0 16px;
@@ -173,17 +173,11 @@ export function HowItWorks() {
 
           .v8-how-grid {
             grid-template-columns: 1fr;
-            gap: 0;
+            gap: 16px;
           }
 
           .v8-step {
-            border-left: none;
-            border-top: 3px solid #0A0A0A;
-            padding: 32px 0;
-          }
-
-          .v8-step:first-child {
-            border-top: none;
+            padding: 24px;
           }
 
           .v8-how-heading {
@@ -203,11 +197,24 @@ export function HowItWorks() {
       <section ref={sectionRef} id="how-it-works" className="v8-how">
         <div className="v8-how-inner">
           <p className="v8-how-label v8-hidden v8-how-reveal">PROCESS</p>
-          <h2 className="v8-how-heading v8-hidden v8-how-reveal">HOW IT WORKS</h2>
+          <h2 className="v8-how-heading v8-hidden v8-how-reveal">
+            HOW IT WORKS
+          </h2>
 
           <div className="v8-how-grid">
             {steps.map((step) => (
-              <div key={step.num} className="v8-step v8-hidden v8-how-reveal">
+              <div
+                key={step.num}
+                className="v8-step v8-hidden v8-how-reveal"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow =
+                    '0 8px 24px rgba(0,0,0,0.08)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow =
+                    '0 2px 8px rgba(0,0,0,0.04)';
+                }}
+              >
                 <div className="v8-step-num">{step.num}</div>
                 <h3 className="v8-step-title">{step.title}</h3>
                 <p className="v8-step-body">{step.body}</p>
@@ -216,10 +223,12 @@ export function HowItWorks() {
           </div>
 
           <div className="v8-how-cta-wrap v8-hidden v8-how-reveal">
-            <a href="#contact" className="v8-how-cta">BOOK A FREE CALL</a>
+            <a href="#contact" className="v8-how-cta">
+              BOOK A FREE CALL
+            </a>
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }
