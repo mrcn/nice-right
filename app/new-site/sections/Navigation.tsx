@@ -23,11 +23,7 @@ export default function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-[#fafaf9]/95 backdrop-blur-md shadow-sm py-3'
-            : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#fafaf9]/95 backdrop-blur-md shadow-sm py-3`}
       >
         <div className="nr-container">
           <div className="flex items-center justify-between">

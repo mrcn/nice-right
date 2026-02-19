@@ -1,91 +1,4 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-
 export default function Contact() {
-  const [loaded, setLoaded] = useState(false);
-  const [timedOut, setTimedOut] = useState(false);
-
-  useEffect(() => {
-    const w = window as unknown as Record<string, unknown>;
-
-    const Cal = function (...args: unknown[]) {
-      const cal = Cal as unknown as {
-        loaded?: boolean;
-        ns: Record<string, unknown>;
-        q: unknown[][];
-      };
-      if (!cal.loaded) {
-        cal.ns = {};
-        cal.q = cal.q || [];
-        const script = document.createElement('script');
-        script.src = 'https://app.cal.com/embed/embed.js';
-        script.async = true;
-        document.head.appendChild(script);
-        cal.loaded = true;
-      }
-      if (args[0] === 'init') {
-        const api = function (...a: unknown[]) {
-          (api as unknown as { q: unknown[][] }).q =
-            (api as unknown as { q: unknown[][] }).q || [];
-          (api as unknown as { q: unknown[][] }).q.push(a);
-        };
-        const namespace = args[1];
-        (api as unknown as { q: unknown[][] }).q = [];
-        if (typeof namespace === 'string') {
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          (cal.ns[namespace] as unknown as { q: unknown[][] }).q.push(args);
-          cal.q.push(['initNamespace', namespace]);
-        } else {
-          cal.q.push(args);
-        }
-        return;
-      }
-      cal.q.push(args);
-    };
-    (Cal as unknown as { q: unknown[][]; ns: Record<string, unknown> }).q = [];
-    (Cal as unknown as { ns: Record<string, unknown> }).ns = {};
-    w.Cal = Cal;
-
-    Cal('init', { origin: 'https://cal.com' });
-    Cal('inline', {
-      elementOrSelector: '#cal-embed-new',
-      calLink: 'niceright/30min',
-      layout: 'month_view',
-    });
-    Cal('ui', {
-      hideEventTypeDetails: true,
-      layout: 'month_view',
-      cssVarsPerTheme: {
-        light: {
-          'cal-brand': '#d4a574',
-          'cal-text': '#1A1A1A',
-          'cal-text-emphasis': '#1A1A1A',
-          'cal-border-emphasis': '#E5E3DE',
-          'cal-bg': '#FAFAF8',
-          'cal-bg-emphasis': '#F3F1ED',
-        },
-      },
-    });
-
-    const checkLoaded = setInterval(() => {
-      const el = document.getElementById('cal-embed-new');
-      if (el && el.querySelector('iframe')) {
-        setLoaded(true);
-        clearInterval(checkLoaded);
-      }
-    }, 500);
-
-    const timeout = setTimeout(() => {
-      if (!loaded) setTimedOut(true);
-    }, 12000);
-
-    return () => {
-      clearInterval(checkLoaded);
-      clearTimeout(timeout);
-    };
-  }, [loaded]);
-
   return (
     <section id="contact" className="nr-section nr-section-alt">
       <div className="nr-container">
@@ -94,49 +7,50 @@ export default function Contact() {
             Let's figure out what would work for your business
           </h2>
           <p className="text-lg" style={{ color: 'var(--nr-text-muted)' }}>
-            30 minutes. Pick a time that works for you.
+            30 minutes. No pitch, no pressure — just an honest conversation.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="nr-card">
-            <div
-              id="cal-embed-new"
-              className="min-h-[600px] flex items-center justify-center"
-            >
-              {!loaded && !timedOut && (
-                <div className="text-center">
-                  <div
-                    className="w-12 h-12 border-4 border-t-transparent rounded-full animate-spin mx-auto mb-4"
-                    style={{
-                      borderColor: 'var(--nr-border)',
-                      borderTopColor: 'var(--nr-amber)',
-                    }}
+        <div className="max-w-2xl mx-auto">
+          <div className="nr-card text-center">
+            <div className="mb-8">
+              <div
+                className="w-16 h-16 rounded-full mx-auto mb-6 flex items-center justify-center"
+                style={{ backgroundColor: 'var(--nr-amber-light)' }}
+              >
+                <svg
+                  className="w-8 h-8"
+                  fill="none"
+                  stroke="var(--nr-amber)"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
-                  <p style={{ color: 'var(--nr-text-dim)' }}>
-                    Loading calendar...
-                  </p>
-                </div>
-              )}
-              {timedOut && !loaded && (
-                <div className="text-center py-12">
-                  <p style={{ color: 'var(--nr-text-muted)' }}>
-                    Taking longer than expected.
-                  </p>
-                  <a
-                    href="https://cal.com/niceright/30min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="nr-btn nr-btn-accent mt-4"
-                  >
-                    Book Directly on Cal.com
-                  </a>
-                </div>
-              )}
+                </svg>
+              </div>
+
+              <h3 className="text-2xl mb-4">Book a Free Strategy Call</h3>
+              <p className="mb-8" style={{ color: 'var(--nr-text-muted)' }}>
+                Pick a time that works for you. I will look at where your
+                business is and tell you plainly what would move the needle.
+              </p>
+
+              <a
+                href="https://cal.com/niceright/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="nr-btn nr-btn-accent text-lg px-8 py-4"
+              >
+                Schedule Your Call
+              </a>
             </div>
 
             <div
-              className="mt-8 pt-8 border-t"
+              className="pt-8 border-t"
               style={{ borderColor: 'var(--nr-border)' }}
             >
               <p
@@ -148,7 +62,7 @@ export default function Contact() {
               <div className="flex flex-wrap justify-center gap-6">
                 <a
                   href="mailto:Marcin@uxoxo.xyz"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 font-medium"
                   style={{ color: 'var(--nr-amber)' }}
                 >
                   <svg
@@ -170,7 +84,7 @@ export default function Contact() {
                   href="https://linkedin.com/in/mklaudiusz"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 font-medium"
                   style={{ color: 'var(--nr-amber)' }}
                 >
                   <svg
