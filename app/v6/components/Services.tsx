@@ -199,13 +199,19 @@ export function Services() {
           gap: 24px;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
           .v6-services-grid {
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
           }
+        }
+
+        @media (max-width: 600px) {
+          .v6-services-grid {
+            grid-template-columns: 1fr;
+          }
           .v6-services {
-            padding: 100px 20px;
+            padding: 80px 20px;
           }
         }
 
