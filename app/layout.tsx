@@ -34,14 +34,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
-      <body className="antialiased">
-        <Script
-          defer
-          data-domain="niceright.co"
-          src="https://plausible.io/js/script.js"
-          strategy="afterInteractive"
-        />
+    <html
+      lang="en"
+      className={`${inter.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
+      <body
+        className="antialiased"
+        style={{ backgroundColor: '#fafaf9', minHeight: '100vh' }}
+      >
         {children}
       </body>
     </html>
