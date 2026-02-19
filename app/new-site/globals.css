@@ -98,6 +98,18 @@ video,
 canvas {
   max-width: 100%;
   height: auto;
+  display: block;
+}
+
+/* Force SVGs to respect their explicit sizing classes */
+svg[width][height] {
+  max-width: none;
+}
+
+/* Ensure all SVGs have reasonable default constraints */
+svg:not([class*='w-']):not([class*='h-']) {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Ensure containers don't overflow */
