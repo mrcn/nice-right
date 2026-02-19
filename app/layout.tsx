@@ -1,11 +1,26 @@
 import type { Metadata } from 'next';
+import { Inter, Instrument_Serif } from 'next/font/google';
 import Script from 'next/script';
-import './globals.css';
+import './new-site/globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-instrument',
+});
 
 export const metadata: Metadata = {
   title: 'Nice Right | Digital Growth Partner for Small Businesses',
   description:
-    'We help small businesses grow through better websites, apps, and digital systems. Focus on customer acquisition, service efficiency, and retention.',
+    "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
 };
 
 export const viewport = {
@@ -19,17 +34,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
+      <body className="antialiased">
         <Script
           defer
           data-domain="niceright.co"
           src="https://plausible.io/js/script.js"
           strategy="afterInteractive"
         />
-        <Script id="ms-clarity" strategy="afterInteractive">
-          {`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/PLACEHOLDER_CLARITY_ID";y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script");`}
-        </Script>
         {children}
       </body>
     </html>
