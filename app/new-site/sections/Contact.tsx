@@ -20,6 +20,8 @@ export default function Contact() {
               >
                 <svg
                   className="w-8 h-8"
+                  width="32"
+                  height="32"
                   fill="none"
                   stroke="var(--nr-amber)"
                   viewBox="0 0 24 24"
@@ -67,6 +69,8 @@ export default function Contact() {
                 >
                   <svg
                     className="w-5 h-5"
+                    width="20"
+                    height="20"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -89,6 +93,8 @@ export default function Contact() {
                 >
                   <svg
                     className="w-5 h-5"
+                    width="20"
+                    height="20"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
