@@ -98,19 +98,29 @@ export default function Hero() {
           <div
             ref={imageRef}
             className="order-1 lg:order-2 flex justify-center"
+            style={{ maxWidth: '100%' }}
           >
-            <div className="relative w-full max-w-md">
+            <div
+              className="relative"
+              style={{ width: '100%', maxWidth: '400px' }}
+            >
               <div
-                className="aspect-square rounded-2xl overflow-hidden shadow-2xl"
+                className="rounded-2xl overflow-hidden shadow-2xl"
                 style={{
                   background:
                     'linear-gradient(135deg, var(--nr-navy-light) 0%, var(--nr-navy) 100%)',
+                  aspectRatio: '1 / 1',
                 }}
               >
                 <img
                   src="/images/me-low.jpg"
                   alt="Marcin Dabrowski"
-                  className="w-full h-full object-cover opacity-90"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: 0.9,
+                  }}
                 />
               </div>
 

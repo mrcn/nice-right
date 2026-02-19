@@ -42,18 +42,27 @@ export default function About() {
           </div>
 
           <div className="order-1 lg:order-2 flex justify-center">
-            <div className="relative max-w-sm">
+            <div
+              className="relative"
+              style={{ maxWidth: '350px', width: '100%' }}
+            >
               <div
-                className="aspect-[3/4] rounded-2xl overflow-hidden shadow-xl"
+                className="rounded-2xl overflow-hidden shadow-xl"
                 style={{
                   background:
                     'linear-gradient(135deg, var(--nr-navy-light) 0%, var(--nr-navy) 100%)',
+                  aspectRatio: '3 / 4',
                 }}
               >
                 <img
                   src="/images/me-low.jpg"
                   alt="Marcin Dabrowski"
-                  className="w-full h-full object-cover opacity-90"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: 0.9,
+                  }}
                 />
               </div>
             </div>

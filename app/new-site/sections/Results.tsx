@@ -41,11 +41,19 @@ export default function Results() {
           {caseStudies.map((study, index) => (
             <a key={index} href={study.link} className="group block">
               <div className="nr-card overflow-hidden">
-                <div className="aspect-video overflow-hidden mb-6 -mx-8 -mt-8">
+                <div
+                  className="overflow-hidden mb-6 -mx-8 -mt-8"
+                  style={{ aspectRatio: '16 / 9' }}
+                >
                   <img
                     src={study.image}
                     alt={study.headline}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      transition: 'transform 500ms',
+                    }}
                   />
                 </div>
 
