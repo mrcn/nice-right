@@ -7,7 +7,6 @@ import { HowItWorks } from './components/HowItWorks';
 import { Services } from './components/Services';
 import { Proof } from './components/Proof';
 import { Testimonials } from './components/Testimonials';
-import { Pricing } from './components/Pricing';
 import { FAQ } from './components/FAQ';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -25,7 +24,6 @@ export default function V9Page() {
         <Services />
         <Proof />
         <Testimonials />
-        <Pricing />
         <FAQ />
         <ContactSection />
       </main>

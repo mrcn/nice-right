@@ -1,0 +1,17 @@
+{
+  "version": "9.1.0",
+  "name": "Nice Right V9",
+  "codename": "Optimized",
+  "releaseDate": "2026-02-20",
+  "changelog": [
+    "Baseline V9 preserved in /v9-baseline",
+    "Optimized version in /v9 with CRO improvements",
+    "New headline: 'Stop Losing Customers to Competitors on Google'",
+    "Added urgency badge with availability indicator",
+    "3-tier pricing section with 90-day guarantee",
+    "Featured service card with 'Most Popular' badge",
+    "Improved testimonials with project type badges",
+    "Fixed carousel infinite loop behavior",
+    "GreenPill Dev Guild → GreenPill Network rename"
+  ]
+}

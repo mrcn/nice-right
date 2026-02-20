@@ -74,8 +74,8 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Stop Losing Customers</span>
-            <span className="v9-hero-line2">to Competitors on Google</span>
+            <span className="v9-hero-line1">Grow your business.</span>
+            <span className="v9-hero-line2">I&apos;ll handle the tech.</span>
           </h1>
 
           <p className="v9-hero-sub">
@@ -95,16 +95,9 @@ export function Hero() {
             <span>13+ years</span>
           </div>
 
-          <div className="v9-hero-urgency">
-            <span className="v9-urgency-badge">
-              <span className="v9-urgency-dot" />
-              Currently booking March — 3 spots left
-            </span>
-          </div>
-
           <div className="v9-hero-cta-wrap">
             <a href="#contact" className="v9-btn v9-btn-gradient">
-              Book Your Free Strategy Call
+              Book a Free Call
             </a>
           </div>
 
@@ -251,37 +244,6 @@ export function Hero() {
           color: rgba(255, 255, 255, 0.65);
           margin: 0;
           line-height: 1.5;
-        }
-
-        .v9-hero-urgency {
-          margin-bottom: 16px;
-        }
-
-        .v9-urgency-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
-          font-weight: 500;
-          color: #06D6A0;
-          background: rgba(6, 214, 160, 0.1);
-          padding: 8px 16px;
-          border-radius: 20px;
-          border: 1px solid rgba(6, 214, 160, 0.2);
-        }
-
-        .v9-urgency-dot {
-          width: 8px;
-          height: 8px;
-          background: #06D6A0;
-          border-radius: 50%;
-          animation: v9-pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes v9-pulse {
-          0%, 100% { opacity: 1; transform: scale(1); }
-          50% { opacity: 0.6; transform: scale(0.9); }
         }
 
         /* ----- Responsive ----- */

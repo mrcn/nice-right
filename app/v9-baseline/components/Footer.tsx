@@ -1,12 +1,9 @@
-import versionData from '../../../version.json';
-
 export function Footer() {
   return (
     <>
       <footer className="v9-footer">
         <div className="v9-footer-inner">
           <p>&copy; 2026 Nice Right. Chicago&apos;s Northwest Side.</p>
-          <p className="v9-footer-version">v{versionData.version}</p>
         </div>
       </footer>
 
@@ -30,12 +27,6 @@ export function Footer() {
           color: rgba(255, 255, 255, 0.65);
           margin: 0;
           line-height: 1.5;
-        }
-
-        .v9-footer-version {
-          font-size: 0.75rem;
-          color: rgba(255, 255, 255, 0.4);
-          margin-top: 8px;
         }
       `}</style>
     </>

@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 const services = [
@@ -31,7 +31,7 @@ const services = [
   },
   {
     title: 'Keep Customers Coming Back',
-    quote: 'I win customers but they don\u2019t stick around.',
+    quote: "I win customers but they don\u2019t stick around.",
     features: [
       'Loyalty programs',
       'Email sequences that keep you top of mind',
@@ -39,20 +39,20 @@ const services = [
       'Retention analytics',
     ],
   },
-];
+]
 
 export function Services() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement>(null)
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const section = sectionRef.current
+    if (!section) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const ctx = gsap.context(() => {
       // Header reveal
-      const header = section.querySelector('.v9-services-header');
+      const header = section.querySelector('.v9-services-header')
       if (header) {
         gsap.fromTo(
           header,
@@ -68,12 +68,12 @@ export function Services() {
               toggleActions: 'play none none none',
             },
           }
-        );
+        )
       }
 
       // Staggered card reveals
       cardsRef.current.forEach((card, i) => {
-        if (!card) return;
+        if (!card) return
         gsap.fromTo(
           card,
           { opacity: 0, y: 50 },
@@ -89,11 +89,11 @@ export function Services() {
               toggleActions: 'play none none none',
             },
           }
-        );
-      });
+        )
+      })
 
       // CTA reveal
-      const cta = section.querySelector('.v9-services-cta');
+      const cta = section.querySelector('.v9-services-cta')
       if (cta) {
         gsap.fromTo(
           cta,
@@ -109,45 +109,32 @@ export function Services() {
               toggleActions: 'play none none none',
             },
           }
-        );
+        )
       }
-    }, section);
+    }, section)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
     <>
-      <section
-        ref={sectionRef}
-        id="services"
-        className="v9-services v9-section-warm"
-      >
+      <section ref={sectionRef} id="services" className="v9-services v9-section-warm">
         <div className="v9-services-container">
           <div className="v9-services-header">
             <p className="v9-section-label">What You Get</p>
-            <h2 className="v9-services-heading">
-              Three ways I help businesses grow
-            </h2>
+            <h2 className="v9-services-heading">Three ways I help businesses grow</h2>
           </div>
 
           <div className="v9-services-stack">
             {services.map((service, i) => (
               <div
                 key={service.title}
-                ref={(el) => {
-                  cardsRef.current[i] = el;
-                }}
-                className={`v9-service-card ${i === 1 ? 'v9-service-card--featured' : ''}`}
+                ref={(el) => { cardsRef.current[i] = el }}
+                className="v9-service-card"
               >
                 <div className="v9-service-accent" aria-hidden="true" />
-                {i === 1 && (
-                  <span className="v9-service-badge">Most Popular</span>
-                )}
                 <h3 className="v9-service-title">{service.title}</h3>
-                <p className="v9-service-quote">
-                  &ldquo;{service.quote}&rdquo;
-                </p>
+                <p className="v9-service-quote">&ldquo;{service.quote}&rdquo;</p>
                 <ul className="v9-service-features">
                   {service.features.map((f) => (
                     <li key={f}>
@@ -189,8 +176,8 @@ export function Services() {
           </div>
 
           <div className="v9-services-cta">
-            <a href="#contact" className="v9-btn v9-btn-text">
-              Let&apos;s Talk About Your Business →
+            <a href="#contact" className="v9-btn v9-btn-gradient">
+              Let&apos;s Talk About Your Business
             </a>
           </div>
         </div>
@@ -259,32 +246,6 @@ export function Services() {
         .v9-service-card:hover {
           transform: translateY(-2px);
           box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
-        }
-
-        .v9-service-card--featured {
-          transform: scale(1.02);
-          border: 2px solid #0B8A6E;
-          box-shadow: 0 0 40px rgba(11, 138, 110, 0.15);
-        }
-
-        .v9-service-card--featured:hover {
-          transform: scale(1.02) translateY(-2px);
-          box-shadow: 0 12px 48px rgba(11, 138, 110, 0.2);
-        }
-
-        .v9-service-badge {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          color: #ffffff;
-          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
-          padding: 4px 12px;
-          border-radius: 12px;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
         }
 
         .v9-service-accent {
@@ -384,5 +345,5 @@ export function Services() {
         }
       `}</style>
     </>
-  );
+  )
 }

@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger)
 }
 
 const steps = [
@@ -24,20 +24,20 @@ const steps = [
     title: 'You Grow',
     body: 'Your phone rings more. Your calendar fills up. And I stick around to help you keep improving.',
   },
-];
+]
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const section = sectionRef.current
+    if (!section) return
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const ctx = gsap.context(() => {
-      const cards = section.querySelectorAll('.v9-step-card');
-      const header = section.querySelector('.v9-how-header');
-      const cta = section.querySelector('.v9-how-cta');
+      const cards = section.querySelectorAll('.v9-step-card')
+      const header = section.querySelector('.v9-how-header')
+      const cta = section.querySelector('.v9-how-cta')
 
       // Header reveal
       gsap.fromTo(
@@ -54,7 +54,7 @@ export function HowItWorks() {
             once: true,
           },
         }
-      );
+      )
 
       // Cards staggered reveal
       gsap.fromTo(
@@ -73,7 +73,7 @@ export function HowItWorks() {
             once: true,
           },
         }
-      );
+      )
 
       // CTA reveal
       if (cta) {
@@ -91,12 +91,12 @@ export function HowItWorks() {
               once: true,
             },
           }
-        );
+        )
       }
-    }, section);
+    }, section)
 
-    return () => ctx.revert();
-  }, []);
+    return () => ctx.revert()
+  }, [])
 
   return (
     <>
@@ -122,7 +122,7 @@ export function HowItWorks() {
           </div>
 
           <div className="v9-how-cta">
-            <a href="#contact" className="v9-btn v9-btn-outline">
+            <a href="#contact" className="v9-btn v9-btn-gradient">
               Book a Free Call
             </a>
           </div>
@@ -291,5 +291,5 @@ export function HowItWorks() {
         }
       `}</style>
     </>
-  );
+  )
 }

@@ -236,24 +236,6 @@
   color: var(--v9-accent);
 }
 
-/* Tertiary text button */
-.v9-btn-text {
-  background: transparent;
-  border: none;
-  color: var(--v9-accent);
-  box-shadow: none;
-  padding: 8px 0;
-  font-size: 0.9rem;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.v9-btn-text:hover {
-  color: var(--v9-accent-light);
-  transform: none;
-  box-shadow: none;
-}
-
 /* --------------------------------------------------------------------------
    7. Reveal Animations
    -------------------------------------------------------------------------- */

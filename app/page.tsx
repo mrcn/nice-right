@@ -1,5 +1,5 @@
-import V81Page from './v8.1/page';
+import V9Page from './v9/page';
 
 export default function HomePage() {
-  return <V81Page />;
+  return <V9Page />;
 }
