@@ -74,15 +74,14 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Stop Losing Customers</span>
-            <span className="v9-hero-line2">to Competitors on Google</span>
+            <span className="v9-hero-line1">Websites and apps</span>
+            <span className="v9-hero-line2">that bring you more business</span>
           </h1>
 
           <p className="v9-hero-sub">
-            Your customers are searching right now—and finding your competitors
-            first. I build the Customer-Getting Website System: websites, apps,
-            and automation that bring you business while you focus on running
-            it. Done-for-you. No more tech headaches.
+            While you run your company, I handle the digital side:
+            conversion-focused websites, custom apps, and smart automation.
+            Built right. Kept running. Month after month.
           </p>
 
           <div className="v9-hero-trust">
