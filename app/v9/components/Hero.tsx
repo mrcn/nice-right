@@ -74,14 +74,15 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Your Chicago</span>
-            <span className="v9-hero-line2">Digital Partner</span>
+            <span className="v9-hero-line1">Stop Losing Customers</span>
+            <span className="v9-hero-line2">to Competitors on Google</span>
           </h1>
 
           <p className="v9-hero-sub">
-            I help Chicago businesses — from tech startups to home service pros
-            — turn their websites into their best salesperson. 100+ projects, 13
-            years, one focus: results that matter.
+            Your customers are searching right now—and finding your competitors
+            first. I build the Customer-Getting Website System: websites, apps,
+            and automation that bring you business while you focus on running
+            it. Chicago-based. Done-for-you. No more tech headaches.
           </p>
 
           <div className="v9-hero-trust">
