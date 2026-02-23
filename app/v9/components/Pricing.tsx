@@ -10,53 +10,74 @@ if (typeof window !== 'undefined') {
 
 const tiers = [
   {
-    name: 'Launch',
-    price: '$5,000',
-    paymentPlan: 'or 3 payments of $1,750',
+    name: 'Essentials Partnership',
+    setupPrice: '$8,000',
+    monthlyPrice: '$2,000/mo',
+    commitment: '6-month minimum',
     description:
-      'Professional web presence for businesses ready to get found online',
-    features: [
-      'Custom website (up to 5 pages)',
+      'Professional website + ongoing partnership for local businesses',
+    setupFeatures: [
+      'Website up to 8 pages',
       'Mobile-responsive design',
-      'Google Business optimization',
       'SEO foundation',
-      '2 rounds of revisions',
-      '30-day support',
+      'Contact forms & integrations',
+    ],
+    monthlyFeatures: [
+      'Unlimited small updates',
+      'Monthly performance report',
+      '1-hour strategy call',
+      'Basic SEO monitoring',
+      'Security updates & backups',
+      'Email support (24hr response)',
     ],
     cta: 'Get Started',
     popular: false,
   },
   {
-    name: 'Growth',
-    price: '$12,000',
-    paymentPlan: 'or 3 payments of $4,200',
-    description: 'Full digital platform with automation for growing businesses',
-    features: [
-      'Everything in Launch, plus:',
-      'Up to 10 pages + blog',
-      'Advanced SEO & content strategy',
-      'Custom dashboards & portals',
-      'Workflow automation',
-      'CRM integration',
-      '60-day support & optimization',
+    name: 'Growth Partnership',
+    setupPrice: '$15,000',
+    monthlyPrice: '$3,500/mo',
+    commitment: '6-month minimum',
+    description:
+      'Full platform + continuous optimization for growing companies',
+    setupFeatures: [
+      'Website up to 15 pages + blog',
+      'Custom dashboards',
+      'Automation setup',
+      'Advanced SEO & integrations',
+    ],
+    monthlyFeatures: [
+      'Everything in Essentials, plus:',
+      'Custom development (8 hrs/mo)',
+      'Landing pages for campaigns',
+      'A/B testing & optimization',
+      'Google Business management',
+      'Priority support (same-day)',
+      'Quarterly business review',
     ],
     cta: 'Most Popular',
     popular: true,
   },
   {
-    name: 'Transformation',
-    price: '$20,000+',
-    paymentPlan: 'custom payment structure',
-    description: 'AI-powered apps & custom software for complex challenges',
-    features: [
-      'Everything in Growth, plus:',
+    name: 'Transformation Partnership',
+    setupPrice: '$25,000+',
+    monthlyPrice: '$5,000-8,000/mo',
+    commitment: '12-month minimum',
+    description: 'Custom apps, AI & complex systems for ambitious businesses',
+    setupFeatures: [
       'Custom app development',
       'AI/LLM integrations',
-      'Proof-of-concept prototypes',
-      'Visual AI & automation',
-      'Advanced analytics & ML',
-      'Priority support (90 days)',
-      'Quarterly strategy reviews',
+      'Complex automation',
+      'Multi-system integrations',
+    ],
+    monthlyFeatures: [
+      'Everything in Growth, plus:',
+      'Custom dev (up to 20 hrs/mo)',
+      'AI model fine-tuning',
+      'Advanced analytics',
+      'White-glove support (4hr)',
+      'Monthly in-person strategy',
+      'Dedicated Slack channel',
     ],
     cta: "Let's Talk",
     popular: false,
@@ -123,12 +144,13 @@ export function Pricing() {
           <div className="v9-pricing-header">
             <span className="v9-section-label">Investment</span>
             <h2 className="v9-pricing-heading">
-              From websites to AI-powered apps
+              Your Digital Partner, Month After Month
             </h2>
             <p className="v9-pricing-sub">
-              Every project includes a free strategy call. Payment plans
-              available. Custom quotes for AI integrations, LLMs, and complex
-              app development.
+              Stop thinking of your website as a one-time project. Think of it
+              as a growth engine that needs constant tuning. I build your
+              foundation, then stick around to optimize, improve, and help you
+              grow.
             </p>
           </div>
 
@@ -142,15 +164,39 @@ export function Pricing() {
                   <span className="v9-pricing-badge">Most Popular</span>
                 )}
                 <h3 className="v9-pricing-name">{tier.name}</h3>
-                <div className="v9-pricing-price">{tier.price}</div>
-                <div className="v9-pricing-payment">{tier.paymentPlan}</div>
+
+                <div className="v9-pricing-setup">
+                  <span className="v9-pricing-label">Setup</span>
+                  <span className="v9-pricing-amount">{tier.setupPrice}</span>
+                </div>
+
+                <div className="v9-pricing-monthly">
+                  <span className="v9-pricing-label">Then</span>
+                  <span className="v9-pricing-amount v9-pricing-amount--monthly">
+                    {tier.monthlyPrice}
+                  </span>
+                </div>
+
+                <p className="v9-pricing-commitment">{tier.commitment}</p>
                 <p className="v9-pricing-desc">{tier.description}</p>
 
-                <ul className="v9-pricing-features">
-                  {tier.features.map((feature) => (
-                    <li key={feature}>{feature}</li>
-                  ))}
-                </ul>
+                <div className="v9-pricing-section">
+                  <h4 className="v9-pricing-section-title">Initial Build</h4>
+                  <ul className="v9-pricing-features">
+                    {tier.setupFeatures.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="v9-pricing-section">
+                  <h4 className="v9-pricing-section-title">Every Month</h4>
+                  <ul className="v9-pricing-features">
+                    {tier.monthlyFeatures.map((feature) => (
+                      <li key={feature}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
 
                 <a
                   href="#contact"
@@ -164,15 +210,41 @@ export function Pricing() {
 
           <div className="v9-pricing-guarantee">
             <div className="v9-guarantee-box">
-              <div className="v9-guarantee-icon">🛡️</div>
+              <div className="v9-guarantee-icon">🤝</div>
               <div className="v9-guarantee-content">
-                <h4>The 30-Day Satisfaction Guarantee</h4>
+                <h4>The Partnership Promise</h4>
                 <p>
-                  If at any point in the first 30 days you&apos;re not happy
-                  with the direction, full refund—no questions. I only work with
-                  people who are excited about the process. Plus: every email
-                  returned within 24 hours, and you approve every phase before
-                  we proceed.
+                  30-day satisfaction guarantee on setup. If you&apos;re not
+                  excited about the direction, full refund—no questions. After
+                  that, month-to-month with 30-day notice. I only want long-term
+                  clients who love working together.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="v9-pricing-faq">
+            <h4>Common Questions</h4>
+            <div className="v9-pricing-faq-grid">
+              <div className="v9-pricing-faq-item">
+                <strong>What if I need to pause?</strong>
+                <p>
+                  After the minimum commitment, you can pause with 30 days
+                  notice. Resume anytime.
+                </p>
+              </div>
+              <div className="v9-pricing-faq-item">
+                <strong>What&apos;s not included?</strong>
+                <p>
+                  Major new features beyond monthly hours are billed separately
+                  at $150/hour.
+                </p>
+              </div>
+              <div className="v9-pricing-faq-item">
+                <strong>How do we start?</strong>
+                <p>
+                  Free 30-minute call to see if we&apos;re a fit. If yes, 50%
+                  deposit to begin.
                 </p>
               </div>
             </div>
@@ -292,32 +364,88 @@ export function Pricing() {
           font-style: italic;
         }
 
+        .v9-pricing-setup,
+        .v9-pricing-monthly {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 4px;
+        }
+
+        .v9-pricing-label {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.7rem;
+          font-weight: 600;
+          color: rgba(12, 17, 23, 0.5);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        }
+
+        .v9-pricing-amount {
+          font-family: var(--v9-font-heading);
+          font-size: 2rem;
+          font-weight: 500;
+          color: #0C1117;
+          letter-spacing: -0.02em;
+        }
+
+        .v9-pricing-amount--monthly {
+          color: #0B8A6E;
+          font-size: 1.6rem;
+        }
+
+        .v9-pricing-commitment {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.8rem;
+          color: rgba(12, 17, 23, 0.5);
+          font-style: italic;
+          margin-bottom: 12px;
+        }
+
         .v9-pricing-desc {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.9rem;
           color: rgba(12, 17, 23, 0.6);
           line-height: 1.5;
-          margin-bottom: 24px;
+          margin-bottom: 20px;
           min-height: 42px;
+        }
+
+        .v9-pricing-section {
+          margin-bottom: 16px;
+        }
+
+        .v9-pricing-section-title {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.7rem;
+          font-weight: 600;
+          color: rgba(12, 17, 23, 0.6);
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin: 0 0 8px 0;
+          padding-bottom: 4px;
+          border-bottom: 1px solid rgba(12, 17, 23, 0.1);
         }
 
         .v9-pricing-features {
           list-style: none;
           padding: 0;
-          margin: 0 0 32px 0;
-          flex-grow: 1;
+          margin: 0 0 16px 0;
         }
 
         .v9-pricing-features li {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           color: #0C1117;
-          padding: 8px 0;
-          border-bottom: 1px solid rgba(12, 17, 23, 0.06);
+          padding: 4px 0 4px 16px;
+          position: relative;
         }
 
-        .v9-pricing-features li:last-child {
-          border-bottom: none;
+        .v9-pricing-features li:before {
+          content: '✓';
+          position: absolute;
+          left: 0;
+          color: #0B8A6E;
+          font-weight: 600;
         }
 
         .v9-pricing-guarantee {
@@ -355,7 +483,54 @@ export function Pricing() {
           margin: 0;
         }
 
+        .v9-pricing-faq {
+          max-width: 900px;
+          margin: 48px auto 0;
+          padding-top: 48px;
+          border-top: 1px solid rgba(12, 17, 23, 0.1);
+        }
+
+        .v9-pricing-faq h4 {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #0C1117;
+          text-align: center;
+          margin-bottom: 32px;
+        }
+
+        .v9-pricing-faq-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 32px;
+        }
+
+        .v9-pricing-faq-item {
+          text-align: center;
+        }
+
+        .v9-pricing-faq-item strong {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: #0C1117;
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        .v9-pricing-faq-item p {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.85rem;
+          color: rgba(12, 17, 23, 0.6);
+          line-height: 1.5;
+          margin: 0;
+        }
+
         @media (max-width: 900px) {
+          .v9-pricing-faq-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
           .v9-pricing-grid {
             grid-template-columns: 1fr;
             max-width: 480px;
