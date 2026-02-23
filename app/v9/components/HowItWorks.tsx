@@ -11,18 +11,38 @@ if (typeof window !== 'undefined') {
 const steps = [
   {
     number: '1',
-    title: 'You Share',
-    body: 'Free 30-minute call. Tell me about your business and where you feel stuck. I\u2019ll give you an honest take\u2009\u2014\u2009even if the answer is \u201cyou already have what you need.\u201d',
+    title: 'Discovery',
+    body: 'Free strategy call. We audit your current presence and identify the 3 actions that will move the needle for your specific business.',
   },
   {
     number: '2',
-    title: 'I Build',
-    body: 'Website, SEO, Google Business, landing pages\u2009\u2014\u2009whatever moves the needle. Your feedback shapes every step. No surprises, no scope creep.',
+    title: 'Strategy',
+    body: "I map out the solution—whether that's a website, custom app, AI integration, or automation workflow. You see the plan before we build.",
   },
   {
     number: '3',
-    title: 'You Grow',
-    body: 'Your phone rings more. Your calendar fills up. And I stick around to help you keep improving.',
+    title: 'Build',
+    body: 'I develop your solution with weekly check-ins. Your feedback shapes every step. No surprises, no scope creep.',
+  },
+  {
+    number: '4',
+    title: 'Refine',
+    body: 'We test, tweak, and optimize based on real data. This is where good becomes great.',
+  },
+  {
+    number: '5',
+    title: 'Launch',
+    body: 'Your solution goes live with monitoring and support. Everything works before we celebrate.',
+  },
+  {
+    number: '6',
+    title: 'Optimize',
+    body: '30-60 days of post-launch refinement. I watch the data and make adjustments to improve performance.',
+  },
+  {
+    number: '7',
+    title: 'Grow',
+    body: "You have a system that works. Your business grows, and I'm here when you need the next iteration.",
   },
 ];
 
@@ -107,8 +127,12 @@ export function HowItWorks() {
       >
         <div className="v9-container">
           <div className="v9-how-header">
-            <span className="v9-section-label">How It Works</span>
-            <h2 className="v9-how-heading">Simple process. Real results.</h2>
+            <span className="v9-section-label">
+              The 7-Point Digital Growth System
+            </span>
+            <h2 className="v9-how-heading">
+              From idea to results—my proven process
+            </h2>
           </div>
 
           <div className="v9-steps-grid">

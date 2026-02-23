@@ -74,13 +74,14 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Stop Losing Customers</span>
-            <span className="v9-hero-line2">to Competitors on Google</span>
+            <span className="v9-hero-line1">Your Chicago</span>
+            <span className="v9-hero-line2">Digital Partner</span>
           </h1>
 
           <p className="v9-hero-sub">
-            Your customers are looking for you right now. I help small
-            businesses get found, win more customers, and keep them coming back.
+            I help Chicago businesses — from tech startups to home service pros
+            — turn their websites into their best salesperson. 100+ projects, 13
+            years, one focus: results that matter.
           </p>
 
           <div className="v9-hero-trust">
@@ -93,6 +94,15 @@ export function Hero() {
               &middot;
             </span>
             <span>13+ years</span>
+          </div>
+
+          <div className="v9-hero-scarcity">
+            <p className="v9-scarcity-text">
+              <strong>Only 3 projects per month.</strong> I personally handle
+              every project from strategy to code to launch. That takes time,
+              and I won't compromise quality for volume. When spots fill, the
+              calendar closes.
+            </p>
           </div>
 
           <div className="v9-hero-urgency">
@@ -282,6 +292,25 @@ export function Hero() {
         @keyframes v9-pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        .v9-hero-scarcity {
+          max-width: 540px;
+          margin-bottom: 20px;
+        }
+
+        .v9-scarcity-text {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.85rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.55);
+          line-height: 1.6;
+          margin: 0;
+        }
+
+        .v9-scarcity-text strong {
+          color: rgba(255, 255, 255, 0.8);
+          font-weight: 600;
         }
 
         /* ----- Responsive ----- */

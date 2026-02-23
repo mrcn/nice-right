@@ -11,14 +11,15 @@ if (typeof window !== 'undefined') {
 const tiers = [
   {
     name: 'Launch',
-    price: '$3,500',
+    price: '$5,000',
+    paymentPlan: 'or 3 payments of $1,750',
     description:
-      'Perfect for new businesses ready to establish their online presence',
+      'Professional web presence for businesses ready to get found online',
     features: [
-      'Professional website (up to 5 pages)',
+      'Custom website (up to 5 pages)',
       'Mobile-responsive design',
-      'Google Business setup',
-      'Basic SEO optimization',
+      'Google Business optimization',
+      'SEO foundation',
       '2 rounds of revisions',
       '30-day support',
     ],
@@ -27,16 +28,16 @@ const tiers = [
   },
   {
     name: 'Growth',
-    price: '$7,500',
-    description:
-      'For established businesses ready to scale their customer acquisition',
+    price: '$12,000',
+    paymentPlan: 'or 3 payments of $4,200',
+    description: 'Full digital platform with automation for growing businesses',
     features: [
       'Everything in Launch, plus:',
       'Up to 10 pages + blog',
-      'Advanced SEO & keyword strategy',
-      'Landing pages for campaigns',
-      'Email capture & automation setup',
-      'Performance analytics dashboard',
+      'Advanced SEO & content strategy',
+      'Custom dashboards & portals',
+      'Workflow automation',
+      'CRM integration',
       '60-day support & optimization',
     ],
     cta: 'Most Popular',
@@ -44,14 +45,16 @@ const tiers = [
   },
   {
     name: 'Transformation',
-    price: '$12,500',
-    description: 'Complete digital transformation for market leaders',
+    price: '$20,000+',
+    paymentPlan: 'custom payment structure',
+    description: 'AI-powered apps & custom software for complex challenges',
     features: [
       'Everything in Growth, plus:',
-      'Custom applications & portals',
-      'Workflow automation',
-      'CRM integration',
-      'Advanced analytics & reporting',
+      'Custom app development',
+      'AI/LLM integrations',
+      'Proof-of-concept prototypes',
+      'Visual AI & automation',
+      'Advanced analytics & ML',
       'Priority support (90 days)',
       'Quarterly strategy reviews',
     ],
@@ -119,10 +122,13 @@ export function Pricing() {
         <div className="v9-pricing-container">
           <div className="v9-pricing-header">
             <span className="v9-section-label">Investment</span>
-            <h2 className="v9-pricing-heading">Clear pricing. No surprises.</h2>
+            <h2 className="v9-pricing-heading">
+              From websites to AI-powered apps
+            </h2>
             <p className="v9-pricing-sub">
-              Every project includes a free 30-minute strategy call. Payment
-              plans available for every budget.
+              Every project includes a free strategy call. Payment plans
+              available. Custom quotes for AI integrations, LLMs, and complex
+              app development.
             </p>
           </div>
 
@@ -137,6 +143,7 @@ export function Pricing() {
                 )}
                 <h3 className="v9-pricing-name">{tier.name}</h3>
                 <div className="v9-pricing-price">{tier.price}</div>
+                <div className="v9-pricing-payment">{tier.paymentPlan}</div>
                 <p className="v9-pricing-desc">{tier.description}</p>
 
                 <ul className="v9-pricing-features">
@@ -159,12 +166,13 @@ export function Pricing() {
             <div className="v9-guarantee-box">
               <div className="v9-guarantee-icon">🛡️</div>
               <div className="v9-guarantee-content">
-                <h4>The 90-Day Results Guarantee</h4>
+                <h4>The 30-Day Satisfaction Guarantee</h4>
                 <p>
-                  If your new site doesn&apos;t generate at least 50% more leads
-                  within 90 days of launch, I&apos;ll keep working for free
-                  until it does. No hourly charges. No change orders. Just
-                  results.
+                  If at any point in the first 30 days you&apos;re not happy
+                  with the direction, full refund—no questions. I only work with
+                  people who are excited about the process. Plus: every email
+                  returned within 24 hours, and you approve every phase before
+                  we proceed.
                 </p>
               </div>
             </div>
@@ -272,8 +280,16 @@ export function Pricing() {
           font-size: 2.5rem;
           font-weight: 500;
           color: #0C1117;
-          margin-bottom: 12px;
+          margin-bottom: 4px;
           letter-spacing: -0.02em;
+        }
+
+        .v9-pricing-payment {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.85rem;
+          color: rgba(12, 17, 23, 0.5);
+          margin-bottom: 12px;
+          font-style: italic;
         }
 
         .v9-pricing-desc {
