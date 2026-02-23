@@ -129,12 +129,13 @@ export function Hero() {
         .v9-hero {
           position: relative;
           width: 100%;
-          min-height: 100vh;
+          height: min(100vh, 900px);
+          max-height: 100vh;
           display: flex;
           align-items: center;
           justify-content: center;
           background: #0C1117;
-          overflow: hidden;
+          overflow: auto;
           z-index: 2;
         }
 
@@ -161,9 +162,10 @@ export function Hero() {
           flex-direction: column;
           align-items: center;
           text-align: center;
-          padding: 0 24px;
+          padding: clamp(16px, 3vh, 32px) 24px;
           max-width: 900px;
           will-change: transform, opacity;
+          gap: clamp(8px, 1.5vh, 16px);
         }
 
         .v9-hero-h1 {
@@ -171,11 +173,11 @@ export function Hero() {
           flex-direction: column;
           gap: 0;
           font-family: 'Instrument Serif', Georgia, serif;
-          font-size: clamp(3.5rem, 8vw, 7rem);
+          font-size: clamp(2.5rem, 5vh + 2vw, 5rem);
           font-weight: 400;
           line-height: 1.05;
           letter-spacing: -0.02em;
-          margin: 0 0 28px 0;
+          margin: 0;
         }
 
         .v9-hero-line1 {
@@ -192,23 +194,23 @@ export function Hero() {
         .v9-hero-sub {
           max-width: 600px;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 17px;
+          font-size: clamp(14px, 1.5vh + 0.5vw, 17px);
           font-weight: 400;
-          line-height: 1.7;
+          line-height: 1.6;
           color: rgba(255, 255, 255, 0.7);
-          margin: 0 0 28px 0;
+          margin: 0;
         }
 
         .v9-hero-trust {
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: clamp(6px, 1vh, 10px);
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.8rem;
+          font-size: clamp(0.7rem, 1.2vh, 0.8rem);
           font-weight: 500;
           color: rgba(255, 255, 255, 0.65);
           letter-spacing: 0.02em;
-          margin-bottom: 36px;
+          margin: 0;
           flex-wrap: wrap;
           justify-content: center;
         }
@@ -220,13 +222,13 @@ export function Hero() {
         }
 
         .v9-hero-cta-wrap {
-          margin-bottom: 20px;
+          margin: 0;
         }
 
         .v9-btn {
           display: inline-block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1rem;
+          font-size: clamp(0.9rem, 1.5vh, 1rem);
           font-weight: 600;
           text-decoration: none;
           border: none;
@@ -236,7 +238,7 @@ export function Hero() {
         }
 
         .v9-btn-gradient {
-          padding: 16px 40px;
+          padding: clamp(12px, 2vh, 16px) clamp(28px, 4vw, 40px);
           border-radius: 12px;
           color: #ffffff;
           background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
@@ -256,7 +258,7 @@ export function Hero() {
 
         .v9-hero-micro {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.82rem;
+          font-size: clamp(0.75rem, 1.2vh, 0.82rem);
           font-weight: 400;
           color: rgba(255, 255, 255, 0.65);
           margin: 0;
@@ -264,19 +266,19 @@ export function Hero() {
         }
 
         .v9-hero-urgency {
-          margin-bottom: 16px;
+          margin: 0;
         }
 
         .v9-urgency-badge {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
+          gap: clamp(4px, 0.8vh, 8px);
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
+          font-size: clamp(0.75rem, 1.3vh, 0.85rem);
           font-weight: 500;
           color: #06D6A0;
           background: rgba(6, 214, 160, 0.1);
-          padding: 8px 16px;
+          padding: clamp(6px, 1vh, 8px) clamp(12px, 2vh, 16px);
           border-radius: 20px;
           border: 1px solid rgba(6, 214, 160, 0.2);
         }
@@ -296,15 +298,15 @@ export function Hero() {
 
         .v9-hero-scarcity {
           max-width: 540px;
-          margin-bottom: 20px;
+          margin: 0;
         }
 
         .v9-scarcity-text {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
+          font-size: clamp(0.75rem, 1.3vh, 0.85rem);
           font-weight: 400;
           color: rgba(255, 255, 255, 0.55);
-          line-height: 1.6;
+          line-height: 1.5;
           margin: 0;
         }
 
@@ -316,22 +318,54 @@ export function Hero() {
         /* ----- Responsive ----- */
 
         @media (max-width: 640px) {
+          .v9-hero {
+            height: auto;
+            min-height: 100vh;
+            max-height: none;
+          }
+
+          .v9-hero-content {
+            gap: 12px;
+            padding: 80px 20px 40px;
+          }
+
           .v9-hero-h1 {
-            font-size: clamp(2.6rem, 10vw, 3.8rem);
+            font-size: clamp(2.2rem, 8vw, 3rem);
           }
 
           .v9-hero-sub {
-            font-size: 16px;
+            font-size: 15px;
+            line-height: 1.5;
           }
 
           .v9-btn-gradient {
-            padding: 14px 32px;
+            padding: 14px 28px;
             font-size: 0.95rem;
           }
 
           .v9-hero-trust {
-            gap: 8px;
+            gap: 6px;
+            font-size: 0.7rem;
+          }
+        }
+
+        @media (max-height: 700px) {
+          .v9-hero-content {
+            gap: 6px;
+          }
+
+          .v9-hero-h1 {
+            font-size: clamp(2rem, 4vh + 1vw, 3rem);
+          }
+
+          .v9-hero-sub {
+            font-size: 14px;
+            line-height: 1.4;
+          }
+
+          .v9-scarcity-text {
             font-size: 0.75rem;
+            line-height: 1.4;
           }
         }
 
@@ -346,6 +380,8 @@ export function Hero() {
           .v9-hero-h1,
           .v9-hero-sub,
           .v9-hero-trust,
+          .v9-hero-scarcity,
+          .v9-hero-urgency,
           .v9-hero-cta-wrap,
           .v9-hero-micro {
             opacity: 1 !important;
