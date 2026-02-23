@@ -82,19 +82,19 @@ export function Hero() {
             Your customers are searching right now—and finding your competitors
             first. I build the Customer-Getting Website System: websites, apps,
             and automation that bring you business while you focus on running
-            it. Chicago-based. Done-for-you. No more tech headaches.
+            it. Done-for-you. No more tech headaches.
           </p>
 
           <div className="v9-hero-trust">
-            <span>Chicago&apos;s Northwest Side</span>
-            <span className="v9-hero-dot" aria-hidden="true">
-              &middot;
-            </span>
             <span>100+ projects</span>
             <span className="v9-hero-dot" aria-hidden="true">
               &middot;
             </span>
             <span>13+ years</span>
+            <span className="v9-hero-dot" aria-hidden="true">
+              &middot;
+            </span>
+            <span>Done-for-you</span>
           </div>
 
           <div className="v9-hero-scarcity">

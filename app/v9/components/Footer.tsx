@@ -5,7 +5,7 @@ export function Footer() {
     <>
       <footer className="v9-footer">
         <div className="v9-footer-inner">
-          <p>&copy; 2026 Nice Right. Chicago&apos;s Northwest Side.</p>
+          <p>&copy; 2026 Nice Right. Digital Partner for Growing Businesses.</p>
           <p className="v9-footer-version">v{versionData.version}</p>
         </div>
       </footer>
