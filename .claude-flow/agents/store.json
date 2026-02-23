@@ -67,6 +67,95 @@
       "createdAt": "2026-02-18T19:47:42.347Z",
       "model": "opus",
       "modelRoutedBy": "explicit"
+    },
+    "agent-1771535815859-ugwmpa": {
+      "agentId": "agent-1771535815859-ugwmpa",
+      "agentType": "design-analyzer",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "task": "Analyze Hero section intensity for niceright.co",
+        "analysisType": "visual-design",
+        "focus": "layout-typography-cta",
+        "filesToRead": [
+          "/Users/mkd/UXOXO/nice-right/app/page.tsx",
+          "/Users/mkd/UXOXO/nice-right/app/globals.css",
+          "/Users/mkd/UXOXO/nice-right/components/Hero.tsx"
+        ],
+        "outputFormat": "detailed-report",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-19T21:16:55.860Z",
+      "domain": "design",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771535818112-0rhgyz": {
+      "agentId": "agent-1771535818112-0rhgyz",
+      "agentType": "design-analyzer",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "task": "Analyze visual weight distribution for niceright.co",
+        "analysisType": "visual-design",
+        "focus": "weight-balance",
+        "filesToRead": [
+          "/Users/mkd/UXOXO/nice-right/app/page.tsx",
+          "/Users/mkd/UXOXO/nice-right/app/globals.css"
+        ],
+        "outputFormat": "detailed-report",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-19T21:16:58.112Z",
+      "domain": "design",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771535821473-2fxrwg": {
+      "agentId": "agent-1771535821473-2fxrwg",
+      "agentType": "design-analyzer",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "task": "Analyze color intensity and palette for niceright.co",
+        "analysisType": "visual-design",
+        "focus": "color-contrast",
+        "filesToRead": [
+          "/Users/mkd/UXOXO/nice-right/app/globals.css",
+          "/Users/mkd/UXOXO/nice-right/docs/brand-guidelines.md"
+        ],
+        "outputFormat": "detailed-report",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-19T21:17:01.473Z",
+      "domain": "design",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771535824195-8lkyk2": {
+      "agentId": "agent-1771535824195-8lkyk2",
+      "agentType": "design-analyzer",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "task": "Analyze layout density and spacing for niceright.co",
+        "analysisType": "visual-design",
+        "focus": "spacing-density",
+        "filesToRead": [
+          "/Users/mkd/UXOXO/nice-right/app/page.tsx",
+          "/Users/mkd/UXOXO/nice-right/app/globals.css"
+        ],
+        "outputFormat": "detailed-report",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-19T21:17:04.195Z",
+      "domain": "design",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
     }
   },
   "version": "3.0.0"

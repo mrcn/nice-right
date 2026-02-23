@@ -1,0 +1,42 @@
+{
+  "name": "Nice Right - Mandatory Testing",
+  "version": "1.0.0",
+  "hooks": {
+    "pre-task": {
+      "enabled": true,
+      "required": true,
+      "checks": [
+        {
+          "name": "Verify localhost server running",
+          "command": "curl -s -o /dev/null -w '%{http_code}' http://localhost:3000 || curl -s -o /dev/null -w '%{http_code}' http://localhost:3001 || curl -s -o /dev/null -w '%{http_code}' http://localhost:3002",
+          "expected": "200",
+          "failure_action": "stop_and_report"
+        }
+      ],
+      "message": "⚠️ MANDATORY TESTING REQUIRED:\n□ Verify dev server running (localhost:3000/3001/3002)\n□ Browser/screenshot verification before marking complete\n□ Build verification (npm run build) before git commit\n\nDO NOT REPORT CHANGES AS 'VISIBLE' WITHOUT VERIFICATION!"
+    },
+    "pre-edit": {
+      "enabled": true,
+      "required": false,
+      "message": "Remember to test changes on localhost before committing"
+    },
+    "pre-commit": {
+      "enabled": true,
+      "required": true,
+      "checks": [
+        {
+          "name": "Build must pass",
+          "command": "npm run build",
+          "expected": "exit_code_0",
+          "failure_action": "stop_and_fix"
+        },
+        {
+          "name": "Tests must pass",
+          "command": "npm test",
+          "expected": "exit_code_0",
+          "failure_action": "stop_and_fix"
+        }
+      ]
+    }
+  }
+}

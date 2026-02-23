@@ -1,0 +1,195 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function WorkweekSystemLanding() {
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-content', {
+        y: 60,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+      });
+
+      gsap.from('.section-reveal', {
+        scrollTrigger: {
+          trigger: '.section-reveal',
+          start: 'top 80%',
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.1,
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-[#0C0A09] text-white">
+      {/* HERO SECTION */}
+      <section
+        ref={heroRef}
+        className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8"
+      >
+        <div className="max-w-4xl mx-auto text-center hero-content">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#0B8A6E]/10 border border-[#06D6A0]/20 rounded-full mb-8">
+            <span className="w-2 h-2 bg-[#06D6A0] rounded-full animate-pulse"></span>
+            <span className="text-[#06D6A0] text-sm font-medium">Only 1 Spot Per Quarter — Q2 Waitlist Open</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif leading-tight mb-6">
+            Reclaim 15+ <span className="bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] bg-clip-text text-transparent">Hours</span> <span className="bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] bg-clip-text text-transparent">Every</span> Week
+          </h1>
+
+          <p className="text-xl text-gray-400 mb-4">Without Firing a Single Employee or Losing a Single Customer</p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10">
+            <a
+              href="#apply"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] text-white font-semibold rounded-xl hover:scale-105 transition-transform"
+            >
+              Schedule Your Liberation Audit
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM SECTION */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 section-reveal">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-serif mb-6">
+              The <span className="text-red-400">Problem</span> You Are Facing
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            
+            <div className="p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">No Time for Family</h3>
+              <p className="text-gray-400">Missing dinner with your kids, date nights with your spouse, and your own health. Your business owns you.</p>
+            </div>
+            <div className="p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">Always Firefighting</h3>
+              <p className="text-gray-400">Every day is a crisis. Employee issues, customer complaints, operational problems. You cannot step away for an hour.</p>
+            </div>
+            <div className="p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
+              <h3 className="text-xl font-semibold mb-3">Cannot Scale</h3>
+              <p className="text-gray-400">Revenue capped because everything depends on you. No systems, no documentation, no team empowerment.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MECHANISM SECTION */}
+      <section id="how-it-works" className="py-24 px-4 sm:px-6 lg:px-8 section-reveal">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-serif mb-6">
+              Our <span className="bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] bg-clip-text text-transparent">Proven System</span>
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+            {[
+            {
+              num: '01',
+              title: 'Time Audit & Delegation',
+              desc: 'Description for Time Audit & Delegation phase goes here.',
+            },
+            {
+              num: '02',
+              title: 'System Documentation',
+              desc: 'Description for System Documentation phase goes here.',
+            },
+            {
+              num: '03',
+              title: 'Team Empowerment',
+              desc: 'Description for Team Empowerment phase goes here.',
+            },
+            {
+              num: '04',
+              title: 'Automation Architecture',
+              desc: 'Description for Automation Architecture phase goes here.',
+            },
+            ].map((phase, i) => (
+              <div
+                key={i}
+                className="flex gap-6 p-6 bg-gray-900/50 rounded-2xl border border-gray-800 hover:border-[#0B8A6E]/50 transition-colors"
+              >
+                <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-[#0B8A6E] to-[#06D6A0] rounded-xl flex items-center justify-center font-bold">
+                  {phase.num}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{phase.title}</h3>
+                  <p className="text-gray-400">{phase.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* GUARANTEE SECTION */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-[#0B8A6E]/10 to-transparent section-reveal">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-serif mb-6">
+            Reclaim 15+ Hours Every Week in 90 Days <span className="text-[#06D6A0]">Or 100% Refund + $2,500 Cash</span>
+          </h2>
+        </div>
+      </section>
+
+      {/* PRICING SECTION */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 section-reveal">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-serif mb-6">Investment</h2>
+          </div>
+
+          <div className="max-w-2xl mx-auto p-8 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700 text-center">
+            <div className="text-5xl font-bold mb-2">$4,500</div>
+            <div className="text-xl text-gray-400 mb-8">One-time investment</div>
+
+            <a
+              href="#apply"
+              className="block w-full py-4 text-center bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] text-white font-semibold rounded-xl hover:scale-105 transition-transform"
+            >
+              Get Started
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section id="apply" className="py-24 px-4 sm:px-6 lg:px-8 section-reveal">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-serif mb-6">
+            Ready to <span className="bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] bg-clip-text text-transparent">Get Started?</span>
+          </h2>
+
+          <a
+            href="mailto:hello@niceright.co?subject=workweek-system Application"
+            className="inline-flex items-center justify-center px-10 py-5 bg-gradient-to-r from-[#0B8A6E] to-[#06D6A0] text-white text-lg font-semibold rounded-xl hover:scale-105 transition-transform"
+          >
+            Apply Now →
+          </a>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div className="max-w-4xl mx-auto text-center text-gray-500 text-sm">
+          <p>© 2026 Nice Right. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}

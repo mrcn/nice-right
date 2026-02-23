@@ -1,3 +1,18 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Brand Colors */
+  --color-nr-navy: #0f172a;
+  --color-nr-navy-light: #1e293b;
+  --color-nr-cream: #fafaf9;
+  --color-nr-amber: #d4a574;
+  --color-nr-amber-dark: #b8875a;
+
+  /* Font Families */
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
 /* Nice Right Design System - 2025 */
 
 :root {

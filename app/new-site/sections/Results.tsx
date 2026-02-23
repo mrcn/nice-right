@@ -17,7 +17,7 @@ export default function Results() {
       link: '/work/healthcare-real-estate',
     },
     {
-      client: 'GreenPill Dev Guild',
+      client: 'GreenPill Network',
       headline: '3x more people participating in conservation',
       description:
         'Gamified biodiversity platform that turned ecological impact into something people wanted to be part of.',
