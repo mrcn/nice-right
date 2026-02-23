@@ -3,6 +3,7 @@
 import './page.css';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
+import { ServicesCarousel } from './components/ServicesCarousel';
 import { HowItWorks } from './components/HowItWorks';
 import { Services } from './components/Services';
 import { Proof } from './components/Proof';
@@ -21,6 +22,7 @@ export default function V9Page() {
       <Nav />
       <main id="main-content">
         <Hero />
+        <ServicesCarousel />
         <HowItWorks />
         <Services />
         <Proof />
