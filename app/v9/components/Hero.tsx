@@ -96,14 +96,7 @@ export function Hero() {
             <span>Done-for-you</span>
           </div>
 
-          <div className="v9-hero-scarcity">
-            <p className="v9-scarcity-text">
-              <strong>Only 3 projects per month.</strong> I personally handle
-              every project from strategy to code to launch. That takes time,
-              and I won't compromise quality for volume. When these 3 spots
-              fill, I close the calendar until next month.
-            </p>
-          </div>
+
 
           <div className="v9-hero-urgency">
             <span className="v9-urgency-badge">
@@ -296,24 +289,7 @@ export function Hero() {
           50% { opacity: 0.6; transform: scale(0.9); }
         }
 
-        .v9-hero-scarcity {
-          max-width: 540px;
-          margin: 0;
-        }
 
-        .v9-scarcity-text {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.75rem, 1.3vh, 0.85rem);
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.55);
-          line-height: 1.5;
-          margin: 0;
-        }
-
-        .v9-scarcity-text strong {
-          color: rgba(255, 255, 255, 0.8);
-          font-weight: 600;
-        }
 
         /* ----- Responsive ----- */
 
@@ -378,6 +354,11 @@ export function Hero() {
           }
 
           .v9-hero-h1,
+          .v9-hero-sub,
+          .v9-hero-trust,
+          .v9-hero-urgency,
+          .v9-hero-cta-wrap,
+          .v9-hero-micro {
           .v9-hero-sub,
           .v9-hero-trust,
           .v9-hero-scarcity,
