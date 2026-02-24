@@ -100,8 +100,8 @@ export function Hero() {
             <p className="v9-scarcity-text">
               <strong>Only 3 projects per month.</strong> I personally handle
               every project from strategy to code to launch. That takes time,
-              and I won't compromise quality for volume. When spots fill, the
-              calendar closes.
+              and I won't compromise quality for volume. When these 3 spots
+              fill, I close the calendar until next month.
             </p>
           </div>
 
