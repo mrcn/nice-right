@@ -156,6 +156,82 @@
       "domain": "design",
       "model": "sonnet",
       "modelRoutedBy": "explicit"
+    },
+    "agent-1771952559711-y46kil": {
+      "agentId": "agent-1771952559711-y46kil",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "context": "Hero.tsx GSAP animation refactor - remove old effects",
+        "files": [
+          "/Users/mkd/UXOXO/nice-right/app/v9/components/Hero.tsx"
+        ],
+        "task": "Remove all current GSAP animations from Hero component",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-24T17:02:39.711Z",
+      "domain": "frontend",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771952564442-f1ctm9": {
+      "agentId": "agent-1771952564442-f1ctm9",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "context": "Hero.tsx GSAP cascade implementation",
+        "files": [
+          "/Users/mkd/UXOXO/nice-right/app/v9/components/Hero.tsx"
+        ],
+        "task": "Implement sophisticated GSAP cascade animation for all hero elements",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-24T17:02:44.443Z",
+      "domain": "frontend",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771952567832-3m9pbi": {
+      "agentId": "agent-1771952567832-3m9pbi",
+      "agentType": "coder",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "context": "Hero.tsx scroll animations",
+        "files": [
+          "/Users/mkd/UXOXO/nice-right/app/v9/components/Hero.tsx"
+        ],
+        "task": "Add scroll-triggered animations to Hero",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-24T17:02:47.832Z",
+      "domain": "frontend",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
+    },
+    "agent-1771952570113-i7lgoy": {
+      "agentId": "agent-1771952570113-i7lgoy",
+      "agentType": "reviewer",
+      "status": "idle",
+      "health": 1,
+      "taskCount": 0,
+      "config": {
+        "context": "Review GSAP animation implementation",
+        "files": [
+          "/Users/mkd/UXOXO/nice-right/app/v9/components/Hero.tsx"
+        ],
+        "task": "Review and optimize the GSAP animation code",
+        "model": "sonnet"
+      },
+      "createdAt": "2026-02-24T17:02:50.113Z",
+      "domain": "frontend",
+      "model": "sonnet",
+      "modelRoutedBy": "explicit"
     }
   },
   "version": "3.0.0"

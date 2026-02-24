@@ -19,51 +19,172 @@ export function Hero() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = gsap.context(() => {
-      const h1 = section.querySelector('.v9-hero-h1');
+      // Select all hero elements for cascade
+      const line1 = section.querySelector('.v9-hero-line1');
+      const line2 = section.querySelector('.v9-hero-line2');
       const sub = section.querySelector('.v9-hero-sub');
-      const trust = section.querySelector('.v9-hero-trust');
-      const ctaWrap = section.querySelector('.v9-hero-cta-wrap');
+      const trustItems = section.querySelectorAll('.v9-hero-trust > span');
+      const urgency = section.querySelector('.v9-hero-urgency');
+      const cta = section.querySelector('.v9-hero-cta-wrap');
       const micro = section.querySelector('.v9-hero-micro');
 
-      // 1. Initial reveal timeline
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      // Master timeline for entrance cascade
+      const masterTl = gsap.timeline({
+        defaults: { ease: 'power3.out' },
+        delay: 0.2
+      });
 
-      tl.fromTo(
-        h1,
-        { opacity: 0, y: 30, scale: 0.95 },
-        { opacity: 1, y: 0, scale: 1, duration: 1 }
-      )
-        .fromTo(
-          sub,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.7 },
-          '-=0.5'
-        )
-        .fromTo(trust, { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.3')
-        .fromTo(
-          ctaWrap,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.5 },
-          '-=0.2'
-        )
-        .fromTo(micro, { opacity: 0 }, { opacity: 1, duration: 0.4 }, '-=0.15');
+      // 1. Line 1: Clip-path reveal + slight upward drift
+      masterTl.fromTo(line1,
+        { 
+          clipPath: 'inset(100% 0 0 0)', 
+          y: 20,
+          opacity: 0 
+        },
+        { 
+          clipPath: 'inset(0% 0 0 0)', 
+          y: 0,
+          opacity: 1,
+          duration: 0.9 
+        }
+      );
 
-      // 2. Pin + parallax fade-out on scroll
+      // 2. Line 2: Fade + slide with gradient shimmer
+      masterTl.fromTo(line2,
+        { 
+          y: 30, 
+          opacity: 0,
+          filter: 'blur(8px)'
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 0.8 
+        },
+        '-=0.5'
+      );
+
+      // 3. Sub: Blur-in + fade
+      masterTl.fromTo(sub,
+        { 
+          y: 20, 
+          opacity: 0,
+          filter: 'blur(4px)'
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          filter: 'blur(0px)',
+          duration: 0.7 
+        },
+        '-=0.4'
+      );
+
+      // 4. Trust badges: Stagger each item
+      masterTl.fromTo(trustItems,
+        { 
+          y: 15, 
+          opacity: 0,
+          scale: 0.95
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.08
+        },
+        '-=0.3'
+      );
+
+      // 5. Urgency badge: Scale + fade with bounce
+      masterTl.fromTo(urgency,
+        { 
+          scale: 0.8, 
+          opacity: 0,
+          y: 10
+        },
+        { 
+          scale: 1, 
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: 'back.out(1.7)'
+        },
+        '-=0.2'
+      );
+
+      // 6. CTA: Slide up + glow reveal
+      masterTl.fromTo(cta,
+        { 
+          y: 25, 
+          opacity: 0,
+          scale: 0.98
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          scale: 1,
+          duration: 0.7,
+          ease: 'power2.out'
+        },
+        '-=0.3'
+      );
+
+      // 7. Micro text: Gentle fade
+      masterTl.fromTo(micro,
+        { 
+          y: 10, 
+          opacity: 0
+        },
+        { 
+          y: 0, 
+          opacity: 1,
+          duration: 0.5 
+        },
+        '-=0.3'
+      );
+
+      // Scroll-triggered parallax fade-out
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-        end: '+=100%',
+        end: '+=80%',
         pin: true,
         pinSpacing: true,
+        scrub: 0.5,
         onUpdate: (self) => {
           const p = self.progress;
           gsap.set(content, {
-            opacity: 1 - p,
-            scale: 1 - p * 0.05,
-            y: p * -30,
+            opacity: 1 - Math.pow(p, 1.5),
+            scale: 1 - p * 0.03,
+            y: p * -20,
           });
         },
       });
+
+      // Subtle parallax on individual elements during scroll
+      gsap.to(line1, {
+        y: -40,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=50%',
+          scrub: 1
+        }
+      });
+
+      gsap.to(line2, {
+        y: -25,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=50%',
+          scrub: 1
+        }
+      });
+
     }, section);
 
     return () => ctx.revert();
@@ -175,13 +296,14 @@ export function Hero() {
 
         .v9-hero-line1 {
           color: #ffffff;
+          will-change: clip-path, transform, opacity;
         }
-
         .v9-hero-line2 {
           background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          will-change: transform, opacity, filter;
         }
 
         .v9-hero-sub {
@@ -192,7 +314,7 @@ export function Hero() {
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.7);
           margin: 0;
-        }
+          will-change: transform, opacity, filter;
 
         .v9-hero-trust {
           display: flex;
@@ -206,7 +328,7 @@ export function Hero() {
           margin: 0;
           flex-wrap: wrap;
           justify-content: center;
-        }
+          will-change: transform, opacity;
 
         .v9-hero-dot {
           color: rgba(255, 255, 255, 0.25);
