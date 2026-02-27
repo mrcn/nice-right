@@ -203,6 +203,17 @@ export function Pricing() {
           margin-bottom: 64px;
         }
 
+        .v9-section-label {
+          display: inline-block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #0B8A6E;
+          margin-bottom: 16px;
+        }
+
         .v9-pricing-heading {
           font-family: var(--v9-font-heading);
           font-size: clamp(1.8rem, 4vw, 2.8rem);

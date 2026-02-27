@@ -141,10 +141,8 @@ export function Services() {
                 className={`v9-service-card ${i === 1 ? 'v9-service-card--featured' : ''}`}
               >
                 <div className="v9-service-accent" aria-hidden="true" />
-                {i === 1 && (
-                  <span className="v9-service-badge">Most Popular</span>
-                )}
-                <h3 className="v9-service-title">{service.title}</h3>
+<h3 className="v9-service-title">{service.title}</h3>
+
                 <p className="v9-service-quote">
                   &ldquo;{service.quote}&rdquo;
                 </p>

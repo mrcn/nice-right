@@ -106,10 +106,10 @@ export function Hero() {
             <span className="v9-hero-line2">that bring you more business</span>
           </h1>
 
-          <p className="v9-hero-sub">
-            While you run your company, I handle the digital side:
-            conversion-focused websites, custom apps, and smart automation.
-            Built right. Kept running. Month after month.
+<p className="v9-hero-sub">
+            Websites that convert visitors into customers. Apps that automate
+            your sales process. Systems that actually grow your revenue. I
+            translate business chaos into working solutions that make you money.
           </p>
 
           <div className="v9-hero-trust">

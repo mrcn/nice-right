@@ -8,43 +8,8 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const steps = [
-  {
-    number: '1',
-    title: 'Discovery',
-    body: 'Free strategy call. We audit your current presence and identify the 3 actions that will move the needle for your specific business.',
-  },
-  {
-    number: '2',
-    title: 'Strategy',
-    body: "I map out the solution—whether that's a website, custom app, AI integration, or automation workflow. You see the plan before we build.",
-  },
-  {
-    number: '3',
-    title: 'Build',
-    body: 'I develop your solution with weekly check-ins. Your feedback shapes every step. No surprises, no scope creep.',
-  },
-  {
-    number: '4',
-    title: 'Refine',
-    body: 'We test, tweak, and optimize based on real data. This is where good becomes great.',
-  },
-  {
-    number: '5',
-    title: 'Launch',
-    body: 'Your solution goes live with monitoring and support. Everything works before we celebrate.',
-  },
-  {
-    number: '6',
-    title: 'Optimize',
-    body: '30-60 days of post-launch refinement. I watch the data and make adjustments to improve performance.',
-  },
-  {
-    number: '7',
-    title: 'Grow',
-    body: "You have a system that works. Your business grows, and I'm here when you need the next iteration.",
-  },
-];
+
+
 
 export function HowItWorks() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -127,23 +92,25 @@ export function HowItWorks() {
       >
         <div className="v9-container">
           <div className="v9-how-header">
-            <span className="v9-section-label">
-              The 7-Point Digital Growth System
-            </span>
+            <span className="v9-section-label">How It Works</span>
             <h2 className="v9-how-heading">
-              From idea to results—my proven process
+              Talk → Build → Test → Ship
             </h2>
+            <p
+              style={{
+                fontFamily: "'Inter', -apple-system, sans-serif",
+                fontSize: 'clamp(16px, 2vw, 18px)',
+                color: 'rgba(12, 17, 23, 0.7)',
+                marginTop: '16px',
+                lineHeight: 1.6,
+              }}
+            >
+              Prototype in a week. Real version shortly after.
+              <br />
+              Strategy if you need it. No fluff if you don't.
+            </p>
           </div>
 
-          <div className="v9-steps-grid">
-            {steps.map((step) => (
-              <div key={step.number} className="v9-step-card">
-                <span className="v9-step-number">{step.number}</span>
-                <h3 className="v9-step-title">{step.title}</h3>
-                <p className="v9-step-body">{step.body}</p>
-              </div>
-            ))}
-          </div>
 
           <div className="v9-how-cta">
             <a href="#contact" className="v9-btn v9-btn-outline">
