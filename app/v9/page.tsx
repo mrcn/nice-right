@@ -1,6 +1,7 @@
 'use client';
 
 import './page.css';
+import { useScrollDepth } from '@/app/hooks/useScrollDepth';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { ServicesCarousel } from './components/ServicesCarousel';
@@ -14,6 +15,7 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 
 export default function V9Page() {
+  useScrollDepth();
   return (
     <div className="v9">
       <a href="#main-content" className="skip-link">

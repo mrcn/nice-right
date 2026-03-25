@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackBookingComplete, trackContactClick } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -73,6 +74,15 @@ function CalEmbed() {
       },
     });
 
+    function onMessage(e: MessageEvent) {
+      if (!e.origin.includes('cal.com')) return;
+      const type = e.data?.type ?? e.data?.data?.type;
+      if (type === 'bookingSuccessful' || type === 'cal:bookingSuccessful') {
+        trackBookingComplete();
+      }
+    }
+    window.addEventListener('message', onMessage);
+
     const checkLoaded = setInterval(() => {
       const el = document.getElementById('cal-embed-v9');
       if (el && el.querySelector('iframe')) {
@@ -88,6 +98,7 @@ function CalEmbed() {
     return () => {
       clearInterval(checkLoaded);
       clearTimeout(timeout);
+      window.removeEventListener('message', onMessage);
     };
   }, []);
 
@@ -206,7 +217,7 @@ export function ContactSection() {
           <p className="v9-contact-prefer">Prefer to reach out directly?</p>
 
           <div className="v9-contact-methods">
-            <a href="mailto:Marcin@uxoxo.xyz" className="v9-contact-card">
+            <a href="mailto:Marcin@uxoxo.xyz" className="v9-contact-card" onClick={() => trackContactClick('email')}>
               <div className="v9-contact-icon">
                 <svg
                   width="20"
@@ -232,6 +243,7 @@ export function ContactSection() {
               target="_blank"
               rel="noopener noreferrer"
               className="v9-contact-card"
+              onClick={() => trackContactClick('linkedin')}
             >
               <div className="v9-contact-icon">
                 <svg

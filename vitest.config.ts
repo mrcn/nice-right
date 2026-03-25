@@ -5,6 +5,6 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     include: ['**/*.test.{ts,tsx}'],
-    exclude: ['node_modules', 'dist', '.next'],
+    exclude: ['node_modules', 'dist', '.next', '.opencode'],
   },
 });
