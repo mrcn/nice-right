@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackCTAClick } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -134,7 +135,11 @@ export function Hero() {
           </div>
 
           <div className="v9-hero-cta-wrap">
-            <a href="#contact" className="v9-btn v9-btn-gradient">
+            <a
+              href="#contact"
+              className="v9-btn v9-btn-gradient"
+              onClick={() => trackCTAClick('hero', 'hero')}
+            >
               Book Your Free Strategy Call
             </a>
           </div>

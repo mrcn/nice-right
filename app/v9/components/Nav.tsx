@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackCTAClick } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -51,7 +52,7 @@ export function Nav() {
             <a href="#how-it-works">How It Works</a>
             <a href="#services">Services</a>
             <a href="#results">Results</a>
-            <a href="#contact" className="v9-nav-cta">
+            <a href="#contact" className="v9-nav-cta" onClick={() => trackCTAClick('nav_desktop', 'nav')}>
               Book a Free Call
             </a>
           </div>
@@ -81,7 +82,7 @@ export function Nav() {
             <a href="#results" onClick={handleLinkClick}>
               Results
             </a>
-            <a href="#contact" className="v9-nav-cta" onClick={handleLinkClick}>
+            <a href="#contact" className="v9-nav-cta" onClick={() => { handleLinkClick(); trackCTAClick('nav_mobile', 'nav'); }}>
               Book a Free Call
             </a>
           </div>

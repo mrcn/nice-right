@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackCTAClick, trackPricingView } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -96,6 +97,9 @@ export function Pricing() {
             trigger: cards[0],
             start: 'top 85%',
             once: true,
+            onEnter: () => {
+              tiers.forEach((t) => trackPricingView(t.name));
+            },
           },
         }
       );
@@ -164,6 +168,7 @@ export function Pricing() {
                 <a
                   href="#contact"
                   className={`v9-btn ${tier.popular ? 'v9-btn-gradient' : 'v9-btn-outline'}`}
+                  onClick={() => trackCTAClick(tier.name, 'pricing')}
                 >
                   {tier.cta}
                 </a>
@@ -178,7 +183,7 @@ export function Pricing() {
                 Book a free 20-minute call. I\'ll tell you honestly which option
                 fits your situation—or if neither does. No pitch. Just clarity.
               </p>
-              <a href="#contact" className="v9-btn v9-btn-text">
+              <a href="#contact" className="v9-btn v9-btn-text" onClick={() => trackCTAClick('pricing_bottom', 'pricing')}>
                 Book Your Free Strategy Call →
               </a>
             </div>
