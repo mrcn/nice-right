@@ -128,7 +128,7 @@ export function Pricing() {
             {tiers.map((tier) => (
               <div
                 key={tier.name}
-                className={`v9-pricing-card ${tier.popular ? 'v9-pricing-card--popular' : ''}`}
+                className="v9-pricing-card"
               >
                 <h3 className="v9-pricing-name">{tier.name}</h3>
 
