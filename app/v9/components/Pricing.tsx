@@ -223,7 +223,7 @@ export function Pricing() {
           margin: 16px 0 16px 0;
         }
 
-        .v9-pricing-sub {
+        .v9-pricing-header .v9-pricing-sub {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 1.05rem;
           color: rgba(12, 17, 23, 0.6);
