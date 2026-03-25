@@ -12,7 +12,7 @@ if (typeof window !== 'undefined') {
 const tiers = [
   {
     name: 'The Revenue Experiment',
-    price: '$8,000',
+    valuePrompt: 'What is a new revenue stream worth to you?',
     timeline: '30 days to first customer',
     description:
       "You have a revenue idea. We build it and launch it in 30 days. If it works, you have a new income stream. If it doesn't, you learned fast and cheap.",
@@ -30,11 +30,10 @@ const tiers = [
     ],
     guarantee: "Launch in 30 days or you don't pay",
     cta: 'Start Your Experiment',
-    popular: false,
   },
   {
     name: 'Technical Partner',
-    price: '$15,000 + $3,500/mo',
+    valuePrompt: 'What is a technical co-founder without equity worth to you?',
     timeline: 'Ongoing growth partnership',
     description:
       "You get a technical co-founder without giving up equity. I embed in your business, build systems that scale, and help you find revenue opportunities you're missing.",
@@ -52,7 +51,6 @@ const tiers = [
     ],
     guarantee: 'Month-to-month after 90 days. Cancel anytime.',
     cta: 'Get a Technical Co-Founder',
-    popular: true,
   },
 ];
 
@@ -132,13 +130,9 @@ export function Pricing() {
                 key={tier.name}
                 className={`v9-pricing-card ${tier.popular ? 'v9-pricing-card--popular' : ''}`}
               >
-                {tier.popular && (
-                  <span className="v9-pricing-badge">Most Popular</span>
-                )}
-
                 <h3 className="v9-pricing-name">{tier.name}</h3>
 
-                <div className="v9-pricing-price">{tier.price}</div>
+                <div className="v9-pricing-value-prompt">{tier.valuePrompt}</div>
                 <div className="v9-pricing-timeline">{tier.timeline}</div>
 
                 <p className="v9-pricing-desc">{tier.description}</p>
@@ -167,7 +161,7 @@ export function Pricing() {
 
                 <a
                   href="#contact"
-                  className={`v9-btn ${tier.popular ? 'v9-btn-gradient' : 'v9-btn-outline'}`}
+                  className="v9-btn v9-btn-gradient"
                   onClick={() => trackCTAClick(tier.name, 'pricing')}
                 >
                   {tier.cta}
@@ -236,6 +230,8 @@ export function Pricing() {
           max-width: 600px;
           margin: 0 auto;
           line-height: 1.6;
+          text-align: center;
+          display: block;
         }
 
         .v9-pricing-grid {
@@ -260,29 +256,6 @@ export function Pricing() {
           box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
         }
 
-        .v9-pricing-card--popular {
-          background: #ffffff;
-          border: 2px solid #0B8A6E;
-          box-shadow: 0 0 40px rgba(11, 138, 110, 0.1);
-        }
-
-        .v9-pricing-badge {
-          position: absolute;
-          top: -12px;
-          left: 50%;
-          transform: translateX(-50%);
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          color: #ffffff;
-          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
-          padding: 6px 16px;
-          border-radius: 20px;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          white-space: nowrap;
-        }
-
         .v9-pricing-name {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 1.35rem;
@@ -291,13 +264,14 @@ export function Pricing() {
           margin: 0 0 8px 0;
         }
 
-        .v9-pricing-price {
-          font-family: var(--v9-font-heading);
-          font-size: 2.5rem;
-          font-weight: 500;
-          color: #0C1117;
+        .v9-pricing-value-prompt {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-style: italic;
+          font-size: 1.15rem;
+          font-weight: 400;
+          color: #0B8A6E;
           margin-bottom: 4px;
-          letter-spacing: -0.02em;
+          line-height: 1.4;
         }
 
         .v9-pricing-timeline {
