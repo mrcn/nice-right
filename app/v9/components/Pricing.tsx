@@ -171,7 +171,7 @@ export function Pricing() {
                   </ul>
                 </div>
 
-                <
+                <a
                   href="#contact"
                   className="v9-btn v9-btn-gradient"
                   onClick={() => trackCTAClick(tier.name, 'pricing')}

@@ -8,42 +8,63 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-const services = [
+const levers = [
   {
-    title: 'Get Found & Get Customers',
-    quote: 'I need a website that actually brings in business.',
-    features: [
-      'Websites that turn visitors into paying customers',
-      'SEO so the right people find you first',
-      'Landing pages for campaigns & ads',
-      'Google Business & local search setup',
+    num: '01',
+    title: 'Get More Customers',
+    quote: 'I feel invisible online. People who need exactly what I do can\'t find me.',
+    bullets: [
+      'SEO-optimized website',
+      'Google Business + local listings',
+      'Lead capture + email sequence',
+      'Paid traffic-ready landing pages',
     ],
+    tag: 'Acquisition',
+    context: 'The fix isn\'t ads — it\'s infrastructure. We make you findable, credible, and worth contacting.',
   },
   {
-    title: 'Save Time & Cut Costs',
-    quote: 'I spend too much time on things a computer should handle.',
-    features: [
-      'Custom apps & dashboards for your team',
-      'Customer self-service portals',
-      'Workflow automation that frees up your day',
-      'Internal tools your team will actually use',
+    num: '02',
+    title: 'Charge More',
+    quote: 'I keep losing bids to cheaper competitors. I can\'t raise my rates.',
+    bullets: [
+      'Positioning and messaging overhaul',
+      'Social proof systems',
+      'Custom client-facing tools',
+      'Outcome-based packaging',
     ],
+    tag: 'Pricing Power',
+    context: 'A 1% price increase = 8% operating profit improvement. Credibility is what lets you charge more.',
   },
   {
-    title: 'Keep Customers Coming Back',
-    quote: 'I win customers but they don\u2019t stick around.',
-    features: [
-      'Loyalty programs',
-      'Email sequences that keep you top of mind',
-      'Customer feedback systems',
-      'Retention analytics',
+    num: '03',
+    title: 'Keep Customers Longer',
+    quote: 'I spend all my time hunting new clients. My best ones disappear.',
+    bullets: [
+      'Post-purchase email sequences',
+      'Automated rebooking flows',
+      'Loyalty and referral systems',
+      'CRM setup and automation',
     ],
+    tag: 'Retention',
+    context: 'Acquiring a customer costs 5–7× more than keeping one. Retention is the most underinvested lever.',
+  },
+  {
+    num: '04',
+    title: 'Cut the Waste',
+    quote: 'I\'m doing $10/hour tasks when I should be doing $500/hour work.',
+    bullets: [
+      'Business process audit',
+      'Scheduling + intake automation',
+      'AI-assisted workflows',
+      'Custom internal tools',
+    ],
+    tag: 'Operations',
+    context: 'Every hour in admin is an hour not selling. We automate the repetitive parts — AI where it fits.',
   },
 ];
 
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
-  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -51,66 +72,33 @@ export function Services() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = gsap.context(() => {
-      // Header reveal
       const header = section.querySelector('.v9-services-header');
-      if (header) {
-        gsap.fromTo(
-          header,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: header,
-              start: 'top bottom-=80',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
+      const cols = section.querySelectorAll('.v9-lever-col');
 
-      // Staggered card reveals
-      cardsRef.current.forEach((card, i) => {
-        if (!card) return;
-        gsap.fromTo(
-          card,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.7,
-            delay: i * 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top bottom-=60',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      });
+      gsap.fromTo(
+        header,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: header, start: 'top 85%', once: true },
+        }
+      );
 
-      // CTA reveal
-      const cta = section.querySelector('.v9-services-cta');
-      if (cta) {
-        gsap.fromTo(
-          cta,
-          { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cta,
-              start: 'top bottom-=40',
-              toggleActions: 'play none none none',
-            },
-          }
-        );
-      }
+      gsap.fromTo(
+        cols,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: cols[0], start: 'top 85%', once: true },
+        }
+      );
     }, section);
 
     return () => ctx.revert();
@@ -125,71 +113,34 @@ export function Services() {
       >
         <div className="v9-services-container">
           <div className="v9-services-header">
-            <p className="v9-section-label">What You Get</p>
+            <span className="v9-section-label">How Businesses Grow</span>
             <h2 className="v9-services-heading">
-              Three ways I help businesses grow
+              There are only four ways to grow a business.
             </h2>
+            <p className="v9-services-sub">
+              More customers. Bigger transactions. More repeat business. Less
+              overhead. Every dollar of growth comes from one of these levers —
+              and most businesses are stuck on one or two. Where are you stuck?
+            </p>
           </div>
 
-          <div className="v9-services-stack">
-            {services.map((service, i) => (
-              <div
-                key={service.title}
-                ref={(el) => {
-                  cardsRef.current[i] = el;
-                }}
-                className={`v9-service-card ${i === 1 ? 'v9-service-card--featured' : ''}`}
-              >
-                <div className="v9-service-accent" aria-hidden="true" />
-<h3 className="v9-service-title">{service.title}</h3>
-
-                <p className="v9-service-quote">
-                  &ldquo;{service.quote}&rdquo;
-                </p>
-                <ul className="v9-service-features">
-                  {service.features.map((f) => (
-                    <li key={f}>
-                      <svg
-                        className="v9-check-icon"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M3 8.5L6.5 12L13 4"
-                          stroke="url(#v9-check-grad)"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <defs>
-                          <linearGradient
-                            id="v9-check-grad"
-                            x1="3"
-                            y1="4"
-                            x2="13"
-                            y2="12"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#0B8A6E" />
-                            <stop offset="1" stopColor="#06D6A0" />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                      <span>{f}</span>
-                    </li>
+          <div className="v9-levers">
+            {levers.map((lever) => (
+              <div key={lever.num} className="v9-lever-col">
+                <div className="v9-lever-num">{lever.num}</div>
+                <h3 className="v9-lever-title">{lever.title}</h3>
+                <p className="v9-lever-quote">&ldquo;{lever.quote}&rdquo;</p>
+                <ul className="v9-lever-bullets">
+                  {lever.bullets.map((b) => (
+                    <li key={b}>{b}</li>
                   ))}
                 </ul>
+                <div className="v9-lever-info">
+                  <span className="v9-lever-tag">{lever.tag}</span>
+                  <p>{lever.context}</p>
+                </div>
               </div>
             ))}
-          </div>
-
-          <div className="v9-services-cta">
-            <a href="#contact" className="v9-btn v9-btn-text">
-              Let&apos;s Talk About Your Business →
-            </a>
           </div>
         </div>
       </section>
@@ -204,178 +155,206 @@ export function Services() {
         }
 
         .v9-services-container {
-          max-width: 800px;
+          max-width: 1300px;
           margin: 0 auto;
-          padding: 0 28px;
+          padding: 0 40px;
         }
 
         .v9-services-header {
-          text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 72px;
+          max-width: 640px;
         }
 
         .v9-section-label {
+          display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.8rem;
+          font-size: 0.7rem;
           font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.12em;
-          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          margin: 0 0 12px 0;
+          letter-spacing: 0.1em;
+          color: #0B8A6E;
+          margin-bottom: 14px;
         }
 
         .v9-services-heading {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-weight: 700;
-          font-size: clamp(1.8rem, 4vw, 2.6rem);
-          color: #0C1117;
-          margin: 0;
-          line-height: 1.15;
-          letter-spacing: -0.02em;
-        }
-
-        .v9-services-stack {
-          display: flex;
-          flex-direction: column;
-          gap: 32px;
-        }
-
-        .v9-service-card {
-          position: relative;
-          background: #ffffff;
-          border-radius: 20px;
-          padding: 40px;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-          overflow: hidden;
-          transition: transform 0.3s cubic-bezier(0.33, 1, 0.68, 1),
-                      box-shadow 0.3s ease;
-        }
-
-        .v9-service-card:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
-        }
-
-        .v9-service-card--featured {
-          transform: scale(1.02);
-          border: 2px solid #0B8A6E;
-          box-shadow: 0 0 40px rgba(11, 138, 110, 0.15);
-        }
-
-        .v9-service-card--featured:hover {
-          transform: scale(1.02) translateY(-2px);
-          box-shadow: 0 12px 48px rgba(11, 138, 110, 0.2);
-        }
-
-        .v9-service-badge {
-          position: absolute;
-          top: 16px;
-          right: 16px;
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          color: #ffffff;
-          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
-          padding: 4px 12px;
-          border-radius: 12px;
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .v9-service-accent {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, #0B8A6E 0%, #06D6A0 100%);
-          border-radius: 20px 20px 0 0;
-        }
-
-        .v9-service-title {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-weight: 700;
-          font-size: 1.5rem;
-          color: #0C1117;
-          margin: 0 0 12px 0;
-          line-height: 1.3;
-        }
-
-        .v9-service-quote {
-          font-family: 'Instrument Serif', Georgia, serif;
-          font-style: italic;
-          font-size: 1rem;
-          color: rgba(12, 17, 23, 0.5);
-          margin: 0 0 24px 0;
-          line-height: 1.5;
-        }
-
-        .v9-service-features {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
-
-        .v9-service-features li {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.95rem;
+          font-family: var(--v9-font-heading);
+          font-size: clamp(1.9rem, 3vw, 2.7rem);
           font-weight: 400;
           color: #0C1117;
-          line-height: 1.5;
+          line-height: 1.15;
+          letter-spacing: -0.02em;
+          margin: 0 0 14px 0;
         }
 
-        .v9-check-icon {
-          flex-shrink: 0;
-          margin-top: 3px;
+        .v9-services-sub {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.95rem;
+          color: rgba(12, 17, 23, 0.55);
+          line-height: 1.65;
+          margin: 0;
         }
 
-        .v9-services-cta {
-          text-align: center;
-          margin-top: 56px;
+        .v9-levers {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-top: 1px solid rgba(12, 17, 23, 0.1);
         }
 
-        /* Responsive */
+        .v9-lever-col {
+          padding: 40px 28px 40px 0;
+          border-right: 1px solid rgba(12, 17, 23, 0.08);
+          display: flex;
+          flex-direction: column;
+        }
+
+        .v9-lever-col:last-child {
+          border-right: none;
+          padding-right: 0;
+        }
+
+        .v9-lever-col:not(:first-child) {
+          padding-left: 28px;
+        }
+
+        .v9-lever-num {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.68rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          color: #0B8A6E;
+          margin-bottom: 12px;
+        }
+
+        .v9-lever-title {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: 1.3rem;
+          font-weight: 400;
+          color: #0C1117;
+          line-height: 1.25;
+          margin: 0 0 12px 0;
+        }
+
+        .v9-lever-quote {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-style: italic;
+          font-size: 0.85rem;
+          color: rgba(12, 17, 23, 0.45);
+          line-height: 1.6;
+          margin: 0 0 22px 0;
+          padding-bottom: 22px;
+          border-bottom: 1px solid rgba(12, 17, 23, 0.07);
+        }
+
+        .v9-lever-bullets {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 28px 0;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+
+        .v9-lever-bullets li {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.8rem;
+          color: rgba(12, 17, 23, 0.75);
+          padding-left: 16px;
+          position: relative;
+          line-height: 1.4;
+        }
+
+        .v9-lever-bullets li::before {
+          content: '→';
+          position: absolute;
+          left: 0;
+          color: #0B8A6E;
+          font-weight: 600;
+        }
+
+        .v9-lever-info {
+          margin-top: auto;
+          background: #ffffff;
+          border-radius: 10px;
+          padding: 14px 16px;
+          border: 1px solid rgba(12, 17, 23, 0.07);
+        }
+
+        .v9-lever-tag {
+          display: inline-block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: #0B8A6E;
+          background: rgba(11, 138, 110, 0.07);
+          border: 1px solid rgba(11, 138, 110, 0.15);
+          border-radius: 20px;
+          padding: 3px 10px;
+          margin-bottom: 8px;
+        }
+
+        .v9-lever-info p {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.76rem;
+          color: rgba(12, 17, 23, 0.55);
+          line-height: 1.65;
+          margin: 0;
+        }
+
+        @media (max-width: 1024px) {
+          .v9-levers {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          .v9-lever-col:nth-child(2) {
+            border-right: none;
+            padding-right: 0;
+          }
+
+          .v9-lever-col:nth-child(3) {
+            border-right: 1px solid rgba(12, 17, 23, 0.08);
+            padding-left: 0;
+            padding-top: 40px;
+            border-top: 1px solid rgba(12, 17, 23, 0.08);
+          }
+
+          .v9-lever-col:nth-child(4) {
+            border-right: none;
+            padding-right: 0;
+            padding-top: 40px;
+            border-top: 1px solid rgba(12, 17, 23, 0.08);
+          }
+        }
+
         @media (max-width: 640px) {
           .v9-services {
             padding: 80px 0;
           }
 
-          .v9-services-header {
-            margin-bottom: 40px;
+          .v9-services-container {
+            padding: 0 24px;
           }
 
-          .v9-service-card {
-            padding: 28px 24px;
-            border-radius: 16px;
+          .v9-levers {
+            grid-template-columns: 1fr;
           }
 
-          .v9-service-title {
-            font-size: 1.3rem;
+          .v9-lever-col {
+            padding: 32px 0 !important;
+            border-right: none !important;
+            border-top: 1px solid rgba(12, 17, 23, 0.08);
           }
 
-          .v9-services-stack {
-            gap: 24px;
+          .v9-lever-col:first-child {
+            border-top: none;
+            padding-top: 0 !important;
           }
         }
 
-        /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
-          .v9-service-card {
-            opacity: 1 !important;
-            transform: none !important;
-          }
-
           .v9-services-header,
-          .v9-services-cta {
+          .v9-lever-col {
             opacity: 1 !important;
             transform: none !important;
           }
