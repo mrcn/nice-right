@@ -242,17 +242,31 @@ export function Proof() {
           {/* About */}
           <div className="v9-about-card">
             <img
-              src="/images/marcin.jpeg"
+              src="/images/marcin-lg.jpeg"
               alt="Marcin"
-              className="v9-about-avatar"
+              className="v9-about-photo"
             />
             <div className="v9-about-text">
-              <p className="v9-about-bio">
-                I&apos;m Marcin. Since 2013, 100+ projects for small and
-                mid-size businesses. You work directly with me &mdash; not an
-                account manager &mdash; and the right people around me when the
-                project needs it.
+              <h3 className="v9-about-name">I&apos;m Marcin.</h3>
+              <p className="v9-about-pull">
+                &ldquo;Every project I take on,<br />
+                <em>I answer for personally.</em>&rdquo;
               </p>
+              <p className="v9-about-bio">
+                Since 2013, 100+ projects for small and mid-size businesses.
+                You work directly with me &mdash; not an account manager &mdash;
+                backed by a network of professionals I&apos;ve worked alongside for years.
+              </p>
+              <div className="v9-about-stats">
+                <div className="v9-about-stat">
+                  <span className="v9-about-stat-num">2013</span>
+                  <span className="v9-about-stat-label">Started</span>
+                </div>
+                <div className="v9-about-stat">
+                  <span className="v9-about-stat-num">100+</span>
+                  <span className="v9-about-stat-label">Projects</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -478,46 +492,87 @@ export function Proof() {
         /* --- About card --- */
 
         .v9-about-card {
-          display: flex;
+          display: grid;
+          grid-template-columns: 280px 1fr;
+          gap: 56px;
           align-items: center;
-          gap: 32px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 16px;
-          padding: 40px;
           margin-bottom: 56px;
         }
 
-        .v9-about-avatar {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
+        .v9-about-photo {
+          width: 100%;
+          aspect-ratio: 3 / 4;
           object-fit: cover;
-          flex-shrink: 0;
-          border: 3px solid rgba(11, 138, 110, 0.35);
-          box-shadow: 0 0 24px rgba(11, 138, 110, 0.1);
+          object-position: center top;
+          border-radius: 12px;
+          filter: grayscale(15%);
         }
 
         .v9-about-text {
-          flex: 1;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .v9-about-name {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: clamp(2rem, 3vw, 2.8rem);
+          font-weight: 400;
+          color: #ffffff;
+          letter-spacing: -0.02em;
+          line-height: 1.1;
+          margin: 0;
+        }
+
+        .v9-about-pull {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-style: italic;
+          font-size: clamp(1.3rem, 2vw, 1.7rem);
+          color: rgba(255, 255, 255, 0.88);
+          line-height: 1.35;
+          letter-spacing: -0.02em;
+          margin: 0;
+        }
+
+        .v9-about-pull em {
+          font-style: italic;
+          color: #06D6A0;
         }
 
         .v9-about-bio {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.02rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.7;
-          margin: 0 0 8px 0;
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.62);
+          line-height: 1.75;
+          margin: 0;
+          max-width: 480px;
         }
 
-        .v9-about-clients {
+        .v9-about-stats {
+          display: flex;
+          gap: 32px;
+        }
+
+        .v9-about-stat {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .v9-about-stat-num {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: 1.5rem;
+          color: #06D6A0;
+          letter-spacing: -0.02em;
+        }
+
+        .v9-about-stat-label {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.65);
-          line-height: 1.5;
-          margin: 0;
+          font-size: 0.72rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.35);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
         }
 
         /* --- CTA --- */
@@ -551,15 +606,13 @@ export function Proof() {
           }
 
           .v9-about-card {
-            flex-direction: column;
-            text-align: center;
-            padding: 32px 24px;
-            gap: 24px;
+            grid-template-columns: 1fr;
+            gap: 32px;
           }
 
-          .v9-about-avatar {
-            width: 88px;
-            height: 88px;
+          .v9-about-photo {
+            aspect-ratio: 4 / 3;
+            object-position: center 20%;
           }
         }
 
