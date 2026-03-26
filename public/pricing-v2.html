@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing V2 — Nice Right</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #fff; }
+
+  :root {
+    --dark: #0C1117;
+    --green: #0B8A6E;
+    --mint: #06D6A0;
+    --warm: #F8F7F4;
+    --font-heading: 'Instrument Serif', Georgia, serif;
+  }
+
+  .pricing {
+    background: #fff;
+    padding: 120px 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* ── Header ── */
+  .header {
+    margin-bottom: 72px;
+  }
+  .section-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+
+  /* ── Disarming interstitial ── */
+  .interstitial {
+    padding: 20px 0 36px;
+    margin-bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .interstitial-statement {
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .interstitial-statement em {
+    font-style: italic;
+    color: var(--green);
+  }
+  .interstitial-sub {
+    font-size: 0.9rem;
+    color: rgba(12,17,23,0.55);
+    line-height: 1.7;
+    max-width: 380px;
+  }
+
+  /* ── Tiers ── */
+  .tiers {
+    border-top: 1px solid rgba(12,17,23,0.1);
+    margin-bottom: 80px;
+  }
+  .tier {
+    display: grid;
+    grid-template-columns: 240px 1fr 260px;
+    border-bottom: 1px solid rgba(12,17,23,0.07);
+    gap: 0;
+  }
+
+  /* Left: identity */
+  .tier-identity {
+    padding: 48px 40px 48px 0;
+    border-right: 1px solid rgba(12,17,23,0.06);
+  }
+  .tier-num {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 12px;
+  }
+  .tier-name {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .tier-tagline {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 0.88rem;
+    color: var(--green);
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+  .tier-timeline {
+    font-size: 0.72rem;
+    color: rgba(12,17,23,0.38);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  /* Mid: description + deliverables */
+  .tier-body {
+    padding: 48px 40px;
+    border-right: 1px solid rgba(12,17,23,0.06);
+  }
+  .tier-desc {
+    font-size: 0.88rem;
+    color: rgba(12,17,23,0.68);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+  .tier-sublabel {
+    font-size: 0.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(12,17,23,0.35);
+    margin-bottom: 12px;
+  }
+  .tier-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .tier-list li {
+    font-size: 0.8rem;
+    color: rgba(12,17,23,0.7);
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.45;
+  }
+  .tier-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* Right: pull quote */
+  .tier-action {
+    padding: 48px 0 48px 40px;
+    display: flex;
+    align-items: center;
+  }
+  .tier-situation {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+    color: rgba(12,17,23,0.62);
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Bottom CTA ── */
+  .bottom {
+    text-align: center;
+    padding-top: 40px;
+  }
+  .bottom-micro {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(12,17,23,0.35);
+    margin-bottom: 20px;
+  }
+  .bottom-cta {
+    display: inline-block;
+    padding: 15px 32px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--green) 0%, var(--mint) 100%);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(6,214,160,0.28);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .bottom-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(6,214,160,0.38);
+  }
+</style>
+</head>
+<body>
+
+<section class="pricing">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <span class="section-label">Investment</span>
+      <h2 class="heading">Three ways to work together.</h2>
+    </div>
+
+    <!-- Disarming interstitial -->
+    <div class="interstitial">
+      <div class="interstitial-statement">
+        No rate cards.<br>
+        No gouging.<br>
+        <em>Name your price.</em><br>
+        Let's get to work.
+      </div>
+      <p class="interstitial-sub">
+        Every business is at a different stage — and every budget is different too.
+        Tell me where you are and what you've got to work with.
+        I'll give you a straight read on what's possible.
+      </p>
+    </div>
+
+    <!-- Tiers -->
+    <div class="tiers">
+
+      <!-- 01 -->
+      <div class="tier">
+        <div class="tier-identity">
+          <div class="tier-num">01</div>
+          <h3 class="tier-name">The Digital Foundation</h3>
+          <p class="tier-tagline">Your business, findable and credible.</p>
+          <span class="tier-timeline">Typically 4–8 weeks</span>
+        </div>
+        <div class="tier-body">
+          <p class="tier-desc">You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. We fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.</p>
+          <div class="tier-sublabel">What you get</div>
+          <ul class="tier-list">
+            <li>5-page website, mobile-optimized and SEO-ready</li>
+            <li>Email list + lead magnet + welcome sequence</li>
+            <li>Google Business Profile claimed and optimized</li>
+            <li>Local directory listings — Yelp, Facebook + industry-specific</li>
+            <li>30-day check-in to make sure it's working</li>
+          </ul>
+        </div>
+        <div class="tier-action">
+          <p class="tier-situation">&ldquo;I feel invisible online. People who need exactly what I do can&rsquo;t find me.&rdquo;</p>
+        </div>
+      </div>
+
+      <!-- 02 -->
+      <div class="tier">
+        <div class="tier-identity">
+          <div class="tier-num">02</div>
+          <h3 class="tier-name">The Growth Experiment</h3>
+          <p class="tier-tagline">One lever, tested and proven.</p>
+          <span class="tier-timeline">First results in 30–45 days</span>
+        </div>
+        <div class="tier-body">
+          <p class="tier-desc">More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. We pick that lever, build something to test it, and get you real results — not a deck, not a plan. If it works, you've got a new edge. If it doesn't, you learned fast.</p>
+          <div class="tier-sublabel">What you get</div>
+          <ul class="tier-list">
+            <li>Working solution targeting your chosen growth lever</li>
+            <li>Whatever it takes: landing page, tool, automation, system</li>
+            <li>Launch strategy + early results</li>
+            <li>Real data to decide what comes next</li>
+          </ul>
+        </div>
+        <div class="tier-action">
+          <p class="tier-situation">&ldquo;I know what&rsquo;s holding me back. I just haven&rsquo;t had time to deal with it.&rdquo;</p>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <div class="tier">
+        <div class="tier-identity">
+          <div class="tier-num">03</div>
+          <h3 class="tier-name">The Growth Partnership</h3>
+          <p class="tier-tagline">Your business, grown together.</p>
+          <span class="tier-timeline">Ongoing — as long as it makes sense</span>
+        </div>
+        <div class="tier-body">
+          <p class="tier-desc">It's working. You just need it to work faster — and you need someone in your corner to keep pushing. Strategy, building, everything in between. Scope and price: we figure that out together.</p>
+          <div class="tier-sublabel">What you get</div>
+          <ul class="tier-list">
+            <li>Deep-dive into your business, market, and opportunities</li>
+            <li>Ongoing strategy, brainstorming, prioritization</li>
+            <li>Whatever we build — systems, automation, tools, campaigns</li>
+            <li>Direct access — I answer in hours, not days</li>
+            <li>Scope and price defined together</li>
+          </ul>
+        </div>
+        <div class="tier-action">
+          <p class="tier-situation">&ldquo;It&rsquo;s working. I just need it to work faster — and I can&rsquo;t keep doing this alone.&rdquo;</p>
+        </div>
+      </div>
+
+    </div><!-- /tiers -->
+
+    <!-- Bottom -->
+    <div class="bottom">
+      <p class="bottom-micro">30 minutes. No pitch. Real talk.</p>
+      <a href="#contact" class="bottom-cta">Book Your Free Strategy Call</a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

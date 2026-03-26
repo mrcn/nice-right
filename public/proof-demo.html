@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proof Bio — Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0C1117; }
+
+  .option-label {
+    text-align: center;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    padding: 48px 0 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    margin: 64px 48px 0;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+
+  /* ── OPTION A: No card, editorial ── */
+  .a-wrap {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .a-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid rgba(11,138,110,0.4);
+  }
+  .a-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+  }
+
+  /* ── OPTION B: Two column, big photo ── */
+  .b-wrap {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .b-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 12px;
+    filter: grayscale(20%);
+  }
+  .b-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .b-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .b-pull {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    color: rgba(255,255,255,0.88);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+  .b-pull em {
+    font-style: italic;
+    color: #06D6A0;
+  }
+  .b-bio {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.62);
+    line-height: 1.75;
+    max-width: 480px;
+  }
+  .b-meta {
+    display: flex;
+    gap: 32px;
+  }
+  .b-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .b-stat-num {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    color: #06D6A0;
+    letter-spacing: -0.02em;
+  }
+  .b-stat-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── OPTION C: Pull quote ── */
+  .c-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .c-quote {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+    color: rgba(255,255,255,0.88);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+  .c-quote em {
+    color: #06D6A0;
+    font-style: italic;
+  }
+  .c-byline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .c-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(11,138,110,0.4);
+  }
+  .c-byline-text {
+    text-align: left;
+  }
+  .c-byline-name {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+  }
+  .c-byline-creds {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.38);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+
+<!-- OPTION A -->
+<p class="option-label">Option A — Editorial, no card</p>
+<div class="container">
+  <div class="a-wrap">
+    <img src="/images/marcin-lg.jpeg" alt="Marcin" class="a-avatar" />
+    <p class="a-bio">
+      I'm Marcin. Since 2013, 100+ projects for small and mid-size businesses.
+      You work directly with me — not an account manager — backed by a network of professionals I've worked alongside for years.
+    </p>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- OPTION B -->
+<p class="option-label">Option B — Two column, big photo</p>
+<div class="container">
+  <div class="b-wrap">
+    <img src="/images/marcin-lg.jpeg" alt="Marcin" class="b-photo" />
+    <div class="b-right">
+      <h3 class="b-name">I'm Marcin.</h3>
+      <p class="b-pull">&ldquo;Every project I take on,<br><em>I answer for personally.</em>&rdquo;</p>
+      <p class="b-bio">
+        Since 2013, 100+ projects for small and mid-size businesses.
+        You work directly with me — not an account manager — backed by a network of professionals I've worked alongside for years.
+      </p>
+      <div class="b-meta">
+        <div class="b-stat">
+          <span class="b-stat-num">2013</span>
+          <span class="b-stat-label">Started</span>
+        </div>
+        <div class="b-stat">
+          <span class="b-stat-num">100+</span>
+          <span class="b-stat-label">Projects</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<!-- OPTION C -->
+<p class="option-label">Option C — Pull quote</p>
+<div class="container">
+  <div class="c-wrap">
+    <p class="c-quote">
+      "Every project I take on,<br>
+      <em>I answer for personally.</em>"
+    </p>
+    <div class="c-byline">
+      <img src="/images/marcin-lg.jpeg" alt="Marcin" class="c-avatar" />
+      <div class="c-byline-text">
+        <div class="c-byline-name">Marcin</div>
+        <div class="c-byline-creds">Since 2013 · 100+ projects · You work directly with me</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
