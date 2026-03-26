@@ -1,5 +1,5 @@
-import V9Page from './v9/page';
+import HomePageContent from './_home/page';
 
 export default function HomePage() {
-  return <V9Page />;
+  return <HomePageContent />;
 }

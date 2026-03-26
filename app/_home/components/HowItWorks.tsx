@@ -1,43 +1,28 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger);
 }
 
-const steps = [
-  {
-    number: '1',
-    title: 'You Share',
-    body: 'Free 30-minute call. Tell me about your business and where you feel stuck. I\u2019ll give you an honest take\u2009\u2014\u2009even if the answer is \u201cyou already have what you need.\u201d',
-  },
-  {
-    number: '2',
-    title: 'I Build',
-    body: 'Website, SEO, Google Business, landing pages\u2009\u2014\u2009whatever moves the needle. Your feedback shapes every step. No surprises, no scope creep.',
-  },
-  {
-    number: '3',
-    title: 'You Grow',
-    body: 'Your phone rings more. Your calendar fills up. And I stick around to help you keep improving.',
-  },
-]
+
+
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current
-    if (!section) return
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const section = sectionRef.current;
+    if (!section) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = gsap.context(() => {
-      const cards = section.querySelectorAll('.v9-step-card')
-      const header = section.querySelector('.v9-how-header')
-      const cta = section.querySelector('.v9-how-cta')
+      const cards = section.querySelectorAll('.v9-step-card');
+      const header = section.querySelector('.v9-how-header');
+      const cta = section.querySelector('.v9-how-cta');
 
       // Header reveal
       gsap.fromTo(
@@ -54,7 +39,7 @@ export function HowItWorks() {
             once: true,
           },
         }
-      )
+      );
 
       // Cards staggered reveal
       gsap.fromTo(
@@ -73,7 +58,7 @@ export function HowItWorks() {
             once: true,
           },
         }
-      )
+      );
 
       // CTA reveal
       if (cta) {
@@ -91,12 +76,12 @@ export function HowItWorks() {
               once: true,
             },
           }
-        )
+        );
       }
-    }, section)
+    }, section);
 
-    return () => ctx.revert()
-  }, [])
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -108,21 +93,27 @@ export function HowItWorks() {
         <div className="v9-container">
           <div className="v9-how-header">
             <span className="v9-section-label">How It Works</span>
-            <h2 className="v9-how-heading">Simple process. Real results.</h2>
+            <h2 className="v9-how-heading">
+              Talk → Build → Test → Ship
+            </h2>
+            <p
+              style={{
+                fontFamily: "'Inter', -apple-system, sans-serif",
+                fontSize: 'clamp(16px, 2vw, 18px)',
+                color: 'rgba(12, 17, 23, 0.7)',
+                marginTop: '16px',
+                lineHeight: 1.6,
+              }}
+            >
+              Prototype in a week. Real version shortly after.
+              <br />
+              Strategy if you need it. No fluff if you don't.
+            </p>
           </div>
 
-          <div className="v9-steps-grid">
-            {steps.map((step) => (
-              <div key={step.number} className="v9-step-card">
-                <span className="v9-step-number">{step.number}</span>
-                <h3 className="v9-step-title">{step.title}</h3>
-                <p className="v9-step-body">{step.body}</p>
-              </div>
-            ))}
-          </div>
 
           <div className="v9-how-cta">
-            <a href="#contact" className="v9-btn v9-btn-gradient">
+            <a href="#contact" className="v9-btn v9-btn-outline">
               Book a Free Call
             </a>
           </div>
@@ -291,5 +282,5 @@ export function HowItWorks() {
         }
       `}</style>
     </>
-  )
+  );
 }

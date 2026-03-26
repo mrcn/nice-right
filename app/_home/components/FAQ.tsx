@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { trackCTAClick, trackFAQOpen } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -64,7 +65,7 @@ function FAQItem({ q, a, index }: { q: string; a: string; index: number }) {
     <div className={`v9-faq-item ${open ? 'v9-faq-item--open' : ''}`}>
       <button
         className="v9-faq-trigger"
-        onClick={() => setOpen(!open)}
+        onClick={() => { if (!open) trackFAQOpen(q, index); setOpen(!open); }}
         aria-expanded={open}
         aria-controls={`v9-faq-answer-${index}`}
       >
@@ -188,10 +189,7 @@ export function FAQ() {
           </div>
 
           <div className="v9-faq-cta">
-            <div className="v9-faq-cta-urgency">
-              <span className="v9-urgency-badge">3 spots left this month</span>
-            </div>
-            <a href="#contact" className="v9-btn v9-btn-gradient">
+            <a href="#contact" className="v9-btn v9-btn-gradient" onClick={() => trackCTAClick('faq', 'faq')}>
               Book Your Strategy Call
             </a>
             <p className="v9-faq-cta-micro">30 minutes, no commitment</p>

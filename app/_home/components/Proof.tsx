@@ -148,27 +148,7 @@ export function Proof() {
         );
       });
 
-      // 4. About card: gentle fade-in
-      const aboutCard = section.querySelector('.v9-about-card');
-      if (aboutCard) {
-        gsap.fromTo(
-          aboutCard,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: aboutCard,
-              start: 'top 85%',
-              once: true,
-            },
-          }
-        );
-      }
-
-      // 5. CTA fade-in
+      // 4. CTA fade-in
       const cta = section.querySelector('.v9-proof-cta');
       if (cta) {
         gsap.fromTo(
@@ -239,33 +219,6 @@ export function Proof() {
             ))}
           </div>
 
-          {/* About */}
-          <div className="v9-about-card">
-            <img
-              src="/images/hero-abstract.svg"
-              alt="Nice Right"
-              className="v9-about-avatar"
-            />
-            <div className="v9-about-text">
-              <p className="v9-about-bio">
-                I&apos;m Marcin. 13 years building websites, 6 at a digital
-                agency, 100+ projects for small and mid-size businesses. When
-                you work with Nice Right, you work directly with me &mdash;
-                start to finish.
-              </p>
-              <p className="v9-about-clients">
-                Currently working with clients in food service, healthcare,
-                e-commerce, and local services.
-              </p>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className="v9-proof-cta">
-            <a href="#contact" className="v9-btn v9-btn-gradient">
-              See What&apos;s Possible for Your Business
-            </a>
-          </div>
         </div>
       </section>
 
@@ -485,51 +438,6 @@ export function Proof() {
           transform: translateX(4px);
         }
 
-        /* --- About card --- */
-
-        .v9-about-card {
-          display: flex;
-          align-items: center;
-          gap: 32px;
-          background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 16px;
-          padding: 40px;
-          margin-bottom: 56px;
-        }
-
-        .v9-about-avatar {
-          width: 100px;
-          height: 100px;
-          border-radius: 50%;
-          object-fit: cover;
-          flex-shrink: 0;
-          border: 3px solid rgba(11, 138, 110, 0.35);
-          box-shadow: 0 0 24px rgba(11, 138, 110, 0.1);
-        }
-
-        .v9-about-text {
-          flex: 1;
-        }
-
-        .v9-about-bio {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.02rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.85);
-          line-height: 1.7;
-          margin: 0 0 8px 0;
-        }
-
-        .v9-about-clients {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.65);
-          line-height: 1.5;
-          margin: 0;
-        }
-
         /* --- CTA --- */
 
         .v9-proof-cta {
@@ -560,17 +468,6 @@ export function Proof() {
             font-size: clamp(2.8rem, 12vw, 4rem);
           }
 
-          .v9-about-card {
-            flex-direction: column;
-            text-align: center;
-            padding: 32px 24px;
-            gap: 24px;
-          }
-
-          .v9-about-avatar {
-            width: 88px;
-            height: 88px;
-          }
         }
 
         @media (max-width: 480px) {
@@ -596,7 +493,6 @@ export function Proof() {
         @media (prefers-reduced-motion: reduce) {
           .v9-stat-block,
           .v9-case-card,
-          .v9-about-card,
           .v9-proof-cta {
             opacity: 1 !important;
             transform: none !important;

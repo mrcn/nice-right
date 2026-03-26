@@ -12,6 +12,8 @@ interface Testimonial {
   initials: string;
   name: string;
   role: string;
+  company: string;
+  projectType: string;
   quote: string;
 }
 
@@ -19,28 +21,36 @@ const testimonials: Testimonial[] = [
   {
     initials: 'RP',
     name: 'Roman Panchyshyn',
-    role: 'Sr. Manager UX, Northern Trust',
+    role: 'Sr. Manager UX',
+    company: 'Northern Trust',
+    projectType: 'Fortune 500 Web Platform',
     quote:
       'He delivered not only what was asked for but also provided creative suggestions and improvements that added significant value to the project.',
   },
   {
     initials: 'JC',
     name: 'Jonathan Carstensen',
-    role: 'PM, Comrade Web Agency',
+    role: 'Project Manager',
+    company: 'Comrade Web Agency',
+    projectType: 'Agency Partnership',
     quote:
       'A great approach to breaking down industry terms and technical jargon into easy-to-understand language for clients and stakeholders.',
   },
   {
     initials: 'BS',
     name: 'Britt Skaathun',
-    role: 'Asst Professor, UC San Diego',
+    role: 'Assistant Professor',
+    company: 'UC San Diego',
+    projectType: 'Healthcare Research Platform',
     quote:
       'He was able to decipher what we wanted and translate that into a working product that exceeded our expectations.',
   },
   {
     initials: 'BJ',
     name: 'Brian Jemilo II',
-    role: 'CTO, Shibiko AI',
+    role: 'CTO',
+    company: 'Shibiko AI',
+    projectType: 'AI Product Development',
     quote:
       "It's mind blowing how fast this guy can learn new technologies and apply them effectively to solve real problems.",
   },
@@ -157,7 +167,7 @@ export function Testimonials() {
 
     track.addEventListener('scroll', handleScroll, { passive: true });
 
-    // 4. Auto-advance (subtle, stops on user interaction)
+    // 4. Auto-advance with seamless infinite loop
     let userInteracted = false;
 
     const stopAutoplay = () => {
@@ -177,12 +187,25 @@ export function Testimonials() {
     if (!prefersReduced) {
       const autoAdvance = () => {
         if (userInteracted) return;
-        const nextIndex = (activeIndexRef.current + 1) % testimonials.length;
-        scrollToSlide(nextIndex);
+
+        const currentIndex = activeIndexRef.current;
+        const totalSlides = testimonials.length;
+
+        // If at last slide, smoothly loop back to first
+        if (currentIndex === totalSlides - 1) {
+          // Brief pause at end, then loop
+          gsap.delayedCall(0.5, () => {
+            if (userInteracted) return;
+            scrollToSlide(0);
+          });
+        } else {
+          const nextIndex = currentIndex + 1;
+          scrollToSlide(nextIndex);
+        }
       };
 
-      // Start auto-advance after a delay
-      const autoTimer = gsap.delayedCall(5, () => {
+      // Start auto-advance after initial delay
+      const autoTimer = gsap.delayedCall(4, () => {
         if (userInteracted) return;
         autoAdvance();
         autoplayRef.current = gsap.delayedCall(5, function repeat() {
@@ -236,6 +259,9 @@ export function Testimonials() {
                 <div className="v9-testimonial-meta">
                   <cite className="v9-testimonial-name">{t.name}</cite>
                   <div className="v9-testimonial-role">{t.role}</div>
+                  <div className="v9-testimonial-project">
+                    {t.projectType} · {t.company}
+                  </div>
                   <a
                     href="https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
                     target="_blank"
@@ -339,22 +365,36 @@ export function Testimonials() {
           box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04),
                       0 1px 4px rgba(0, 0, 0, 0.03);
           transition: box-shadow 0.4s ease, transform 0.4s ease;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .v9-testimonial-slide::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: linear-gradient(90deg, #0B8A6E 0%, #06D6A0 100%);
         }
 
         .v9-testimonial-slide:hover {
-          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.07),
-                      0 2px 8px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 12px 48px rgba(11, 138, 110, 0.12),
+                      0 4px 16px rgba(0, 0, 0, 0.06);
+          transform: translateY(-4px);
         }
 
         /* --- Quote mark --- */
 
         .v9-quote-mark {
           font-family: 'Instrument Serif', Georgia, serif;
-          font-size: 4rem;
+          font-size: 5rem;
           line-height: 1;
           color: #0B8A6E;
-          margin-bottom: 8px;
+          margin-bottom: 4px;
           user-select: none;
+          opacity: 0.8;
         }
 
         /* --- Quote text --- */
@@ -413,6 +453,19 @@ export function Testimonials() {
           font-weight: 400;
           color: #94A3B8;
           line-height: 1.3;
+        }
+
+        .v9-testimonial-project {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.72rem;
+          font-weight: 500;
+          color: #0B8A6E;
+          background: rgba(11, 138, 110, 0.08);
+          padding: 4px 10px;
+          border-radius: 20px;
+          line-height: 1.3;
+          margin: 6px 0 4px 0;
+          display: inline-block;
         }
 
         .v9-testimonial-verify {
