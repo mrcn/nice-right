@@ -272,7 +272,7 @@ export function Services() {
         }
 
         .v9-lever-info {
-          margin-top: auto;
+          margin-top: 24px;
           background: #ffffff;
           border-radius: 10px;
           padding: 14px 16px;

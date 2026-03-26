@@ -11,64 +11,51 @@ if (typeof window !== 'undefined') {
 
 const tiers = [
   {
+    num: '01',
     name: 'The Digital Foundation',
-    valuePrompt: 'Your business, findable and credible.',
-    timeline: 'Typically ready in 4–8 weeks, depending on where you\'re starting',
+    tagline: 'Your business, findable and credible.',
+    timeline: 'Typically 4–8 weeks',
     description:
-      "Right now you're invisible online — or you have no web presence, or one that doesn't do you justice. We fix that. Website, email capture, local listings, a lead magnet that collects leads before you ever spend on ads. Everything a real business needs to be found, trusted, and remembered.",
-    idealFor: [
-      'Solopreneurs and service businesses starting out',
-      'Anyone with no web presence — or one that doesn\'t do them justice',
-      'Businesses who\'ve been saying "I need to fix this" for too long',
-    ],
+      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. We fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
     deliverables: [
       '5-page website, mobile-optimized and SEO-ready',
-      'Email list setup + lead magnet + welcome sequence',
+      'Email list + lead magnet + welcome sequence',
       'Google Business Profile claimed and optimized',
       'Local directory listings — Yelp, Facebook + industry-specific',
       '30-day check-in to make sure it\'s working',
     ],
-    cta: 'Book a Free Call',
+    pullQuote: 'I feel invisible online. People who need exactly what I do can\u2019t find me.',
   },
   {
-    name: 'The Revenue Experiment',
-    valuePrompt: 'A revenue stream, built and launched.',
-    timeline: 'Most clients see their first paying customer within 30 days',
+    num: '02',
+    name: 'The Growth Experiment',
+    tagline: 'One lever, tested and proven.',
+    timeline: 'First results in 30–45 days',
     description:
-      "You have a revenue idea. We build it, launch it, and get you your first paying customers. If it works, you have a new income stream. If it doesn't, you learned fast and cheap. Either way, you don't stay stuck.",
-    idealFor: [
-      'Service businesses testing a new offer',
-      'Founders validating a product idea',
-      'Companies exploring new revenue',
-    ],
+      "More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. We pick that lever, build something to test it, and get you real results — not a deck, not a plan. If it works, you\u2019ve got a new edge. If it doesn\u2019t, you learned fast.",
     deliverables: [
-      'Working MVP that generates revenue',
-      'Landing page + payment processing',
-      'Automation that runs without you',
-      'Launch strategy + early customers',
-      'Real data to decide what\'s next',
+      'Working solution targeting your chosen growth lever',
+      'Whatever it takes: landing page, tool, automation, system',
+      'Launch strategy + early results',
+      'Real data to decide what comes next',
     ],
-    cta: 'Book a Free Call',
+    pullQuote: 'I know what\u2019s holding me back. I just haven\u2019t had time to deal with it.',
   },
   {
+    num: '03',
     name: 'The Growth Partnership',
-    valuePrompt: 'Your business, understood and grown.',
-    timeline: 'Ongoing, embedded partnership',
+    tagline: 'Your business, grown together.',
+    timeline: 'Ongoing \u2014 as long as it makes sense',
     description:
-      "This is a thinking partnership as much as a building one. We dig into your economics, your market, your competitors, and the opportunities you haven't had time to explore. We brainstorm, we prioritize, we build — and keep building as the business evolves. You run your business. We grow it together.",
-    idealFor: [
-      'Businesses with a proven offer ready to scale',
-      'Leaders who want a strategic partner, not just a vendor',
-      'Companies that have outgrown doing it alone',
-    ],
+      "It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between. Scope and price: we figure that out together.",
     deliverables: [
-      'Deep-dive into your business economics and market',
-      'Ongoing strategy, brainstorming, and prioritization',
-      'Systems and platforms built for your model',
-      'Automation that saves meaningful time every week',
-      'Direct access — I answer in hours, not days',
+      'Deep-dive into your business, market, and opportunities',
+      'Ongoing strategy, brainstorming, prioritization',
+      'Whatever we build \u2014 systems, automation, tools, campaigns',
+      'Direct access \u2014 I answer in hours, not days',
+      'Scope and price defined together',
     ],
-    cta: 'Book a Free Call',
+    pullQuote: 'It\u2019s working. I just need it to work faster \u2014 and I can\u2019t keep doing this alone.',
   },
 ];
 
@@ -82,7 +69,8 @@ export function Pricing() {
 
     const ctx = gsap.context(() => {
       const header = section.querySelector('.v9-pricing-header');
-      const cards = section.querySelectorAll('.v9-pricing-card');
+      const interstitial = section.querySelector('.v9-pricing-interstitial');
+      const rows = section.querySelectorAll('.v9-pricing-tier');
 
       gsap.fromTo(
         header,
@@ -92,25 +80,33 @@ export function Pricing() {
           y: 0,
           duration: 0.8,
           ease: 'power3.out',
-          scrollTrigger: {
-            trigger: header,
-            start: 'top 85%',
-            once: true,
-          },
+          scrollTrigger: { trigger: header, start: 'top 85%', once: true },
         }
       );
 
       gsap.fromTo(
-        cards,
-        { opacity: 0, y: 40 },
+        interstitial,
+        { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
           duration: 0.7,
-          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: interstitial, start: 'top 85%', once: true },
+        }
+      );
+
+      gsap.fromTo(
+        rows,
+        { opacity: 0, y: 30 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
           ease: 'power3.out',
           scrollTrigger: {
-            trigger: cards[0],
+            trigger: rows[0],
             start: 'top 85%',
             once: true,
             onEnter: () => {
@@ -132,77 +128,64 @@ export function Pricing() {
         className="v9-pricing v9-section-light"
       >
         <div className="v9-pricing-container">
+
           <div className="v9-pricing-header">
-            <span className="v9-section-label">Investment</span>
-            <h2 className="v9-pricing-heading">Three Ways to Work Together</h2>
-            <p className="v9-pricing-sub">
-              Every business is at a different stage. Pick what fits where you are.
+            <span className="v9-pricing-label">Investment</span>
+            <h2 className="v9-pricing-heading">Three ways to work together.</h2>
+          </div>
+
+          <div className="v9-pricing-interstitial">
+            <div className="v9-pricing-interstitial-statement">
+              No rate cards.<br />
+              No gouging.<br />
+              <em>Name your price.</em><br />
+              Let&apos;s get to work.
+            </div>
+            <p className="v9-pricing-interstitial-sub">
+              Every business is at a different stage — and every budget is different too.
+              Tell me where you are and what you&apos;ve got to work with.
+              I&apos;ll give you a straight read on what&apos;s possible.
             </p>
           </div>
 
-          <div className="v9-pricing-grid">
+          <div className="v9-pricing-tiers">
             {tiers.map((tier) => (
-              <div
-                key={tier.name}
-                className="v9-pricing-card"
-              >
-                <h3 className="v9-pricing-name">{tier.name}</h3>
-
-                <div className="v9-pricing-value-prompt">{tier.valuePrompt}</div>
-                <div className="v9-pricing-timeline">{tier.timeline}</div>
-
-                <p className="v9-pricing-desc">{tier.description}</p>
-
-                <div className="v9-pricing-section">
-                  <h4 className="v9-pricing-section-title">Perfect For</h4>
-                  <ul className="v9-pricing-features">
-                    {tier.idealFor.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
+              <div key={tier.num} className="v9-pricing-tier">
+                <div className="v9-pricing-identity">
+                  <div className="v9-pricing-num">{tier.num}</div>
+                  <h3 className="v9-pricing-name">{tier.name}</h3>
+                  <p className="v9-pricing-tagline">{tier.tagline}</p>
+                  <span className="v9-pricing-timeline">{tier.timeline}</span>
                 </div>
 
-                <div className="v9-pricing-section">
-                  <h4 className="v9-pricing-section-title">What You Get</h4>
-                  <ul className="v9-pricing-features">
+                <div className="v9-pricing-body">
+                  <p className="v9-pricing-desc">{tier.description}</p>
+                  <div className="v9-pricing-sublabel">What you get</div>
+                  <ul className="v9-pricing-list">
                     {tier.deliverables.map((item) => (
                       <li key={item}>{item}</li>
                     ))}
                   </ul>
                 </div>
 
-                <a
-                  href="#contact"
-                  className="v9-btn v9-btn-gradient"
-                  onClick={() => trackCTAClick(tier.name, 'pricing')}
-                >
-                  {tier.cta}
-                </a>
+                <div className="v9-pricing-action">
+                  <p className="v9-pricing-quote">&ldquo;{tier.pullQuote}&rdquo;</p>
+                </div>
               </div>
             ))}
           </div>
 
           <div className="v9-pricing-bottom">
-            <div className="v9-pricing-compare">
-              <h4>Here&apos;s how the call works.</h4>
-              <p>
-                Walk me through your business. Where you are, where you want to
-                go, what&apos;s blocking it. I&apos;ll give you an honest read —
-                what&apos;s possible, what&apos;s not, and what it would actually
-                take.
-              </p>
-              <div className="v9-pricing-budget-highlight">
-                Then we talk budget. Just name your number. Whatever you&apos;ve
-                got — I&apos;ll tell you what I can do with it. My job is to get
-                you moving, not to figure out how much I can charge you. If I can
-                get you on your feet, I will.
-              </div>
-              <p className="v9-pricing-micro">30 minutes. No pitch. Real talk.</p>
-              <a href="#contact" className="v9-btn v9-btn-gradient" onClick={() => trackCTAClick('pricing_bottom', 'pricing')}>
-                Book Your Free Strategy Call
-              </a>
-            </div>
+            <p className="v9-pricing-micro">30 minutes. No pitch. Real talk.</p>
+            <a
+              href="#contact"
+              className="v9-btn v9-btn-gradient"
+              onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
+            >
+              Book Your Free Strategy Call
+            </a>
           </div>
+
         </div>
       </section>
 
@@ -215,153 +198,203 @@ export function Pricing() {
         .v9-pricing-container {
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 24px;
+          padding: 0 48px;
         }
 
+        /* Header */
         .v9-pricing-header {
-          text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 72px;
         }
 
-        .v9-section-label {
-          display: inline-block;
+        .v9-pricing-label {
+          display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           font-weight: 600;
           text-transform: uppercase;
-          letter-spacing: 0.08em;
+          letter-spacing: 0.1em;
           color: #0B8A6E;
           margin-bottom: 16px;
         }
 
         .v9-pricing-heading {
           font-family: var(--v9-font-heading);
-          font-size: clamp(1.8rem, 4vw, 2.8rem);
-          font-weight: 500;
-          line-height: 1.2;
-          letter-spacing: -0.02em;
+          font-size: clamp(2rem, 3.5vw, 2.8rem);
+          font-weight: 400;
           color: #0C1117;
-          margin: 16px 0 16px 0;
+          letter-spacing: -0.025em;
+          line-height: 1.1;
+          margin: 0;
         }
 
-        .v9-pricing-header .v9-pricing-sub {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.05rem;
-          color: rgba(12, 17, 23, 0.6);
-          max-width: 600px;
-          margin: 0 auto;
-          line-height: 1.6;
-          text-align: center;
-          display: block;
-        }
-
-        .v9-pricing-grid {
+        /* Interstitial */
+        .v9-pricing-interstitial {
+          padding: 20px 0 36px;
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-          margin-bottom: 64px;
+          grid-template-columns: 1fr 1fr;
+          gap: 48px;
+          align-items: center;
+          margin-bottom: 0;
         }
 
-        .v9-pricing-card {
-          position: relative;
-          background: #F8F7F4;
-          border-radius: 20px;
-          padding: 36px 28px;
-          display: flex;
-          flex-direction: column;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .v9-pricing-interstitial-statement {
+          font-family: var(--v9-font-heading);
+          font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+          font-weight: 400;
+          color: #0C1117;
+          letter-spacing: -0.02em;
+          line-height: 1.2;
         }
 
-        .v9-pricing-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        .v9-pricing-interstitial-statement em {
+          font-style: italic;
+          color: #0B8A6E;
+        }
+
+        .v9-pricing-interstitial-sub {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.9rem;
+          color: rgba(12, 17, 23, 0.55);
+          line-height: 1.7;
+          max-width: 380px;
+          margin: 0;
+        }
+
+        /* Tiers */
+        .v9-pricing-tiers {
+          border-top: 1px solid rgba(12, 17, 23, 0.1);
+          margin-bottom: 80px;
+        }
+
+        .v9-pricing-tier {
+          display: grid;
+          grid-template-columns: 240px 1fr 260px;
+          border-bottom: 1px solid rgba(12, 17, 23, 0.07);
+        }
+
+        /* Left: identity */
+        .v9-pricing-identity {
+          padding: 48px 40px 48px 0;
+          border-right: 1px solid rgba(12, 17, 23, 0.06);
+        }
+
+        .v9-pricing-num {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.65rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #0B8A6E;
+          margin-bottom: 12px;
         }
 
         .v9-pricing-name {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.2rem;
-          font-weight: 600;
+          font-family: var(--v9-font-heading);
+          font-size: 1.35rem;
+          font-weight: 400;
           color: #0C1117;
-          margin: 0 0 8px 0;
+          line-height: 1.2;
+          margin: 0 0 6px 0;
         }
 
-        .v9-pricing-value-prompt {
-          font-family: 'Instrument Serif', Georgia, serif;
+        .v9-pricing-tagline {
+          font-family: var(--v9-font-heading);
           font-style: italic;
-          font-size: 1.05rem;
-          font-weight: 400;
+          font-size: 0.88rem;
           color: #0B8A6E;
-          margin-bottom: 4px;
           line-height: 1.4;
+          margin: 0 0 16px 0;
         }
 
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.82rem;
-          color: rgba(12, 17, 23, 0.5);
+          font-size: 0.72rem;
+          color: rgba(12, 17, 23, 0.38);
           font-weight: 500;
-          margin-bottom: 16px;
-          line-height: 1.4;
+          line-height: 1.5;
+        }
+
+        /* Mid: body */
+        .v9-pricing-body {
+          padding: 48px 40px;
+          border-right: 1px solid rgba(12, 17, 23, 0.06);
         }
 
         .v9-pricing-desc {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
-          color: rgba(12, 17, 23, 0.7);
-          line-height: 1.6;
-          margin-bottom: 24px;
-          padding-bottom: 24px;
-          border-bottom: 1px solid rgba(12, 17, 23, 0.1);
+          font-size: 0.88rem;
+          color: rgba(12, 17, 23, 0.68);
+          line-height: 1.75;
+          margin: 0 0 24px 0;
         }
 
-        .v9-pricing-section {
-          margin-bottom: 20px;
-        }
-
-        .v9-pricing-section-title {
+        .v9-pricing-sublabel {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.6rem;
           font-weight: 600;
-          color: rgba(12, 17, 23, 0.5);
           text-transform: uppercase;
-          letter-spacing: 0.08em;
-          margin: 0 0 12px 0;
+          letter-spacing: 0.1em;
+          color: rgba(12, 17, 23, 0.35);
+          margin-bottom: 12px;
         }
 
-        .v9-pricing-features {
+        .v9-pricing-list {
           list-style: none;
           padding: 0;
-          margin: 0 0 16px 0;
+          margin: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
         }
 
-        .v9-pricing-features li {
+        .v9-pricing-list li {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
-          color: #0C1117;
-          padding: 5px 0 5px 20px;
+          font-size: 0.8rem;
+          color: rgba(12, 17, 23, 0.7);
+          padding-left: 16px;
           position: relative;
-          line-height: 1.4;
+          line-height: 1.45;
         }
 
-        .v9-pricing-features li:before {
-          content: '→';
+        .v9-pricing-list li::before {
+          content: '\u2192';
           position: absolute;
           left: 0;
           color: #0B8A6E;
           font-weight: 600;
         }
 
-        .v9-pricing-budget-highlight {
+        /* Right: pull quote */
+        .v9-pricing-action {
+          padding: 48px 0 48px 40px;
+          display: flex;
+          align-items: center;
+        }
+
+        .v9-pricing-quote {
+          font-family: var(--v9-font-heading);
+          font-style: italic;
+          font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+          color: rgba(12, 17, 23, 0.62);
+          line-height: 1.5;
+          letter-spacing: -0.01em;
+          margin: 0;
+        }
+
+        /* Bottom CTA */
+        .v9-pricing-bottom {
+          text-align: center;
+          padding-top: 40px;
+        }
+
+        .v9-pricing-micro {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1rem;
-          color: #0C1117;
-          line-height: 1.65;
+          font-size: 0.72rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: rgba(12, 17, 23, 0.35);
           margin: 0 0 20px 0;
-          padding: 20px 24px;
-          background: rgba(11, 138, 110, 0.06);
-          border-left: 3px solid #0B8A6E;
-          border-radius: 0 12px 12px 0;
-          text-align: left;
         }
 
         .v9-btn {
@@ -374,74 +407,69 @@ export function Pricing() {
           cursor: pointer;
           transition: transform 0.25s ease, box-shadow 0.25s ease;
           text-align: center;
-          margin-top: auto;
         }
 
         .v9-btn-gradient {
-          padding: 14px 28px;
+          padding: 15px 32px;
           border-radius: 12px;
           color: #ffffff;
           background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
-          box-shadow: 0 4px 16px rgba(6, 214, 160, 0.3);
+          box-shadow: 0 4px 18px rgba(6, 214, 160, 0.28);
         }
 
         .v9-btn-gradient:hover {
-          transform: scale(1.02);
-          box-shadow: 0 6px 24px rgba(6, 214, 160, 0.4);
+          transform: translateY(-2px);
+          box-shadow: 0 8px 28px rgba(6, 214, 160, 0.38);
         }
 
-        .v9-btn-text {
-          padding: 0;
-          color: #0B8A6E;
-          background: transparent;
-          font-weight: 600;
-        }
-
-        .v9-btn-text:hover {
-          color: #06D6A0;
-        }
-
-        .v9-pricing-bottom {
-          text-align: center;
-          max-width: 560px;
-          margin: 0 auto;
-          padding-top: 48px;
-          border-top: 1px solid rgba(12, 17, 23, 0.1);
-        }
-
-        .v9-pricing-compare h4 {
-          font-family: var(--v9-font-heading);
-          font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-          font-weight: 500;
-          letter-spacing: -0.02em;
-          color: #0C1117;
-          margin: 0 0 20px 0;
-        }
-
-        .v9-pricing-compare p {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.95rem;
-          color: rgba(12, 17, 23, 0.65);
-          line-height: 1.65;
-          margin: 0 0 14px 0;
-        }
-
-        .v9-pricing-micro {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.8rem !important;
-          font-weight: 600;
-          color: rgba(12, 17, 23, 0.4) !important;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-          margin: 0 0 24px 0 !important;
-        }
-
+        /* Responsive */
         @media (max-width: 1024px) {
-          .v9-pricing-grid {
+          .v9-pricing-tier {
+            grid-template-columns: 200px 1fr;
+          }
+
+          .v9-pricing-action {
+            grid-column: 1 / -1;
+            padding: 0 0 40px 0;
+            border-right: none;
+          }
+
+          .v9-pricing-identity {
+            border-right: 1px solid rgba(12, 17, 23, 0.06);
+          }
+
+          .v9-pricing-body {
+            border-right: none;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .v9-pricing-container {
+            padding: 0 24px;
+          }
+
+          .v9-pricing-interstitial {
             grid-template-columns: 1fr;
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 20px;
+          }
+
+          .v9-pricing-tier {
+            grid-template-columns: 1fr;
+          }
+
+          .v9-pricing-identity {
+            padding: 40px 0 24px 0;
+            border-right: none;
+            border-bottom: 1px solid rgba(12, 17, 23, 0.06);
+          }
+
+          .v9-pricing-body {
+            padding: 24px 0;
+            border-right: none;
+          }
+
+          .v9-pricing-action {
+            padding: 0 0 40px 0;
           }
         }
 
@@ -449,13 +477,14 @@ export function Pricing() {
           .v9-pricing {
             padding: 80px 0;
           }
+        }
 
-          .v9-pricing-header {
-            margin-bottom: 48px;
-          }
-
-          .v9-pricing-card {
-            padding: 28px 20px;
+        @media (prefers-reduced-motion: reduce) {
+          .v9-pricing-header,
+          .v9-pricing-interstitial,
+          .v9-pricing-tier {
+            opacity: 1 !important;
+            transform: none !important;
           }
         }
       `}</style>
