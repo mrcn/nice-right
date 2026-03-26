@@ -256,12 +256,6 @@ export function Proof() {
             </div>
           </div>
 
-          {/* CTA */}
-          <div className="v9-proof-cta">
-            <a href="#contact" className="v9-btn v9-btn-outline">
-              See What&apos;s Possible for Your Business
-            </a>
-          </div>
         </div>
       </section>
 
