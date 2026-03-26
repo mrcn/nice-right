@@ -11,46 +11,67 @@ if (typeof window !== 'undefined') {
 
 const tiers = [
   {
-    name: 'The Revenue Experiment',
-    valuePrompt: 'What is a new revenue stream worth to you?',
-    timeline: '30 days to first customer',
+    name: 'The Digital Foundation',
+    valuePrompt: 'Your business, findable and credible.',
+    timeline: 'Typically ready in 4–8 weeks, depending on where you\'re starting',
     description:
-      "You have a revenue idea. We build it and launch it in 30 days. If it works, you have a new income stream. If it doesn't, you learned fast and cheap.",
+      "Right now you're invisible online — or you have no web presence, or one that doesn't do you justice. We fix that. Website, email capture, local listings, a lead magnet that collects leads before you ever spend on ads. Everything a real business needs to be found, trusted, and remembered.",
+    idealFor: [
+      'Solopreneurs and service businesses starting out',
+      'Anyone with no web presence — or one that doesn\'t do them justice',
+      'Businesses who\'ve been saying "I need to fix this" for too long',
+    ],
+    deliverables: [
+      '5-page website, mobile-optimized and SEO-ready',
+      'Email list setup + lead magnet + welcome sequence',
+      'Google Business Profile claimed and optimized',
+      'Local directory listings — Yelp, Facebook + industry-specific',
+      '30-day check-in to make sure it\'s working',
+    ],
+    guarantee: 'We scope the timeline together. We don\'t rush it.',
+    cta: 'Book a Free Call',
+  },
+  {
+    name: 'The Revenue Experiment',
+    valuePrompt: 'A revenue stream, built and launched.',
+    timeline: 'Most clients see their first paying customer within 30 days',
+    description:
+      "You have a revenue idea. We build it, launch it, and get you your first paying customers. If it works, you have a new income stream. If it doesn't, you learned fast and cheap. Either way, you don't stay stuck.",
     idealFor: [
       'Service businesses testing a new offer',
       'Founders validating a product idea',
-      'Companies exploring automation revenue',
+      'Companies exploring new revenue',
     ],
     deliverables: [
       'Working MVP that generates revenue',
       'Landing page + payment processing',
       'Automation that runs without you',
-      'Launch strategy + first 10 customers',
-      'Go/no-go data in 30 days',
+      'Launch strategy + early customers',
+      'Real data to decide what\'s next',
     ],
-    guarantee: "Launch in 30 days or you don't pay",
-    cta: 'Start Your Experiment',
+    guarantee: "Launch or you don't pay.",
+    cta: 'Book a Free Call',
   },
   {
-    name: 'Technical Partner',
-    valuePrompt: 'What is a technical co-founder without equity worth to you?',
-    timeline: 'Ongoing growth partnership',
+    name: 'The Growth Partnership',
+    valuePrompt: 'Your business, understood and grown.',
+    timeline: 'Ongoing, embedded partnership',
     description:
-      "You get a technical co-founder without giving up equity. I embed in your business, build systems that scale, and help you find revenue opportunities you're missing.",
+      "This is a thinking partnership as much as a building one. We dig into your economics, your market, your competitors, and the opportunities you haven't had time to explore. We brainstorm, we prioritize, we build — and keep building as the business evolves. You run your business. We grow it together.",
     idealFor: [
-      'Businesses ready to scale',
-      'Companies with proven offers',
-      'Leaders who want competitive advantage',
+      'Businesses with a proven offer ready to scale',
+      'Leaders who want a strategic partner, not just a vendor',
+      'Companies that have outgrown doing it alone',
     ],
     deliverables: [
-      'Custom platform built for your business',
-      'Revenue experiments every quarter',
-      'Automation that saves 10+ hours/week',
-      'AI & systems that compound over time',
+      'Deep-dive into your business economics and market',
+      'Ongoing strategy, brainstorming, and prioritization',
+      'Systems and platforms built for your model',
+      'Automation that saves meaningful time every week',
       'Direct access — I answer in hours, not days',
     ],
-    guarantee: 'Month-to-month after 90 days. Cancel anytime.',
-    cta: 'Get a Technical Co-Founder',
+    guarantee: 'Month-to-month after the first 90 days.',
+    cta: 'Book a Free Call',
   },
 ];
 
@@ -116,11 +137,9 @@ export function Pricing() {
         <div className="v9-pricing-container">
           <div className="v9-pricing-header">
             <span className="v9-section-label">Investment</span>
-            <h2 className="v9-pricing-heading">Two Ways to Work Together</h2>
+            <h2 className="v9-pricing-heading">Three Ways to Work Together</h2>
             <p className="v9-pricing-sub">
-              Both options get you to revenue faster. One is a sprint to
-              validate. The other is a partnership to scale. You choose based on
-              where you are.
+              Every business is at a different stage. Pick what fits where you are.
             </p>
           </div>
 
@@ -172,13 +191,22 @@ export function Pricing() {
 
           <div className="v9-pricing-bottom">
             <div className="v9-pricing-compare">
-              <h4>Not sure which?</h4>
+              <h4>Here&apos;s how the call works.</h4>
               <p>
-                Book a free 20-minute call. I\'ll tell you honestly which option
-                fits your situation—or if neither does. No pitch. Just clarity.
+                Walk me through your business. Where you are, where you want to
+                go, what&apos;s blocking it. I&apos;ll give you an honest read —
+                what&apos;s possible, what&apos;s not, and what it would actually
+                take.
               </p>
-              <a href="#contact" className="v9-btn v9-btn-text" onClick={() => trackCTAClick('pricing_bottom', 'pricing')}>
-                Book Your Free Strategy Call →
+              <p>
+                Then we talk budget. Just name your number. Whatever you&apos;ve
+                got — I&apos;ll tell you what I can do with it. My job is to get
+                you moving, not to figure out how much I can charge you. If I can
+                get you on your feet, I will.
+              </p>
+              <p className="v9-pricing-micro">20 minutes. No pitch. Real talk.</p>
+              <a href="#contact" className="v9-btn v9-btn-gradient" onClick={() => trackCTAClick('pricing_bottom', 'pricing')}>
+                Book Your Free Strategy Call
               </a>
             </div>
           </div>
@@ -192,7 +220,7 @@ export function Pricing() {
         }
 
         .v9-pricing-container {
-          max-width: 1000px;
+          max-width: 1200px;
           margin: 0 auto;
           padding: 0 24px;
         }
@@ -236,8 +264,8 @@ export function Pricing() {
 
         .v9-pricing-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 32px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
           margin-bottom: 64px;
         }
 
@@ -245,7 +273,7 @@ export function Pricing() {
           position: relative;
           background: #F8F7F4;
           border-radius: 20px;
-          padding: 40px 32px;
+          padding: 36px 28px;
           display: flex;
           flex-direction: column;
           transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -258,7 +286,7 @@ export function Pricing() {
 
         .v9-pricing-name {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.35rem;
+          font-size: 1.2rem;
           font-weight: 600;
           color: #0C1117;
           margin: 0 0 8px 0;
@@ -267,7 +295,7 @@ export function Pricing() {
         .v9-pricing-value-prompt {
           font-family: 'Instrument Serif', Georgia, serif;
           font-style: italic;
-          font-size: 1.15rem;
+          font-size: 1.05rem;
           font-weight: 400;
           color: #0B8A6E;
           margin-bottom: 4px;
@@ -276,15 +304,16 @@ export function Pricing() {
 
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
-          color: #0B8A6E;
+          font-size: 0.82rem;
+          color: rgba(12, 17, 23, 0.5);
           font-weight: 500;
           margin-bottom: 16px;
+          line-height: 1.4;
         }
 
         .v9-pricing-desc {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.95rem;
+          font-size: 0.9rem;
           color: rgba(12, 17, 23, 0.7);
           line-height: 1.6;
           margin-bottom: 24px;
@@ -298,7 +327,7 @@ export function Pricing() {
 
         .v9-pricing-section-title {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           font-weight: 600;
           color: rgba(12, 17, 23, 0.5);
           text-transform: uppercase;
@@ -314,9 +343,9 @@ export function Pricing() {
 
         .v9-pricing-features li {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           color: #0C1117;
-          padding: 6px 0 6px 20px;
+          padding: 5px 0 5px 20px;
           position: relative;
           line-height: 1.4;
         }
@@ -332,13 +361,13 @@ export function Pricing() {
         .v9-pricing-guarantee-box {
           background: linear-gradient(135deg, #0C1117 0%, #1a2332 100%);
           border-radius: 12px;
-          padding: 16px 20px;
-          margin: 8px 0 24px 0;
+          padding: 14px 18px;
+          margin: 8px 0 20px 0;
         }
 
         .v9-pricing-guarantee-box strong {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           font-weight: 600;
           color: #06D6A0;
           display: block;
@@ -371,19 +400,6 @@ export function Pricing() {
           box-shadow: 0 6px 24px rgba(6, 214, 160, 0.4);
         }
 
-        .v9-btn-outline {
-          padding: 14px 28px;
-          border-radius: 12px;
-          color: #0C1117;
-          background: transparent;
-          border: 2px solid #0C1117;
-        }
-
-        .v9-btn-outline:hover {
-          background: #0C1117;
-          color: #ffffff;
-        }
-
         .v9-btn-text {
           padding: 0;
           color: #0B8A6E;
@@ -397,38 +413,45 @@ export function Pricing() {
 
         .v9-pricing-bottom {
           text-align: center;
-          max-width: 600px;
+          max-width: 560px;
           margin: 0 auto;
-          padding-top: 32px;
+          padding-top: 48px;
           border-top: 1px solid rgba(12, 17, 23, 0.1);
         }
 
         .v9-pricing-compare h4 {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1.1rem;
-          font-weight: 600;
+          font-family: var(--v9-font-heading);
+          font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+          font-weight: 500;
+          letter-spacing: -0.02em;
           color: #0C1117;
-          margin: 0 0 8px 0;
+          margin: 0 0 20px 0;
         }
 
         .v9-pricing-compare p {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.95rem;
-          color: rgba(12, 17, 23, 0.6);
-          line-height: 1.5;
-          margin: 0 0 16px 0;
+          color: rgba(12, 17, 23, 0.65);
+          line-height: 1.65;
+          margin: 0 0 14px 0;
         }
 
-        @media (max-width: 900px) {
+        .v9-pricing-micro {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.8rem !important;
+          font-weight: 600;
+          color: rgba(12, 17, 23, 0.4) !important;
+          letter-spacing: 0.04em;
+          text-transform: uppercase;
+          margin: 0 0 24px 0 !important;
+        }
+
+        @media (max-width: 1024px) {
           .v9-pricing-grid {
             grid-template-columns: 1fr;
             max-width: 480px;
             margin-left: auto;
             margin-right: auto;
-          }
-
-          .v9-pricing-card--popular {
-            order: -1;
           }
         }
 
@@ -442,7 +465,7 @@ export function Pricing() {
           }
 
           .v9-pricing-card {
-            padding: 32px 24px;
+            padding: 28px 20px;
           }
         }
       `}</style>
