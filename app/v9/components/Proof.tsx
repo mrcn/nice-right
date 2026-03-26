@@ -248,10 +248,10 @@ export function Proof() {
             />
             <div className="v9-about-text">
               <p className="v9-about-bio">
-                I&apos;m Marcin. 13 years building websites, business software,
-                and SaaS, 8 with digital agencies, 100+ projects for small and
-                mid-size businesses. You work directly with me and a career
-                network, start to finish.
+                I&apos;m Marcin. 13 years, 100+ projects for small and
+                mid-size businesses. You work directly with me &mdash; not an
+                account manager &mdash; and the right people around me when the
+                project needs it.
               </p>
               <p className="v9-about-clients">
                 Currently working with clients in food service, healthcare,
