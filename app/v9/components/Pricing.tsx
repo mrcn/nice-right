@@ -28,7 +28,6 @@ const tiers = [
       'Local directory listings — Yelp, Facebook + industry-specific',
       '30-day check-in to make sure it\'s working',
     ],
-    guarantee: 'We scope the timeline together. We don\'t rush it.',
     cta: 'Book a Free Call',
   },
   {
@@ -49,7 +48,6 @@ const tiers = [
       'Launch strategy + early customers',
       'Real data to decide what\'s next',
     ],
-    guarantee: "Launch or you don't pay.",
     cta: 'Book a Free Call',
   },
   {
@@ -70,7 +68,6 @@ const tiers = [
       'Automation that saves meaningful time every week',
       'Direct access — I answer in hours, not days',
     ],
-    guarantee: 'Month-to-month after the first 90 days.',
     cta: 'Book a Free Call',
   },
 ];
@@ -174,11 +171,7 @@ export function Pricing() {
                   </ul>
                 </div>
 
-                <div className="v9-pricing-guarantee-box">
-                  <strong>{tier.guarantee}</strong>
-                </div>
-
-                <a
+                <
                   href="#contact"
                   className="v9-btn v9-btn-gradient"
                   onClick={() => trackCTAClick(tier.name, 'pricing')}
@@ -198,13 +191,13 @@ export function Pricing() {
                 what&apos;s possible, what&apos;s not, and what it would actually
                 take.
               </p>
-              <p>
+              <div className="v9-pricing-budget-highlight">
                 Then we talk budget. Just name your number. Whatever you&apos;ve
                 got — I&apos;ll tell you what I can do with it. My job is to get
                 you moving, not to figure out how much I can charge you. If I can
                 get you on your feet, I will.
-              </p>
-              <p className="v9-pricing-micro">20 minutes. No pitch. Real talk.</p>
+              </div>
+              <p className="v9-pricing-micro">30 minutes. No pitch. Real talk.</p>
               <a href="#contact" className="v9-btn v9-btn-gradient" onClick={() => trackCTAClick('pricing_bottom', 'pricing')}>
                 Book Your Free Strategy Call
               </a>
@@ -358,20 +351,17 @@ export function Pricing() {
           font-weight: 600;
         }
 
-        .v9-pricing-guarantee-box {
-          background: linear-gradient(135deg, #0C1117 0%, #1a2332 100%);
-          border-radius: 12px;
-          padding: 14px 18px;
-          margin: 8px 0 20px 0;
-        }
-
-        .v9-pricing-guarantee-box strong {
+        .v9-pricing-budget-highlight {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: #06D6A0;
-          display: block;
-          text-align: center;
+          font-size: 1rem;
+          color: #0C1117;
+          line-height: 1.65;
+          margin: 0 0 20px 0;
+          padding: 20px 24px;
+          background: rgba(11, 138, 110, 0.06);
+          border-left: 3px solid #0B8A6E;
+          border-radius: 0 12px 12px 0;
+          text-align: left;
         }
 
         .v9-btn {
