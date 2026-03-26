@@ -253,10 +253,6 @@ export function Proof() {
                 account manager &mdash; and the right people around me when the
                 project needs it.
               </p>
-              <p className="v9-about-clients">
-                Currently working with clients in food service, healthcare,
-                e-commerce, and local services.
-              </p>
             </div>
           </div>
 
