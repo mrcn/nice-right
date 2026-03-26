@@ -248,7 +248,7 @@ export function Proof() {
             />
             <div className="v9-about-text">
               <p className="v9-about-bio">
-                I&apos;m Marcin. 13 years, 100+ projects for small and
+                I&apos;m Marcin. Since 2013, 100+ projects for small and
                 mid-size businesses. You work directly with me &mdash; not an
                 account manager &mdash; and the right people around me when the
                 project needs it.
