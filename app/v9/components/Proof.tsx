@@ -242,8 +242,8 @@ export function Proof() {
           {/* About */}
           <div className="v9-about-card">
             <img
-              src="/images/hero-abstract.svg"
-              alt="Nice Right"
+              src="/images/marcin.jpeg"
+              alt="Marcin"
               className="v9-about-avatar"
             />
             <div className="v9-about-text">
