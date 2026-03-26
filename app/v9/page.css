@@ -1236,33 +1236,7 @@
 }
 
 /* About card within results */
-.v9-about-card {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--v9-border-dark);
-  border-radius: var(--v9-radius-lg);
-  padding: 40px;
-}
-
-.v9-about-card img {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  border: 2px solid var(--v9-border-dark);
-}
-
-.v9-about-card p {
-  color: var(--v9-text-muted-light);
-  font-size: 0.95rem;
-}
-
-.v9-about-card p:last-child {
-  margin-bottom: 0;
-}
+/* .v9-about-card styles live in Proof.tsx */
 
 /* --------------------------------------------------------------------------
    14. Testimonials (horizontal snap scroll)
@@ -1785,12 +1759,6 @@
 
   .v9-testimonial-slide {
     flex: 0 0 min(380px, 85vw);
-  }
-
-  .v9-about-card {
-    flex-direction: column;
-    text-align: center;
-    padding: 32px 24px;
   }
 
   .v9-footer-inner {
