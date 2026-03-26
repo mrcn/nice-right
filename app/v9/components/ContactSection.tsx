@@ -214,52 +214,75 @@ export function ContactSection() {
             <CalEmbed />
           </div>
 
-          <p className="v9-contact-prefer">Prefer to reach out directly?</p>
+        </div>
 
-          <div className="v9-contact-methods">
-            <a href="mailto:Marcin@uxoxo.xyz" className="v9-contact-card" onClick={() => trackContactClick('email')}>
-              <div className="v9-contact-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                </svg>
+        {/* Bio + direct contact row */}
+        <div className="v9-bio-contact">
+          <div className="v9-bio-photo-col">
+            <img
+              src="/images/marcin-lg.jpeg"
+              alt="Marcin"
+              className="v9-bio-photo"
+            />
+          </div>
+
+          <div className="v9-bio-vsep" />
+
+          <div className="v9-bio-right">
+            <div className="v9-bio-info">
+              <h3 className="v9-bio-name">I&apos;m Marcin.</h3>
+              <p className="v9-bio-pull">
+                &ldquo;Every project I take on,{' '}
+                <em>I answer for personally.</em>&rdquo;
+              </p>
+              <p className="v9-bio-body">
+                Since 2013, 100+ projects for small and mid-size businesses.
+                You work directly with me &mdash; not an account manager &mdash;
+                backed by a network of professionals I&apos;ve worked alongside for years.
+              </p>
+              <div className="v9-bio-stats">
+                <div className="v9-bio-stat">
+                  <span className="v9-bio-stat-num">2013</span>
+                  <span className="v9-bio-stat-label">Started</span>
+                </div>
+                <div className="v9-bio-stat">
+                  <span className="v9-bio-stat-num">100+</span>
+                  <span className="v9-bio-stat-label">Projects</span>
+                </div>
               </div>
-              <div className="v9-contact-card-text">
-                <strong>Email</strong>
-                <span>Marcin@uxoxo.xyz</span>
+            </div>
+
+            <hr className="v9-bio-rule" />
+
+            <div className="v9-bio-direct">
+              <p className="v9-bio-direct-label">Get in touch</p>
+              <h4 className="v9-bio-direct-heading">Prefer to reach out directly?</h4>
+              <div className="v9-bio-cards">
+                <a href="mailto:Marcin@uxoxo.xyz" className="v9-contact-card" onClick={() => trackContactClick('email')}>
+                  <div className="v9-contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <rect x="2" y="4" width="20" height="16" rx="2" />
+                      <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                    </svg>
+                  </div>
+                  <div className="v9-contact-card-text">
+                    <strong>Email</strong>
+                    <span>Marcin@uxoxo.xyz</span>
+                  </div>
+                </a>
+                <a href="https://linkedin.com/in/mklaudiusz" target="_blank" rel="noopener noreferrer" className="v9-contact-card" onClick={() => trackContactClick('linkedin')}>
+                  <div className="v9-contact-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
+                    </svg>
+                  </div>
+                  <div className="v9-contact-card-text">
+                    <strong>LinkedIn</strong>
+                    <span>Connect with me</span>
+                  </div>
+                </a>
               </div>
-            </a>
-            <a
-              href="https://linkedin.com/in/mklaudiusz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="v9-contact-card"
-              onClick={() => trackContactClick('linkedin')}
-            >
-              <div className="v9-contact-icon">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
-                  <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19a.66.66 0 0 0 0 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z" />
-                </svg>
-              </div>
-              <div className="v9-contact-card-text">
-                <strong>LinkedIn</strong>
-                <span>Connect with me</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>
@@ -359,19 +382,161 @@ export function ContactSection() {
           opacity: 0.8;
         }
 
-        .v9-contact-prefer {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.65);
-          text-align: center;
-          margin: 0 0 24px 0;
+        /* --- Bio + direct contact row --- */
+
+        .v9-bio-contact {
+          max-width: 1120px;
+          margin: 0 auto;
+          padding: 0 24px 96px;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
+          align-items: stretch;
         }
 
-        .v9-contact-methods {
+        .v9-bio-photo-col {
+          padding-right: 64px;
+        }
+
+        .v9-bio-photo {
+          width: 100%;
+          height: 100%;
+          min-height: 420px;
+          object-fit: cover;
+          object-position: center top;
+          border-radius: 12px;
+          filter: grayscale(15%);
+          display: block;
+        }
+
+        .v9-bio-vsep {
+          width: 1px;
+          background: rgba(255, 255, 255, 0.07);
+          align-self: stretch;
+        }
+
+        .v9-bio-right {
+          padding-left: 64px;
           display: flex;
+          flex-direction: column;
+          gap: 32px;
+          justify-content: space-between;
+        }
+
+        .v9-bio-info {
+          display: flex;
+          flex-direction: column;
           gap: 16px;
-          justify-content: center;
-          flex-wrap: wrap;
+          padding-top: 8px;
+        }
+
+        .v9-bio-name {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: clamp(2rem, 2.8vw, 2.6rem);
+          font-weight: 400;
+          color: #ffffff;
+          letter-spacing: -0.02em;
+          line-height: 1.1;
+          margin: 0;
+        }
+
+        .v9-bio-pull {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-style: italic;
+          font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+          color: rgba(255, 255, 255, 0.85);
+          line-height: 1.4;
+          letter-spacing: -0.01em;
+          margin: 0;
+        }
+
+        .v9-bio-pull em {
+          color: #06D6A0;
+          font-style: italic;
+        }
+
+        .v9-bio-body {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.95rem;
+          color: rgba(255, 255, 255, 0.52);
+          line-height: 1.78;
+          margin: 0;
+        }
+
+        .v9-bio-stats {
+          display: flex;
+          gap: 28px;
+        }
+
+        .v9-bio-stat {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+        }
+
+        .v9-bio-stat-num {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: 1.35rem;
+          color: #06D6A0;
+          letter-spacing: -0.02em;
+        }
+
+        .v9-bio-stat-label {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.68rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.28);
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+        }
+
+        .v9-bio-rule {
+          border: none;
+          border-top: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .v9-bio-direct {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          padding-bottom: 8px;
+        }
+
+        .v9-bio-direct-label {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: #0B8A6E;
+          margin: 0;
+        }
+
+        .v9-bio-direct-heading {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-weight: 700;
+          font-size: clamp(1rem, 1.6vw, 1.35rem);
+          color: #ffffff;
+          letter-spacing: -0.02em;
+          line-height: 1.2;
+          margin: 0;
+        }
+
+        .v9-bio-cards {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+          .v9-bio-contact {
+            grid-template-columns: 1fr;
+            padding-bottom: 64px;
+          }
+          .v9-bio-photo-col { padding-right: 0; margin-bottom: 32px; }
+          .v9-bio-photo { min-height: 280px; aspect-ratio: 4/3; height: auto; }
+          .v9-bio-vsep { display: none; }
+          .v9-bio-right { padding-left: 0; }
         }
 
         .v9-contact-card {
@@ -447,7 +612,8 @@ export function ContactSection() {
         /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
           .v9-contact-header,
-          .v9-contact-card {
+          .v9-contact-card,
+          .v9-bio-contact {
             opacity: 1 !important;
             transform: none !important;
           }

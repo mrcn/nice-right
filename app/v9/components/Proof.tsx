@@ -148,27 +148,7 @@ export function Proof() {
         );
       });
 
-      // 4. About card: gentle fade-in
-      const aboutCard = section.querySelector('.v9-about-card');
-      if (aboutCard) {
-        gsap.fromTo(
-          aboutCard,
-          { opacity: 0, y: 30 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: aboutCard,
-              start: 'top 85%',
-              once: true,
-            },
-          }
-        );
-      }
-
-      // 5. CTA fade-in
+      // 4. CTA fade-in
       const cta = section.querySelector('.v9-proof-cta');
       if (cta) {
         gsap.fromTo(
@@ -237,37 +217,6 @@ export function Proof() {
                 </div>
               </a>
             ))}
-          </div>
-
-          {/* About */}
-          <div className="v9-about-card">
-            <img
-              src="/images/marcin-lg.jpeg"
-              alt="Marcin"
-              className="v9-about-photo"
-            />
-            <div className="v9-about-text">
-              <h3 className="v9-about-name">I&apos;m Marcin.</h3>
-              <p className="v9-about-pull">
-                &ldquo;Every project I take on,<br />
-                <em>I answer for personally.</em>&rdquo;
-              </p>
-              <p className="v9-about-bio">
-                Since 2013, 100+ projects for small and mid-size businesses.
-                You work directly with me &mdash; not an account manager &mdash;
-                backed by a network of professionals I&apos;ve worked alongside for years.
-              </p>
-              <div className="v9-about-stats">
-                <div className="v9-about-stat">
-                  <span className="v9-about-stat-num">2013</span>
-                  <span className="v9-about-stat-label">Started</span>
-                </div>
-                <div className="v9-about-stat">
-                  <span className="v9-about-stat-num">100+</span>
-                  <span className="v9-about-stat-label">Projects</span>
-                </div>
-              </div>
-            </div>
           </div>
 
         </div>
@@ -489,92 +438,6 @@ export function Proof() {
           transform: translateX(4px);
         }
 
-        /* --- About card --- */
-
-        .v9-about-card {
-          display: grid;
-          grid-template-columns: 280px 1fr;
-          gap: 56px;
-          align-items: center;
-          margin-bottom: 56px;
-        }
-
-        .v9-about-photo {
-          width: 100%;
-          aspect-ratio: 3 / 4;
-          object-fit: cover;
-          object-position: center top;
-          border-radius: 12px;
-          filter: grayscale(15%);
-        }
-
-        .v9-about-text {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .v9-about-name {
-          font-family: 'Instrument Serif', Georgia, serif;
-          font-size: clamp(2rem, 3vw, 2.8rem);
-          font-weight: 400;
-          color: #ffffff;
-          letter-spacing: -0.02em;
-          line-height: 1.1;
-          margin: 0;
-        }
-
-        .v9-about-pull {
-          font-family: 'Instrument Serif', Georgia, serif;
-          font-style: italic;
-          font-size: clamp(1.3rem, 2vw, 1.7rem);
-          color: rgba(255, 255, 255, 0.88);
-          line-height: 1.35;
-          letter-spacing: -0.02em;
-          margin: 0;
-        }
-
-        .v9-about-pull em {
-          font-style: italic;
-          color: #06D6A0;
-        }
-
-        .v9-about-bio {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1rem;
-          color: rgba(255, 255, 255, 0.62);
-          line-height: 1.75;
-          margin: 0;
-          max-width: 480px;
-        }
-
-        .v9-about-stats {
-          display: flex;
-          gap: 32px;
-        }
-
-        .v9-about-stat {
-          display: flex;
-          flex-direction: column;
-          gap: 4px;
-        }
-
-        .v9-about-stat-num {
-          font-family: 'Instrument Serif', Georgia, serif;
-          font-size: 1.5rem;
-          color: #06D6A0;
-          letter-spacing: -0.02em;
-        }
-
-        .v9-about-stat-label {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
-          font-weight: 500;
-          color: rgba(255, 255, 255, 0.35);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
-
         /* --- CTA --- */
 
         .v9-proof-cta {
@@ -605,15 +468,6 @@ export function Proof() {
             font-size: clamp(2.8rem, 12vw, 4rem);
           }
 
-          .v9-about-card {
-            grid-template-columns: 1fr;
-            gap: 32px;
-          }
-
-          .v9-about-photo {
-            aspect-ratio: 4 / 3;
-            object-position: center 20%;
-          }
         }
 
         @media (max-width: 480px) {
@@ -639,7 +493,6 @@ export function Proof() {
         @media (prefers-reduced-motion: reduce) {
           .v9-stat-block,
           .v9-case-card,
-          .v9-about-card,
           .v9-proof-cta {
             opacity: 1 !important;
             transform: none !important;
