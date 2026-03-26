@@ -189,9 +189,6 @@ export function FAQ() {
           </div>
 
           <div className="v9-faq-cta">
-            <div className="v9-faq-cta-urgency">
-              <span className="v9-urgency-badge">3 spots left this month</span>
-            </div>
             <a href="#contact" className="v9-btn v9-btn-gradient" onClick={() => trackCTAClick('faq', 'faq')}>
               Book Your Strategy Call
             </a>

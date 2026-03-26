@@ -127,13 +127,6 @@ export function Hero() {
 
 
 
-          <div className="v9-hero-urgency">
-            <span className="v9-urgency-badge">
-              <span className="v9-urgency-dot" />
-              Currently booking March — 3 spots left
-            </span>
-          </div>
-
           <div className="v9-hero-cta-wrap">
             <a
               href="#contact"

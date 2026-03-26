@@ -248,10 +248,10 @@ export function Proof() {
             />
             <div className="v9-about-text">
               <p className="v9-about-bio">
-                I&apos;m Marcin. 13 years building websites, 6 at a digital
-                agency, 100+ projects for small and mid-size businesses. When
-                you work with Nice Right, you work directly with me &mdash;
-                start to finish.
+                I&apos;m Marcin. 13 years building websites, business software,
+                and SaaS, 8 with digital agencies, 100+ projects for small and
+                mid-size businesses. You work directly with me and a career
+                network, start to finish.
               </p>
               <p className="v9-about-clients">
                 Currently working with clients in food service, healthcare,

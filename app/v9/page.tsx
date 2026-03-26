@@ -5,7 +5,6 @@ import { useScrollDepth } from '@/app/hooks/useScrollDepth';
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { ServicesCarousel } from './components/ServicesCarousel';
-import { HowItWorks } from './components/HowItWorks';
 import { Services } from './components/Services';
 import { Proof } from './components/Proof';
 import { Testimonials } from './components/Testimonials';
@@ -25,7 +24,6 @@ export default function V9Page() {
       <main id="main-content">
         <Hero />
         <ServicesCarousel />
-        <HowItWorks />
         <Services />
         <Proof />
         <Testimonials />
