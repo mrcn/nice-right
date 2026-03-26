@@ -37,7 +37,7 @@ const levers = [
   },
   {
     num: '03',
-    title: 'Keep Customers Longer',
+    title: 'Keep Customers',
     quote: 'I spend all my time hunting new clients. My best ones disappear.',
     bullets: [
       'Post-purchase email sequences',
