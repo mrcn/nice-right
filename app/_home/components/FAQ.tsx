@@ -12,19 +12,23 @@ if (typeof window !== 'undefined') {
 const faqs = [
   {
     q: 'What if I\u2019m not sure what I need?',
-    a: 'That\u2019s the most common starting point \u2014 and exactly what the free call is for. I\u2019ll look at where your business is today and tell you plainly what would move the needle. Sometimes it\u2019s a new site. Sometimes it\u2019s three changes to the one you have.',
+    a: 'That\u2019s the most common starting point, and exactly what the free call is for. I\u2019ll look at where your business is today and tell you plainly what would move the needle. Sometimes it\u2019s a new site. Sometimes it\u2019s three changes to the one you have.',
+  },
+  {
+    q: 'My last website didn\u2019t get customers. Why would this be different?',
+    a: 'Most websites fail because they\u2019re built to look good, not to convert. If your old site had no clear next step for visitors, no reason to trust you over a competitor, and no way to show up on Google, it was a brochure, not a sales tool. That\u2019s what I fix. If that\u2019s what happened before, I\u2019ll tell you exactly where it broke down and how we\u2019d do it differently.',
   },
   {
     q: 'How long until I see results?',
-    a: 'Most projects go live within 4\u20138 weeks. Quick wins like SEO fixes or conversion tweaks often show results within days. Bigger outcomes build over your first 2\u20133 months.',
+    a: 'Most projects go live within 4 to 8 weeks. Quick wins like SEO fixes or conversion tweaks often show results within days. Bigger outcomes, like consistent leads and ranking for local searches, build over your first 2 to 3 months.',
   },
   {
     q: 'Do I own everything you build?',
     a: 'Yes. Your domain, your code, your content. Always. No retainers, no lock-in contracts. Payment plans available, designed around your cash flow.',
   },
   {
-    q: 'What does it cost?',
-    a: 'Most projects range from $3,000 to $15,000 depending on scope. I\u2019ll give you an exact quote on our call \u2014 no surprises. Payment plans available for every budget.',
+    q: 'Why does a website cost $2,000 somewhere and $15,000 somewhere else?',
+    a: 'The $2k option is a template with your logo swapped in. It looks like a website but won\u2019t rank on Google or convert strangers into customers. My projects range from $3,000 to $15,000 depending on scope. The difference is strategy, custom build, and whether it\u2019s designed to actually grow your revenue. You\u2019ll get an exact quote on the call. No surprises.',
   },
 ];
 
