@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Demo 2 — Bold Grid</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      min-height: 100%;
+    }
+
+    body {
+      background-color: #0C1117;
+      background-image: radial-gradient(circle 800px at 50% 50%, rgba(11, 138, 110, 0.08) 0%, transparent 70%);
+      background-repeat: no-repeat;
+      background-position: center top;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .hero {
+      max-width: 860px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    /* Trust badge */
+    .trust-badge {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.02em;
+      margin-bottom: 4px;
+    }
+
+    /* H1 */
+    .hero-heading {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 4.5rem;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-heading .line-1 {
+      color: #fff;
+      display: block;
+    }
+
+    .hero-heading .line-2 {
+      display: block;
+      background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Sub */
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+      margin-top: 4px;
+    }
+
+    /* Lever grid */
+    .lever-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 560px;
+      width: 100%;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .lever-card {
+      flex: 1 1 calc(25% - 10px);
+      min-width: 110px;
+      padding: 10px 16px;
+      border: 1px solid rgba(11, 138, 110, 0.2);
+      border-radius: 10px;
+      background: rgba(11, 138, 110, 0.05);
+      text-align: left;
+    }
+
+    .lever-number {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #06D6A0;
+      letter-spacing: 0.08em;
+    }
+
+    .lever-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 2px;
+    }
+
+    /* CTA group */
+    .cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .cta-button:hover {
+      opacity: 0.88;
+    }
+
+    .cta-micro {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    /* Mobile: 2×2 grid */
+    @media (max-width: 560px) {
+      .hero-heading {
+        font-size: 2.75rem;
+      }
+
+      .lever-card {
+        flex: 1 1 calc(50% - 10px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+
+    <p class="trust-badge">100+ projects · 13+ years · Done-for-you</p>
+
+    <h1 class="hero-heading">
+      <span class="line-1">Growth work for businesses</span>
+      <span class="line-2">that do real work.</span>
+    </h1>
+
+    <p class="hero-sub">100+ small and medium businesses — getting found, charging more, keeping customers, running leaner. Whatever brings you here, I've probably built it.</p>
+
+    <div class="lever-grid">
+      <div class="lever-card">
+        <span class="lever-number">01</span>
+        <span class="lever-label">Get More Customers</span>
+      </div>
+      <div class="lever-card">
+        <span class="lever-number">02</span>
+        <span class="lever-label">Charge More</span>
+      </div>
+      <div class="lever-card">
+        <span class="lever-number">03</span>
+        <span class="lever-label">Keep Customers</span>
+      </div>
+      <div class="lever-card">
+        <span class="lever-number">04</span>
+        <span class="lever-label">Cut the Waste</span>
+      </div>
+    </div>
+
+    <div class="cta-group">
+      <a href="#" class="cta-button">Book Your Free Strategy Call</a>
+      <span class="cta-micro">30 minutes. An honest look at what's possible for your business.</span>
+    </div>
+
+  </section>
+</body>
+</html>

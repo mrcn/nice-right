@@ -1,94 +1,14 @@
-import { Metadata } from 'next';
-import Link from 'next/link';
-import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkRehype from 'remark-rehype';
-import rehypeRaw from 'rehype-raw';
-import rehypeStringify from 'rehype-stringify';
-import { getAllArticles, getArticle } from '@/app/lib/articles';
+import { redirect } from 'next/navigation';
+import { getAllArticles } from '@/app/lib/articles';
 
-interface Props {
+export function generateStaticParams() {
+  return getAllArticles().map((a) => ({ slug: a.slug }));
+}
+
+export default function WritingSlugRedirect({
+  params,
+}: {
   params: { slug: string };
-}
-
-export async function generateStaticParams() {
-  const articles = getAllArticles();
-  return articles.map((a) => ({ slug: a.slug }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const article = getArticle(params.slug);
-  if (!article) return { title: 'Not Found | Nice Right' };
-  return {
-    title: `${article.title} | Nice Right`,
-    description: article.description,
-  };
-}
-
-async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark()
-    .use(remarkGfm)
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeRaw)
-    .use(rehypeStringify)
-    .process(markdown);
-  return result.toString();
-}
-
-export default async function ArticlePage({ params }: Props) {
-  const article = getArticle(params.slug);
-
-  if (!article) {
-    return (
-      <main style={{ padding: '120px 24px', textAlign: 'center' }}>
-        <p>Article not found.</p>
-        <Link href="/writing">← Back to Writing</Link>
-      </main>
-    );
-  }
-
-  const htmlContent = await markdownToHtml(article.content);
-
-  return (
-    <>
-      <nav className="wr-nav">
-        <div className="wr-nav-inner">
-          <Link href="/" className="wr-nav-logo">
-            Nice Right
-          </Link>
-          <div className="wr-nav-links">
-            <Link href="/writing" className="wr-nav-back">
-              ← Writing
-            </Link>
-            <a href="/#contact" className="wr-nav-cta">
-              Book a Free Call
-            </a>
-          </div>
-        </div>
-      </nav>
-
-      <main className="art-main">
-        <div className="art-container">
-          <div className="art-meta">
-            <span className="art-type">{article.type.join(' · ')}</span>
-          </div>
-          <div
-            className="art-content"
-            dangerouslySetInnerHTML={{ __html: htmlContent }}
-          />
-        </div>
-      </main>
-
-      <footer className="wr-footer">
-        <div className="art-container">
-          <div className="art-footer-inner">
-            <Link href="/writing" className="art-back-link">
-              ← All writing
-            </Link>
-            <p>© 2026 Nice Right.</p>
-          </div>
-        </div>
-      </footer>
-    </>
-  );
+}) {
+  redirect(`/notes/${params.slug}`);
 }
