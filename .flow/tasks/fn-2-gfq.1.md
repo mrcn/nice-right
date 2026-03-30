@@ -54,9 +54,8 @@ Raise all font sizes below `0.75rem` in Services.tsx, Pricing.tsx, and Proof.tsx
 - [ ] Visual appearance unchanged (labels still uppercase, same weight/tracking)
 - [ ] `npm run build` passes
 ## Done summary
-TBD
-
+Raised all sub-0.75rem font-size values to 0.75rem in Services.tsx, Pricing.tsx, and Proof.tsx. Pure CSS value changes only — 9 violations fixed across 3 files.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 73d08f3e09020a2f7e2787a0891f51e0c8e66613
+- Tests: npm run build (compiled successfully; font-manifest error is pre-existing env issue unrelated to changes)
 - PRs:
