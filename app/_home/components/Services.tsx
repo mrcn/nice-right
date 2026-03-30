@@ -114,23 +114,39 @@ export function Services() {
         });
       } else {
         // Desktop: pin section and scrub through each col in sequence
+        let prevActive = -1;
+
+        const animateBullets = (col: HTMLElement) => {
+          const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
+          gsap.fromTo(bullets,
+            { opacity: 0, x: -6 },
+            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out' }
+          );
+        };
+
         ScrollTrigger.create({
           trigger: section,
           start: 'top top',
           end: '+=150%',
           pin: true,
-          scrub: 0.8,
+          scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');
-            cols[0].classList.add('v9-lever-col--active');
+            cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === 0));
+            prevActive = 0;
           },
           onLeaveBack: () => {
             section.classList.remove('v9-services--highlight');
             cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
+            prevActive = -1;
           },
           onUpdate: (self) => {
             const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
-            cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+            if (active !== prevActive) {
+              cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+              animateBullets(cols[active]);
+              prevActive = active;
+            }
           },
         });
       }
@@ -389,22 +405,22 @@ export function Services() {
 
         /* Scroll highlight */
         .v9-services--highlight .v9-lever-col {
-          opacity: 0.3;
-          transition: opacity 0.35s ease;
+          opacity: 0.65;
+          transition: opacity 0.35s linear, box-shadow 0.35s linear, transform 0.35s linear;
+        }
+
+        .v9-services--highlight .v9-lever-col .v9-lever-title {
+          transition: color 0.35s linear;
         }
 
         .v9-services--highlight .v9-lever-col--active {
           opacity: 1;
+          box-shadow: inset 3px 0 0 #0B8A6E;
+          transform: translateY(-2px);
         }
 
         .v9-services--highlight .v9-lever-col--active .v9-lever-title {
           color: #0B8A6E;
-          transition: color 0.35s ease;
-        }
-
-        .v9-services--highlight .v9-lever-col--active .v9-lever-num {
-          font-size: 0.85rem;
-          transition: font-size 0.35s ease;
         }
 
         @media (prefers-reduced-motion: reduce) {

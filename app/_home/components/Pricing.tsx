@@ -501,17 +501,26 @@ export function Pricing() {
 
         /* Scroll highlight */
         .v9-pricing--highlight .v9-pricing-tier {
-          opacity: 0.35;
-          transition: opacity 0.4s ease;
+          opacity: 0.65;
+          transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                      background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
+          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .v9-pricing--highlight .v9-pricing-tier--active {
           opacity: 1;
+          box-shadow: inset 4px 0 0 #0B8A6E;
+          background: rgba(11, 138, 110, 0.03);
+          transform: translateY(-2px);
         }
 
         .v9-pricing--highlight .v9-pricing-tier--active .v9-pricing-name {
           color: #0B8A6E;
-          transition: color 0.4s ease;
         }
 
         @media (prefers-reduced-motion: reduce) {
