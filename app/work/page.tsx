@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function WorkIndex() {
   return (
-    <main id="main-content">
+    <>
       <section className="v9-work-header">
         <p className="v9-work-label">Selected Work</p>
         <h1>Projects That Moved the Needle</h1>
@@ -20,7 +20,7 @@ export default function WorkIndex() {
       <section className="v9-work-list">
         <Link href="/work/northern-trust" className="v9-work-item">
           <div className="v9-work-item-image">
-            <img src="/images/bankk.webp" alt="Northern Trust" />
+            <img src="/images/bankk.webp" alt="Northern Trust corporate website micro-interactions" width="800" height="450" />
           </div>
           <div className="v9-work-item-content">
             <span className="v9-work-item-client">Northern Trust</span>
@@ -38,7 +38,9 @@ export default function WorkIndex() {
           <div className="v9-work-item-image">
             <img
               src="/images/nursing-home-money.webp"
-              alt="Healthcare Investment Portal"
+              alt="Healthcare real estate investment portal dashboard"
+              width="800"
+              height="450"
             />
           </div>
           <div className="v9-work-item-content">
@@ -54,7 +56,7 @@ export default function WorkIndex() {
 
         <Link href="/work/green-goods" className="v9-work-item">
           <div className="v9-work-item-image">
-            <img src="/images/garden-money.webp" alt="Green Goods" />
+            <img src="/images/garden-money.webp" alt="Green Goods biodiversity tracking platform" width="800" height="450" />
           </div>
           <div className="v9-work-item-content">
             <span className="v9-work-item-client">GreenPill Network</span>
@@ -68,6 +70,6 @@ export default function WorkIndex() {
           </div>
         </Link>
       </section>
-    </main>
+    </>
   );
 }

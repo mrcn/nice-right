@@ -7,7 +7,7 @@
 .v9-work {
   background: var(--v9-bg-dark);
   color: var(--v9-text-light);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family: var(--v9-font-body);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -17,6 +17,7 @@
 }
 
 .v9-work *,
+.v9-work *::before,
 .v9-work *::after {
   box-sizing: border-box;
 }
@@ -41,7 +42,7 @@
 }
 
 .v9-work-header h1 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--v9-font-heading);
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 400;
   color: #fff;
@@ -121,7 +122,7 @@
 }
 
 .v9-work-item-content h2 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--v9-font-heading);
   font-size: clamp(1.4rem, 2vw, 2rem);
   font-weight: 400;
   color: #fff;
@@ -140,8 +141,14 @@
 
 .v9-work-item-link {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   transition: color 0.2s ease;
+}
+
+.v9-work-item:focus-visible {
+  outline: 2px solid var(--v9-accent-light);
+  outline-offset: 4px;
+  border-radius: 4px;
 }
 
 @media (max-width: 768px) {
@@ -185,7 +192,7 @@
 }
 
 .v9-case-header h1 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--v9-font-heading);
   font-size: clamp(1.8rem, 3.5vw, 3rem);
   font-weight: 400;
   color: #fff;
@@ -218,7 +225,7 @@
 .v9-meta-label {
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.6);
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -235,7 +242,7 @@
 }
 
 .v9-case-section h2 {
-  font-family: 'Instrument Serif', Georgia, serif;
+  font-family: var(--v9-font-heading);
   font-size: clamp(1.3rem, 2vw, 1.75rem);
   font-weight: 400;
   color: #fff;

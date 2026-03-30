@@ -10,7 +10,7 @@ export default function WorkLayout({
   return (
     <div className="v9-work">
       <Nav defaultSolid />
-      <main>{children}</main>
+      <main id="main-content">{children}</main>
       <Footer />
     </div>
   );

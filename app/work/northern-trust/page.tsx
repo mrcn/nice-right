@@ -357,7 +357,7 @@ export default function NorthernTrustPage() {
       </div>
 
       <footer className="v9-case-footer">
-        <Link href="/work" className="v9-case-back">← All Work</Link>
+        <Link href="/work" className="v9-case-back"><span aria-hidden="true">← </span>All Work</Link>
       </footer>
     </article>
   )

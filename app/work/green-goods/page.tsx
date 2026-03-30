@@ -488,7 +488,7 @@ export default function GreenGoodsPage() {
 
       <footer className="v9-case-footer">
         <Link href="/work" className="v9-case-back">
-          ← All Work
+          <span aria-hidden="true">← </span>All Work
         </Link>
       </footer>
     </article>
