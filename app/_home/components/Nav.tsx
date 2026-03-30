@@ -49,7 +49,6 @@ export function Nav() {
 
           {/* Desktop links */}
           <div className="v9-nav-links">
-            <a href="#how-it-works">How It Works</a>
             <a href="#services">Services</a>
             <a href="#results">Results</a>
             <a href="/notes">Notes</a>
@@ -74,9 +73,6 @@ export function Nav() {
         {/* Mobile menu overlay */}
         {menuOpen && (
           <div className="v9-nav-mobile">
-            <a href="#how-it-works" onClick={handleLinkClick}>
-              How It Works
-            </a>
             <a href="#services" onClick={handleLinkClick}>
               Services
             </a>

@@ -196,6 +196,7 @@
 }
 
 .v9-nav--solid .v9-nav-links a:hover {
+  color: #0c1117;
   opacity: 0.6;
 }
 
@@ -746,26 +747,6 @@
   gap: 36px;
 }
 
-.v9-nav-links a {
-  font-family: var(--v9-font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.25s ease;
-  letter-spacing: 0.01em;
-}
-
-.v9-nav-links a:hover {
-  color: var(--v9-text-light);
-}
-
-.v9-nav.v9-nav-scrolled .v9-nav-links a {
-  color: var(--v9-text-muted-dark);
-}
-
-.v9-nav.v9-nav-scrolled .v9-nav-links a:hover {
-  color: var(--v9-text-dark);
-}
 
 .v9-nav-cta {
   padding: 10px 24px !important;

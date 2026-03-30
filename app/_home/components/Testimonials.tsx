@@ -56,51 +56,90 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const N = testimonials.length;
+// Triple the slides in DOM: [clone copy | real copy | clone copy]
+// Starting at the real copy gives us one full set of slides to scroll
+// in either direction before hitting a boundary, enabling seamless teleport.
+const loopedSlides = [...testimonials, ...testimonials, ...testimonials];
+
 export function Testimonials() {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<HTMLDivElement>(null);
   const autoplayRef = useRef<gsap.core.Tween | null>(null);
-  const activeIndexRef = useRef(0);
+  // Tracks which DOM slide index is currently centered
+  const domIndexRef = useRef(N);
 
-  const updateDots = useCallback((index: number) => {
+  const updateDots = useCallback((realIndex: number) => {
     if (!dotsRef.current) return;
     const dots = dotsRef.current.querySelectorAll('.v9-testimonial-dot');
     dots.forEach((dot, i) => {
-      dot.classList.toggle('v9-testimonial-dot-active', i === index);
+      dot.classList.toggle('v9-testimonial-dot-active', i === realIndex);
     });
-    activeIndexRef.current = index;
   }, []);
 
-  const scrollToSlide = useCallback(
-    (index: number) => {
+  // Returns the scrollLeft needed to center a given DOM slide index
+  const getScrollLeftFor = useCallback((domIndex: number): number | null => {
+    const track = trackRef.current;
+    if (!track) return null;
+    const slides = track.querySelectorAll('.v9-testimonial-slide');
+    const slide = slides[domIndex] as HTMLElement | undefined;
+    if (!slide) return null;
+    const trackRect = track.getBoundingClientRect();
+    const slideRect = slide.getBoundingClientRect();
+    return (
+      track.scrollLeft +
+      (slideRect.left - trackRect.left) -
+      (trackRect.width - slideRect.width) / 2
+    );
+  }, []);
+
+  // Instant (no animation) scroll to a DOM index — used for clone teleporting
+  const teleportToSlide = useCallback(
+    (domIndex: number) => {
       const track = trackRef.current;
       if (!track) return;
-      const slides = track.querySelectorAll('.v9-testimonial-slide');
-      if (!slides[index]) return;
-      const slide = slides[index] as HTMLElement;
-      const trackRect = track.getBoundingClientRect();
-      const slideRect = slide.getBoundingClientRect();
-      const scrollLeft =
-        track.scrollLeft +
-        (slideRect.left - trackRect.left) -
-        (trackRect.width - slideRect.width) / 2;
-      track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-      updateDots(index);
+      const scrollLeft = getScrollLeftFor(domIndex);
+      if (scrollLeft === null) return;
+      // Override CSS scroll-behavior for instant jump
+      track.style.scrollBehavior = 'auto';
+      track.scrollLeft = scrollLeft;
+      requestAnimationFrame(() => {
+        track.style.scrollBehavior = '';
+      });
+      domIndexRef.current = domIndex;
     },
-    [updateDots]
+    [getScrollLeftFor]
+  );
+
+  // Smooth scroll to a DOM index — used for auto-advance and dot navigation
+  const scrollToSlide = useCallback(
+    (domIndex: number) => {
+      const track = trackRef.current;
+      if (!track) return;
+      const scrollLeft = getScrollLeftFor(domIndex);
+      if (scrollLeft === null) return;
+      track.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+      domIndexRef.current = domIndex;
+      updateDots(domIndex % N);
+    },
+    [getScrollLeftFor, updateDots]
   );
 
   useEffect(() => {
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;
+
     const prefersReduced = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
+    // Start at middle copy's first slide (no animation)
+    teleportToSlide(N);
+    updateDots(0);
+
     const ctx = gsap.context(() => {
-      // 1. Header reveal
       const header = section.querySelector('.v9-testimonials-header');
       if (header && !prefersReduced) {
         gsap.fromTo(
@@ -120,11 +159,13 @@ export function Testimonials() {
         );
       }
 
-      // 2. Slide cards reveal
-      const slides = track.querySelectorAll('.v9-testimonial-slide');
-      if (slides.length && !prefersReduced) {
+      // Animate only the real slides (middle copy), not clones
+      const realSlides = track.querySelectorAll(
+        '.v9-testimonial-slide[data-real]'
+      );
+      if (realSlides.length && !prefersReduced) {
         gsap.fromTo(
-          slides,
+          realSlides,
           { opacity: 0, y: 30 },
           {
             opacity: 1,
@@ -142,69 +183,74 @@ export function Testimonials() {
       }
     }, section);
 
-    // 3. Scroll detection for dot indicators
+    let scrollSettleTimer: ReturnType<typeof setTimeout>;
+
+    // After scroll settles: if we landed in a clone zone, silently jump
+    // to the matching real slide in the middle copy.
+    const checkAndTeleport = () => {
+      clearTimeout(scrollSettleTimer);
+      const idx = domIndexRef.current;
+      if (idx < N) {
+        teleportToSlide(idx + N);
+      } else if (idx >= 2 * N) {
+        teleportToSlide(idx - N);
+      }
+    };
+
     const handleScroll = () => {
       const slides = track.querySelectorAll('.v9-testimonial-slide');
       const trackRect = track.getBoundingClientRect();
       const trackCenter = trackRect.left + trackRect.width / 2;
-      let closestIndex = 0;
+      let closestDomIndex = domIndexRef.current;
       let closestDist = Infinity;
 
       slides.forEach((slide, i) => {
         const rect = slide.getBoundingClientRect();
-        const slideCenter = rect.left + rect.width / 2;
-        const dist = Math.abs(slideCenter - trackCenter);
+        const dist = Math.abs(rect.left + rect.width / 2 - trackCenter);
         if (dist < closestDist) {
           closestDist = dist;
-          closestIndex = i;
+          closestDomIndex = i;
         }
       });
 
-      if (closestIndex !== activeIndexRef.current) {
-        updateDots(closestIndex);
+      const prevRealIndex = domIndexRef.current % N;
+      domIndexRef.current = closestDomIndex;
+      const newRealIndex = closestDomIndex % N;
+      if (newRealIndex !== prevRealIndex) {
+        updateDots(newRealIndex);
       }
+
+      // Fallback settle detection for browsers without scrollend
+      clearTimeout(scrollSettleTimer);
+      scrollSettleTimer = setTimeout(checkAndTeleport, 150);
     };
 
     track.addEventListener('scroll', handleScroll, { passive: true });
+    // scrollend fires as soon as smooth scroll animation finishes
+    track.addEventListener('scrollend' as string, checkAndTeleport);
 
-    // 4. Auto-advance with seamless infinite loop
     let userInteracted = false;
-
     const stopAutoplay = () => {
       userInteracted = true;
-      if (autoplayRef.current) {
-        autoplayRef.current.kill();
-        autoplayRef.current = null;
-      }
+      autoplayRef.current?.kill();
+      autoplayRef.current = null;
     };
 
     track.addEventListener('pointerdown', stopAutoplay, { once: true });
-    track.addEventListener('wheel', stopAutoplay, {
-      once: true,
-      passive: true,
-    });
+    track.addEventListener('wheel', stopAutoplay, { once: true, passive: true });
 
     if (!prefersReduced) {
       const autoAdvance = () => {
         if (userInteracted) return;
-
-        const currentIndex = activeIndexRef.current;
-        const totalSlides = testimonials.length;
-
-        // If at last slide, smoothly loop back to first
-        if (currentIndex === totalSlides - 1) {
-          // Brief pause at end, then loop
-          gsap.delayedCall(0.5, () => {
-            if (userInteracted) return;
-            scrollToSlide(0);
-          });
-        } else {
-          const nextIndex = currentIndex + 1;
-          scrollToSlide(nextIndex);
+        const next = domIndexRef.current + 1;
+        // Safety guard: should never hit this in normal use, but just in case
+        if (next >= loopedSlides.length) {
+          teleportToSlide(N);
+          return;
         }
+        scrollToSlide(next);
       };
 
-      // Start auto-advance after initial delay
       const autoTimer = gsap.delayedCall(4, () => {
         if (userInteracted) return;
         autoAdvance();
@@ -218,16 +264,20 @@ export function Testimonials() {
       return () => {
         ctx.revert();
         track.removeEventListener('scroll', handleScroll);
+        track.removeEventListener('scrollend' as string, checkAndTeleport);
+        clearTimeout(scrollSettleTimer);
         autoTimer.kill();
-        if (autoplayRef.current) autoplayRef.current.kill();
+        autoplayRef.current?.kill();
       };
     }
 
     return () => {
       ctx.revert();
       track.removeEventListener('scroll', handleScroll);
+      track.removeEventListener('scrollend' as string, checkAndTeleport);
+      clearTimeout(scrollSettleTimer);
     };
-  }, [scrollToSlide, updateDots]);
+  }, [scrollToSlide, updateDots, teleportToSlide]);
 
   return (
     <>
@@ -244,39 +294,47 @@ export function Testimonials() {
           </div>
         </div>
 
-        {/* Carousel */}
+        {/* Carousel — 3× slides: [clone | real | clone] */}
         <div ref={trackRef} className="v9-testimonials-track">
-          {testimonials.map((t) => (
-            <blockquote className="v9-testimonial-slide" key={t.initials}>
-              <div className="v9-quote-mark" aria-hidden="true">
-                &ldquo;
-              </div>
-              <p className="v9-quote-text">{t.quote}</p>
-              <footer className="v9-testimonial-footer">
-                <div className="v9-testimonial-avatar" aria-hidden="true">
-                  {t.initials}
+          {loopedSlides.map((t, i) => {
+            const isReal = i >= N && i < 2 * N;
+            return (
+              <blockquote
+                key={`${t.initials}-${i}`}
+                className="v9-testimonial-slide"
+                data-real={isReal ? '' : undefined}
+                aria-hidden={!isReal || undefined}
+              >
+                <div className="v9-quote-mark" aria-hidden="true">
+                  &ldquo;
                 </div>
-                <div className="v9-testimonial-meta">
-                  <cite className="v9-testimonial-name">{t.name}</cite>
-                  <div className="v9-testimonial-role">{t.role}</div>
-                  <div className="v9-testimonial-project">
-                    {t.projectType} · {t.company}
+                <p className="v9-quote-text">{t.quote}</p>
+                <footer className="v9-testimonial-footer">
+                  <div className="v9-testimonial-avatar" aria-hidden="true">
+                    {t.initials}
                   </div>
-                  <a
-                    href="https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="v9-testimonial-verify"
-                  >
-                    Verify on LinkedIn &rarr;
-                  </a>
-                </div>
-              </footer>
-            </blockquote>
-          ))}
+                  <div className="v9-testimonial-meta">
+                    <cite className="v9-testimonial-name">{t.name}</cite>
+                    <div className="v9-testimonial-role">{t.role}</div>
+                    <div className="v9-testimonial-project">
+                      {t.projectType} · {t.company}
+                    </div>
+                    <a
+                      href="https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="v9-testimonial-verify"
+                    >
+                      Verify on LinkedIn &rarr;
+                    </a>
+                  </div>
+                </footer>
+              </blockquote>
+            );
+          })}
         </div>
 
-        {/* Dot indicators */}
+        {/* Dot indicators — always 4, track real index */}
         <div ref={dotsRef} className="v9-testimonials-dots">
           {testimonials.map((t, i) => (
             <button
@@ -284,7 +342,7 @@ export function Testimonials() {
               className={`v9-testimonial-dot${
                 i === 0 ? ' v9-testimonial-dot-active' : ''
               }`}
-              onClick={() => scrollToSlide(i)}
+              onClick={() => scrollToSlide(N + i)}
               aria-label={`Go to testimonial from ${t.name}`}
             />
           ))}
@@ -300,7 +358,7 @@ export function Testimonials() {
           position: relative;
           background: #FFFFFF;
           padding: clamp(80px, 10vw, 140px) 0 clamp(60px, 8vw, 100px) 0;
-          overflow: hidden;
+          overflow-x: clip;
         }
 
         .v9-testimonials-container {
@@ -340,7 +398,8 @@ export function Testimonials() {
           -webkit-overflow-scrolling: touch;
 
           /* Padding for peek effect: left/right peek cards show partially */
-          padding: 8px calc((100vw - min(85vw, 600px)) / 2) 24px;
+          padding: 24px calc((100vw - min(85vw, 600px)) / 2) 64px;
+          margin-bottom: -40px;
 
           /* Hide scrollbar */
           scrollbar-width: none;
