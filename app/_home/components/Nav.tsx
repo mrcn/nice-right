@@ -52,7 +52,7 @@ export function Nav() {
             <a href="#how-it-works">How It Works</a>
             <a href="#services">Services</a>
             <a href="#results">Results</a>
-            <a href="/writing">Writing</a>
+            <a href="/notes">Notes</a>
             <a href="#contact" className="v9-nav-cta" onClick={() => trackCTAClick('nav_desktop', 'nav')}>
               Book a Free Call
             </a>
@@ -83,8 +83,8 @@ export function Nav() {
             <a href="#results" onClick={handleLinkClick}>
               Results
             </a>
-            <a href="/writing" onClick={handleLinkClick}>
-              Writing
+            <a href="/notes" onClick={handleLinkClick}>
+              Notes
             </a>
             <a href="#contact" className="v9-nav-cta" onClick={() => { handleLinkClick(); trackCTAClick('nav_mobile', 'nav'); }}>
               Book a Free Call

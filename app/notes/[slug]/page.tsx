@@ -42,7 +42,7 @@ export default async function ArticlePage({ params }: Props) {
     return (
       <main style={{ padding: '120px 24px', textAlign: 'center' }}>
         <p>Article not found.</p>
-        <Link href="/writing">← Back to Writing</Link>
+        <Link href="/notes">← Back to Notes</Link>
       </main>
     );
   }
@@ -57,8 +57,8 @@ export default async function ArticlePage({ params }: Props) {
             Nice Right
           </Link>
           <div className="wr-nav-links">
-            <Link href="/writing" className="wr-nav-back">
-              ← Writing
+            <Link href="/notes" className="wr-nav-back">
+              ← Notes
             </Link>
             <a href="/#contact" className="wr-nav-cta">
               Book a Free Call
@@ -82,8 +82,8 @@ export default async function ArticlePage({ params }: Props) {
       <footer className="wr-footer">
         <div className="art-container">
           <div className="art-footer-inner">
-            <Link href="/writing" className="art-back-link">
-              ← All writing
+            <Link href="/notes" className="art-back-link">
+              ← All notes
             </Link>
             <p>© 2026 Nice Right.</p>
           </div>

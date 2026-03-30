@@ -4,9 +4,9 @@ import { getAllArticles } from '@/app/lib/articles';
 import WritingFilter from './WritingFilter';
 
 export const metadata: Metadata = {
-  title: 'Writing | Nice Right',
+  title: 'Notes | Nice Right',
   description:
-    'Practitioner writing on AI coding, testing, and strategy. Verified sources, disclosed conflicts, honest numbers.',
+    'Practitioner notes on AI coding, testing, and strategy. Verified sources, disclosed conflicts, honest numbers.',
 };
 
 export default function WritingIndex() {
@@ -22,8 +22,8 @@ export default function WritingIndex() {
           <div className="wr-nav-links">
             <a href="/#services">Services</a>
             <a href="/#results">Results</a>
-            <Link href="/writing" className="wr-nav-active">
-              Writing
+            <Link href="/notes" className="wr-nav-active">
+              Notes
             </Link>
             <a href="/#contact" className="wr-nav-cta">
               Book a Free Call
@@ -35,8 +35,8 @@ export default function WritingIndex() {
       <main className="wr-main">
         <section className="wr-header">
           <div className="wr-container">
-            <p className="wr-section-label">Writing</p>
-            <h1>Practitioner writing on AI and strategy</h1>
+            <p className="wr-section-label">Notes</p>
+            <h1>Practitioner notes on AI and strategy</h1>
             <p className="wr-intro">
               Field notes from building and shipping with AI tools. Verified sources, disclosed
               conflicts, honest numbers.

@@ -34,7 +34,7 @@ export default function WritingFilter({ articles }: { articles: ArticleMeta[] })
       <div className="wr-grid">
         {filtered.map((article) => (
           <article key={article.slug} className="wr-card">
-            <Link href={`/writing/${article.slug}`} className="wr-card-link">
+            <Link href={`/notes/${article.slug}`} className="wr-card-link">
               <div className="wr-card-meta">
                 <span className="wr-type">{article.type.join(' · ')}</span>
                 {article.lastUpdated && (
