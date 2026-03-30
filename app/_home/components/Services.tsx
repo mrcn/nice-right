@@ -168,7 +168,7 @@ export function Services() {
         .v9-section-label {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
@@ -218,7 +218,7 @@ export function Services() {
 
         .v9-lever-num {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.68rem;
+          font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.12em;
           color: #0B8A6E;
@@ -238,7 +238,7 @@ export function Services() {
           font-family: 'Instrument Serif', Georgia, serif;
           font-style: italic;
           font-size: 0.85rem;
-          color: rgba(12, 17, 23, 0.45);
+          color: rgba(12, 17, 23, 0.60);
           line-height: 1.6;
           margin: 0 0 22px 0;
           padding-bottom: 22px;
@@ -282,7 +282,7 @@ export function Services() {
         .v9-lever-tag {
           display: inline-block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.08em;
           text-transform: uppercase;

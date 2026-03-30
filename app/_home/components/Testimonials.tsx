@@ -477,7 +477,7 @@ export function Testimonials() {
           align-items: center;
           justify-content: center;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           font-weight: 700;
           color: #FFFFFF;
           letter-spacing: 0.02em;
@@ -501,15 +501,15 @@ export function Testimonials() {
 
         .v9-testimonial-role {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.78rem;
+          font-size: 0.8rem;
           font-weight: 400;
-          color: #94A3B8;
+          color: #6B7280;
           line-height: 1.3;
         }
 
         .v9-testimonial-project {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-weight: 500;
           color: #0B8A6E;
           background: rgba(11, 138, 110, 0.08);
@@ -522,7 +522,7 @@ export function Testimonials() {
 
         .v9-testimonial-verify {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-weight: 600;
           color: #0B8A6E;
           text-decoration: none;

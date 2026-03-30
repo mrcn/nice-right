@@ -209,7 +209,7 @@ export function Pricing() {
         .v9-pricing-label {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
@@ -268,7 +268,7 @@ export function Pricing() {
 
         .v9-pricing-tier {
           display: grid;
-          grid-template-columns: 240px 1fr 260px;
+          grid-template-columns: minmax(min(200px, 100%), 240px) 1fr minmax(min(200px, 100%), 260px);
           border-bottom: 1px solid rgba(12, 17, 23, 0.07);
         }
 
@@ -280,7 +280,7 @@ export function Pricing() {
 
         .v9-pricing-num {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -308,8 +308,8 @@ export function Pricing() {
 
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
-          color: rgba(12, 17, 23, 0.38);
+          font-size: 0.75rem;
+          color: rgba(12, 17, 23, 0.55);
           font-weight: 500;
           line-height: 1.5;
         }
@@ -330,11 +330,11 @@ export function Pricing() {
 
         .v9-pricing-sublabel {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.6rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          color: rgba(12, 17, 23, 0.35);
+          color: rgba(12, 17, 23, 0.55);
           margin-bottom: 12px;
         }
 
@@ -389,11 +389,11 @@ export function Pricing() {
 
         .v9-pricing-micro {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: rgba(12, 17, 23, 0.35);
+          color: rgba(12, 17, 23, 0.55);
           margin: 0 0 20px 0;
         }
 

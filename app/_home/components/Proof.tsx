@@ -399,7 +399,7 @@ export function Proof() {
         .v9-case-client {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.1em;
           text-transform: uppercase;

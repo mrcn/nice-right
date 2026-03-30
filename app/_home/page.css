@@ -179,7 +179,7 @@
 
 .v9-nav-cta {
   display: inline-block;
-  padding: 8px 20px;
+  padding: 12px 20px;
   border-radius: 8px;
   font-weight: 600 !important;
   font-size: 0.85rem !important;
@@ -208,8 +208,8 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   padding: 0;
   background: none;
   border: none;
@@ -750,6 +750,8 @@
   border: none;
   cursor: pointer;
   padding: 4px;
+  min-width: 44px;
+  min-height: 44px;
   position: relative;
   z-index: 101;
 }
@@ -850,7 +852,7 @@
 
 .v9-hero-trust span {
   font-family: var(--v9-font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.65);
@@ -1159,7 +1161,7 @@
 
 .v9-result-client {
   font-family: var(--v9-font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--v9-accent-light);
@@ -1601,7 +1603,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-family: var(--v9-font-body);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.5);
   white-space: nowrap;
@@ -1830,7 +1832,7 @@
   }
 
   .v9-hero-trust span {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 
   .v9-stat-number {
