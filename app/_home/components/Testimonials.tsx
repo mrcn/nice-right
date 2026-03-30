@@ -13,7 +13,6 @@ interface Testimonial {
   name: string;
   role: string;
   company: string;
-  projectType: string;
   quote: string;
 }
 
@@ -23,7 +22,6 @@ const testimonials: Testimonial[] = [
     name: 'Roman Panchyshyn',
     role: 'Sr. Manager UX',
     company: 'Northern Trust',
-    projectType: 'Fortune 500 Web Platform',
     quote:
       'He delivered not only what was asked for but also provided creative suggestions and improvements that added significant value to the project.',
   },
@@ -32,7 +30,6 @@ const testimonials: Testimonial[] = [
     name: 'Jonathan Carstensen',
     role: 'Project Manager',
     company: 'Comrade Web Agency',
-    projectType: 'Agency Partnership',
     quote:
       'A great approach to breaking down industry terms and technical jargon into easy-to-understand language for clients and stakeholders.',
   },
@@ -41,7 +38,6 @@ const testimonials: Testimonial[] = [
     name: 'Britt Skaathun',
     role: 'Assistant Professor',
     company: 'UC San Diego',
-    projectType: 'Healthcare Research Platform',
     quote:
       'He was able to decipher what we wanted and translate that into a working product that exceeded our expectations.',
   },
@@ -50,7 +46,6 @@ const testimonials: Testimonial[] = [
     name: 'Brian Jemilo II',
     role: 'CTO',
     company: 'Shibiko AI',
-    projectType: 'AI Product Development',
     quote:
       "It's mind blowing how fast this guy can learn new technologies and apply them effectively to solve real problems.",
   },
@@ -316,9 +311,7 @@ export function Testimonials() {
                   <div className="v9-testimonial-meta">
                     <cite className="v9-testimonial-name">{t.name}</cite>
                     <div className="v9-testimonial-role">{t.role}</div>
-                    <div className="v9-testimonial-project">
-                      {t.projectType} · {t.company}
-                    </div>
+
                     <a
                       href="https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
                       target="_blank"
