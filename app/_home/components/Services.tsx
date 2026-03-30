@@ -73,7 +73,7 @@ export function Services() {
 
     const ctx = gsap.context(() => {
       const header = section.querySelector('.v9-services-header');
-      const cols = section.querySelectorAll('.v9-lever-col');
+      const cols = Array.from(section.querySelectorAll<HTMLElement>('.v9-lever-col'));
 
       gsap.fromTo(
         header,
@@ -97,8 +97,43 @@ export function Services() {
           stagger: 0.1,
           ease: 'power3.out',
           scrollTrigger: { trigger: cols[0], start: 'top 85%', once: true },
+          onComplete: () => { gsap.set(cols, { clearProps: 'opacity,transform' }); },
         }
       );
+
+      if (window.innerWidth <= 768) {
+        // Mobile: cols are stacked — highlight each as it crosses center
+        section.classList.add('v9-services--highlight');
+        cols.forEach((col) => {
+          ScrollTrigger.create({
+            trigger: col,
+            start: 'top 65%',
+            end: 'bottom 35%',
+            toggleClass: { targets: col, className: 'v9-lever-col--active' },
+          });
+        });
+      } else {
+        // Desktop: pin section and scrub through each col in sequence
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top top',
+          end: '+=150%',
+          pin: true,
+          scrub: 0.8,
+          onEnter: () => {
+            section.classList.add('v9-services--highlight');
+            cols[0].classList.add('v9-lever-col--active');
+          },
+          onLeaveBack: () => {
+            section.classList.remove('v9-services--highlight');
+            cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
+          },
+          onUpdate: (self) => {
+            const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
+            cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+          },
+        });
+      }
     }, section);
 
     return () => ctx.revert();
@@ -350,6 +385,26 @@ export function Services() {
             border-top: none;
             padding-top: 0 !important;
           }
+        }
+
+        /* Scroll highlight */
+        .v9-services--highlight .v9-lever-col {
+          opacity: 0.3;
+          transition: opacity 0.35s ease;
+        }
+
+        .v9-services--highlight .v9-lever-col--active {
+          opacity: 1;
+        }
+
+        .v9-services--highlight .v9-lever-col--active .v9-lever-title {
+          color: #0B8A6E;
+          transition: color 0.35s ease;
+        }
+
+        .v9-services--highlight .v9-lever-col--active .v9-lever-num {
+          font-size: 0.85rem;
+          transition: font-size 0.35s ease;
         }
 
         @media (prefers-reduced-motion: reduce) {

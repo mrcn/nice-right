@@ -96,6 +96,8 @@ export function Pricing() {
         }
       );
 
+      const rowsArr = Array.from(rows) as HTMLElement[];
+
       gsap.fromTo(
         rows,
         { opacity: 0, y: 30 },
@@ -113,8 +115,26 @@ export function Pricing() {
               tiers.forEach((t) => trackPricingView(t.name));
             },
           },
+          onComplete: () => { gsap.set(rows, { clearProps: 'opacity,transform' }); },
         }
       );
+
+      // Highlight each tier as it crosses the center of the viewport
+      ScrollTrigger.create({
+        trigger: rows[0],
+        start: 'top 80%',
+        once: true,
+        onEnter: () => section.classList.add('v9-pricing--highlight'),
+      });
+
+      rowsArr.forEach((row) => {
+        ScrollTrigger.create({
+          trigger: row,
+          start: 'top 60%',
+          end: 'bottom 40%',
+          toggleClass: { targets: row, className: 'v9-pricing-tier--active' },
+        });
+      });
     }, section);
 
     return () => ctx.revert();
@@ -477,6 +497,21 @@ export function Pricing() {
           .v9-pricing {
             padding: 80px 0;
           }
+        }
+
+        /* Scroll highlight */
+        .v9-pricing--highlight .v9-pricing-tier {
+          opacity: 0.35;
+          transition: opacity 0.4s ease;
+        }
+
+        .v9-pricing--highlight .v9-pricing-tier--active {
+          opacity: 1;
+        }
+
+        .v9-pricing--highlight .v9-pricing-tier--active .v9-pricing-name {
+          color: #0B8A6E;
+          transition: color 0.4s ease;
         }
 
         @media (prefers-reduced-motion: reduce) {
