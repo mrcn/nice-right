@@ -199,7 +199,7 @@ export function ServicesCarousel() {
 
         .services-carousel-pause-label {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.08em;
