@@ -47,8 +47,7 @@ Fix font sizes and color contrast in Testimonials.tsx. Touch targets are already
 - [ ] Testimonial dot visual appearance unchanged
 - [ ] `npm run build` passes
 ## Done summary
-TBD
-
+- Task completed
 ## Evidence
 - Commits:
 - Tests:

@@ -309,7 +309,7 @@ export function Pricing() {
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.75rem;
-          color: rgba(12, 17, 23, 0.38);
+          color: rgba(12, 17, 23, 0.55);
           font-weight: 500;
           line-height: 1.5;
         }
@@ -334,7 +334,7 @@ export function Pricing() {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          color: rgba(12, 17, 23, 0.35);
+          color: rgba(12, 17, 23, 0.55);
           margin-bottom: 12px;
         }
 
@@ -393,7 +393,7 @@ export function Pricing() {
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.08em;
-          color: rgba(12, 17, 23, 0.35);
+          color: rgba(12, 17, 23, 0.55);
           margin: 0 0 20px 0;
         }
 

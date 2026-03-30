@@ -503,7 +503,7 @@ export function Testimonials() {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.8rem;
           font-weight: 400;
-          color: #94A3B8;
+          color: #6B7280;
           line-height: 1.3;
         }
 

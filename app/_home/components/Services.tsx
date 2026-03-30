@@ -238,7 +238,7 @@ export function Services() {
           font-family: 'Instrument Serif', Georgia, serif;
           font-style: italic;
           font-size: 0.85rem;
-          color: rgba(12, 17, 23, 0.45);
+          color: rgba(12, 17, 23, 0.60);
           line-height: 1.6;
           margin: 0 0 22px 0;
           padding-bottom: 22px;
