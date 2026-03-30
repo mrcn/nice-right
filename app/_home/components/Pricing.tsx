@@ -268,7 +268,7 @@ export function Pricing() {
 
         .v9-pricing-tier {
           display: grid;
-          grid-template-columns: 240px 1fr 260px;
+          grid-template-columns: minmax(min(200px, 100%), 240px) 1fr minmax(min(200px, 100%), 260px);
           border-bottom: 1px solid rgba(12, 17, 23, 0.07);
         }
 
