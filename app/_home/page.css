@@ -1398,24 +1398,6 @@
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-.v9-faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition:
-    max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    padding 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.v9-faq-item.v9-faq-open .v9-faq-answer {
-  max-height: 400px;
-}
-
-.v9-faq-answer-inner {
-  padding-bottom: 28px;
-  color: var(--v9-text-muted-dark);
-  font-size: 0.95rem;
-  line-height: 1.7;
-}
 
 /* --------------------------------------------------------------------------
    16. Contact (dark section)
