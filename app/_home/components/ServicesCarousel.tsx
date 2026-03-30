@@ -23,6 +23,7 @@ const services = [
 
 export function ServicesCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -48,16 +49,28 @@ export function ServicesCarousel() {
   const allServices = [...services, ...services, ...services];
 
   return (
-    <section className="services-carousel">
+    <section className="services-carousel" role="region" aria-label="Services carousel">
       <div className="services-carousel-header">
         <span className="services-carousel-label">What We Do</span>
+        <button
+          className="services-carousel-pause"
+          aria-pressed={paused}
+          onClick={() => setPaused((p) => !p)}
+        >
+          {paused ? '▶' : '⏸'}
+          <span className="services-carousel-pause-label">{paused ? 'Play carousel' : 'Pause carousel'}</span>
+        </button>
       </div>
 
       <div className="services-carousel-container">
-        <div ref={trackRef} className="services-carousel-track">
+        <div
+          ref={trackRef}
+          className="services-carousel-track"
+          style={{ animationPlayState: paused ? 'paused' : 'running' }}
+        >
           {allServices.map((service, index) => (
             <div key={index} className="services-carousel-item">
-              <span className="services-carousel-dot">&middot;</span>
+              <span className="services-carousel-dot" aria-hidden="true">&middot;</span>
               <span className="services-carousel-text">{service}</span>
             </div>
           ))}
