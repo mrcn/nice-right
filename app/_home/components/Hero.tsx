@@ -154,7 +154,7 @@ export function Hero() {
           align-items: center;
           justify-content: center;
           background: #0C1117;
-          overflow: auto;
+          overflow: hidden;
           z-index: 2;
         }
 
@@ -164,8 +164,8 @@ export function Hero() {
           position: absolute;
           top: 50%;
           left: 50%;
-          width: 800px;
-          height: 800px;
+          width: clamp(300px, 80vw, 800px);
+          height: clamp(300px, 80vw, 800px);
           transform: translate(-50%, -50%);
           background: radial-gradient(
             circle,
@@ -220,13 +220,14 @@ export function Hero() {
           color: rgba(255, 255, 255, 0.7);
           margin: 0;
           will-change: transform, opacity, filter;
+        }
 
         .v9-hero-trust {
           display: flex;
           align-items: center;
           gap: clamp(6px, 1vh, 10px);
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.7rem, 1.2vh, 0.8rem);
+          font-size: clamp(0.75rem, 1.2vh, 0.8rem);
           font-weight: 500;
           color: rgba(255, 255, 255, 0.65);
           letter-spacing: 0.02em;
@@ -234,6 +235,7 @@ export function Hero() {
           flex-wrap: wrap;
           justify-content: center;
           will-change: transform, opacity;
+        }
 
         .v9-hero-dot {
           color: rgba(255, 255, 255, 0.25);
@@ -348,7 +350,7 @@ export function Hero() {
 
           .v9-hero-trust {
             gap: 6px;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
           }
         }
 

@@ -209,7 +209,7 @@ export function Pricing() {
         .v9-pricing-label {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.7rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
@@ -280,7 +280,7 @@ export function Pricing() {
 
         .v9-pricing-num {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.65rem;
+          font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.12em;
           text-transform: uppercase;
@@ -308,7 +308,7 @@ export function Pricing() {
 
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           color: rgba(12, 17, 23, 0.38);
           font-weight: 500;
           line-height: 1.5;
@@ -330,7 +330,7 @@ export function Pricing() {
 
         .v9-pricing-sublabel {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.6rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
@@ -389,7 +389,7 @@ export function Pricing() {
 
         .v9-pricing-micro {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.72rem;
+          font-size: 0.75rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.08em;

@@ -162,20 +162,7 @@
     font-size: 13px;
     color: rgba(255,255,255,0.45);
   }
-  .cal-stub-box {
-    width: 100%;
-    min-height: 500px;
-    background: #111820;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .cal-stub-text {
-    font-size: 12px;
-    color: rgba(255,255,255,0.15);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
+  .cal-embed { width: 100%; overflow: scroll; min-height: 500px; }
 
   /* ── Row 3: Contact cards ── */
   .contact-row .eyebrow {
@@ -287,9 +274,7 @@
         <span class="cal-header-title">Book a free 30-min call</span>
         <span class="cal-header-sub">No pitch. We talk through your situation.</span>
       </div>
-      <div class="cal-stub-box">
-        <span class="cal-stub-text">[ Cal.com embed &mdash; month view ]</span>
-      </div>
+      <div id="cal-embed-v2" class="cal-embed"></div>
     </div>
 
     <!-- Row 3: Contact cards -->
@@ -325,5 +310,11 @@
   </div>
 </section>
 
+<script>
+(function(C,A,L){let p=function(a,ar){a.q.push(ar)};let d=C.document;C.Cal=C.Cal||function(){let cal=C.Cal;let ar=arguments;if(!cal.loaded){cal.ns={};cal.q=cal.q||[];d.head.appendChild(d.createElement("script")).src=A;cal.loaded=true}if(ar[0]===L){const api=function(){p(api,arguments)};const namespace=ar[1];api.q=api.q||[];if(typeof namespace==="string"){cal.ns[namespace]=cal.ns[namespace]||api;p(cal.ns[namespace],ar);p(cal,["initNamespace",namespace])}else p(cal,ar);return}p(cal,ar)}})(window,"https://app.cal.com/embed/embed.js","init");
+Cal("init",{origin:"https://cal.com"});
+Cal("inline",{elementOrSelector:"#cal-embed-v2",calLink:"niceright/30min",config:{layout:"month_view",theme:"dark"}});
+Cal("ui",{theme:"dark",hideEventTypeDetails:true,layout:"month_view",cssVarsPerTheme:{dark:{"cal-brand":"#0B8A6E","cal-text":"#F5F5F5","cal-text-emphasis":"#FFFFFF","cal-border-emphasis":"#1F2937","cal-bg":"#0C1117","cal-bg-emphasis":"#1F2937"}}});
+</script>
 </body>
 </html>
