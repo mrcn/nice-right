@@ -1,0 +1,22 @@
+@import '../_shared/tokens.css';
+
+/* ==========================================================================
+   Work pages — v9 shell
+   ========================================================================== */
+
+.v9-work {
+  background: var(--v9-bg-dark);
+  color: var(--v9-text-light);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+.v9-work *,
+.v9-work *::after {
+  box-sizing: border-box;
+}

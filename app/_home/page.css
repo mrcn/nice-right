@@ -3,30 +3,7 @@
    Apple-style, full-bleed, narrative scroll homepage for Nice Right
    ========================================================================== */
 
-/* --------------------------------------------------------------------------
-   1. CSS Variables
-   -------------------------------------------------------------------------- */
-.v9 {
-  --v9-bg-dark: #0c1117;
-  --v9-bg-light: #ffffff;
-  --v9-bg-warm: #f8f7f4;
-  --v9-text-dark: #0c1117;
-  --v9-text-light: #ffffff;
-  --v9-text-muted-dark: #6b7280;
-  --v9-text-muted-light: rgba(255, 255, 255, 0.6);
-  --v9-accent: #0b8a6e;
-  --v9-accent-light: #06d6a0;
-  --v9-gradient: linear-gradient(135deg, #0b8a6e, #06d6a0);
-  --v9-border-light: #e5e7eb;
-  --v9-border-dark: #1f2937;
-  --v9-radius: 12px;
-  --v9-radius-lg: 20px;
-
-  --v9-font-heading:
-    var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
-  --v9-font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
-  --v9-font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
-}
+@import '../_shared/tokens.css';
 
 /* --------------------------------------------------------------------------
    2. Base / Reset (scoped to .v9)
