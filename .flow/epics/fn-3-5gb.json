@@ -1,0 +1,16 @@
+{
+  "branch_name": "feat/contact-section-redesign",
+  "created_at": "2026-03-30T17:54:02.868459Z",
+  "default_impl": null,
+  "default_review": null,
+  "default_sync": null,
+  "depends_on_epics": [],
+  "id": "fn-3-5gb",
+  "next_task": 1,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "spec_path": ".flow/specs/fn-3-5gb.md",
+  "status": "open",
+  "title": "ContactSection 3-Variant Demos",
+  "updated_at": "2026-03-30T18:01:21.966213Z"
+}

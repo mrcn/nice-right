@@ -22,38 +22,6 @@ export function Hero() {
     const ctx = gsap.context(() => {
       const line1 = section.querySelector('.v9-hero-line1');
       const line2 = section.querySelector('.v9-hero-line2');
-      const sub = section.querySelector('.v9-hero-sub');
-      const trust = section.querySelector('.v9-hero-trust');
-      const urgency = section.querySelector('.v9-hero-urgency');
-      const cta = section.querySelector('.v9-hero-cta-wrap');
-      const micro = section.querySelector('.v9-hero-micro');
-
-      const tl = gsap.timeline({
-        defaults: { ease: 'power3.out' },
-        delay: 0.3
-      });
-
-      // 1. Headline line 1: Clip-path reveal from bottom
-      tl.fromTo(line1,
-        { clipPath: 'inset(100% 0 0 0)', y: 30, opacity: 0 },
-        { clipPath: 'inset(0% 0 0 0)', y: 0, opacity: 1, duration: 0.9 }
-      );
-
-      // 2. Headline line 2: Clip-path reveal from bottom (slight overlap)
-      tl.fromTo(line2,
-        { clipPath: 'inset(100% 0 0 0)', y: 30, opacity: 0 },
-        { clipPath: 'inset(0% 0 0 0)', y: 0, opacity: 1, duration: 0.8 },
-        '-=0.5'
-      );
-
-      // 3. PAUSE - then fade in everything else together
-      tl.addLabel('rest');
-
-      tl.fromTo([sub, trust, urgency, cta, micro],
-        { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, stagger: 0.08, ease: 'power2.out' },
-        'rest+=0.5'
-      );
 
       // Scroll-triggered parallax fade-out
       ScrollTrigger.create({
@@ -103,15 +71,25 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Websites and apps</span>
-            <span className="v9-hero-line2">that bring you more business</span>
+            <span className="v9-hero-line1">Growth work for businesses</span>
+            <span className="v9-hero-line2">that do real work.</span>
           </h1>
 
-<p className="v9-hero-sub">
-            Websites that convert visitors into customers. Apps that automate
-            your sales process. Systems that actually grow your revenue. I
-            translate business chaos into working solutions that make you money.
+          <p className="v9-hero-sub">
+            100+ small and medium businesses — getting found, charging more,
+            keeping customers, running leaner. Whatever brings you here,
+            I&apos;ve probably built it.
           </p>
+
+          <div className="v9-hero-levers">
+            <span className="v9-hero-lever">Get More Customers</span>
+            <span className="v9-hero-lever-divider" aria-hidden="true" />
+            <span className="v9-hero-lever">Charge More</span>
+            <span className="v9-hero-lever-divider" aria-hidden="true" />
+            <span className="v9-hero-lever">Keep Customers</span>
+            <span className="v9-hero-lever-divider" aria-hidden="true" />
+            <span className="v9-hero-lever">Cut the Waste</span>
+          </div>
 
           <div className="v9-hero-trust">
             <span>100+ projects</span>
@@ -144,7 +122,7 @@ export function Hero() {
         </div>
       </section>
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         .v9-hero {
           position: relative;
           width: 100%;
@@ -199,17 +177,33 @@ export function Hero() {
           margin: 0;
         }
 
+        @keyframes v9-line-reveal {
+          from { clip-path: inset(100% 0 0 0); transform: translateY(30px); opacity: 0; }
+          to   { clip-path: inset(0% 0 0 0);   transform: translateY(0);    opacity: 1; }
+        }
+
+        @keyframes v9-fade-up {
+          from { transform: translateY(20px); opacity: 0; }
+          to   { transform: translateY(0);    opacity: 1; }
+        }
+
         .v9-hero-line1 {
           color: #ffffff;
-          will-change: clip-path, transform, opacity;
+          animation: v9-line-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
         }
         .v9-hero-line2 {
           background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
-          will-change: transform, opacity, filter;
+          animation: v9-line-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
         }
+
+        .v9-hero-sub    { animation: v9-fade-up 0.6s ease-out 1.2s both; }
+        .v9-hero-levers { animation: v9-fade-up 0.6s ease-out 1.28s both; }
+        .v9-hero-trust  { animation: v9-fade-up 0.6s ease-out 1.36s both; }
+        .v9-hero-cta-wrap { animation: v9-fade-up 0.6s ease-out 1.44s both; }
+        .v9-hero-micro  { animation: v9-fade-up 0.6s ease-out 1.52s both; }
 
         .v9-hero-sub {
           max-width: 600px;
@@ -220,6 +214,37 @@ export function Hero() {
           color: rgba(255, 255, 255, 0.7);
           margin: 0;
           will-change: transform, opacity, filter;
+        }
+
+        .v9-hero-levers {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 0;
+          border-top: 1px solid rgba(255, 255, 255, 0.07);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+          padding: 10px 0;
+          width: 100%;
+          will-change: transform, opacity;
+        }
+
+        .v9-hero-lever {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: clamp(0.75rem, 1.2vh, 0.78rem);
+          font-weight: 500;
+          color: rgba(6, 214, 160, 0.75);
+          padding: 0 16px;
+          white-space: nowrap;
+        }
+
+        .v9-hero-lever-divider {
+          display: block;
+          width: 1px;
+          height: 14px;
+          background-color: rgba(255, 255, 255, 0.15);
+          flex-shrink: 0;
         }
 
         .v9-hero-trust {
@@ -382,12 +407,14 @@ export function Hero() {
             transform: none !important;
           }
 
-          .v9-hero-h1,
+          .v9-hero-line1,
+          .v9-hero-line2,
           .v9-hero-sub,
+          .v9-hero-levers,
           .v9-hero-trust,
-          .v9-hero-urgency,
           .v9-hero-cta-wrap,
           .v9-hero-micro {
+            animation: none !important;
             opacity: 1 !important;
             transform: none !important;
           }

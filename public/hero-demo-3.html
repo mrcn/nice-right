@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero Demo 3 — Inline Strip</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: #0C1117;
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 48px 24px;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 860px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .hero::before {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(11,138,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Instrument Serif', Georgia, serif;
+      font-weight: 400;
+      font-size: 4.5rem;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .h1-line1 {
+      display: block;
+      color: #fff;
+    }
+
+    .h1-line2 {
+      display: block;
+      background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sub {
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 600px;
+    }
+
+    .lever-strip {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 12px 0;
+      width: 100%;
+    }
+
+    .lever {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: rgba(6, 214, 160, 0.75);
+      padding: 0 16px;
+      white-space: nowrap;
+    }
+
+    .lever-divider {
+      display: block;
+      width: 1px;
+      height: 14px;
+      background-color: rgba(255, 255, 255, 0.15);
+      flex-shrink: 0;
+    }
+
+    .trust {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.01em;
+    }
+
+    .cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.88;
+    }
+
+    .micro {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.45);
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+
+      .lever {
+        padding: 4px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <h1>
+      <span class="h1-line1">Growth work for businesses</span>
+      <span class="h1-line2">that do real work.</span>
+    </h1>
+
+    <p class="sub">100+ small and medium businesses — getting found, charging more, keeping customers, running leaner. Whatever brings you here, I've probably built it.</p>
+
+    <div class="lever-strip">
+      <span class="lever">Get More Customers</span>
+      <span class="lever-divider" aria-hidden="true"></span>
+      <span class="lever">Charge More</span>
+      <span class="lever-divider" aria-hidden="true"></span>
+      <span class="lever">Keep Customers</span>
+      <span class="lever-divider" aria-hidden="true"></span>
+      <span class="lever">Cut the Waste</span>
+    </div>
+
+    <p class="trust">100+ projects · 13+ years · Done-for-you</p>
+
+    <div class="cta-wrap">
+      <a href="#" class="cta-btn">Book Your Free Strategy Call</a>
+      <span class="micro">30 minutes. An honest look at what's possible for your business.</span>
+    </div>
+  </section>
+</body>
+</html>
