@@ -1,4 +1,3 @@
-import '@/app/_shared/tokens.css';
 import './work.css';
 import { Nav } from '@/app/_home/components/Nav';
 import { Footer } from '@/app/_home/components/Footer';
