@@ -30,3 +30,10 @@ After tasks 2+3 remove all these imports, this grep should return empty.
 - [ ] `npm run build` exits 0
 - [ ] No old class names (`nav`, `container`, `btn`, `work-header`, `case-study`) in `app/work/**/*.tsx`
 - [ ] `app/page.css` untouched
+
+## Done summary
+- Task completed
+## Evidence
+- Commits:
+- Tests:
+- PRs:
