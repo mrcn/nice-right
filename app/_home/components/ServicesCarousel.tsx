@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const services = [
   'Conversion-Optimized Websites',
@@ -23,19 +23,13 @@ const services = [
 
 export function ServicesCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
-  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const handleMouseEnter = () => {
-      if (!paused) track.style.animationPlayState = 'paused';
-    };
-
-    const handleMouseLeave = () => {
-      if (!paused) track.style.animationPlayState = 'running';
-    };
+    const handleMouseEnter = () => { track.style.animationPlayState = 'paused'; };
+    const handleMouseLeave = () => { track.style.animationPlayState = 'running'; };
 
     track.addEventListener('mouseenter', handleMouseEnter);
     track.addEventListener('mouseleave', handleMouseLeave);
@@ -44,29 +38,20 @@ export function ServicesCarousel() {
       track.removeEventListener('mouseenter', handleMouseEnter);
       track.removeEventListener('mouseleave', handleMouseLeave);
     };
-  }, [paused]);
+  }, []);
 
   const allServices = [...services, ...services, ...services];
 
   return (
-    <section className="services-carousel" role="region" aria-label="Services carousel">
+    <section className="services-carousel" aria-label="Services carousel">
       <div className="services-carousel-header">
         <span className="services-carousel-label">What We Do</span>
-        <button
-          className="services-carousel-pause"
-          aria-pressed={paused}
-          onClick={() => setPaused((p) => !p)}
-        >
-          {paused ? '▶' : '⏸'}
-          <span className="services-carousel-pause-label">{paused ? 'Play carousel' : 'Pause carousel'}</span>
-        </button>
       </div>
 
       <div className="services-carousel-container">
         <div
           ref={trackRef}
           className="services-carousel-track"
-          style={{ animationPlayState: paused ? 'paused' : 'running' }}
         >
           {allServices.map((service, index) => (
             <div key={index} className="services-carousel-item">
@@ -169,40 +154,6 @@ export function ServicesCarousel() {
         .services-carousel-header {
           text-align: center;
           margin-bottom: 24px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 16px;
-        }
-
-        .services-carousel-pause {
-          background: none;
-          border: 1px solid rgba(6, 214, 160, 0.4);
-          border-radius: 6px;
-          color: rgba(6, 214, 160, 0.8);
-          cursor: pointer;
-          font-size: 0.75rem;
-          padding: 4px 8px;
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          transition: border-color 0.2s, color 0.2s;
-        }
-
-        .services-carousel-pause:hover,
-        .services-carousel-pause:focus-visible {
-          border-color: #06d6a0;
-          color: #06d6a0;
-          outline: 2px solid #06d6a0;
-          outline-offset: 2px;
-        }
-
-        .services-carousel-pause-label {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
         }
 
         @media (max-width: 768px) {
