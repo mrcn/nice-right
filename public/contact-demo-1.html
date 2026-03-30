@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Demo V1 — Side-by-Side</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: #0C1117; color: #fff; }
+
+  /* ── Variant label badge ── */
+  .variant-badge {
+    background: rgba(6,214,160,0.08);
+    border-bottom: 1px solid rgba(6,214,160,0.12);
+    padding: 14px 24px;
+    text-align: center;
+  }
+  .variant-badge strong {
+    font-size: 0.82rem; font-weight: 600; color: #06D6A0;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .variant-badge p {
+    font-size: 0.75rem; color: rgba(255,255,255,0.35);
+    margin-top: 2px; font-style: italic;
+  }
+
+  /* ── Section ── */
+  .contact-section { padding: 120px 0; background: #0C1117; }
+
+  /* ── Max-width wrapper ── */
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* ── Above-grid header ── */
+  .section-header { margin-bottom: 56px; }
+  .eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #0B8A6E; margin-bottom: 12px;
+  }
+  .section-header h2 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    text-align: left;
+    margin-bottom: 12px;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ── Grid ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 5fr 4fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  /* ── Left col: Cal stub ── */
+  .cal-col {
+    border: 1px solid rgba(6,214,160,0.14);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .cal-label-row {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cal-label-row p {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: #06D6A0;
+  }
+  .cal-placeholder {
+    width: 100%; min-height: 500px;
+    background: #111820;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cal-placeholder span {
+    font-size: 12px; color: rgba(255,255,255,0.15);
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  /* ── Right col: Bio + Contact ── */
+  .bio-col {
+    display: flex; flex-direction: column;
+    gap: 24px; align-items: flex-start;
+  }
+
+  .bio-photo {
+    width: 240px; height: 300px;
+    object-fit: cover; object-position: center top;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .bio-name {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 2.4rem; font-weight: 400;
+    color: #fff; letter-spacing: -0.02em; line-height: 1.1;
+  }
+
+  .bio-pull {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic; font-size: 1.2rem;
+    color: rgba(255,255,255,0.85); line-height: 1.4;
+  }
+  .bio-pull em { color: #06D6A0; font-style: italic; }
+
+  .bio-body {
+    font-size: 0.95rem; color: rgba(255,255,255,0.52); line-height: 1.78;
+  }
+
+  .bio-stats { display: flex; gap: 28px; }
+  .bio-stat { display: flex; flex-direction: column; gap: 3px; }
+  .bio-stat-num {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.35rem; color: #06D6A0; letter-spacing: -0.02em;
+  }
+  .bio-stat-label {
+    font-size: 0.68rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.28);
+  }
+
+  .bio-divider {
+    border: none; border-top: 1px solid rgba(255,255,255,0.07);
+    margin: 0; width: 100%;
+  }
+
+  /* ── Contact cards ── */
+  .contact-cards { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+
+  .contact-card {
+    border: 1px solid rgba(255,255,255,0.12);
+    background: transparent;
+    border-radius: 12px; padding: 16px 20px;
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .contact-card:hover {
+    border-color: #06D6A0;
+    transform: translateY(-2px);
+  }
+
+  .contact-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: linear-gradient(135deg, rgba(11,138,110,0.15), rgba(6,214,160,0.1));
+    color: #06D6A0;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-card-text { display: flex; flex-direction: column; gap: 2px; }
+  .contact-card-text strong { font-size: 0.9rem; font-weight: 600; color: #fff; }
+  .contact-card-text span { font-size: 0.82rem; font-weight: 400; color: rgba(255,255,255,0.45); }
+
+  /* ── Responsive ≤900px ── */
+  @media (max-width: 900px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .bio-col { order: -1; }
+    .cal-col { order: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Variant label badge -->
+<div class="variant-badge">
+  <strong>V1 — Side-by-Side</strong>
+  <p>Hypothesis: trust + action visible simultaneously removes the "who is this?" hesitation at the booking moment.</p>
+</div>
+
+<section class="contact-section">
+  <div class="wrap">
+
+    <!-- Above-grid header -->
+    <div class="section-header">
+      <p class="eyebrow">Contact</p>
+      <h2>Let's figure out what would work<br>for your business</h2>
+      <p class="section-sub">30 minutes. No pitch.</p>
+    </div>
+
+    <!-- Grid -->
+    <div class="contact-grid">
+
+      <!-- Left col: Cal stub -->
+      <div class="cal-col">
+        <div class="cal-label-row">
+          <p>Pick a time</p>
+        </div>
+        <div class="cal-placeholder">
+          <span>[ Cal.com embed — month view ]</span>
+        </div>
+      </div>
+
+      <!-- Right col: Bio + Contact -->
+      <div class="bio-col">
+        <img src="images/marcin-lg.jpeg" alt="Marcin" class="bio-photo" />
+
+        <h3 class="bio-name">I'm Marcin.</h3>
+
+        <p class="bio-pull">&ldquo;Every project I take on,<br><em>I answer for personally.</em>&rdquo;</p>
+
+        <p class="bio-body">Since 2013, 100+ projects for small and mid-size businesses. You work directly with me — not an account manager — backed by a network of professionals I've worked alongside for years.</p>
+
+        <div class="bio-stats">
+          <div class="bio-stat">
+            <span class="bio-stat-num">2013</span>
+            <span class="bio-stat-label">Started</span>
+          </div>
+          <div class="bio-stat">
+            <span class="bio-stat-num">100+</span>
+            <span class="bio-stat-label">Projects</span>
+          </div>
+        </div>
+
+        <hr class="bio-divider" />
+
+        <div class="contact-cards">
+          <a href="mailto:Marcin@uxoxo.xyz" class="contact-card">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2"/>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+              </svg>
+            </div>
+            <div class="contact-card-text">
+              <strong>Email</strong>
+              <span>Marcin@uxoxo.xyz</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/mklaudiusz" class="contact-card">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.5 2h-17A1.5 1.5 0 0 0 2 3.5v17A1.5 1.5 0 0 0 3.5 22h17a1.5 1.5 0 0 0 1.5-1.5v-17A1.5 1.5 0 0 0 20.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 1 1 8.3 6.5a1.78 1.78 0 0 1-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0 0 13 14.19V19h-3v-9h2.9v1.3a3.11 3.11 0 0 1 2.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+              </svg>
+            </div>
+            <div class="contact-card-text">
+              <strong>LinkedIn</strong>
+              <span>Connect with me</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+      <!-- /bio-col -->
+
+    </div>
+    <!-- /contact-grid -->
+
+  </div>
+</section>
+
+</body>
+</html>
