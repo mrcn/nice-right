@@ -72,3 +72,10 @@ Reskin all 3 case study pages to v9. Remove old CSS import atomically with marku
 - [ ] Back link to `/work` works
 - [ ] `export const metadata` titles/descriptions unchanged on all 3 pages
 - [ ] No TypeScript errors
+
+## Done summary
+- Task completed
+## Evidence
+- Commits:
+- Tests:
+- PRs:

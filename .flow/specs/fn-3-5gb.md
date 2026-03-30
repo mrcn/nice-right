@@ -2,65 +2,85 @@
 
 ## Overview
 
-Three standalone HTML demo files for a redesigned ContactSection, addressing the root UX/CRO problems identified by a hive swarm analysis:
-- Bio/trust material appears *after* the calendar (inverted trust order)
-- Two mismatched container widths (800px calendar, 1120px bio) create a disconnected feel
-- Full-height photo forces `justify-content: space-between`, scattering bio content
+Three standalone HTML demo files testing genuinely distinct layout hypotheses for a redesigned ContactSection. Each variant tests a different answer to: **where do trust signals belong relative to the booking widget?**
 
-Each demo is a self-contained HTML file in `/public/` using a cal-stub placeholder, matching the established `hero-demo-1/2/3.html` pattern. No changes to `ContactSection.tsx` in this epic — demos are for design review only.
+Root problems from hive swarm analysis:
+- Bio/trust material appears *after* the calendar (inverted trust order)
+- Two mismatched container widths (800px cal, 1120px bio)
+- Full-height photo forces `justify-content: space-between`, scattering bio content
 
 ## Scope
 
 - **In:** 3 new files `public/contact-demo-1.html`, `contact-demo-2.html`, `contact-demo-3.html`
-- **Out:** Changes to `ContactSection.tsx`, Cal.com scroll-trap fix, mobile-specific fixes
+- **Out:** Changes to `ContactSection.tsx`, Cal.com scroll-trap fix
+- **V1/V2 note:** Photo requires `npm run dev` (image served at `localhost:3000`)
+- **V3 note:** No photo — works at `file://`
 
-## Variant Specs
+## The 3 Distinct Hypotheses
 
 **V1 — Side-by-Side** (`contact-demo-1.html`)
-- 1120px container, 2-col CSS grid: calendar left (5fr) | identity right (4fr)
-- Heading + subtext left-aligned above the grid (full width)
-- Right col: constrained portrait (240×300px), bio text, stats, rule, outlined contact cards
-- Cal-stub in left col with subtle teal border frame
-- Responsive: stacks at ≤900px (bio first, then cal)
+- Hypothesis: trust + action visible simultaneously
+- 1120px container, CSS grid `5fr 4fr`, 64px gap
+- Heading (H2) + sub left-aligned ABOVE the grid (full-width row)
+- Left col: cal-stub (`width:100%`, `min-height:500px`), teal border frame
+- Right col: portrait (240×300px constrained) → name H3 → quote → bio → stats → hr → outlined contact cards
+- Responsive ≤900px: single col, bio first then cal
 
 **V2 — Trust-First Stacked** (`contact-demo-2.html`)
-- Single column, 1120px max-width
-- Row 1: bio block — photo (160px inline left float), name, quote, body, stats
-- Row 2: full-width cal-stub
-- Row 3: contact cards in a 2-col row
-- Establishes credibility before the booking widget appears
+- Hypothesis: seeing the person before the calendar increases trust enough to book
+- 1120px single column
+- Row 0: H2 centered above everything (section heading)
+- Row 1 (bio panel): mini 2-col grid `auto 1fr`, gap 40px — photo (280×360px, constrained left) + bio text right (name H3, quote, body, stats)
+- Row 2: full-width cal-stub (`width:100%`, `min-height:500px`), with label row
+- Row 3: contact cards flex row
+- Responsive ≤768px: bio panel stacks (photo full-width above text)
 
-**V3 — Minimal/Bold** (`contact-demo-3.html`)
-- 1200px container, 2 equal columns
-- Left: large Instrument Serif heading (3.5rem+), stats as big numbers, single sentence bio, text-link contacts
-- Right: cal-stub, borderless, blends into bg
-- No photo, no cards — maximum reduction of visual noise
-- Confident, direct aesthetic
+**V3 — Minimal/Focused** (`contact-demo-3.html`)
+- Hypothesis: removing all trust signals and relying on copy alone reduces friction
+- 840px max-width, centered, single column
+- No photo, no bio block
+- Row 0: H2 centered, 3rem, "Let's figure out what would work for your business"
+- Row 1: sub "30 minutes. No pitch. You keep the notes." centered, muted
+- Row 2: cal-stub (`width:100%`, `min-height:500px`), subtle teal border
+- Row 3: plain text links — "Or email me: Marcin@uxoxo.xyz · LinkedIn ↗" — centered, small, teal
+
+## Shared style constants
+
+- `section { padding: 120px 0; }` — matches production component
+- Image path: `images/marcin-lg.jpeg` (relative, works when served)
+- Eyebrow element: `<p class="eyebrow">` — `font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#0B8A6E`
+- Cal-stub label: `<p>` 11px teal uppercase inside stub
+- Teal accent: `#06D6A0` (hover states) / `#0B8A6E` (labels, eyebrows)
+- Contact cards (V1, V2): `border:1px solid rgba(255,255,255,0.12); background:transparent`; hover `border-color:#06D6A0`
+- Stats block: number (`<span>` Instrument Serif, teal) + label below (`<span>` 0.68rem, uppercase, 28% white opacity, e.g. "Started", "Projects")
+- V2 photo: `width:280px; height:360px; object-fit:cover; object-position:center top; border-radius:12px`
 
 ## Quick commands
 
 ```bash
-# Open demos in browser
-open public/contact-demo-1.html
-open public/contact-demo-2.html
+# Serve and open demos
+npm run dev
+open http://localhost:3000/contact-demo-1.html
+open http://localhost:3000/contact-demo-2.html
+# V3 also works directly:
 open public/contact-demo-3.html
 ```
 
 ## Acceptance
 
-- [ ] All 3 HTML files open without errors in a browser (no dev server needed)
-- [ ] Each demo is visually distinct — clear different layout strategy
-- [ ] Google Fonts load correctly (Inter + Instrument Serif visible)
-- [ ] Cal-stub placeholder is clearly labeled and sized realistically (~400px tall)
-- [ ] Bio/credibility content visible on load without scrolling past the cal-stub
-- [ ] Contact cards/links are clearly interactive (hover states present)
-- [ ] Each file has a visible variant label (V1/V2/V3 + brief description)
-- [ ] No broken image references (use `/images/marcin-lg.jpeg` path)
+- [ ] V1 and V2 open correctly via `localhost:3000` with photo visible
+- [ ] V3 opens at `file://` with no broken assets
+- [ ] Each demo is visually distinct — tests a different structural hypothesis
+- [ ] No variant uses `justify-content: space-between` on bio column
+- [ ] Cal-stub `min-height: 500px` in all variants (not fixed height)
+- [ ] Bio/credibility visible on load without scrolling in V1 and V2
+- [ ] Contact links/cards have visible hover states in all variants
+- [ ] Each file has a visible variant label (V1/V2/V3 + one-line hypothesis description)
+- [ ] Section padding is 120px top/bottom in all variants
 
 ## References
 
 - Template: `public/bio-contact-demo.html` (atoms, color tokens, font setup)
-- Pattern: `public/hero-demo-1.html` (preconnect, file structure)
-- Component: `app/_home/components/ContactSection.tsx` (existing markup/CSS)
+- Pattern: `public/hero-demo-1.html` (preconnect, head structure)
+- Component: `app/_home/components/ContactSection.tsx` (heading levels, stat structure, card markup)
 - Design tokens: `#0C1117` bg, `#06D6A0`/`#0B8A6E` accent, Inter + Instrument Serif
-- Practice: trust signals before booking widget, constrained photo, outlined secondary CTAs

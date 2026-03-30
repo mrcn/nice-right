@@ -70,3 +70,10 @@ Full-bleed vertical list (not grid). Each item is a wide horizontal strip on des
 - [ ] Links to case study routes work
 - [ ] Mobile: items stack vertically
 - [ ] `export const metadata` title/description unchanged
+
+## Done summary
+- Task completed
+## Evidence
+- Commits:
+- Tests:
+- PRs:
