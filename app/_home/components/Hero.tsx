@@ -76,9 +76,9 @@ export function Hero() {
           </h1>
 
           <p className="v9-hero-sub">
-            100+ small and medium businesses — getting found, charging more,
-            keeping customers, running leaner. Whatever brings you here,
-            I&apos;ve probably built it.
+            100+ small and medium businesses grown. Tell me where you are
+            and name your price — we&apos;ll work out the rest. Whatever
+            brings you here, I&apos;ve probably built it.
           </p>
 
           <div className="v9-hero-levers">
