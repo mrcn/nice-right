@@ -142,6 +142,10 @@ export function Services() {
             cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
             prevActive = -1;
           },
+          onEnterBack: () => {
+            section.classList.add('v9-services--highlight');
+            prevActive = -1;
+          },
           onLeaveBack: () => {
             section.classList.remove('v9-services--highlight');
             cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
