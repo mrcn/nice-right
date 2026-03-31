@@ -48,9 +48,8 @@ Fix all visual/animation bugs in `app/_home/components/Pricing.tsx`.
 - [ ] Reduced-motion: all highlight transitions are instant — no smooth fade on opacity or color for `.v9-pricing-tier` or `.v9-pricing-name`
 
 ## Done summary
-TBD
-
+Fixed all visual/animation bugs in Pricing.tsx: replaced per-row toggleClass with mutual-exclusion ScrollTrigger callbacks (single-point start/end center), removed translateY(-2px) from active state, added highlight class cleanup on unmount, added will-change: opacity, and covered both .v9-pricing-tier and .v9-pricing-name in the reduced-motion block.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 3eb7ea2d190c2398e0a49bf96d0aaf11da3c64d0
+- Tests: npx tsc --noEmit, npm test (vitest run — 2 tests passed)
 - PRs:

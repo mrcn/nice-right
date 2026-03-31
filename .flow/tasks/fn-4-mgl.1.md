@@ -52,9 +52,8 @@ Fix all visual/animation bugs in `app/_home/components/Services.tsx`.
 - [ ] Reduced-motion: opacity and color changes are instant — no transition on `.v9-lever-col` or `.v9-lever-title`
 
 ## Done summary
-TBD
-
+Fixed all visual/animation bugs in Services.tsx: equal 28px padding on all cols (base + 1024px breakpoint), animateBullets with killTweensOf and initial col-01 call, onLeave handler symmetric with onLeaveBack, mobile highlight class cleanup, pin end reduced to 120%, removed translateY(-2px) from active state, added will-change, and transition:none for reduced-motion.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 3eb7ea2d190c2398e0a49bf96d0aaf11da3c64d0
+- Tests: npx tsc --noEmit, npm run build
 - PRs:
