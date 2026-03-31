@@ -127,17 +127,28 @@ export function Pricing() {
         onEnter: () => section.classList.add('v9-pricing--highlight'),
       });
 
-      rowsArr.forEach((row) => {
+      rowsArr.forEach((row, i) => {
         ScrollTrigger.create({
           trigger: row,
-          start: 'top 60%',
-          end: 'bottom 40%',
-          toggleClass: { targets: row, className: 'v9-pricing-tier--active' },
+          start: 'top center',
+          end: 'bottom center',
+          onEnter: () => {
+            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
+            row.classList.add('v9-pricing-tier--active');
+          },
+          onEnterBack: () => {
+            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
+            row.classList.add('v9-pricing-tier--active');
+          },
+          onLeaveBack: i === 0 ? () => {
+            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
+          } : undefined,
+          onLeave: () => { row.classList.remove('v9-pricing-tier--active'); },
         });
       });
     }, section);
 
-    return () => ctx.revert();
+    return () => { ctx.revert(); section.classList.remove('v9-pricing--highlight'); };
   }, []);
 
   return (
@@ -290,6 +301,7 @@ export function Pricing() {
           display: grid;
           grid-template-columns: minmax(min(200px, 100%), 240px) 1fr minmax(min(200px, 100%), 260px);
           border-bottom: 1px solid rgba(12, 17, 23, 0.07);
+          will-change: opacity;
         }
 
         /* Left: identity */
@@ -504,7 +516,6 @@ export function Pricing() {
           opacity: 0.65;
           transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                       box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
                       background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -516,7 +527,6 @@ export function Pricing() {
           opacity: 1;
           box-shadow: inset 4px 0 0 #0B8A6E;
           background: rgba(11, 138, 110, 0.03);
-          transform: translateY(-2px);
         }
 
         .v9-pricing--highlight .v9-pricing-tier--active .v9-pricing-name {
@@ -529,6 +539,11 @@ export function Pricing() {
           .v9-pricing-tier {
             opacity: 1 !important;
             transform: none !important;
+            transition: none !important;
+          }
+
+          .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
+            transition: none !important;
           }
         }
       `}</style>

@@ -3,6 +3,7 @@
     "claude-flow": {
       "command": "npx",
       "args": [
+        "-y",
         "@claude-flow/cli@latest",
         "mcp",
         "start"
