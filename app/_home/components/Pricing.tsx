@@ -143,9 +143,7 @@ export function Pricing() {
           onLeaveBack: i === 0 ? () => {
             rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
           } : undefined,
-          onLeave: i === rowsArr.length - 1 ? () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
-          } : undefined,
+          onLeave: () => { row.classList.remove('v9-pricing-tier--active'); },
         });
       });
     }, section);

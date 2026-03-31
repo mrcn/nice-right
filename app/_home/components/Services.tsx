@@ -263,7 +263,7 @@ export function Services() {
           border-right: 1px solid rgba(12, 17, 23, 0.08);
           display: flex;
           flex-direction: column;
-          will-change: opacity, transform;
+          will-change: opacity;
         }
 
         .v9-lever-col:last-child {
