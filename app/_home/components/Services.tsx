@@ -118,22 +118,29 @@ export function Services() {
 
         const animateBullets = (col: HTMLElement) => {
           const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
+          gsap.killTweensOf(bullets);
           gsap.fromTo(bullets,
             { opacity: 0, x: -6 },
-            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out' }
+            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
           );
         };
 
         ScrollTrigger.create({
           trigger: section,
           start: 'top top',
-          end: '+=150%',
+          end: '+=120%',
           pin: true,
           scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');
             cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === 0));
             prevActive = 0;
+            animateBullets(cols[0]);
+          },
+          onLeave: () => {
+            section.classList.remove('v9-services--highlight');
+            cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
+            prevActive = -1;
           },
           onLeaveBack: () => {
             section.classList.remove('v9-services--highlight');
@@ -152,7 +159,7 @@ export function Services() {
       }
     }, section);
 
-    return () => ctx.revert();
+    return () => { ctx.revert(); section.classList.remove('v9-services--highlight'); };
   }, []);
 
   return (
@@ -252,19 +259,16 @@ export function Services() {
         }
 
         .v9-lever-col {
-          padding: 40px 28px 40px 0;
+          padding: 40px 28px 40px 28px;
           border-right: 1px solid rgba(12, 17, 23, 0.08);
           display: flex;
           flex-direction: column;
+          will-change: opacity, transform;
         }
 
         .v9-lever-col:last-child {
           border-right: none;
           padding-right: 0;
-        }
-
-        .v9-lever-col:not(:first-child) {
-          padding-left: 28px;
         }
 
         .v9-lever-num {
@@ -365,7 +369,7 @@ export function Services() {
 
           .v9-lever-col:nth-child(3) {
             border-right: 1px solid rgba(12, 17, 23, 0.08);
-            padding-left: 0;
+            padding-left: 28px;
             padding-top: 40px;
             border-top: 1px solid rgba(12, 17, 23, 0.08);
           }
@@ -406,7 +410,7 @@ export function Services() {
         /* Scroll highlight */
         .v9-services--highlight .v9-lever-col {
           opacity: 0.65;
-          transition: opacity 0.35s linear, box-shadow 0.35s linear, transform 0.35s linear;
+          transition: opacity 0.35s linear, box-shadow 0.35s linear;
         }
 
         .v9-services--highlight .v9-lever-col .v9-lever-title {
@@ -416,7 +420,6 @@ export function Services() {
         .v9-services--highlight .v9-lever-col--active {
           opacity: 1;
           box-shadow: inset 3px 0 0 #0B8A6E;
-          transform: translateY(-2px);
         }
 
         .v9-services--highlight .v9-lever-col--active .v9-lever-title {
@@ -425,9 +428,11 @@ export function Services() {
 
         @media (prefers-reduced-motion: reduce) {
           .v9-services-header,
-          .v9-lever-col {
+          .v9-lever-col,
+          .v9-lever-col .v9-lever-title {
             opacity: 1 !important;
             transform: none !important;
+            transition: none !important;
           }
         }
       `}</style>
