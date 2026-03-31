@@ -490,7 +490,7 @@ export function Pricing() {
           }
 
           .v9-pricing-identity {
-            padding: 40px 0 24px 0;
+            padding: 40px 0 24px 16px;
             border-right: none;
             border-bottom: 1px solid rgba(12, 17, 23, 0.06);
           }
@@ -501,7 +501,7 @@ export function Pricing() {
           }
 
           .v9-pricing-action {
-            padding: 0 0 40px 0;
+            padding: 0 0 40px 16px;
           }
         }
 

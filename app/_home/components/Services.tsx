@@ -400,7 +400,7 @@ export function Services() {
           }
 
           .v9-lever-col {
-            padding: 32px 0 !important;
+            padding: 32px 0 32px 16px !important;
             border-right: none !important;
             border-top: 1px solid rgba(12, 17, 23, 0.08);
           }

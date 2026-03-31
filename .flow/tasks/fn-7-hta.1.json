@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-03-31T16:23:35.628826Z",
+  "depends_on": [],
+  "epic": "fn-7-hta",
+  "id": "fn-7-hta.1",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-7-hta.1.md",
+  "status": "todo",
+  "title": "Services.tsx: add padding-left to mobile .v9-lever-col",
+  "updated_at": "2026-03-31T16:23:35.629085Z"
+}
