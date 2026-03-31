@@ -496,7 +496,7 @@ export function Pricing() {
           }
 
           .v9-pricing-body {
-            padding: 24px 0;
+            padding: 24px 0 24px 16px;
             border-right: none;
           }
 
