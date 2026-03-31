@@ -306,7 +306,7 @@ export function Pricing() {
 
         /* Left: identity */
         .v9-pricing-identity {
-          padding: 48px 40px 48px 0;
+          padding: 48px 40px 48px 40px;
           border-right: 1px solid rgba(12, 17, 23, 0.06);
         }
 
@@ -398,7 +398,7 @@ export function Pricing() {
 
         /* Right: pull quote */
         .v9-pricing-action {
-          padding: 48px 0 48px 40px;
+          padding: 48px 40px 48px 40px;
           display: flex;
           align-items: center;
         }

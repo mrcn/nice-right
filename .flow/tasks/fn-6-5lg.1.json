@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-03-31T14:44:41.056596Z",
+  "depends_on": [],
+  "epic": "fn-6-5lg",
+  "id": "fn-6-5lg.1",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-6-5lg.1.md",
+  "status": "todo",
+  "title": "Add padding-left to .v9-pricing-identity and padding-right to .v9-pricing-action",
+  "updated_at": "2026-03-31T14:44:41.057068Z"
+}

@@ -38,8 +38,7 @@ That's the entire change. Do NOT activate a column or call `animateBullets` in `
 - [ ] TypeScript: no errors (`npx tsc --noEmit`)
 
 ## Done summary
-TBD
-
+- Task completed
 ## Evidence
 - Commits:
 - Tests:
