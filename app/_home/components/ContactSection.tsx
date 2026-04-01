@@ -1,147 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
-import { trackBookingComplete, trackContactClick } from '@/app/lib/analytics';
-
-function CalEmbed() {
-  const [loaded, setLoaded] = useState(false);
-  const [timedOut, setTimedOut] = useState(false);
-
-  useEffect(() => {
-    const w = window as unknown as Record<string, unknown>;
-    const Cal = function (...args: unknown[]) {
-      const cal = Cal as unknown as {
-        loaded?: boolean;
-        ns: Record<string, unknown>;
-        q: unknown[][];
-      };
-      if (!cal.loaded) {
-        cal.ns = {};
-        cal.q = cal.q || [];
-        const script = document.createElement('script');
-        script.src = 'https://app.cal.com/embed/embed.js';
-        script.async = true;
-        document.head.appendChild(script);
-        cal.loaded = true;
-      }
-      if (args[0] === 'init') {
-        const api = function (...a: unknown[]) {
-          (api as unknown as { q: unknown[][] }).q =
-            (api as unknown as { q: unknown[][] }).q || [];
-          (api as unknown as { q: unknown[][] }).q.push(a);
-        };
-        const namespace = args[1];
-        (api as unknown as { q: unknown[][] }).q = [];
-        if (typeof namespace === 'string') {
-          cal.ns[namespace] = cal.ns[namespace] || api;
-          (cal.ns[namespace] as unknown as { q: unknown[][] }).q.push(args);
-          cal.q.push(['initNamespace', namespace]);
-        } else {
-          cal.q.push(args);
-        }
-        return;
-      }
-      cal.q.push(args);
-    };
-    (Cal as unknown as { q: unknown[][]; ns: Record<string, unknown> }).q = [];
-    (Cal as unknown as { ns: Record<string, unknown> }).ns = {};
-    w.Cal = Cal;
-
-    Cal('init', { origin: 'https://cal.com' });
-    Cal('inline', {
-      elementOrSelector: '#cal-embed-v9',
-      calLink: 'niceright/30min',
-      config: { layout: 'month_view', theme: 'dark' },
-    });
-    Cal('ui', {
-      theme: 'dark',
-      hideEventTypeDetails: true,
-      layout: 'month_view',
-      cssVarsPerTheme: {
-        dark: {
-          'cal-brand': '#0B8A6E',
-          'cal-text': '#F5F5F5',
-          'cal-text-emphasis': '#FFFFFF',
-          'cal-border-emphasis': '#1F2937',
-          'cal-bg': '#0C1117',
-          'cal-bg-emphasis': '#1F2937',
-        },
-      },
-    });
-
-    function onMessage(e: MessageEvent) {
-      if (!e.origin.includes('cal.com')) return;
-      const type = e.data?.type ?? e.data?.data?.type;
-      if (type === 'bookingSuccessful' || type === 'cal:bookingSuccessful') {
-        trackBookingComplete();
-      }
-    }
-    window.addEventListener('message', onMessage);
-
-    const checkLoaded = setInterval(() => {
-      const el = document.getElementById('cal-embed-v9');
-      if (el && el.querySelector('iframe')) {
-        setLoaded(true);
-        clearInterval(checkLoaded);
-      }
-    }, 500);
-
-    const timeout = setTimeout(() => {
-      if (!loaded) setTimedOut(true);
-    }, 12000);
-
-    return () => {
-      clearInterval(checkLoaded);
-      clearTimeout(timeout);
-      window.removeEventListener('message', onMessage);
-    };
-  }, []);
-
-  return (
-    <>
-      {!loaded && !timedOut && (
-        <div className="v1-cal-skeleton">
-          <div className="v1-cal-spinner" />
-          <p>Loading calendar...</p>
-        </div>
-      )}
-      {timedOut && !loaded && (
-        <div className="v1-cal-skeleton" style={{ minHeight: 200 }}>
-          <p className="v1-cal-fallback">
-            Calendar taking a while to load?{' '}
-            <a
-              href="https://cal.com/niceright/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book directly on Cal.com
-            </a>{' '}
-            or <a href="mailto:Marcin@uxoxo.xyz">email me</a>.
-          </p>
-        </div>
-      )}
-      <div
-        id="cal-embed-v9"
-        role="region"
-        aria-label="Book a call with Marcin"
-        style={{
-          width: '100%',
-          minHeight: loaded ? 500 : 0,
-          overflow: 'auto',
-          opacity: loaded ? 1 : 0,
-          transition: 'opacity 0.4s ease',
-        }}
-      />
-    </>
-  );
-}
+import { useEffect, useRef } from 'react';
+import { gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
+import { trackContactClick } from '@/app/lib/analytics';
+import { CalEmbed } from '@/app/_shared/CalEmbed';
 
 export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -216,7 +83,25 @@ export function ContactSection() {
               <div className="v1-cal-label-row">
                 <p>Pick a time</p>
               </div>
-              <CalEmbed />
+              <CalEmbed
+                embedId="cal-embed-v9"
+                calLink="niceright/30min"
+                loadingText="Loading calendar..."
+                ariaLabel="Book a call with Marcin"
+                fallbackText={
+                  <p className="cal-embed-fallback">
+                    Calendar taking a while to load?{' '}
+                    <a
+                      href="https://cal.com/niceright/30min"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Book directly on Cal.com
+                    </a>{' '}
+                    or <a href="mailto:Marcin@uxoxo.xyz">email me</a>.
+                  </p>
+                }
+              />
             </div>
 
             {/* Right: Bio */}
@@ -314,7 +199,7 @@ export function ContactSection() {
           padding: 0 24px;
         }
 
-        /* ── Header ── */
+        /* -- Header -- */
         .v1-contact-header {
           margin-bottom: 56px;
         }
@@ -347,7 +232,7 @@ export function ContactSection() {
           margin: 0;
         }
 
-        /* ── Grid ── */
+        /* -- Grid -- */
         .v1-contact-grid {
           display: grid;
           grid-template-columns: 5fr 4fr;
@@ -355,7 +240,7 @@ export function ContactSection() {
           align-items: start;
         }
 
-        /* ── Left: Cal ── */
+        /* -- Left: Cal -- */
         .v1-cal-col {
           border: 1px solid rgba(6, 214, 160, 0.14);
           border-radius: 16px;
@@ -377,56 +262,7 @@ export function ContactSection() {
           margin: 0;
         }
 
-        .v1-cal-skeleton {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          min-height: 400px;
-          gap: 16px;
-        }
-
-        .v1-cal-skeleton p {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
-          color: rgba(255, 255, 255, 0.65);
-          margin: 0;
-        }
-
-        .v1-cal-spinner {
-          width: 32px;
-          height: 32px;
-          border: 3px solid rgba(255, 255, 255, 0.1);
-          border-top-color: #0B8A6E;
-          border-radius: 50%;
-          animation: v1Spin 0.8s linear infinite;
-        }
-
-        @keyframes v1Spin {
-          to { transform: rotate(360deg); }
-        }
-
-        .v1-cal-fallback {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 1rem;
-          color: rgba(255, 255, 255, 0.6);
-          text-align: center;
-          max-width: 360px;
-          line-height: 1.6;
-          margin: 0;
-        }
-
-        .v1-cal-fallback a {
-          color: #06D6A0;
-          font-weight: 600;
-          text-decoration: none;
-        }
-
-        .v1-cal-fallback a:hover {
-          text-decoration: underline;
-        }
-
-        /* ── Right: Bio ── */
+        /* -- Right: Bio -- */
         .v1-bio-col {
           display: flex;
           flex-direction: column;
@@ -510,7 +346,7 @@ export function ContactSection() {
           width: 100%;
         }
 
-        /* ── Contact cards ── */
+        /* -- Contact cards -- */
         .v1-contact-cards {
           display: flex;
           flex-direction: column;
@@ -569,7 +405,7 @@ export function ContactSection() {
           color: rgba(255, 255, 255, 0.55);
         }
 
-        /* ── Responsive ── */
+        /* -- Responsive -- */
         @media (max-width: 900px) {
           .v1-contact-grid {
             grid-template-columns: 1fr;
@@ -597,15 +433,12 @@ export function ContactSection() {
           }
         }
 
-        /* ── Reduced motion ── */
+        /* -- Reduced motion -- */
         @media (prefers-reduced-motion: reduce) {
           .v1-contact-header,
           .v1-contact-card {
             opacity: 1 !important;
             transform: none !important;
-          }
-          .v1-cal-spinner {
-            animation: none;
           }
         }
       `}</style>
