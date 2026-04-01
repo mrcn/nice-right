@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Inter, Instrument_Serif } from 'next/font/google';
 import Script from 'next/script';
+import { Suspense } from 'react';
 import './new-site/globals.css';
 import { localBusinessSchema, webSiteSchema } from '@/app/_shared/schema';
+import { UTMCapture } from '@/app/_shared/UTMCapture';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -78,6 +80,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
         />
+        <Suspense fallback={null}>
+          <UTMCapture />
+        </Suspense>
         {children}
       </body>
     </html>

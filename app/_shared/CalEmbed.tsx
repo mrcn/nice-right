@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { trackBookingComplete } from '@/app/lib/analytics';
+import { trackBookingComplete, getStoredUTMs } from '@/app/lib/analytics';
 
 interface CalEmbedProps {
   /** DOM id for the embed container — must be unique per page */
@@ -18,6 +18,8 @@ interface CalEmbedProps {
   containerStyle?: React.CSSProperties;
   /** Extra aria-label on the embed region */
   ariaLabel?: string;
+  /** Explicit Cal.com prefill params; UTMs from sessionStorage are merged in automatically */
+  prefillParams?: Record<string, string>;
 }
 
 export function CalEmbed({
@@ -28,6 +30,7 @@ export function CalEmbed({
   fallbackText,
   containerStyle,
   ariaLabel = 'Booking calendar',
+  prefillParams,
 }: CalEmbedProps) {
   const [loaded, setLoaded] = useState(false);
   const [timedOut, setTimedOut] = useState(false);
@@ -77,11 +80,17 @@ export function CalEmbed({
     (Cal as unknown as { ns: Record<string, unknown> }).ns = {};
     w.Cal = Cal;
 
+    const storedUTMs = getStoredUTMs();
+    const mergedPrefill = { ...storedUTMs, ...prefillParams };
+
     Cal('init', { origin: 'https://cal.com' });
     Cal('inline', {
       elementOrSelector: `#${embedId}`,
       calLink,
-      config,
+      config: {
+        ...config,
+        ...(Object.keys(mergedPrefill).length > 0 ? { prefill: mergedPrefill } : {}),
+      },
     });
     Cal('ui', {
       theme: 'dark',
