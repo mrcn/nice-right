@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
+    "test:lighthouse": "lhci autorun",
     "prepare": "husky",
     "version:bump": "./scripts/bump-version.sh",
     "version:patch": "npm version patch && node -e \"require('fs').writeFileSync('version.json', JSON.stringify({...require('./version.json'), version: require('./package.json').version}, null, 2))\"",

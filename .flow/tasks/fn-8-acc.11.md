@@ -25,9 +25,8 @@ Three cleanup items: (1) 171 PNG screenshots (~61 MB) in the repo root — desig
 - [ ] `app/blog/blog-shared.css` exists; individual blog `page.css` files are removed or reduced to `@import` only
 - [ ] Root PNG files are removed from working tree (not just gitignored — untrack and delete)
 ## Done summary
-TBD
-
+Removed 12 prototype HTML files from public/, untracked and deleted 171 root-level design screenshot PNGs with /*.png gitignore pattern, and deduplicated 6 identical 290-line blog page.css files into a single app/blog/blog-shared.css with updated imports in all blog page.tsx files.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: eab32e21686a3b9337c395fd5fe60ca80ed36d01
+- Tests: npm run build (54 static pages generated successfully), npm test (4 tests passed: example.test.ts + a11y.test.tsx)
 - PRs:
