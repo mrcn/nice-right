@@ -61,3 +61,7 @@ export function trackContactClick(method: 'email' | 'linkedin') {
     page: window.location.pathname,
   });
 }
+
+export function trackNavClick(label: string) {
+  track('nav_click', { label, page: window.location.pathname });
+}

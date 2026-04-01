@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { trackCTAClick, trackPricingView } from '@/app/lib/analytics';
+import { trackCTAClick, trackPricingView, trackSectionView } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -111,9 +111,6 @@ export function Pricing() {
             trigger: rows[0],
             start: 'top 85%',
             once: true,
-            onEnter: () => {
-              tiers.forEach((t) => trackPricingView(t.name));
-            },
           },
           onComplete: () => { gsap.set(rows, { clearProps: 'opacity,transform' }); },
         }
@@ -124,7 +121,10 @@ export function Pricing() {
         trigger: rows[0],
         start: 'top 80%',
         once: true,
-        onEnter: () => section.classList.add('v9-pricing--highlight'),
+        onEnter: () => {
+          section.classList.add('v9-pricing--highlight');
+          trackSectionView('pricing');
+        },
       });
 
       rowsArr.forEach((row, i) => {
@@ -135,6 +135,7 @@ export function Pricing() {
           onEnter: () => {
             rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
             row.classList.add('v9-pricing-tier--active');
+            trackPricingView(tiers[i].name);
           },
           onEnterBack: () => {
             rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));

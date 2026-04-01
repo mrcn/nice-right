@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { trackCTAClick } from '@/app/lib/analytics';
+import { trackCTAClick, trackNavClick } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -58,9 +58,9 @@ export function Nav({ defaultSolid }: NavProps = {}) {
 
           {/* Desktop links */}
           <div className="v9-nav-links">
-            <a href="/#services">Services</a>
-            <a href="/#results">Results</a>
-            <a href="/notes">Notes</a>
+            <a href="/#services" onClick={() => trackNavClick('services')}>Services</a>
+            <a href="/#results" onClick={() => trackNavClick('results')}>Results</a>
+            <a href="/notes" onClick={() => trackNavClick('notes')}>Notes</a>
             <a href="/#contact" className="v9-nav-cta" onClick={() => trackCTAClick('nav_desktop', 'nav')}>
               Book a Free Call
             </a>
@@ -82,13 +82,13 @@ export function Nav({ defaultSolid }: NavProps = {}) {
         {/* Mobile menu overlay */}
         {menuOpen && (
           <div className="v9-nav-mobile">
-            <a href="/#services" onClick={handleLinkClick}>
+            <a href="/#services" onClick={() => { handleLinkClick(); trackNavClick('services'); }}>
               Services
             </a>
-            <a href="/#results" onClick={handleLinkClick}>
+            <a href="/#results" onClick={() => { handleLinkClick(); trackNavClick('results'); }}>
               Results
             </a>
-            <a href="/notes" onClick={handleLinkClick}>
+            <a href="/notes" onClick={() => { handleLinkClick(); trackNavClick('notes'); }}>
               Notes
             </a>
             <a href="/#contact" className="v9-nav-cta" onClick={() => { handleLinkClick(); trackCTAClick('nav_mobile', 'nav'); }}>
