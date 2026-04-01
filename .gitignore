@@ -9,3 +9,13 @@
 .env*.local
 .claude-flow/
 tsconfig.tsbuildinfo
+
+# Root-level design screenshot PNGs (already in history — gitignore prevents future commits)
+/*.png
+
+# Prototype HTML files
+/public/*-demo*.html
+/public/pricing-prototypes.html
+/public/pricing-v2.html
+/public/proof-demo.html
+/public/video-test.html

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './page.css'
+import '../blog-shared.css'
 
 export const metadata = {
   title: 'Google Analytics Cross-Domain Tracking | Nice Right',

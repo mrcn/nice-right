@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './page.css'
+import '../blog-shared.css'
 
 export const metadata = {
   title: 'Setting up SSH with VS Code for Amazon Lightsail | Nice Right',

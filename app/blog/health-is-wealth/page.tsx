@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './page.css'
+import '../blog-shared.css'
 
 export const metadata = {
   title: 'Health Is Wealth: Building Retirement Funds Through Healthy Living | Nice Right',
