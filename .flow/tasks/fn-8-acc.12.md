@@ -28,9 +28,8 @@ The only E2E test is `e2e/homepage.spec.ts` which checks `expect(page).toHaveTit
 - [ ] `npm test` (unit tests) still passes
 - [ ] `npm run build` succeeds
 ## Done summary
-TBD
-
+Rewrote e2e/homepage.spec.ts with real selectors and an axe E2E scan asserting zero critical accessibility violations. Created e2e/conversion-path.spec.ts covering the hero CTA and nav CTA to the booking section. Added @axe-core/playwright dependency and documented test:lighthouse script for Lighthouse CI / CWV measurement.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 0cbc92076a8997b6d662107ce265117d028dfbb7
+- Tests: npm test (vitest run — 4 unit tests pass), npm run build (succeeds)
 - PRs:
