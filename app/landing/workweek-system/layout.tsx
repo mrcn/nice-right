@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Reclaim 15+ hours every week. For overwhelmed owner-operators ready to get their life back.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

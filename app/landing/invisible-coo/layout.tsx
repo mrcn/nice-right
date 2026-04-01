@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Outsource your entire digital department. Quarterly intensives, unlimited execution requests, weekly dashboards. $30K/year vs $120K+ for in-house team. Anytime exit.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Restaurants: Stop losing 25% to DoorDash and UberEats. Our DineDirect Capture System generates $50K+/month in direct orders.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

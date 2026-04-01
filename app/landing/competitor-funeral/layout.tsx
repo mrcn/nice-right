@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Name your competitor. In 90 days, they will wish they never heard of you. Category exclusivity guaranteed.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

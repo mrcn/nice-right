@@ -1,0 +1,260 @@
+{
+  "created_at": "2026-04-01T22:00:46.458616Z",
+  "epic": {
+    "data": {
+      "branch_name": "fn-8-acc",
+      "created_at": "2026-04-01T21:45:19.236453Z",
+      "default_impl": null,
+      "default_review": null,
+      "default_sync": null,
+      "depends_on_epics": [],
+      "id": "fn-8-acc",
+      "next_task": 1,
+      "plan_review_status": "unknown",
+      "plan_reviewed_at": null,
+      "spec_path": ".flow/specs/fn-8-acc.md",
+      "status": "open",
+      "title": "Full-Scale Site Audit: Perf \u00b7 SEO \u00b7 Security \u00b7 CRO \u00b7 A11y",
+      "updated_at": "2026-04-01T21:46:12.965456Z"
+    },
+    "spec": "# Full-Scale Site Audit: Perf \u00b7 SEO \u00b7 Security \u00b7 CRO \u00b7 A11y\n\n## Overview\n\nComprehensive audit and remediation for the Nice Right Next.js 14 static-export marketing site. Primary goal is qualified lead generation \u2014 every fix should be evaluated against whether it moves that needle. The site serves a one-person digital agency targeting Chicago small businesses.\n\n**Critical discovery**: 10 landing page layouts + `app/new-site/layout.tsx` define their own `<html>/<body>` tags nested inside the root layout, producing invalid HTML, breaking GA on all landing pages, and preventing font/viewport inheritance. This is a Phase 0 blocker \u2014 no baseline analytics data from landing pages is valid until it is fixed.\n\n## Scope\n\n**In scope:**\n- Homepage (`/`) and all homepage section components\n- Systems pages (`/systems/get-running`, `/systems/get-growing`, `/systems/growth-os`)\n- All 10 landing pages under `/landing/` (structural + analytics fixes; content of stub pages deferred)\n- Blog, work, notes routes (structural fixes only; content deferred)\n- Core infrastructure: `vercel.json`, `next.config.js`, `app/layout.tsx`\n\n**Out of scope:**\n- `app/new-site/` parallel redesign (requires design system decision first \u2014 flagged as open question)\n- Content rewrites for stub landing pages\n- A/B testing framework\n- CMS integration\n\n## Phases\n\n### Phase 0 \u2014 Blocker (must land before anything is measured)\nFix nested `<html>` structure across 11 layout files. Until this is done, no analytics data from landing pages is reliable, and HTML validators will flag every page.\n\n### Phase 1 \u2014 Measurement & Security Infrastructure (parallel, no visual changes)\n- Security headers in `vercel.json` (zero conflict, 1 file)\n- SEO foundations: `robots.ts`, `sitemap.ts`, canonical URLs, OG metadata\n- JSON-LD schema markup: LocalBusiness, FAQPage, WebSite\n\n### Phase 2 \u2014 Performance & Structural Fixes (parallel, low conflict)\n- Image optimization via Vercel image config + `next/image` for LCP images\n- GSAP init consolidation + iOS Safari fixes\n- Cal.com embed deduplication + lazy load + wire booking analytics\n- Structural pages: `not-found.tsx`, `loading.tsx`, `error.tsx` security fix\n\n### Phase 3 \u2014 Quality & Analytics (coordinate with open epics)\n- Accessibility ARIA sweep + focus trap + axe automated tests (coordinate with fn-2-gfq)\n- Analytics integrity: validate all events fire across all routes\n\n### Phase 4 \u2014 Cleanup (independent, low risk)\n- Remove 171 root PNGs (61 MB) + 12 prototype HTML files from `/public`\n- Deduplicate 6 identical blog `page.css` files\n- Add E2E tests for critical conversion path\n\n## Architecture Diagram\n\n```mermaid\nflowchart TD\n    RootLayout[\"app/layout.tsx\\n(GA, fonts, viewport)\"]\n    subgraph \"Currently BROKEN (own html tags)\"\n        LP[\"landing/*/layout.tsx (\u00d710)\"]\n        NS[\"new-site/layout.tsx\"]\n    end\n    subgraph \"Correctly inheriting\"\n        Home[\"_home/page.tsx\"]\n        Systems[\"systems/layout.tsx\"]\n        Work[\"work/layout.tsx\"]\n        Blog[\"blog/*\"]\n    end\n    RootLayout --> Home\n    RootLayout --> Systems\n    RootLayout --> Work\n    RootLayout --> Blog\n    RootLayout -.->|\"BROKEN: nested html\"| LP\n    RootLayout -.->|\"BROKEN: nested html\"| NS\n\n    Analytics[\"app/lib/analytics.ts\\n(9 GA4 events)\"]\n    Home --> Analytics\n    Systems --> Analytics\n    LP -.->|\"NO GA (broken)\"| Analytics\n```\n\n## Non-Functional Targets\n\n| Metric | Target |\n|--------|--------|\n| LCP | < 2.5s (mobile, 4G) |\n| INP | < 200ms |\n| CLS | < 0.1 |\n| Lighthouse Performance | \u2265 85 (mobile) |\n| Lighthouse Accessibility | \u2265 95 |\n| Lighthouse SEO | 100 |\n| securityheaders.com grade | A |\n\n## Quick Commands\n\n```bash\n# Build and test\nnpm run build && npm test\n\n# Run Lighthouse on built output\nnpx lhci collect --staticDistDir=./dist && npx lhci assert --preset=lighthouse:recommended\n\n# Validate HTML\nnpx html-validate dist/index.html\n\n# Check security headers (after deploy)\ncurl -I https://niceright.co | grep -i 'x-content\\|x-frame\\|csp\\|hsts'\n\n# Validate schema markup\n# Submit URL to: https://search.google.com/test/rich-results\n```\n\n## Alternatives Considered\n\n- **next-image-export-optimizer vs Vercel image optimization**: Chosen Vercel's built-in CDN image optimization (configured in `vercel.json`) over adding a 3rd-party package. Fewer dependencies, same result.\n- **Hash-based CSP vs domain-allowlist CSP**: Hash-based impossible with static export (no per-request nonce generation). Domain-allowlist with `unsafe-inline` is the pragmatic choice for this stack.\n- **Fix nested HTML as migration vs rewrite**: The 10 landing page layouts can be fixed by removing their `<html>/<body>` wrappers; they'll automatically inherit from root layout. The `new-site` layout is deferred pending design system decision.\n- **Coordinate with fn-2-gfq vs absorb it**: Accessibility task in this epic should extend fn-2-gfq's work (not duplicate it). Tasks are designed to touch different components.\n\n## Risks & Mitigations\n\n| Risk | Mitigation |\n|------|-----------|\n| Fixing landing page layouts breaks their styles | Test each layout individually after removing `<html>` wrappers; ensure CSS is imported at page level |\n| CSP blocks GA4 or Cal.com embed | Test deployed headers against both integrations before shipping; include Cal.com domains in frame-src |\n| GSAP iOS fix (`normalizeScroll`) breaks other scroll behavior | Apply only to pinned sections; test on real iPhone |\n| Accessibility task conflicts with fn-2-gfq changes | Task 9 touches Pricing, Services, Proof, Nav \u2014 fn-2-gfq primarily touches Hero, Footer, Testimonials |\n| suppressHydrationWarning removal causes runtime errors | Do NOT remove in this epic; flag for separate investigation |\n| reactStrictMode re-enable breaks GSAP | Do NOT re-enable in this epic; document as known tech debt |\n\n## Rollout\n\nAll changes are purely front-end in a static-export site. Rollback = Vercel instant rollback to previous deployment. No database migrations, no API changes.\n\n## Docs to Update After This Epic\n\n- `README.md`: add deployment checklist, analytics event list, security headers note\n- Create `docs/ANALYTICS.md`: event taxonomy, GA4 measurement ID, how to validate\n- Create `docs/SEO-AND-METADATA.md`: schema types, sitemap config, canonical strategy\n\n## Open Questions\n\n1. **Design system**: `app/new-site/` has a full parallel homepage \u2014 is it replacing the current homepage? This determines whether `new-site/layout.tsx` HTML fix is in scope.\n2. **Stub landing pages**: 9 of 10 landing pages have placeholder content. Should Lighthouse audits scan them?\n3. **GDPR consent**: Site has no consent banner; GA fires immediately. Any EU traffic? In scope or deferred?\n4. **reactStrictMode: false**: Intentional GSAP workaround or forgotten? Safe to re-enable?\n5. **Root PNG cleanup**: Just `.gitignore` (easy), or full git history rewrite to remove 61 MB (destructive)?\n\n## Acceptance\n\n- [ ] HTML validator finds zero nested `<html>` elements across all routes\n- [ ] GA fires on all landing pages (verified in GA4 DebugView)\n- [ ] securityheaders.com rates niceright.co at grade A\n- [ ] Google Rich Results Test passes for LocalBusiness schema\n- [ ] sitemap.xml and robots.txt present in production\n- [ ] Lighthouse performance \u2265 85 on mobile homepage\n- [ ] Lighthouse accessibility \u2265 95 on homepage\n- [ ] No axe violations on homepage (automated)\n- [ ] `trackBookingComplete` fires when Cal.com booking is confirmed\n- [ ] All 12 open questions answered or explicitly deferred\n"
+  },
+  "epic_id": "fn-8-acc",
+  "schema_version": 2,
+  "tasks": [
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:24.392549Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.1",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.1.md",
+        "status": "todo",
+        "title": "Fix nested HTML structure in landing page layouts",
+        "updated_at": "2026-04-01T21:55:24.165667Z"
+      },
+      "id": "fn-8-acc.1",
+      "runtime": null,
+      "spec": "# fn-8-acc.1 Fix nested HTML structure in landing page layouts\n\n## Description\n8 of 10 landing page layouts (`app/landing/*/layout.tsx`) define their own `<html>/<head>/<body>` tags. (Note: `customer-surge/layout.tsx` and `exit-ready/layout.tsx` already return `<>{children}</>` \u2014 do NOT modify them.) In Next.js 14 App Router, the nested document roots prevent GA4 from loading and break font variable inheritance.\n\n**Size:** M\n**Files:**\n- `app/landing/competitor-funeral/layout.tsx`\n- `app/landing/contractor-growth/layout.tsx`\n- `app/landing/fillthechair/layout.tsx`\n- `app/landing/invisible-coo/layout.tsx`\n- `app/landing/owner-optional/layout.tsx`\n- `app/landing/skin-in-game/layout.tsx`\n- `app/landing/tableturn-direct/layout.tsx`\n- `app/landing/workweek-system/layout.tsx`\n\n**Approach:**\n- Remove `<html>`, `<head>`, `<body>` wrapper tags from each of the 8 layouts; keep only the inner content (nav, main, footer)\n- Preserve each layout's `export const metadata` \u2014 Next.js App Router merges this with root layout metadata automatically\n- Move per-page `<meta>`/`<link>` JSX tags into the `metadata` export object\n- Keep per-page stylesheet imports (`import './page.css'`) \u2014 they work without explicit `<head>` tags\n- Remove any hardcoded `<meta name=\"viewport\">` from JSX \u2014 the root layout's `export const viewport` covers all routes\n- `app/new-site/layout.tsx` and the 2 already-correct layouts are out of scope\n## Acceptance\n- [ ] The 8 landing page layouts listed in Files have no `<html>`, `<head>`, or `<body>` tags\n- [ ] `customer-surge/layout.tsx` and `exit-ready/layout.tsx` are UNCHANGED\n- [ ] `npm run build` succeeds\n- [ ] Each of the 8 landing pages renders correctly (visually unchanged)\n- [ ] GA4 script fires on at least one fixed landing page (browser devtools \u2192 network \u2192 `www.googletagmanager.com` request present)\n- [ ] Font CSS variables `--font-inter` and `--font-instrument-serif` computed on landing pages\n- [ ] HTML validator finds single `<html>` element per page\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:26.192619Z",
+        "depends_on": [
+          "fn-8-acc.1",
+          "fn-8-acc.7"
+        ],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.10",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.10.md",
+        "status": "todo",
+        "title": "Analytics integrity: validate all events fire across all routes",
+        "updated_at": "2026-04-01T21:50:03.517708Z"
+      },
+      "id": "fn-8-acc.10",
+      "runtime": null,
+      "spec": "# fn-8-acc.10 Analytics integrity: validate all events fire across all routes\n\n## Description\nAnalytics has two known failures: (1) GA4 never fires on any of the 10 landing pages (fixed by Task 1, but needs verification). (2) `trackBookingComplete()` in `app/lib/analytics.ts` is defined but never called (fixed by Task 7, but needs verification). Additionally, UTM parameters from paid ads are not captured or forwarded to Cal.com.\n\n**Depends on:** Task 1 (landing page HTML fix) and Task 7 (Cal.com embed + booking tracking)\n\n**Size:** M\n**Files:**\n- `app/lib/analytics.ts` (add UTM capture utility)\n- `app/layout.tsx` (add UTM persistence to sessionStorage on page load)\n- `app/_shared/CalEmbed.tsx` (forward UTMs as Cal.com prefill params \u2014 coordinate with Task 7)\n\n**Approach:**\n- UTM capture: on page load in root layout (or a `useSearchParams` hook), read `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` from URL. Store in `sessionStorage`. Forward to Cal.com embed via `config.prefill` or URL params when `CalEmbed` mounts.\n- Add `captureUTMs()` to `app/lib/analytics.ts` that reads from `window.location.search` or `sessionStorage`\n- Verify events via GA4 DebugView checklist:\n  - `cta_click` fires when any CTA is clicked\n  - `scroll_depth` fires at 25/50/75/100% milestones\n  - `section_view` fires when sections enter viewport\n  - `pricing_view` fires when pricing tiers are viewed\n  - `booking_complete` fires when Cal.com booking is confirmed (Task 7)\n  - `nav_click` fires on nav link clicks\n- Document all events in a checklist comment at top of `analytics.ts`\n\n**Note:** `app/layout.tsx` is a server component \u2014 UTM reading needs `'use client'` wrapper or a separate client component. Use `useSearchParams()` from `next/navigation` in a client component imported into root layout.\n## Acceptance\n- [ ] GA4 pageview fires on at least 3 different landing pages (verify in GA4 Realtime report)\n- [ ] `booking_complete` event fires when Cal.com booking is confirmed (Task 7 dependency)\n- [ ] UTMs from `?utm_source=test&utm_campaign=test` URL are stored in sessionStorage\n- [ ] UTMs are forwarded to Cal.com embed prefill (verify Cal.com booking form pre-fills name/email if passed)\n- [ ] GA4 DebugView checklist: all 9 events in `analytics.ts` are firing correctly\n- [ ] `analytics.ts` has a comment block documenting all event names and their trigger locations\n- [ ] `npm run build` succeeds\n- [ ] No TypeScript errors\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:26.405145Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.11",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.11.md",
+        "status": "todo",
+        "title": "Repo cleanup: root PNGs, prototype HTML, deduplicate blog CSS",
+        "updated_at": "2026-04-01T21:49:53.655149Z"
+      },
+      "id": "fn-8-acc.11",
+      "runtime": null,
+      "spec": "# fn-8-acc.11 Repo cleanup: root PNGs, prototype HTML, deduplicate blog CSS\n\n## Description\nThree cleanup items: (1) 171 PNG screenshots (~61 MB) in the repo root \u2014 design review artifacts that should not be tracked. (2) 12 HTML prototype files in `/public` (hero-demo-*.html, contact-demo-*.html, etc.) are publicly accessible on the deployed site, exposing design experiments to crawlers and users. (3) `page.css` is duplicated ~6 times across blog routes (each ~290 identical lines).\n\n**Size:** M\n**Files:**\n- `.gitignore` (add PNG pattern + public demo files)\n- `public/` (remove 12 prototype HTML files)\n- `app/blog/blog-shared.css` (new \u2014 single shared CSS)\n- `app/blog/*/page.tsx` (update 5 import paths)\n\n**Approach:**\n- Add `*.png` to `.gitignore` root level, OR add a more targeted pattern like `/[a-z]*.png` to catch root-level design screenshots without affecting `public/images/*.png`. Add `/public/hero-demo-*.html`, `/public/*-demo-*.html` to `.gitignore`.\n- Delete the 12 prototype HTML files from `/public` (`hero-demo-1.html`, `hero-demo-2.html`, `hero-demo-3.html`, `contact-demo-1.html`, `contact-demo-2.html`, `contact-demo-3.html`, `bio-balance-demo.html`, `bio-contact-demo.html`, `pricing-prototypes.html`, `pricing-v2.html`, `proof-demo.html`, `video-test.html`)\n- Blog CSS deduplication: create `app/blog/blog-shared.css`, move the shared 290 lines there, replace the 5 `page.css` files with `@import '../blog-shared.css'` (or just update the import in each `page.tsx`)\n- Note on root PNGs: The 61 MB is already in git history. This task ONLY adds `.gitignore` (prevents future commits) and removes the files from working tree. Git history cleanup (filter-branch/BFG) is a separate decision \u2014 flag in PR as open question.\n## Acceptance\n- [ ] `npm run build` succeeds\n- [ ] 12 prototype HTML files are absent from `dist/` output\n- [ ] `dist/hero-demo-1.html` does not exist (verify with `ls dist/*.html`)\n- [ ] `.gitignore` prevents root-level PNG files from being staged\n- [ ] Blog pages render correctly (CSS not broken by deduplication)\n- [ ] `git status` shows no staged PNG files after `git add .`\n- [ ] `app/blog/blog-shared.css` exists; individual blog `page.css` files are removed or reduced to `@import` only\n- [ ] Root PNG files are removed from working tree (not just gitignored \u2014 untrack and delete)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:26.664432Z",
+        "depends_on": [
+          "fn-8-acc.7",
+          "fn-8-acc.9"
+        ],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.12",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.12.md",
+        "status": "todo",
+        "title": "Test coverage: E2E critical conversion path + CWV measurement",
+        "updated_at": "2026-04-01T21:50:03.923090Z"
+      },
+      "id": "fn-8-acc.12",
+      "runtime": null,
+      "spec": "# fn-8-acc.12 Test coverage: E2E critical conversion path + CWV measurement\n\n## Description\nThe only E2E test is `e2e/homepage.spec.ts` which checks `expect(page).toHaveTitle(/./)`  \u2014 a regex that matches literally any title. Zero real assertions. The project has `playwright.config.ts` configured for 3 browsers (chromium, firefox, webkit) on port 3000, and `vitest.config.ts` for unit tests. CWV measurement is not set up.\n\n**Size:** M\n**Files:**\n- `e2e/homepage.spec.ts` (rewrite \u2014 replace placeholder with real tests)\n- `e2e/conversion-path.spec.ts` (new \u2014 critical conversion funnel E2E)\n- `app/__tests__/web-vitals.test.ts` (new \u2014 CWV smoke test using web-vitals library)\n- `package.json` (add `web-vitals` dependency)\n\n**Approach:**\n- `e2e/homepage.spec.ts`: Replace placeholder with: page loads successfully (200), hero section visible, nav has expected links, pricing section renders 3 tiers, CTA button visible and clickable, contact section renders\n- `e2e/conversion-path.spec.ts`: Test critical lead gen funnel: (1) Land on homepage \u2192 (2) scroll to pricing \u2192 (3) click \"Book a Call\" CTA \u2192 (4) verify Cal.com embed loads (wait for iframe with src containing `cal.com`) \u2192 (5) verify `booking_complete` analytics event would fire (can mock `window.gtag` and assert it was called)\n- `app/__tests__/web-vitals.test.ts`: Not a real CWV measurement (those require real browser + real network). Instead: (1) Verify the web-vitals package is importable, (2) document the Lighthouse CI command for CI/CD as a comment, (3) Add a TODO for connecting `onLCP/onINP/onCLS` to analytics reporting\n- `web-vitals` v5 (replaces v3 \u2014 note: `onFID` is removed, use `onINP`)\n- Add `@axe-core/playwright` for accessibility scanning in E2E: run axe on homepage in the E2E suite, assert zero violations\n\n**Note:** These tests run against `npm run dev` (port 3000) per existing `playwright.config.ts`. No CI/CD changes needed in this task.\n## Acceptance\n- [ ] `npm run test:e2e` passes on chromium (with dev server running)\n- [ ] `e2e/homepage.spec.ts` has \u2265 5 meaningful assertions (not just title check)\n- [ ] `e2e/conversion-path.spec.ts` verifies Cal.com embed loads\n- [ ] `@axe-core/playwright` scans homepage and reports zero critical violations in E2E run\n- [ ] `web-vitals` package is installed\n- [ ] Lighthouse CI command documented (in README or as npm script) for future CI integration\n- [ ] `npm test` (unit tests) still passes\n- [ ] `npm run build` succeeds\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:24.622071Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.2",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.2.md",
+        "status": "todo",
+        "title": "Add security headers + CSP to vercel.json",
+        "updated_at": "2026-04-01T21:55:24.387888Z"
+      },
+      "id": "fn-8-acc.2",
+      "runtime": null,
+      "spec": "# fn-8-acc.2 Add security headers + CSP to vercel.json\n\n## Description\n`vercel.json` contains only `{ \"outputDirectory\": \"dist\" }`. All security headers must go in `vercel.json` because `headers()` in `next.config.js` is unsupported with `output: 'export'`.\n\n**Size:** S (1 file, high-value quick win)\n**Files:**\n- `vercel.json`\n\n**Approach:**\nAdd a `headers` array with `source: \"/(.*)\"` containing:\n- `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload`\n- `X-Content-Type-Options: nosniff`\n- `X-Frame-Options: DENY`\n- `X-XSS-Protection: 0` (disable legacy; CSP handles XSS)\n- `Referrer-Policy: strict-origin-when-cross-origin`\n- `Permissions-Policy: camera=(), microphone=(), geolocation=()`\n- `Content-Security-Policy` with these directives:\n  - `default-src 'self'`\n  - `script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://app.cal.com` \u2014 `'unsafe-inline'` is required because GA4 init is an inline `<Script>` in a static export (no nonce possible); document as accepted tradeoff\n  - `connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com`\n  - `img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com`\n  - `frame-src https://cal.com https://*.cal.com`\n  - `style-src 'self' 'unsafe-inline' https://app.cal.com`\n  - `font-src 'self'` \u2014 root layout uses `next/font/google` which self-hosts fonts at build time; no runtime request to `fonts.gstatic.com` occurs. NOTE: if `app/new-site/` ever comes into scope, `style-src` will need `https://fonts.googleapis.com` (new-site uses `<link>` tags to CDN)\n\nReference: `silverthreadlabs/bloggen-seo-starter` CSP pattern (covers GA4 + Cal.com + GTM)\n## Acceptance\n- [ ] `vercel.json` has `headers` array with `source: \"/(.*)\"` and all 7 headers\n- [ ] After Vercel preview deploy: `curl -I <preview-url>` shows all 7 headers in response\n- [ ] GA4 still fires on homepage after headers \u2014 no CSP violations in browser console\n- [ ] Cal.com embed still loads \u2014 no CSP violations blocking `app.cal.com`\n- [ ] `font-src` does NOT include `fonts.gstatic.com` (fonts are self-hosted via next/font)\n- [ ] securityheaders.com rates the site A (or document specific B-grade items as accepted tradeoffs)\n- [ ] `npm run build` succeeds\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:24.823481Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.3",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.3.md",
+        "status": "todo",
+        "title": "SEO foundations: robots, sitemap, canonical URLs, OG metadata",
+        "updated_at": "2026-04-01T21:55:24.603875Z"
+      },
+      "id": "fn-8-acc.3",
+      "runtime": null,
+      "spec": "# fn-8-acc.3 SEO foundations: robots, sitemap, canonical URLs, OG metadata\n\n## Description\nNo `robots.txt`, no `sitemap.xml`, no `metadataBase`, no canonical URLs, root layout metadata missing `openGraph` and `twitter`. With `trailingSlash: true`, both `/pricing` and `/pricing/` may be indexed.\n\n**Size:** M\n**Files:**\n- `next-sitemap.config.js` (new)\n- `package.json` (add `\"postbuild\": \"next-sitemap\"`)\n- `app/layout.tsx` (add metadataBase, openGraph, twitter, fix duplicate viewport meta)\n- Key page layouts for canonical URLs\n\n**Approach:**\nUse `next-sitemap` (postbuild script) \u2014 NOT `app/sitemap.ts`. The native `app/sitemap.ts` approach has known issues with `output: 'export'` in Next.js 14.x (confirmed via GitHub discussions). `next-sitemap` parses the build output reliably.\n\n`next-sitemap.config.js` config:\n- `siteUrl: 'https://niceright.co'`\n- `generateRobotsTxt: true`\n- `outDir: './dist'` \u2014 CRITICAL: must match `distDir: 'dist'` in next.config.js (wrong value = sitemap in wrong directory)\n- `trailingSlash: true`\n- `generateIndexSitemap: false`\n\n`package.json`: add `\"postbuild\": \"next-sitemap\"` to scripts (runs automatically after `npm run build`)\n\n`app/layout.tsx`:\n- Add `metadataBase: new URL('https://niceright.co')` to metadata export\n- Add `openGraph: { type: 'website', url: '/', title, description, images }` \n- Add `twitter: { card: 'summary_large_image', title, description }`\n- Remove duplicate `<meta name=\"viewport\">` JSX at line ~46 (already exported via `export const viewport` at lines 29-32)\n## Acceptance\n- [ ] `dist/robots.txt` present after `npm run build` and `next-sitemap` postbuild runs\n- [ ] `dist/sitemap.xml` present and contains at minimum: `/`, `/work/`, `/blog/`, `/systems/get-running/` (all with trailing slashes)\n- [ ] `sitemap.xml` contains no test routes (`test-page-webgl-v2`, prototype pages)\n- [ ] `app/layout.tsx` has `metadataBase`, `openGraph`, and `twitter` metadata fields\n- [ ] Homepage `<head>` includes `og:title`, `og:description`, `og:url` (verify in `dist/index.html`)\n- [ ] Duplicate `<meta name=\"viewport\">` JSX removed from `app/layout.tsx`\n- [ ] `npm run build` succeeds (postbuild completes without error)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:25.019236Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.4",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.4.md",
+        "status": "todo",
+        "title": "Add JSON-LD schema markup: LocalBusiness, FAQPage, WebSite",
+        "updated_at": "2026-04-01T21:49:52.131792Z"
+      },
+      "id": "fn-8-acc.4",
+      "runtime": null,
+      "spec": "# fn-8-acc.4 Add JSON-LD schema markup: LocalBusiness, FAQPage, WebSite\n\n## Description\nNo structured data exists anywhere in the codebase. For a local service business in Chicago, `LocalBusiness` (or the more specific `ProfessionalService`) schema directly enables rich results in Google Search. The FAQ section is a natural candidate for `FAQPage` schema.\n\n**Size:** M\n**Files:**\n- `app/_shared/schema.ts` (new \u2014 typed schema objects using `schema-dts`)\n- `app/layout.tsx` (inject LocalBusiness + WebSite JSON-LD)\n- `app/_home/components/FAQ.tsx` (inject FAQPage JSON-LD, line ~13 for FAQ data)\n\n**Approach:**\n- Install `schema-dts` (devDep, types only, zero runtime cost)\n- `app/_shared/schema.ts`: export typed schema objects for `ProfessionalService` (extends `LocalBusiness`), `WebSite` with `SearchAction`, and a function `buildFAQSchema(faqs)` that takes the FAQ array and returns `FAQPage` JSON-LD\n- In `app/layout.tsx` (server component): inject `<script type=\"application/ld+json\" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />` in `<head>` (or directly in the component body \u2014 App Router renders it in the correct position)\n- In `FAQ.tsx`: call `buildFAQSchema()` with the existing FAQ data array (line ~13) and inject as script tag\n- LocalBusiness data to populate: name \"Nice Right\", address in Chicago Northwest Side, url \"https://niceright.co\", priceRange \"$$$\", areaServed \"Chicago\", sameAs (LinkedIn, etc.)\n\n**Required schema fields for Google rich results:**\n- `@type`: `['LocalBusiness', 'ProfessionalService']`\n- `name`, `url`, `telephone` (if public), `address` (PostalAddress), `geo`, `openingHoursSpecification`, `priceRange`\n- FAQPage: `mainEntity` array of `Question`/`Answer` pairs\n\n**Reference:** `Ashking717/AutoCityProCloud` `@graph`-based JSON-LD pattern (github-scout)\n## Acceptance\n- [ ] `app/_shared/schema.ts` exports LocalBusiness and FAQPage schema objects\n- [ ] Built `dist/index.html` contains `<script type=\"application/ld+json\">` with LocalBusiness data\n- [ ] Built homepage HTML contains FAQPage JSON-LD with all FAQ questions from `FAQ.tsx:13`\n- [ ] Google Rich Results Test (search.google.com/test/rich-results) passes for LocalBusiness\n- [ ] Google Rich Results Test passes for FAQPage\n- [ ] Schema includes required fields: name, url, address (PostalAddress), geo, priceRange\n- [ ] `npm run build` succeeds\n- [ ] No TypeScript errors (schema-dts types satisfied)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:25.209297Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.5",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.5.md",
+        "status": "todo",
+        "title": "Image optimization: Vercel config + next/image for LCP images",
+        "updated_at": "2026-04-01T21:55:24.813201Z"
+      },
+      "id": "fn-8-acc.5",
+      "runtime": null,
+      "spec": "# fn-8-acc.5 Image optimization: Vercel config + next/image for LCP images\n\n## Description\nAll images use raw `<img>` tags with no explicit `width`/`height`, causing CLS. `images: { unoptimized: true }` means `next/image` with this config will render a plain `<img>` tag with no srcset or format conversion. The Vercel CDN image config in `vercel.json` handles edge-level optimization separately.\n\n**Size:** M  \n**Files:**\n- `vercel.json` (add Vercel CDN image optimization config)\n- `app/_home/components/ContactSection.tsx` (bio photo at line ~228 \u2014 add explicit dimensions, fix CLS)\n- `app/_home/components/Proof.tsx` (case study images at line ~209 \u2014 add explicit dimensions)\n- `app/_home/components/Hero.tsx` (verify Hero has no `<img>` LCP candidates)\n\n**Approach:**\n\n**Part A \u2014 Vercel CDN image optimization (format conversion, responsive):**\nAdd to `vercel.json`:\n```json\n\"images\": {\n  \"sizes\": [640, 750, 828, 1080, 1200, 1920],\n  \"formats\": [\"image/avif\", \"image/webp\"],\n  \"minimumCacheTTL\": 2592000\n}\n```\nThis enables Vercel's edge image optimization for the static site at CDN level. This is a separate layer from Next.js `next/image` \u2014 it optimizes images on demand without requiring the Next.js image optimizer.\n\n**Part B \u2014 Fix CLS by adding explicit dimensions (keep `<img>` tags, do NOT switch to `next/image`):**\nWith `images: { unoptimized: true }`, converting `<img>` to `<Image>` from `next/image` provides zero additional optimization benefit but adds complexity. Instead, add explicit `width` and `height` attributes directly to the existing `<img>` tags:\n- `ContactSection.tsx` bio photo: verify dimensions of `marcin-lg.jpeg` (480\u00d7637 post-compression) and add `width=\"480\" height=\"637\"`\n- `Proof.tsx` case study images: add explicit dimensions based on actual rendered size\n- Add/verify `alt` text is descriptive on all modified images\n\n**Part C \u2014 LCP audit:**\nVerify Hero section has no above-fold `<img>` tag that would be the LCP element. If Hero uses CSS backgrounds or canvas only, no change needed. If an `<img>` exists, add `fetchpriority=\"high\" loading=\"eager\"`.\n## Acceptance\n- [ ] `vercel.json` has `images` block with sizes, formats (avif/webp), minimumCacheTTL\n- [ ] `ContactSection.tsx` bio photo has explicit `width` and `height` attributes matching actual image dimensions\n- [ ] `Proof.tsx` case study images have explicit `width` and `height` attributes\n- [ ] All modified `<img>` elements have descriptive, non-empty `alt` text\n- [ ] After Vercel deploy: image requests return `Content-Type: image/avif` or `image/webp` for supporting browsers\n- [ ] Lighthouse CLS score \u2264 0.1 on homepage (measure before/after)\n- [ ] `npm run build` succeeds\n- [ ] NOTE: `images: { unoptimized: true }` stays in next.config.js \u2014 this task does NOT change it\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:25.398527Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.6",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.6.md",
+        "status": "todo",
+        "title": "GSAP: shared init module + iOS Safari scroll fixes",
+        "updated_at": "2026-04-01T21:49:52.514368Z"
+      },
+      "id": "fn-8-acc.6",
+      "runtime": null,
+      "spec": "# fn-8-acc.6 GSAP: shared init module + iOS Safari scroll fixes\n\n## Description\n`gsap.registerPlugin(ScrollTrigger)` is repeated in 8 files. GSAP can be registered multiple times without error, but this is unnecessary duplication. More critically, the pinned hero section (`Hero.tsx:28-43`) is known to cause position jumping on iOS Safari when the address bar shows/hides \u2014 `ScrollTrigger.config({ ignoreMobileResize: true })` and `normalizeScroll(true)` are the fixes.\n\n**Size:** M\n**Files:**\n- `app/_shared/gsap-init.ts` (new)\n- `app/_home/components/Hero.tsx` (apply iOS fixes at lines ~28-60)\n- `app/_home/components/Services.tsx` (apply iOS-safe scrub, line ~129)\n\n**Approach:**\n- Create `app/_shared/gsap-init.ts` that exports `initGSAP()`: registers ScrollTrigger once, calls `ScrollTrigger.config({ ignoreMobileResize: true })`, and conditionally calls `ScrollTrigger.normalizeScroll(true)` when `ScrollTrigger.isTouch === 1` (iOS/touch devices)\n- Replace `gsap.registerPlugin(ScrollTrigger)` + the `if (typeof window !== 'undefined')` guard in all 8 animated home components with a single `import { initGSAP } from '@/app/_shared/gsap-init'` called once at module level in each component's `useEffect` entry point\n- `Hero.tsx`: Add `anticipatePin: 1` to the pinned ScrollTrigger instance (line ~36). Replace inline `prefers-reduced-motion` check with `gsap.matchMedia()` pattern (cleaner, auto-reverts)\n- `Services.tsx`: Verify `ScrollTrigger.create` for the pinned section (line ~129) also has `anticipatePin: 1`\n- Do NOT touch animation logic in fn-4-mgl / fn-5-qos components (Services pin logic, Pricing per-row triggers) \u2014 this task is init-layer only\n\n**References:**\n- `ConanMcN/fragments` `useScrollAnimations.ts` hook pattern (github-scout)\n- `Scotopia1/the-elites-solutions-website` `gsap-config.ts` (github-scout)\n- GSAP docs: `normalizeScroll()`, `ignoreMobileResize`, `anticipatePin`\n## Acceptance\n- [ ] `app/_shared/gsap-init.ts` exists and exports `initGSAP()`\n- [ ] `ScrollTrigger.config({ ignoreMobileResize: true })` is called globally via `initGSAP()`\n- [ ] `normalizeScroll(true)` is conditionally called when `ScrollTrigger.isTouch === 1`\n- [ ] Hero pinned ScrollTrigger has `anticipatePin: 1`\n- [ ] `gsap.registerPlugin(ScrollTrigger)` no longer appears in individual component files\n- [ ] All 8 animated home components import from `@/app/_shared/gsap-init`\n- [ ] `npm run build` succeeds, no TypeScript errors\n- [ ] Hero pin does not jump on iOS Safari (test on real device or BrowserStack)\n- [ ] `prefers-reduced-motion: reduce` disables hero scroll animation (no movement)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:25.598657Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.7",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.7.md",
+        "status": "todo",
+        "title": "Cal.com embed: dedup into shared component + lazy load + wire booking analytics",
+        "updated_at": "2026-04-01T21:55:25.022149Z"
+      },
+      "id": "fn-8-acc.7",
+      "runtime": null,
+      "spec": "# fn-8-acc.7 Cal.com embed: dedup into shared component + lazy load + wire booking analytics\n\n## Description\nCal.com embed init code is duplicated in two files. The key difference: `ContactSection.tsx` already has a working postMessage listener that captures `bookingSuccessful` and calls `trackBookingComplete()` (lines 81-82). `BookingSection.tsx` has NO postMessage listener \u2014 bookings from the systems pages are untracked. Both files lack lazy loading.\n\n**Size:** M\n**Files:**\n- `app/_shared/CalEmbed.tsx` (new \u2014 shared component)\n- `app/_home/components/ContactSection.tsx` (replace inline init with shared component)\n- `app/systems/_components/BookingSection.tsx` (replace inline init with shared component \u2014 gains postMessage tracking)\n- `app/lib/analytics.ts` (no changes \u2014 `trackBookingComplete` already implemented correctly)\n\n**Approach:**\nExtract into `app/_shared/CalEmbed.tsx`:\n- Props: `calLink: string`, `namespace?: string`, `config?: object`, `prefillParams?: Record<string, string>` (needed by Task 10 for UTM forwarding \u2014 add now to avoid later interface change)\n- Load `https://app.cal.com/embed/embed.js` lazily via `useEffect` on mount (or IntersectionObserver for the inline variant)\n- Use `initializedRef` to prevent double-init\n- Attach postMessage listener for `bookingSuccessful` / `cal:bookingSuccessful` events \u2014 call `trackBookingComplete()` from `@/app/lib/analytics` (mirrors existing ContactSection logic at lines 78-84)\n- Cleanup: remove postMessage listener on unmount\n\nReplace init blocks in both `ContactSection.tsx` and `BookingSection.tsx` with `<CalEmbed calLink=\"...\" />`.\n\nContactSection and BookingSection use different calLink values \u2014 preserve these as props.\n\nReferences: `calcom/cal.com` embed-react `Cal.tsx` init pattern; `kathan1509/my-portfolio` dynamic import approach (github-scout)\n## Acceptance\n- [ ] `app/_shared/CalEmbed.tsx` exists with `calLink`, `namespace`, `config`, `prefillParams` props\n- [ ] Cal.com script loads lazily (not in initial JS bundle \u2014 verify in Lighthouse network waterfall)\n- [ ] postMessage listener for `bookingSuccessful` present in CalEmbed\n- [ ] `ContactSection.tsx` and `BookingSection.tsx` both use `<CalEmbed />` (no inline Cal.com init code)\n- [ ] Booking on homepage contact section still works (visual/functional parity)\n- [ ] Booking on systems pages still works (visual/functional parity)\n- [ ] postMessage listener cleaned up on unmount (no memory leak)\n- [ ] `trackBookingComplete()` would fire for bookings from BOTH homepage and systems pages\n- [ ] `npm run build` succeeds\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:25.797855Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.8",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.8.md",
+        "status": "todo",
+        "title": "Structural pages: not-found, loading, fix error.tsx",
+        "updated_at": "2026-04-01T21:49:52.942840Z"
+      },
+      "id": "fn-8-acc.8",
+      "runtime": null,
+      "spec": "# fn-8-acc.8 Structural pages: not-found, loading, fix error.tsx\n\n## Description\nThree structural gaps: (1) No `not-found.tsx` \u2014 404s show Next.js default page with no branding. (2) No `loading.tsx` \u2014 GSAP-heavy route transitions may show blank content. (3) `app/error.tsx` exposes `error.message` to users (line ~14) and uses `console.error` in production \u2014 potential security leak.\n\n**Size:** S (3 new/edit files)\n**Files:**\n- `app/not-found.tsx` (new)\n- `app/loading.tsx` (new)\n- `app/error.tsx` (edit \u2014 remove `console.error` and `error.message` display)\n\n**Approach:**\n- `app/not-found.tsx`: Simple branded 404 page. Match the v9 design system \u2014 use `--nr-navy`, `--nr-cream` tokens from `app/_shared/tokens.css`. Include: large \"404\", brief message, link to homepage. Import and use existing `Nav` and `Footer` from `app/_home/components/` for consistent chrome.\n- `app/loading.tsx`: Minimal loading state. A simple centered spinner or pulse animation using CSS. Keep it lightweight \u2014 the goal is to prevent blank flash, not build a complex skeleton.\n- `app/error.tsx`: Remove `console.error(error)` call. Remove any rendering of `error.message` or `error.digest` in user-visible HTML. Show only a generic \"Something went wrong\" message with a retry button. Log to a structured format if needed (or remove entirely for a static site with no server).\n## Acceptance\n- [ ] Navigating to `/nonexistent-page` shows branded 404 page with site nav/footer\n- [ ] `app/not-found.tsx` uses v9 design tokens (not hardcoded hex colors)\n- [ ] `app/loading.tsx` exists and shows minimal loading indicator\n- [ ] `app/error.tsx` does not render `error.message` in any HTML element\n- [ ] `app/error.tsx` does not call `console.error` (no prod log leakage)\n- [ ] `npm run build` succeeds\n- [ ] All three pages are accessible (keyboard-navigable, correct heading structure)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-01T21:46:26.005613Z",
+        "depends_on": [],
+        "epic": "fn-8-acc",
+        "id": "fn-8-acc.9",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-8-acc.9.md",
+        "status": "todo",
+        "title": "Accessibility: ARIA sweep + focus trap + axe automated tests",
+        "updated_at": "2026-04-01T21:55:25.251741Z"
+      },
+      "id": "fn-8-acc.9",
+      "runtime": null,
+      "spec": "# fn-8-acc.9 Accessibility: ARIA sweep + focus trap + axe automated tests\n\n## Description\nFour homepage components lack ARIA: `Pricing.tsx`, `Services.tsx`, `Proof.tsx`, `Footer.tsx`. Nav mobile menu has no focus trap. No automated a11y tests exist.\n\n**Coordinate with fn-2-gfq** which covers Hero, ServicesCarousel, Testimonials, FAQ. This task covers the 4 components fn-2-gfq does NOT touch plus Nav focus trap.\n\n**Footer.tsx ARIA** is explicitly assigned here \u2014 fn-2-gfq does not cover Footer ARIA (confirmed from fn-2-gfq spec).\n\n**Size:** M\n**Files:**\n- `app/_home/components/Pricing.tsx`\n- `app/_home/components/Services.tsx`\n- `app/_home/components/Proof.tsx`\n- `app/_home/components/Footer.tsx`\n- `app/_home/components/Nav.tsx` (focus trap for mobile menu)\n- `app/__tests__/a11y.test.tsx` (new)\n- `app/__tests__/vitest-setup.ts` (new)\n- `vitest.config.ts` (add setupFiles)\n\n**Approach:**\n- Install `vitest-axe` (devDep). Create `app/__tests__/vitest-setup.ts` with `import 'vitest-axe/extend-expect'`. Add `setupFiles: ['./app/__tests__/vitest-setup.ts']` to `vitest.config.ts`. Environment is already `jsdom` \u2014 do NOT change to happy-dom (vitest-axe incompatible).\n- `Pricing.tsx`: `aria-label` on each tier CTA button. `role=\"region\"` + `aria-label` on each pricing tier card.\n- `Services.tsx`: `aria-label` on interactive service elements (if any are links/buttons).\n- `Proof.tsx`: descriptive `alt` text on all `<img>` elements. `aria-label` on stat containers if they lack text labels.\n- `Footer.tsx`: ensure `<nav>` has `aria-label=\"Footer navigation\"`. Links have descriptive text (not generic \"click here\").\n- `Nav.tsx` focus trap: when `menuOpen === true`, `keydown` listener constrains Tab/Shift+Tab to cycle within `querySelectorAll('a[href], button')` inside the nav overlay. Escape key closes menu and returns focus to the hamburger button.\n- `a11y.test.tsx`: render homepage component with React Testing Library, run axe, assert `toHaveNoViolations()`.\n## Acceptance\n- [ ] `Pricing.tsx` CTA buttons have descriptive `aria-label` attributes\n- [ ] `Services.tsx` interactive elements have accessible labels\n- [ ] `Proof.tsx` all `<img>` elements have descriptive non-empty `alt` text\n- [ ] `Footer.tsx` nav has `aria-label=\"Footer navigation\"`\n- [ ] `Nav.tsx` mobile menu traps focus when open (Tab cycles within menu, Escape closes and returns focus to hamburger)\n- [ ] `vitest-axe` installed, configured with `jsdom` environment (NOT happy-dom)\n- [ ] `npm test` runs axe test with zero violations\n- [ ] Touch targets \u2265 24\u00d724px on Pricing CTAs and Nav items (WCAG 2.5.8)\n- [ ] `npm run build` succeeds\n- [ ] Does NOT touch: Hero.tsx, ServicesCarousel.tsx, Testimonials.tsx, FAQ.tsx (fn-2-gfq territory)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    }
+  ]
+}

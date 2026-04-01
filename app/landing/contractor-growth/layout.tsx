@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Add $40K-$80K/month in predictable revenue in 90 days. For HVAC, plumbing, and roofing contractors doing $300K-$1.5M.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

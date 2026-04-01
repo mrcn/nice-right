@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'The only agency model where you pay AFTER results. $1K to start. $9K from profits. $50K guaranteed in 90 days. One client per quarter.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {

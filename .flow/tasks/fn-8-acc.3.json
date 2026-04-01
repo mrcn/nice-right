@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-04-01T21:46:24.823481Z",
+  "depends_on": [],
+  "epic": "fn-8-acc",
+  "id": "fn-8-acc.3",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-8-acc.3.md",
+  "status": "todo",
+  "title": "SEO foundations: robots, sitemap, canonical URLs, OG metadata",
+  "updated_at": "2026-04-01T22:01:48.703492Z"
+}

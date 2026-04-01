@@ -17,6 +17,7 @@ export const metadata: Metadata = {
     description:
       'Step out without stepping away. Operationally optional in 90 days.',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport: Viewport = {

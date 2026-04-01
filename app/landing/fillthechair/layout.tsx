@@ -12,6 +12,7 @@ export const metadata: Metadata = {
       'Eliminate no-shows. Fill your schedule with cash-pay patients. Guaranteed under 6% no-show rate or your money back plus $500.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {
