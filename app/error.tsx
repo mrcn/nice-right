@@ -1,18 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
-
 export default function Error({
-  error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error('Error:', error);
-  }, [error]);
-
   return (
     <div
       style={{
@@ -24,19 +17,21 @@ export default function Error({
         padding: '2rem',
         textAlign: 'center',
         fontFamily: 'system-ui, sans-serif',
+        background: 'var(--v9-bg-dark)',
+        color: 'var(--v9-text-light)',
       }}
     >
-      <h2>Something went wrong!</h2>
-      <p style={{ color: '#666', marginBottom: '1rem' }}>
-        {error.message || 'An unexpected error occurred'}
+      <h2 style={{ marginBottom: '1rem' }}>Something went wrong</h2>
+      <p style={{ color: 'var(--v9-text-muted-light)', marginBottom: '1.5rem' }}>
+        An unexpected error occurred. Please try again.
       </p>
       <button
         onClick={() => reset()}
         style={{
           padding: '0.75rem 1.5rem',
           cursor: 'pointer',
-          background: '#0000FF',
-          color: 'white',
+          background: 'var(--v9-accent)',
+          color: 'var(--v9-text-light)',
           border: 'none',
           borderRadius: '4px',
           fontSize: '1rem',
