@@ -1,3 +1,4 @@
+import './_shared/tokens.css';
 import { Nav } from './_home/components/Nav';
 import { Footer } from './_home/components/Footer';
 

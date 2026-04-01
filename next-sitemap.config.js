@@ -5,5 +5,5 @@ module.exports = {
   trailingSlash: true,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/landing/*'],
+  exclude: ['/landing/*', '/*.svg', '/*.png', '/*.ico', '/*.xml', '/*.txt'],
 };
