@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { trackCTAClick, trackFAQOpen } from '@/app/lib/analytics';
+import { buildFAQSchema } from '@/app/_shared/schema';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -177,8 +178,14 @@ export function FAQ() {
     return () => ctx.revert();
   }, []);
 
+  const faqSchema = buildFAQSchema(faqs.map((f) => ({ question: f.q, answer: f.a })));
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <section ref={sectionRef} id="faq" className="v9-faq v9-section-warm">
         <div className="v9-faq-container">
           <div className="v9-faq-header">
