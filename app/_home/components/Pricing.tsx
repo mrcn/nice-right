@@ -183,6 +183,8 @@ export function Pricing() {
             {tiers.map((tier) => (
               <div
                 key={tier.num}
+                role="region"
+                aria-label={`Tier ${tier.num}: ${tier.name}`}
                 className="v9-pricing-tier"
                 onMouseEnter={() => {
                   tierHoverTimers.current[tier.num] = setTimeout(() => {
@@ -220,6 +222,7 @@ export function Pricing() {
             <a
               href="#contact"
               className="v9-btn v9-btn-gradient"
+              aria-label="Book Your Free Strategy Call — 30 minutes, no pitch"
               onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
               onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500); }}
               onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}

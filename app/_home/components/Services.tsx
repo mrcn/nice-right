@@ -169,6 +169,7 @@ export function Services() {
       <section
         ref={sectionRef}
         id="services"
+        aria-label="Services — four ways to grow a business"
         className="v9-services v9-section-warm"
       >
         <div className="v9-services-container">

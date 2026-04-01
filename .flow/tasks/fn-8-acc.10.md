@@ -34,9 +34,8 @@ Analytics has two known failures: (1) GA4 never fires on any of the 10 landing p
 - [ ] `npm run build` succeeds
 - [ ] No TypeScript errors
 ## Done summary
-TBD
-
+Added UTM capture/persistence utilities to analytics.ts, created UTMCapture client component mounted in root layout via Suspense, and updated CalEmbed to merge stored UTMs as Cal.com prefill params. Also added event catalogue docs at top of analytics.ts.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: c567741e33a2c1b6ab38bf567ec6786a9786886b
+- Tests: npm test
 - PRs:

@@ -200,7 +200,7 @@ export function Proof() {
           {/* Case studies */}
           <div className="v9-cases-grid">
             {caseStudies.map((cs) => (
-              <a href={cs.href} key={cs.client} className="v9-case-card">
+              <a href={cs.href} key={cs.client} className="v9-case-card" aria-label={`Case study: ${cs.client} — ${cs.headline}`}>
                 <div className="v9-case-img">
                   <img src={cs.image} alt={cs.alt} loading="lazy" width={1024} height={1024} />
                   <div className="v9-case-img-overlay" />

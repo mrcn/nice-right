@@ -34,9 +34,8 @@ References: `calcom/cal.com` embed-react `Cal.tsx` init pattern; `kathan1509/my-
 - [ ] `trackBookingComplete()` would fire for bookings from BOTH homepage and systems pages
 - [ ] `npm run build` succeeds
 ## Done summary
-TBD
-
+Created shared CalEmbed component in app/_shared/CalEmbed.tsx, replacing duplicated Cal.com init code in ContactSection.tsx and BookingSection.tsx. BookingSection now gains postMessage tracking for booking completions that was previously missing.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 6fbf9ab010a2b1205554d7f6b34a3df4f825f02d
+- Tests: npm run build, npm test (vitest: 2 tests passed)
 - PRs:
