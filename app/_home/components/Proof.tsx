@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 
 interface StatItem {
   end: number;
@@ -63,6 +58,7 @@ export function Proof() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

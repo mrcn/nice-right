@@ -63,6 +63,7 @@ export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -126,6 +127,7 @@ export function Services() {
           start: 'top top',
           end: '+=120%',
           pin: true,
+          anticipatePin: 1,
           scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');

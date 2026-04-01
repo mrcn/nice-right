@@ -141,6 +141,7 @@ export function ContactSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

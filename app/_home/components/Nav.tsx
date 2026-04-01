@@ -19,6 +19,7 @@ export function Nav({ defaultSolid }: NavProps = {}) {
       return;
     }
 
+    initGSAP();
     const nav = navRef.current;
     if (!nav) return;
 

@@ -10,6 +10,7 @@ export function Hero() {
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     const content = contentRef.current;
     if (!section || !content) return;
@@ -25,6 +26,7 @@ export function Hero() {
         start: 'top top',
         end: '+=80%',
         pin: true,
+        anticipatePin: 1,
         pinSpacing: true,
         scrub: 0.5,
         onUpdate: (self) => {

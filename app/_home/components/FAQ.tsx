@@ -1,14 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackCTAClick, trackFAQOpen } from '@/app/lib/analytics';
 import { buildFAQSchema } from '@/app/_shared/schema';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const faqs = [
   {
@@ -111,6 +106,7 @@ export function FAQ() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

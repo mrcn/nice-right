@@ -117,6 +117,7 @@ export function Testimonials() {
   );
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;

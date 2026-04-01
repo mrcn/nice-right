@@ -22,9 +22,8 @@ Three structural gaps: (1) No `not-found.tsx` — 404s show Next.js default page
 - [ ] `npm run build` succeeds
 - [ ] All three pages are accessible (keyboard-navigable, correct heading structure)
 ## Done summary
-TBD
-
+Fixed error.tsx to remove console.error and error.message exposure; added branded not-found.tsx with Nav/Footer and v9 design tokens; added minimal loading.tsx spinner. Build and tests pass.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: af725ba7c1381d73e6c1a9cb453fc19c8279bda2
+- Tests: npm run build, npm test (vitest)
 - PRs:

@@ -60,6 +60,7 @@ export function Pricing() {
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
