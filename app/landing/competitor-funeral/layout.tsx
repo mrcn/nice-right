@@ -23,20 +23,5 @@ export default function CompetitorFuneralLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body
-        className="antialiased"
-        style={{
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          backgroundColor: '#0a0f0d',
-        }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

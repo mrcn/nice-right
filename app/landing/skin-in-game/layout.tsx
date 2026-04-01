@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
-
 export const metadata: Metadata = {
   title: 'Skin In The Game Partnership | Pay Only After You Win',
   description:
@@ -26,18 +23,5 @@ export default function SkinInGameLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0a0f0d' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

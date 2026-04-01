@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
 export const metadata: Metadata = {
   title: 'TableTurn Direct | Cut Delivery App Fees by 80%',
   description:
@@ -25,15 +23,5 @@ export default function TableTurnDirectLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0a0a0a' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

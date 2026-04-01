@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
 export const metadata: Metadata = {
   title: '$500K Contractor Growth System | Add $40K-$80K/Month in 90 Days',
   description:
@@ -25,15 +23,5 @@ export default function ContractorGrowthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0c1117' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

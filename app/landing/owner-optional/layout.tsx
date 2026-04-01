@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '../../new-site/globals.css';
 
-
-
-
 export const metadata: Metadata = {
   title: 'Owner-Optional Engine | Step Out Without Stepping Away',
   description:
@@ -33,21 +30,5 @@ export default function OwnerOptionalLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body
-        className="antialiased"
-        style={{ backgroundColor: '#0a0a0a', color: '#f5f5f4' }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
