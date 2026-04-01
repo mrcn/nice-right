@@ -32,9 +32,8 @@ No structured data exists anywhere in the codebase. For a local service business
 - [ ] `npm run build` succeeds
 - [ ] No TypeScript errors (schema-dts types satisfied)
 ## Done summary
-TBD
-
+Added JSON-LD structured data: LocalBusiness+ProfessionalService schema in layout.tsx (served site-wide), WebSite schema in layout.tsx, and FAQPage schema injected in FAQ.tsx — all using schema-dts types with zero runtime overhead.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: adbc1e9de357c8d45fbe26e13138f8caa7b8f194
+- Tests: npm run build, npm test (vitest run — 2 tests passed)
 - PRs:

@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackBookingComplete, trackContactClick } from '@/app/lib/analytics';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 function CalEmbed() {
   const [loaded, setLoaded] = useState(false);
@@ -229,6 +224,8 @@ export function ContactSection() {
                 src="/images/marcin-lg.jpeg"
                 alt="Marcin Klaudiusz — founder of Nice Right"
                 className="v1-bio-photo"
+                width={480}
+                height={637}
               />
 
               <h3 className="v1-bio-name">I&apos;m Marcin.</h3>

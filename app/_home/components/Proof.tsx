@@ -206,7 +206,7 @@ export function Proof() {
             {caseStudies.map((cs) => (
               <a href={cs.href} key={cs.client} className="v9-case-card">
                 <div className="v9-case-img">
-                  <img src={cs.image} alt={cs.alt} loading="lazy" />
+                  <img src={cs.image} alt={cs.alt} loading="lazy" width={1024} height={1024} />
                   <div className="v9-case-img-overlay" />
                 </div>
                 <div className="v9-case-body">

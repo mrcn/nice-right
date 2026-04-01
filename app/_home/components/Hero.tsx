@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackCTAClick, trackElementHover } from '@/app/lib/analytics';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);

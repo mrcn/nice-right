@@ -1,5 +1,10 @@
 {
   "outputDirectory": "dist",
+  "images": {
+    "sizes": [640, 750, 828, 1080, 1200, 1920],
+    "formats": ["image/avif", "image/webp"],
+    "minimumCacheTTL": 2592000
+  },
   "headers": [
     {
       "source": "/(.*)",
