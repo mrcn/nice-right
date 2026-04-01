@@ -170,10 +170,11 @@ export function Pricing() {
 
           <div className="v9-pricing-interstitial">
             <div className="v9-pricing-interstitial-statement">
-              No rate cards.<br />
-              No gouging.<br />
+              Share what&apos;s not working.<br />
+              We&apos;ll figure out what fits.<br />
               <em>Name your price.</em><br />
-              Let&apos;s get to work.
+              Let&apos;s get to work.<br />
+              Nice, right?
             </div>
             <p className="v9-pricing-interstitial-sub">
               Every business is at a different stage — and every budget is different too.
