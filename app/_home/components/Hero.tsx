@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { trackCTAClick } from '@/app/lib/analytics';
+import { trackCTAClick, trackElementHover } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -12,6 +12,7 @@ if (typeof window !== 'undefined') {
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -110,6 +111,8 @@ export function Hero() {
               href="#contact"
               className="v9-btn v9-btn-gradient"
               onClick={() => trackCTAClick('hero', 'hero')}
+              onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_hero'), 500); }}
+              onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
             >
               Book Your Free Strategy Call
             </a>

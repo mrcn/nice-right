@@ -65,3 +65,7 @@ export function trackContactClick(method: 'email' | 'linkedin') {
 export function trackNavClick(label: string) {
   track('nav_click', { label, page: window.location.pathname });
 }
+
+export function trackElementHover(element: string, params?: Record<string, unknown>) {
+  track('element_hover', { element, ...params, page: window.location.pathname });
+}

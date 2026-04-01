@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { trackCTAClick, trackPricingView, trackSectionView } from '@/app/lib/analytics';
+import { trackCTAClick, trackPricingView, trackSectionView, trackElementHover } from '@/app/lib/analytics';
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -61,6 +61,8 @@ const tiers = [
 
 export function Pricing() {
   const sectionRef = useRef<HTMLElement>(null);
+  const tierHoverTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -182,7 +184,16 @@ export function Pricing() {
 
           <div className="v9-pricing-tiers">
             {tiers.map((tier) => (
-              <div key={tier.num} className="v9-pricing-tier">
+              <div
+                key={tier.num}
+                className="v9-pricing-tier"
+                onMouseEnter={() => {
+                  tierHoverTimers.current[tier.num] = setTimeout(() => {
+                    trackElementHover('pricing_tier', { tier_name: tier.name, tier_num: tier.num });
+                  }, 500);
+                }}
+                onMouseLeave={() => clearTimeout(tierHoverTimers.current[tier.num])}
+              >
                 <div className="v9-pricing-identity">
                   <div className="v9-pricing-num">{tier.num}</div>
                   <h3 className="v9-pricing-name">{tier.name}</h3>
@@ -213,6 +224,8 @@ export function Pricing() {
               href="#contact"
               className="v9-btn v9-btn-gradient"
               onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
+              onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500); }}
+              onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
             >
               Book Your Free Strategy Call
             </a>
