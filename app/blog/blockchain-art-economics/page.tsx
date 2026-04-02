@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import './page.css'
+import '../blog-shared.css'
 
 export const metadata = {
   title: 'Dynamic Visions: The Intersection of Art and Economics in NFTs | Nice Right',

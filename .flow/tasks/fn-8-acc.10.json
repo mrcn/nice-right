@@ -1,0 +1,17 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-04-01T21:46:26.192619Z",
+  "depends_on": [
+    "fn-8-acc.1",
+    "fn-8-acc.7"
+  ],
+  "epic": "fn-8-acc",
+  "id": "fn-8-acc.10",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-8-acc.10.md",
+  "status": "todo",
+  "title": "Analytics integrity: validate all events fire across all routes",
+  "updated_at": "2026-04-01T21:50:03.517708Z"
+}

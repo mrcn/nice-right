@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Name your competitor. In 90 days, they will wish they never heard of you. Category exclusivity guaranteed.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {
@@ -23,20 +24,5 @@ export default function CompetitorFuneralLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body
-        className="antialiased"
-        style={{
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          backgroundColor: '#0a0f0d',
-        }}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

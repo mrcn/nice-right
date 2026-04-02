@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 
 interface StatItem {
   end: number;
@@ -63,6 +58,7 @@ export function Proof() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -204,9 +200,9 @@ export function Proof() {
           {/* Case studies */}
           <div className="v9-cases-grid">
             {caseStudies.map((cs) => (
-              <a href={cs.href} key={cs.client} className="v9-case-card">
+              <a href={cs.href} key={cs.client} className="v9-case-card" aria-label={`Case study: ${cs.client} — ${cs.headline}`}>
                 <div className="v9-case-img">
-                  <img src={cs.image} alt={cs.alt} loading="lazy" />
+                  <img src={cs.image} alt={cs.alt} loading="lazy" width={1024} height={1024} />
                   <div className="v9-case-img-overlay" />
                 </div>
                 <div className="v9-case-body">

@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackSectionView } from '@/app/lib/analytics';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const levers = [
   {
@@ -68,6 +63,7 @@ export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -131,6 +127,7 @@ export function Services() {
           start: 'top top',
           end: '+=120%',
           pin: true,
+          anticipatePin: 1,
           scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');
@@ -172,6 +169,7 @@ export function Services() {
       <section
         ref={sectionRef}
         id="services"
+        aria-label="Services — four ways to grow a business"
         className="v9-services v9-section-warm"
       >
         <div className="v9-services-container">

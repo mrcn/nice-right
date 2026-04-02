@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-04-01T21:46:24.392549Z",
+  "depends_on": [],
+  "epic": "fn-8-acc",
+  "id": "fn-8-acc.1",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-8-acc.1.md",
+  "status": "todo",
+  "title": "Fix nested HTML structure in landing page layouts",
+  "updated_at": "2026-04-01T21:55:24.165667Z"
+}

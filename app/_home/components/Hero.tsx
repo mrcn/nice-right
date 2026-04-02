@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackCTAClick, trackElementHover } from '@/app/lib/analytics';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -15,6 +10,7 @@ export function Hero() {
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     const content = contentRef.current;
     if (!section || !content) return;
@@ -30,6 +26,7 @@ export function Hero() {
         start: 'top top',
         end: '+=80%',
         pin: true,
+        anticipatePin: 1,
         pinSpacing: true,
         scrub: 0.5,
         onUpdate: (self) => {

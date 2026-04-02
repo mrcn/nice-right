@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
-
 export const metadata: Metadata = {
   title:
     'FillTheChair | Eliminate No-Shows, Fill Your Schedule with Cash-Pay Patients',
@@ -15,6 +12,7 @@ export const metadata: Metadata = {
       'Eliminate no-shows. Fill your schedule with cash-pay patients. Guaranteed under 6% no-show rate or your money back plus $500.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {
@@ -27,18 +25,5 @@ export default function FillTheChairLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0a0f0d' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

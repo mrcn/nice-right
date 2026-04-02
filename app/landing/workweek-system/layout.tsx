@@ -1,9 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
-
 export const metadata: Metadata = {
   title: 'The 15-Hour Workweek System | Reclaim Your Life in 90 Days',
   description:
@@ -14,6 +11,7 @@ export const metadata: Metadata = {
       'Reclaim 15+ hours every week. For overwhelmed owner-operators ready to get their life back.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {
@@ -26,18 +24,5 @@ export default function WorkweekLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0C0A09' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }

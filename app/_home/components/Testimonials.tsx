@@ -1,12 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useCallback } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 
 interface Testimonial {
   initials: string;
@@ -122,6 +117,7 @@ export function Testimonials() {
   );
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     const track = trackRef.current;
     if (!section || !track) return;

@@ -1,13 +1,8 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
 import { trackCTAClick, trackPricingView, trackSectionView, trackElementHover } from '@/app/lib/analytics';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const tiers = [
   {
@@ -65,6 +60,7 @@ export function Pricing() {
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
+    initGSAP();
     const section = sectionRef.current;
     if (!section) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -187,6 +183,8 @@ export function Pricing() {
             {tiers.map((tier) => (
               <div
                 key={tier.num}
+                role="region"
+                aria-label={`Tier ${tier.num}: ${tier.name}`}
                 className="v9-pricing-tier"
                 onMouseEnter={() => {
                   tierHoverTimers.current[tier.num] = setTimeout(() => {
@@ -224,6 +222,7 @@ export function Pricing() {
             <a
               href="#contact"
               className="v9-btn v9-btn-gradient"
+              aria-label="Book Your Free Strategy Call — 30 minutes, no pitch"
               onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
               onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500); }}
               onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}

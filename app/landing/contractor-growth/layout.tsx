@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import '../../new-site/globals.css';
 
-
-
 export const metadata: Metadata = {
   title: '$500K Contractor Growth System | Add $40K-$80K/Month in 90 Days',
   description:
@@ -13,6 +11,7 @@ export const metadata: Metadata = {
       'Add $40K-$80K/month in predictable revenue in 90 days. For HVAC, plumbing, and roofing contractors doing $300K-$1.5M.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export const viewport = {
@@ -25,15 +24,5 @@ export default function ContractorGrowthLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html
-      lang="en"
-      
-      suppressHydrationWarning
-    >
-      <body className="antialiased" style={{ fontFamily: "system-ui, -apple-system, sans-serif", backgroundColor: '#0c1117' }}>
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
