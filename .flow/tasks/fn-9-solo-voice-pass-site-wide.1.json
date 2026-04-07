@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-04-07T01:15:43.391257Z",
+  "depends_on": [],
+  "epic": "fn-9-solo-voice-pass-site-wide",
+  "id": "fn-9-solo-voice-pass-site-wide.1",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-9-solo-voice-pass-site-wide.1.md",
+  "status": "todo",
+  "title": "Homepage voice pass [DONE]",
+  "updated_at": "2026-04-07T01:16:05.083481Z"
+}

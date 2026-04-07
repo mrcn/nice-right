@@ -2,7 +2,12 @@
 
 import { useEffect, useRef } from 'react';
 import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
-import { trackCTAClick, trackPricingView, trackSectionView, trackElementHover } from '@/app/lib/analytics';
+import {
+  trackCTAClick,
+  trackPricingView,
+  trackSectionView,
+  trackElementHover,
+} from '@/app/lib/analytics';
 
 const tiers = [
   {
@@ -11,15 +16,16 @@ const tiers = [
     tagline: 'Your business, findable and credible.',
     timeline: 'Typically 4–8 weeks',
     description:
-      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. We fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
+      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. Fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
     deliverables: [
       '5-page website, mobile-optimized and SEO-ready',
       'Email list + lead magnet + welcome sequence',
       'Google Business Profile claimed and optimized',
       'Local directory listings — Yelp, Facebook + industry-specific',
-      '30-day check-in to make sure it\'s working',
+      "30-day check-in to make sure it's working",
     ],
-    pullQuote: 'I feel invisible online. People who need exactly what I do can\u2019t find me.',
+    pullQuote:
+      'I feel invisible online. People who need exactly what I do can\u2019t find me.',
   },
   {
     num: '02',
@@ -27,14 +33,15 @@ const tiers = [
     tagline: 'One lever, tested and proven.',
     timeline: 'First results in 30–45 days',
     description:
-      "More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. We pick that lever, build something to test it, and get you real results — not a deck, not a plan. If it works, you\u2019ve got a new edge. If it doesn\u2019t, you learned fast.",
+      'More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. A lever gets picked. Something gets built to move it. Real results — fast.',
     deliverables: [
       'Working solution targeting your chosen growth lever',
       'Whatever it takes: landing page, tool, automation, system',
       'Launch strategy + early results',
       'Real data to decide what comes next',
     ],
-    pullQuote: 'I know what\u2019s holding me back. I just haven\u2019t had time to deal with it.',
+    pullQuote:
+      'I know what\u2019s holding me back. I just haven\u2019t had time to deal with it.',
   },
   {
     num: '03',
@@ -42,21 +49,24 @@ const tiers = [
     tagline: 'Your business, grown together.',
     timeline: 'Ongoing \u2014 as long as it makes sense',
     description:
-      "It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between. Scope and price: we figure that out together.",
+      'It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between \u2014 in your corner, not on a retainer. Scope and price: we figure that out together.',
     deliverables: [
       'Deep-dive into your business, market, and opportunities',
       'Ongoing strategy, brainstorming, prioritization',
-      'Whatever we build \u2014 systems, automation, tools, campaigns',
+      'Systems, automation, tools, campaigns \u2014 whatever it takes',
       'Direct access \u2014 I answer in hours, not days',
       'Scope and price defined together',
     ],
-    pullQuote: 'It\u2019s working. I just need it to work faster \u2014 and I can\u2019t keep doing this alone.',
+    pullQuote:
+      'It\u2019s working. I just need it to work faster \u2014 and I can\u2019t keep doing this alone.',
   },
 ];
 
 export function Pricing() {
   const sectionRef = useRef<HTMLElement>(null);
-  const tierHoverTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const tierHoverTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>(
+    {}
+  );
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -90,7 +100,11 @@ export function Pricing() {
           y: 0,
           duration: 0.7,
           ease: 'power3.out',
-          scrollTrigger: { trigger: interstitial, start: 'top 85%', once: true },
+          scrollTrigger: {
+            trigger: interstitial,
+            start: 'top 85%',
+            once: true,
+          },
         }
       );
 
@@ -110,7 +124,9 @@ export function Pricing() {
             start: 'top 85%',
             once: true,
           },
-          onComplete: () => { gsap.set(rows, { clearProps: 'opacity,transform' }); },
+          onComplete: () => {
+            gsap.set(rows, { clearProps: 'opacity,transform' });
+          },
         }
       );
 
@@ -131,23 +147,37 @@ export function Pricing() {
           start: 'top center',
           end: 'bottom center',
           onEnter: () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
+            rowsArr.forEach((r) =>
+              r.classList.remove('v9-pricing-tier--active')
+            );
             row.classList.add('v9-pricing-tier--active');
             trackPricingView(tiers[i].name);
           },
           onEnterBack: () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
+            rowsArr.forEach((r) =>
+              r.classList.remove('v9-pricing-tier--active')
+            );
             row.classList.add('v9-pricing-tier--active');
           },
-          onLeaveBack: i === 0 ? () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
-          } : undefined,
-          onLeave: () => { row.classList.remove('v9-pricing-tier--active'); },
+          onLeaveBack:
+            i === 0
+              ? () => {
+                  rowsArr.forEach((r) =>
+                    r.classList.remove('v9-pricing-tier--active')
+                  );
+                }
+              : undefined,
+          onLeave: () => {
+            row.classList.remove('v9-pricing-tier--active');
+          },
         });
       });
     }, section);
 
-    return () => { ctx.revert(); section.classList.remove('v9-pricing--highlight'); };
+    return () => {
+      ctx.revert();
+      section.classList.remove('v9-pricing--highlight');
+    };
   }, []);
 
   return (
@@ -158,7 +188,6 @@ export function Pricing() {
         className="v9-pricing v9-section-light"
       >
         <div className="v9-pricing-container">
-
           <div className="v9-pricing-header">
             <span className="v9-pricing-label">Investment</span>
             <h2 className="v9-pricing-heading">Three ways to work together.</h2>
@@ -166,16 +195,19 @@ export function Pricing() {
 
           <div className="v9-pricing-interstitial">
             <div className="v9-pricing-interstitial-statement">
-              Share what&apos;s not working.<br />
-              We&apos;ll figure out what fits.<br />
-              <em>Name your price.</em><br />
-              Let&apos;s get to work.<br />
+              Share what&apos;s not working.
+              <br />
+              Figure out what fits.
+              <br />
+              <em>Name your price.</em>
+              <br />
+              Let&apos;s get to work.
+              <br />
               Nice, right?
             </div>
             <p className="v9-pricing-interstitial-sub">
-              Every business is at a different stage — and every budget is different too.
-              Tell me where you are and what you&apos;ve got to work with.
-              I&apos;ll give you a straight read on what&apos;s possible.
+              Every business is at a different stage — and every budget is
+              different too. Tell me the problem. The context fills itself in.
             </p>
           </div>
 
@@ -188,10 +220,15 @@ export function Pricing() {
                 className="v9-pricing-tier"
                 onMouseEnter={() => {
                   tierHoverTimers.current[tier.num] = setTimeout(() => {
-                    trackElementHover('pricing_tier', { tier_name: tier.name, tier_num: tier.num });
+                    trackElementHover('pricing_tier', {
+                      tier_name: tier.name,
+                      tier_num: tier.num,
+                    });
                   }, 500);
                 }}
-                onMouseLeave={() => clearTimeout(tierHoverTimers.current[tier.num])}
+                onMouseLeave={() =>
+                  clearTimeout(tierHoverTimers.current[tier.num])
+                }
               >
                 <div className="v9-pricing-identity">
                   <div className="v9-pricing-num">{tier.num}</div>
@@ -211,26 +248,32 @@ export function Pricing() {
                 </div>
 
                 <div className="v9-pricing-action">
-                  <p className="v9-pricing-quote">&ldquo;{tier.pullQuote}&rdquo;</p>
+                  <p className="v9-pricing-quote">
+                    &ldquo;{tier.pullQuote}&rdquo;
+                  </p>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="v9-pricing-bottom">
-            <p className="v9-pricing-micro">30 minutes. No pitch. Real talk.</p>
+            <p className="v9-pricing-micro">30 minutes.</p>
             <a
               href="#contact"
               className="v9-btn v9-btn-gradient"
               aria-label="Book Your Free Strategy Call — 30 minutes, no pitch"
               onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
-              onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500); }}
+              onMouseEnter={() => {
+                ctaHoverTimer.current = setTimeout(
+                  () => trackElementHover('cta_pricing_bottom'),
+                  500
+                );
+              }}
               onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
             >
               Book Your Free Strategy Call
             </a>
           </div>
-
         </div>
       </section>
 

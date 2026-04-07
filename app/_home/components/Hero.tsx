@@ -46,8 +46,8 @@ export function Hero() {
           trigger: section,
           start: 'top top',
           end: '+=50%',
-          scrub: 1
-        }
+          scrub: 1,
+        },
       });
 
       gsap.to(line2, {
@@ -56,10 +56,9 @@ export function Hero() {
           trigger: section,
           start: 'top top',
           end: '+=50%',
-          scrub: 1
-        }
+          scrub: 1,
+        },
       });
-
     }, section);
 
     return () => ctx.revert();
@@ -74,9 +73,9 @@ export function Hero() {
           </h1>
 
           <p className="v9-hero-sub">
-            100+ small and medium businesses grown. Tell me where you are
-            and name your price. We&apos;ll work out the rest. Whatever
-            brings you here, I&apos;ve probably built it.
+            100+ small and medium businesses grown. Tell me where you are and
+            name your price. Whatever brings you here, I&apos;ve probably built
+            it.
           </p>
 
           <div className="v9-hero-levers">
@@ -101,24 +100,24 @@ export function Hero() {
             <span>Done-for-you</span>
           </div>
 
-
-
           <div className="v9-hero-cta-wrap">
             <a
               href="#contact"
               className="v9-btn v9-btn-gradient"
               onClick={() => trackCTAClick('hero', 'hero')}
-              onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_hero'), 500); }}
+              onMouseEnter={() => {
+                ctaHoverTimer.current = setTimeout(
+                  () => trackElementHover('cta_hero'),
+                  500
+                );
+              }}
               onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
             >
               Book Your Free Strategy Call
             </a>
           </div>
 
-          <p className="v9-hero-micro">
-            30 minutes. An honest look at what&apos;s possible for your
-            business.
-          </p>
+          <p className="v9-hero-micro">30 minutes.</p>
         </div>
       </section>
 

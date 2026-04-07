@@ -1,11 +1,25 @@
 # Claude Code Configuration - Claude Flow V3
 
+## Project
+
+Next.js 14 App Router static export site. Goal: agency sales and qualified lead generation.
+
+**Stack**: Next.js 14, TypeScript, Tailwind v4, GSAP, Vitest, Playwright
+**Deploy**: Vercel static export → `dist/` (no dynamic server rendering in production)
+
+**Critical constraints — do not change without understanding why:**
+
+- `reactStrictMode: false` in `next.config.js` — intentional GSAP workaround
+- `suppressHydrationWarning` on `<html>` — intentional, leave as-is
+- `output: 'export'` active in production — no API routes, no dynamic server components
+- Tailwind v4 uses PostCSS plugin syntax — no `tailwind.config.js`
+
 ## Behavioral Rules (Always Enforced)
 
 - Do what has been asked; nothing more, nothing less
 - NEVER create files unless they're absolutely necessary for achieving your goal
 - ALWAYS prefer editing an existing file to creating a new one
-- NEVER proactively create documentation files (*.md) or README files unless explicitly requested
+- NEVER proactively create documentation files (\*.md) or README files unless explicitly requested
 - NEVER save working files, text/mds, or tests to the root folder
 - Never continuously check status after spawning a swarm — wait for results
 - ALWAYS read a file before editing it
@@ -14,12 +28,17 @@
 ## File Organization
 
 - NEVER save to root folder — use the directories below
-- Use `/src` for source code files
-- Use `/tests` for test files
-- Use `/docs` for documentation and markdown files
-- Use `/config` for configuration files
-- Use `/scripts` for utility scripts
-- Use `/examples` for example code
+- `/app` — Next.js App Router source (routes, components, lib, styles)
+  - `app/_home/` — homepage route
+  - `app/new-site/` — **DO NOT TOUCH** (out-of-scope design experiment)
+  - `app/landing/` — noindexed landing page stubs
+  - `app/systems/` — active offer/service pages
+  - `app/__tests__/` — Vitest unit tests (colocated with source)
+  - `app/lib/` — shared utilities (analytics, fonts, etc.)
+- `/e2e` — Playwright E2E test specs
+- `/public` — static assets
+- `/scripts` — utility scripts
+- `/docs` — documentation and markdown
 
 ## Project Architecture
 
@@ -41,14 +60,29 @@
 ## Build & Test
 
 ```bash
-# Build
+# Dev
+npm run dev
+
+# Build (static export → dist/)
 npm run build
 
-# Test
+# Test (unit — Vitest)
 npm test
+
+# Test (with coverage)
+npm run test:coverage
+
+# Test (E2E — Playwright, auto-starts dev server)
+npm run test:e2e
+
+# Type check
+npx tsc --noEmit
 
 # Lint
 npm run lint
+
+# Format
+npm run format
 ```
 
 - ALWAYS run tests after making code changes
@@ -80,11 +114,11 @@ npm run lint
 
 ### 3-Tier Model Routing (ADR-026)
 
-| Tier | Handler | Latency | Cost | Use Cases |
-|------|---------|---------|------|-----------|
-| **1** | Agent Booster (WASM) | <1ms | $0 | Simple transforms (var→const, add types) — Skip LLM |
-| **2** | Haiku | ~500ms | $0.0002 | Simple tasks, low complexity (<30%) |
-| **3** | Sonnet/Opus | 2-5s | $0.003-0.015 | Complex reasoning, architecture, security (>30%) |
+| Tier  | Handler              | Latency | Cost         | Use Cases                                           |
+| ----- | -------------------- | ------- | ------------ | --------------------------------------------------- |
+| **1** | Agent Booster (WASM) | <1ms    | $0           | Simple transforms (var→const, add types) — Skip LLM |
+| **2** | Haiku                | ~500ms  | $0.0002      | Simple tasks, low complexity (<30%)                 |
+| **3** | Sonnet/Opus          | 2-5s    | $0.003-0.015 | Complex reasoning, architecture, security (>30%)    |
 
 - Always check for `[AGENT_BOOSTER_AVAILABLE]` or `[TASK_MODEL_RECOMMENDATION]` before spawning agents
 - Use Edit tool directly when `[AGENT_BOOSTER_AVAILABLE]`
@@ -114,16 +148,16 @@ npx @claude-flow/cli@latest swarm init --topology hierarchical --max-agents 8 --
 
 ### Core Commands
 
-| Command | Subcommands | Description |
-|---------|-------------|-------------|
-| `init` | 4 | Project initialization |
-| `agent` | 8 | Agent lifecycle management |
-| `swarm` | 6 | Multi-agent swarm coordination |
-| `memory` | 11 | AgentDB memory with HNSW search |
-| `task` | 6 | Task creation and lifecycle |
-| `session` | 7 | Session state management |
-| `hooks` | 17 | Self-learning hooks + 12 workers |
-| `hive-mind` | 6 | Byzantine fault-tolerant consensus |
+| Command     | Subcommands | Description                        |
+| ----------- | ----------- | ---------------------------------- |
+| `init`      | 4           | Project initialization             |
+| `agent`     | 8           | Agent lifecycle management         |
+| `swarm`     | 6           | Multi-agent swarm coordination     |
+| `memory`    | 11          | AgentDB memory with HNSW search    |
+| `task`      | 6           | Task creation and lifecycle        |
+| `session`   | 7           | Session state management           |
+| `hooks`     | 17          | Self-learning hooks + 12 workers   |
+| `hive-mind` | 6           | Byzantine fault-tolerant consensus |
 
 ### Quick CLI Examples
 
@@ -138,18 +172,23 @@ npx @claude-flow/cli@latest doctor --fix
 ## Available Agents (60+ Types)
 
 ### Core Development
+
 `coder`, `reviewer`, `tester`, `planner`, `researcher`
 
 ### Specialized
+
 `security-architect`, `security-auditor`, `memory-specialist`, `performance-engineer`
 
 ### Swarm Coordination
+
 `hierarchical-coordinator`, `mesh-coordinator`, `adaptive-coordinator`
 
 ### GitHub & Repository
+
 `pr-manager`, `code-review-swarm`, `issue-tracker`, `release-manager`
 
 ### SPARC Methodology
+
 `sparc-coord`, `sparc-coder`, `specification`, `pseudocode`, `architecture`
 
 ## Memory Commands Reference

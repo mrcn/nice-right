@@ -37,7 +37,7 @@ The test: would a restaurant owner or a regional manufacturer understand this an
 
 **Tier 1 (cite without caveat):** Government data (Census Bureau, BLS, Federal Reserve), peer-reviewed academic research with disclosed methodology, independent research organizations (OECD, Brookings, Pew)
 
-**Tier 2 (cite with disclosure):** Vendor-funded surveys, consulting firm research (McKinsey, BCG, Gartner), trade associations. Flag these inline: "*(vendor-funded — treat as directional)*"
+**Tier 2 (cite with disclosure):** Vendor-funded surveys, consulting firm research (McKinsey, BCG, Gartner), trade associations. Flag these inline: "_(vendor-funded — treat as directional)_"
 
 **Tier 3 (use with skepticism or cut):** Company blog posts, press releases, self-published surveys with no disclosed methodology or sample size. These can be cited for practitioner patterns and documented implementations, not for statistics.
 
@@ -64,6 +64,43 @@ These apply across all four types. Internalize them.
 **False authority from uncertain data.** A vendor statistic cited without disclosure. A correlation stated as causation. A ceiling presented as a typical result. These are integrity failures. Readers who know the field notice. Readers who don't eventually encounter the conflicting evidence and feel misled.
 
 **Conclusions that don't follow.** The ending should feel like the only place the argument could land. If the conclusion surprises, the structure is wrong, not the conclusion.
+
+---
+
+## Site Copy Voice (updated April 6, 2026)
+
+### The core rule
+
+**"I" by default. "We" only when it genuinely means me + the client together.** Never implies a team. There is no team.
+
+Acceptable "we": _"Scope and price: we figure that out together."_ — collaborative, shared process.
+Not acceptable: _"We deliver results"_, _"We help service contractors"_ — these imply an agency. Replace with "I" or cut the subject.
+
+### Voice register
+
+**Imperative for actions:** Commands and statements, not offers. _"Fix that."_ not _"We can fix that."_
+
+**Passive-assertive for process steps:** Defocuses the doer, emphasizes the outcome. _"A lever gets picked. Something gets built."_ — methodical, not experimental.
+
+**Guarantee copy:** Keep the commitment intact. Swap pronoun only. _"Or We Work For Free"_ → _"Or I Work For Free"_ — stronger, more personal.
+
+### What to cut
+
+- Honesty pledges: _"honest," "real talk," "straight read"_ — claiming these triggers disbelief. Demonstrate, don't announce.
+- Qualifying fluff: _"probably," "sort of," "kind of"_ — unless doing deliberate tonal work (e.g. _"I've probably built it"_ is intentional).
+- Arbitrary specifics: _"Tell me where you are and what you've got to work with"_ — if the two things named aren't the actual two things that matter, cut or rewrite.
+
+### The feeling to aim for
+
+The visitor shouldn't need to prepare a brief. They just show up with the problem. The site already knows what they're dealing with — the pull quotes, the four levers, the self-selecting pricing tiers all demonstrate this. Copy should reinforce that feeling, not undermine it with vague invitations or hollow pledges.
+
+_"Tell me the problem. The context fills itself in."_ — this is the tone. The page has already done the work.
+
+### Exceptions
+
+- **Testimonials:** Third-party quotes. Never rewrite, even if they use "we."
+- **Case study narratives:** "Our" is acceptable when referring to an actual collaborator on a past project. If it was solo work, use "the" or "I."
+- **Process copy on /systems and /landing pages:** Same rules as above. Guarantee copy stays intact — change pronoun, not the promise.
 
 ---
 

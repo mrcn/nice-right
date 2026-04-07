@@ -17,5 +17,13 @@ export default defineConfig({
     setupFiles: ['./app/__tests__/vitest-setup.ts'],
     include: ['**/*.test.{ts,tsx}'],
     exclude: ['node_modules', 'dist', '.next', '.opencode'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['text', 'lcov'],
+      exclude: ['node_modules', 'dist', '.next', 'e2e', '*.config.*'],
+      thresholds: {
+        lines: 80,
+      },
+    },
   },
 });

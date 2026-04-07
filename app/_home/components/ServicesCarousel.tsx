@@ -28,8 +28,12 @@ export function ServicesCarousel() {
     const track = trackRef.current;
     if (!track) return;
 
-    const handleMouseEnter = () => { track.style.animationPlayState = 'paused'; };
-    const handleMouseLeave = () => { track.style.animationPlayState = 'running'; };
+    const handleMouseEnter = () => {
+      track.style.animationPlayState = 'paused';
+    };
+    const handleMouseLeave = () => {
+      track.style.animationPlayState = 'running';
+    };
 
     track.addEventListener('mouseenter', handleMouseEnter);
     track.addEventListener('mouseleave', handleMouseLeave);
@@ -45,17 +49,16 @@ export function ServicesCarousel() {
   return (
     <section className="services-carousel" aria-label="Services carousel">
       <div className="services-carousel-header">
-        <span className="services-carousel-label">What We Do</span>
+        <span className="services-carousel-label">The Work</span>
       </div>
 
       <div className="services-carousel-container">
-        <div
-          ref={trackRef}
-          className="services-carousel-track"
-        >
+        <div ref={trackRef} className="services-carousel-track">
           {allServices.map((service, index) => (
             <div key={index} className="services-carousel-item">
-              <span className="services-carousel-dot" aria-hidden="true">&middot;</span>
+              <span className="services-carousel-dot" aria-hidden="true">
+                &middot;
+              </span>
               <span className="services-carousel-text">{service}</span>
             </div>
           ))}

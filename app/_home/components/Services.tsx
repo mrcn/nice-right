@@ -8,7 +8,8 @@ const levers = [
   {
     num: '01',
     title: 'Get More Customers',
-    quote: 'I feel invisible online. People who need exactly what I do can\'t find me.',
+    quote:
+      "I feel invisible online. People who need exactly what I do can't find me.",
     bullets: [
       'SEO-optimized website',
       'Google Business + local listings',
@@ -16,12 +17,13 @@ const levers = [
       'Paid traffic-ready landing pages',
     ],
     tag: 'Acquisition',
-    context: 'The fix isn\'t ads — it\'s infrastructure. We make you findable, credible, and worth contacting.',
+    context:
+      "The fix isn't ads — it's infrastructure. Findable, credible, worth contacting.",
   },
   {
     num: '02',
     title: 'Charge More',
-    quote: 'I keep losing bids to cheaper competitors. I can\'t raise my rates.',
+    quote: "I keep losing bids to cheaper competitors. I can't raise my rates.",
     bullets: [
       'Positioning and messaging overhaul',
       'Social proof systems',
@@ -29,7 +31,8 @@ const levers = [
       'Outcome-based packaging',
     ],
     tag: 'Pricing Power',
-    context: 'A 1% price increase = 8% operating profit improvement. Credibility is what lets you charge more.',
+    context:
+      'A 1% price increase = 8% operating profit improvement. Credibility is what lets you charge more.',
   },
   {
     num: '03',
@@ -42,12 +45,13 @@ const levers = [
       'CRM setup and automation',
     ],
     tag: 'Retention',
-    context: 'Acquiring a customer costs 5–7× more than keeping one. Retention is the most underinvested lever.',
+    context:
+      'Acquiring a customer costs 5–7× more than keeping one. Retention is the most underinvested lever.',
   },
   {
     num: '04',
     title: 'Cut the Waste',
-    quote: 'I\'m doing $10/hour tasks when I should be doing $500/hour work.',
+    quote: "I'm doing $10/hour tasks when I should be doing $500/hour work.",
     bullets: [
       'Business process audit',
       'Scheduling + intake automation',
@@ -55,7 +59,8 @@ const levers = [
       'Custom internal tools',
     ],
     tag: 'Operations',
-    context: 'Every hour in admin is an hour not selling. We automate the repetitive parts — AI where it fits.',
+    context:
+      'Every hour in admin is an hour not selling. Automate the repetitive parts — AI where it fits.',
   },
 ];
 
@@ -70,7 +75,9 @@ export function Services() {
 
     const ctx = gsap.context(() => {
       const header = section.querySelector('.v9-services-header');
-      const cols = Array.from(section.querySelectorAll<HTMLElement>('.v9-lever-col'));
+      const cols = Array.from(
+        section.querySelectorAll<HTMLElement>('.v9-lever-col')
+      );
 
       gsap.fromTo(
         header,
@@ -80,7 +87,12 @@ export function Services() {
           y: 0,
           duration: 0.8,
           ease: 'power3.out',
-          scrollTrigger: { trigger: header, start: 'top 85%', once: true, onEnter: () => trackSectionView('services') },
+          scrollTrigger: {
+            trigger: header,
+            start: 'top 85%',
+            once: true,
+            onEnter: () => trackSectionView('services'),
+          },
         }
       );
 
@@ -94,7 +106,9 @@ export function Services() {
           stagger: 0.1,
           ease: 'power3.out',
           scrollTrigger: { trigger: cols[0], start: 'top 85%', once: true },
-          onComplete: () => { gsap.set(cols, { clearProps: 'opacity,transform' }); },
+          onComplete: () => {
+            gsap.set(cols, { clearProps: 'opacity,transform' });
+          },
         }
       );
 
@@ -114,11 +128,21 @@ export function Services() {
         let prevActive = -1;
 
         const animateBullets = (col: HTMLElement) => {
-          const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
+          const bullets = col.querySelectorAll<HTMLElement>(
+            '.v9-lever-bullets li'
+          );
           gsap.killTweensOf(bullets);
-          gsap.fromTo(bullets,
+          gsap.fromTo(
+            bullets,
             { opacity: 0, x: -6 },
-            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.25,
+              stagger: 0.04,
+              ease: 'power2.out',
+              overwrite: 'auto',
+            }
           );
         };
 
@@ -131,7 +155,9 @@ export function Services() {
           scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');
-            cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === 0));
+            cols.forEach((col, i) =>
+              col.classList.toggle('v9-lever-col--active', i === 0)
+            );
             prevActive = 0;
             animateBullets(cols[0]);
           },
@@ -150,9 +176,14 @@ export function Services() {
             prevActive = -1;
           },
           onUpdate: (self) => {
-            const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
+            const active = Math.min(
+              Math.floor(self.progress * cols.length),
+              cols.length - 1
+            );
             if (active !== prevActive) {
-              cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+              cols.forEach((col, i) =>
+                col.classList.toggle('v9-lever-col--active', i === active)
+              );
               animateBullets(cols[active]);
               prevActive = active;
             }
@@ -161,7 +192,10 @@ export function Services() {
       }
     }, section);
 
-    return () => { ctx.revert(); section.classList.remove('v9-services--highlight'); };
+    return () => {
+      ctx.revert();
+      section.classList.remove('v9-services--highlight');
+    };
   }, []);
 
   return (
