@@ -74,8 +74,8 @@ export function Hero() {
           </h1>
 
           <p className="v9-hero-sub">
-            100+ small and medium businesses grown. Tell me where you are
-            and name your price. We&apos;ll work out the rest. Whatever
+                        100+ small and medium businesses grown. Tell me where you are and
+            name your price. Whatever
             brings you here, I&apos;ve probably built it.
           </p>
 
@@ -116,8 +116,7 @@ export function Hero() {
           </div>
 
           <p className="v9-hero-micro">
-            30 minutes. An honest look at what&apos;s possible for your
-            business.
+            30 minutes.
           </p>
         </div>
       </section>
