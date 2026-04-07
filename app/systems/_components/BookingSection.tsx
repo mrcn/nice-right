@@ -18,7 +18,7 @@ export function BookingSection({ embedId }: BookingProps) {
               30 minutes. No pitch. Real talk.
             </h2>
             <p className="sys-booking-sub">
-              Tell me where you are. I&apos;ll give you a straight read on what&apos;s possible.
+              Tell me where you are. We&apos;ll figure out what fits.
             </p>
           </div>
 

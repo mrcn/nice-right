@@ -45,7 +45,7 @@ export function ServicesCarousel() {
   return (
     <section className="services-carousel" aria-label="Services carousel">
       <div className="services-carousel-header">
-        <span className="services-carousel-label">What We Do</span>
+        <span className="services-carousel-label">The Work</span>
       </div>
 
       <div className="services-carousel-container">

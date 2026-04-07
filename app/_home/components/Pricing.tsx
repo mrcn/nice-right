@@ -11,7 +11,7 @@ const tiers = [
     tagline: 'Your business, findable and credible.',
     timeline: 'Typically 4–8 weeks',
     description:
-      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. We fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
+      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. Fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
     deliverables: [
       '5-page website, mobile-optimized and SEO-ready',
       'Email list + lead magnet + welcome sequence',
@@ -27,7 +27,7 @@ const tiers = [
     tagline: 'One lever, tested and proven.',
     timeline: 'First results in 30–45 days',
     description:
-      "More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. We pick that lever, build something to test it, and get you real results — not a deck, not a plan. If it works, you\u2019ve got a new edge. If it doesn\u2019t, you learned fast.",
+      'More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. A lever gets picked. Something gets built to move it. Real results — fast.',
     deliverables: [
       'Working solution targeting your chosen growth lever',
       'Whatever it takes: landing page, tool, automation, system',
@@ -42,7 +42,7 @@ const tiers = [
     tagline: 'Your business, grown together.',
     timeline: 'Ongoing \u2014 as long as it makes sense',
     description:
-      "It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between. Scope and price: we figure that out together.",
+      "It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between — in your corner, not on a retainer. Scope and price: we figure that out together.",
     deliverables: [
       'Deep-dive into your business, market, and opportunities',
       'Ongoing strategy, brainstorming, prioritization',
@@ -173,9 +173,9 @@ export function Pricing() {
               Nice, right?
             </div>
             <p className="v9-pricing-interstitial-sub">
-              Every business is at a different stage — and every budget is different too.
-              Tell me where you are and what you&apos;ve got to work with.
-              I&apos;ll give you a straight read on what&apos;s possible.
+              Every business is at a different stage — and every budget is
+              different too. Tell me the problem. The context fills itself in.
+
             </p>
           </div>
 
