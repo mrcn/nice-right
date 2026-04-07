@@ -1,0 +1,72 @@
+{
+  "created_at": "2026-04-07T12:04:55.473367Z",
+  "epic": {
+    "data": {
+      "branch_name": "fn-10-unify-scroll-highlight-active-state",
+      "completion_review_status": "unknown",
+      "completion_reviewed_at": null,
+      "created_at": "2026-04-07T02:18:58.662705Z",
+      "default_impl": null,
+      "default_review": null,
+      "default_sync": null,
+      "depends_on_epics": [
+        "fn-4-mgl",
+        "fn-5-qos",
+        "fn-6-5lg"
+      ],
+      "id": "fn-10-unify-scroll-highlight-active-state",
+      "next_task": 1,
+      "plan_review_status": "unknown",
+      "plan_reviewed_at": null,
+      "spec_path": ".flow/specs/fn-10-unify-scroll-highlight-active-state.md",
+      "status": "open",
+      "title": "Unify scroll-highlight active-state design system",
+      "updated_at": "2026-04-07T02:20:59.862726Z"
+    },
+    "spec": "# Unify scroll-highlight active-state design system\n\n## Overview\n\nTwo homepage sections \u2014 Services (4-column pinned grid) and Pricing (3-row scroll-through) \u2014 both implement a scroll-driven \"active item\" highlight pattern, but with divergent CSS values. The pattern is conceptually identical: dim inactive items to 0.65 opacity, highlight the active item with a left inset border + optional background tint. The inconsistency is:\n\n| Property | Services | Pricing |\n|---|---|---|\n| Inset border width | 3px | **4px** (canonical) |\n| Background tint | **missing** | `rgba(11,138,110,0.03)` |\n| Transition easing | `linear` | **cubic-bezier(0.16,1,0.3,1)** (canonical) |\n| Transition duration | 0.35s | **0.4s** (canonical) |\n| Token usage | hardcoded | hardcoded |\n| Section class leak | clean | **bug: never removed on leave** |\n\nThis epic:\n1. Extracts the pattern into shared design tokens in `app/_shared/tokens.css`\n2. Unifies Services.tsx active state to match the Pricing standard (bg tint + spring easing)\n3. Fixes the Pricing highlight class leak (`v9-pricing--highlight` never removed on scroll past)\n4. Updates docs to reflect \"Active State: implemented\"\n\n## Scope\n\n**In scope:**\n- `app/_shared/tokens.css` \u2014 add 5 scroll-highlight tokens\n- `app/_home/components/Services.tsx` \u2014 CSS-only: add bg tint, spring easing, 4px border, token refs\n- `app/_home/components/Pricing.tsx` \u2014 CSS: token refs + `onLeave`/`onLeaveBack` class-leak fix\n- `docs/brand-guidelines.md` \u2014 document active-state pattern\n- `docs/interaction-design-analysis.md` \u2014 update \"Active State: NONE\" entries\n\n**Explicitly out of scope:**\n- FAQ, Testimonials, Proof, Nav active states (defer to a future epic)\n- Mobile highlight for Pricing (no equivalent today \u2014 separate decision)\n- Full `#0B8A6E` \u2192 `var(--v9-accent)` sweep across all components (too broad for this epic)\n- `useScrollHighlight` hook extraction (premature with only 2 consumers)\n- `clearProps` race condition audit (defer)\n\n## Design decisions (canonical values)\n\n| Token | Value | Rationale |\n|---|---|---|\n| `--v9-highlight-dim` | `0.65` | Same in both \u2014 confirmed canonical |\n| `--v9-highlight-inset-w` | `4px` | Pricing value; more visible, more polished |\n| `--v9-highlight-bg` | `rgba(11, 138, 110, 0.03)` | Pricing value; missing in Services |\n| `--v9-highlight-duration` | `0.4s` | Pricing value; more relaxed feel |\n| `--v9-highlight-easing` | `cubic-bezier(0.16, 1, 0.3, 1)` | Pricing value; spring-like, feels premium vs linear |\n\nNote on `rgba()` token: CSS custom properties can't natively decompose hex to RGB. Define as literal `rgba(11, 138, 110, 0.03)`. If dark-section support is needed later, add a `--v9-highlight-bg-dark` variant.\n\n## Performance note\n\n`background-color` transitions trigger paint (not compositor). This is acceptable for class-toggle animations (fires once per threshold crossing, not per scroll frame). The pseudo-element opacity trick is the performance upgrade path if paint jank is ever observed \u2014 not needed now.\n\n## Quick commands\n\n```bash\n# Dev server\nnpm run dev\n\n# Type check (no TS changes expected, but verify)\nnpx tsc --noEmit\n\n# Build\nnpm run build\n\n# Visual check: scroll through services + pricing sections\n# Look for: bg tint on active item, spring easing, no class bleed after scroll past\n```\n\n## Acceptance\n\n- [ ] `app/_shared/tokens.css` defines all 5 `--v9-highlight-*` tokens\n- [ ] Services active column shows `rgba(11,138,110,0.03)` bg tint (matches Pricing)\n- [ ] Both sections use `cubic-bezier(0.16, 1, 0.3, 1)` easing (not linear)\n- [ ] Both sections use `4px` inset border (not 3px)\n- [ ] Both sections reference tokens via `var()` in their highlight CSS blocks\n- [ ] Pricing `v9-pricing--highlight` class is removed when user scrolls past the section\n- [ ] `prefers-reduced-motion` overrides still work (no active dimming, no transitions)\n- [ ] `npm run build` succeeds, no TypeScript errors\n- [ ] `docs/brand-guidelines.md` documents the active-state pattern\n- [ ] `docs/interaction-design-analysis.md` updated (no longer \"NONE\")\n\n## References\n\n- `app/_home/components/Services.tsx:447-464` \u2014 highlight CSS block\n- `app/_home/components/Services.tsx:115-192` \u2014 GSAP logic (onEnter/onLeave/onUpdate)\n- `app/_home/components/Pricing.tsx:572-605` \u2014 highlight CSS block\n- `app/_home/components/Pricing.tsx:134-174` \u2014 GSAP logic (per-row triggers)\n- `app/_shared/tokens.css` \u2014 existing token file (`:root` scope, `--v9-*` namespace)\n- `docs/brand-guidelines.md:155-183` \u2014 Visual Elements section to update\n- `docs/interaction-design-analysis.md:203-228` \u2014 Active State gaps to resolve\n"
+  },
+  "epic_id": "fn-10-unify-scroll-highlight-active-state",
+  "schema_version": 2,
+  "tasks": [
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-07T02:19:40.395035Z",
+        "depends_on": [],
+        "epic": "fn-10-unify-scroll-highlight-active-state",
+        "id": "fn-10-unify-scroll-highlight-active-state.1",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-10-unify-scroll-highlight-active-state.1.md",
+        "status": "todo",
+        "title": "Add scroll-highlight tokens + unify Services.tsx active state",
+        "updated_at": "2026-04-07T02:20:01.809184Z"
+      },
+      "id": "fn-10-unify-scroll-highlight-active-state.1",
+      "runtime": null,
+      "spec": "# fn-10-unify-scroll-highlight-active-state.1 Add scroll-highlight tokens + unify Services.tsx active state\n\n## Description\nAdd unified scroll-highlight CSS custom properties to the shared token file, then apply them to Services.tsx to bring its active state in line with Pricing.\n\n**Size:** M\n**Files:** `app/_shared/tokens.css`, `app/_home/components/Services.tsx`\n\n## Approach\n\n- In `tokens.css` (`:root` block), add 5 new tokens following the existing `--v9-*` naming convention:\n  - `--v9-highlight-dim`: `0.65`\n  - `--v9-highlight-inset-w`: `4px`\n  - `--v9-highlight-bg`: `rgba(11, 138, 110, 0.03)`\n  - `--v9-highlight-duration`: `0.4s`\n  - `--v9-highlight-easing`: `cubic-bezier(0.16, 1, 0.3, 1)`\n- In `Services.tsx` inline `<style>` block (lines 447-464), update `.v9-services--highlight .v9-lever-col` and `.v9-services--highlight .v9-lever-col--active`:\n  - Change `opacity: 0.65` \u2192 `var(--v9-highlight-dim)`\n  - Change `transition: opacity 0.35s linear, box-shadow 0.35s linear` \u2192 use token duration + easing, add `background` to transition list\n  - Change `box-shadow: inset 3px 0 0 #0B8A6E` \u2192 `inset var(--v9-highlight-inset-w) 0 0 #0B8A6E`\n  - Add `background: var(--v9-highlight-bg)` to active state\n  - Update `.v9-lever-col .v9-lever-title` transition to use tokens\n\nNo GSAP JS changes needed \u2014 this is CSS-only.\n\n## Key context\n\n- `tokens.css` uses `:root` scope and `--v9-*` namespace \u2014 add tokens at end of existing `:root` block\n- Services inline `<style>` is at lines 243-475 of Services.tsx; scroll-highlight block starts at ~line 447\n- `rgba()` values can't use the hex token directly \u2014 define as literal `rgba(11, 138, 110, 0.03)`\n- Do NOT change the `will-change: opacity` on `.v9-lever-col` (line 303) \u2014 it's correct\n- The `prefers-reduced-motion` override block (lines 466-474) uses `!important` \u2014 leave it, it wins correctly\n## Acceptance\n- [ ] `tokens.css` `:root` block contains all 5 `--v9-highlight-*` tokens with correct values\n- [ ] Services.tsx `.v9-lever-col--active` has `background: var(--v9-highlight-bg)`\n- [ ] Services.tsx highlight transitions use `var(--v9-highlight-duration)` and `var(--v9-highlight-easing)`\n- [ ] Services.tsx inset border uses `var(--v9-highlight-inset-w)` (renders as 4px)\n- [ ] `npx tsc --noEmit` passes with no errors\n- [ ] Visually: active Services column shows green bg tint matching Pricing column behavior\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-07T02:19:40.605941Z",
+        "depends_on": [
+          "fn-10-unify-scroll-highlight-active-state.1"
+        ],
+        "epic": "fn-10-unify-scroll-highlight-active-state",
+        "id": "fn-10-unify-scroll-highlight-active-state.2",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-10-unify-scroll-highlight-active-state.2.md",
+        "status": "todo",
+        "title": "Fix Pricing.tsx class leak + adopt tokens in both components + update docs",
+        "updated_at": "2026-04-07T02:20:25.037594Z"
+      },
+      "id": "fn-10-unify-scroll-highlight-active-state.2",
+      "runtime": null,
+      "spec": "# fn-10-unify-scroll-highlight-active-state.2 Fix Pricing.tsx class leak + adopt tokens in both components + update docs\n\n## Description\nFix the Pricing.tsx highlight class leak (section-level class never removed), adopt tokens in both Pricing.tsx and Services.tsx (the accent color hardcoding in their highlight CSS blocks), and update two doc files to reflect the now-implemented active state pattern.\n\n**Size:** M\n**Files:** `app/_home/components/Pricing.tsx`, `docs/brand-guidelines.md`, `docs/interaction-design-analysis.md`\n\nNote: Services.tsx token adoption is done in task .1. This task focuses on Pricing.tsx bugs + both doc updates.\n\n## Approach\n\n**Pricing.tsx \u2014 class leak fix (lines 134-174):**\n- In the `ScrollTrigger.create` for `rows[0]` (the section-level trigger at line 134), add `onLeave` and `onLeaveBack` callbacks that call `section.classList.remove('v9-pricing--highlight')` and strip all `v9-pricing-tier--active` classes from rows\n- The pattern mirrors Services.tsx lines 165-176 exactly\n- Also add cleanup in the `useEffect` return (line 179) \u2014 already present for `v9-pricing--highlight`, verify it's there\n\n**Pricing.tsx \u2014 adopt tokens in highlight CSS (lines 572-605):**\n- Same changes as Services.tsx task .1 but for the Pricing selectors\n- `0.65` \u2192 `var(--v9-highlight-dim)`, `0.4s` \u2192 `var(--v9-highlight-duration)`, easing \u2192 `var(--v9-highlight-easing)`, `4px` \u2192 `var(--v9-highlight-inset-w)`, `rgba(11,138,110,0.03)` \u2192 `var(--v9-highlight-bg)`\n\n**docs/brand-guidelines.md \u2014 Visual Elements section (lines 155-183):**\n- Add a \"Scroll-active state\" subsection documenting the unified pattern: inset border + bg tint, token names, transition spec\n\n**docs/interaction-design-analysis.md \u2014 Active State + ScrollSpy sections (lines 203-228):**\n- Update \"Active State Indicators: NONE\" \u2192 \"IMPLEMENTED\" with brief description\n- Update \"ScrollSpy Functionality: NONE\" \u2192 \"IMPLEMENTED (Services pinned scrub, Pricing per-row center trigger)\"\n\n## Key context\n\n- The class leak: `ScrollTrigger.create` at line 134 uses `once: true` with no `onLeave` \u2014 it adds `.v9-pricing--highlight` once and never removes it. Compare with Services lines 165-176 for the correct pattern.\n- Token values are defined in task .1 \u2014 this task assumes .1 has run first (dependency)\n- `docs/brand-guidelines.md` uses `--nr-*` naming in some places and `--v9-*` in others \u2014 use `--v9-*` for new token references (that's what `tokens.css` uses)\n## Acceptance\n- [ ] Pricing.tsx: `v9-pricing--highlight` class is removed when user scrolls past the section (onLeave fires)\n- [ ] Pricing.tsx: `v9-pricing--highlight` is re-removed when scrolling back up past top of section (onLeaveBack fires)\n- [ ] Pricing.tsx highlight CSS uses `var(--v9-highlight-*)` tokens (not hardcoded values)\n- [ ] `docs/brand-guidelines.md` documents the scroll-active-state pattern with token names\n- [ ] `docs/interaction-design-analysis.md` no longer says \"NONE\" for Active State and ScrollSpy\n- [ ] `npx tsc --noEmit` passes\n- [ ] Visually: dimmed pricing tiers return to full opacity after scrolling past the section\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    }
+  ]
+}

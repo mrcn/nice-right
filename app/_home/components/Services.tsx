@@ -425,7 +425,7 @@ export function Services() {
 
         .v9-services--highlight .v9-lever-col--active {
           opacity: 1;
-          box-shadow: inset var(--v9-highlight-inset-w) 0 0 #0B8A6E;
+          box-shadow: inset var(--v9-highlight-inset-w) 0 0 var(--v9-accent);
           background: var(--v9-highlight-bg);
         }
 
