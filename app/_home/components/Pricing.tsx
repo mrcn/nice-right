@@ -118,10 +118,18 @@ export function Pricing() {
       ScrollTrigger.create({
         trigger: rows[0],
         start: 'top 80%',
-        once: true,
+        end: 'bottom top',
         onEnter: () => {
           section.classList.add('v9-pricing--highlight');
           trackSectionView('pricing');
+        },
+        onLeave: () => {
+          section.classList.remove('v9-pricing--highlight');
+          rowsArr.forEach(r => r.classList.remove('v9-pricing-tier--active'));
+        },
+        onLeaveBack: () => {
+          section.classList.remove('v9-pricing--highlight');
+          rowsArr.forEach(r => r.classList.remove('v9-pricing-tier--active'));
         },
       });
 
@@ -527,24 +535,24 @@ export function Pricing() {
 
         /* Scroll highlight */
         .v9-pricing--highlight .v9-pricing-tier {
-          opacity: 0.65;
-          transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-                      background 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          opacity: var(--v9-highlight-dim);
+          transition: opacity var(--v9-highlight-duration) var(--v9-highlight-easing),
+                      box-shadow var(--v9-highlight-duration) var(--v9-highlight-easing),
+                      background var(--v9-highlight-duration) var(--v9-highlight-easing);
         }
 
         .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
-          transition: color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: color var(--v9-highlight-duration) var(--v9-highlight-easing);
         }
 
         .v9-pricing--highlight .v9-pricing-tier--active {
           opacity: 1;
-          box-shadow: inset 4px 0 0 #0B8A6E;
-          background: rgba(11, 138, 110, 0.03);
+          box-shadow: inset var(--v9-highlight-inset-w) 0 0 #0B8A6E;
+          background: var(--v9-highlight-bg);
         }
 
         .v9-pricing--highlight .v9-pricing-tier--active .v9-pricing-name {
-          color: #0B8A6E;
+          color: var(--v9-accent);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -559,6 +567,7 @@ export function Pricing() {
           .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
             transition: none !important;
           }
+          /* bg tint intentionally preserved under reduced-motion */
         }
       `}</style>
     </>

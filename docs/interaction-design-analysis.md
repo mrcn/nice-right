@@ -202,10 +202,11 @@ Based on visual inspection and GSAP library usage:
 
 #### Active State Indicators
 
-**Current: NONE**
+**Status: IMPLEMENTED**
 
-- No highlight on current section
-- No visual indication of scroll position
+- Per-row scroll-active highlight: left inset border + bg tint on the active tier/service
+- Dimmed siblings provide contrast while section is in view
+- Implemented in Services.tsx (pinned scrub) and Pricing.tsx (per-row center trigger)
 
 #### Mobile Menu Behavior
 
@@ -222,10 +223,11 @@ Based on visual inspection and GSAP library usage:
 
 #### ScrollSpy Functionality
 
-**Current: NONE**
+**Status: IMPLEMENTED (section-level)**
 
-- Navigation doesn't update to show current section
-- User loses context while scrolling
+- Services: pinned scrub — GSAP ScrollTrigger pins section while items animate through; active item tracks scroll position
+- Pricing: per-row center trigger — each tier fires `onEnter`/`onLeaveBack` as it crosses viewport center
+- Section highlight class added on enter, removed on leave in both directions (no class leak)
 
 ### Recommendations
 
