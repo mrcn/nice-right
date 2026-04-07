@@ -22,4 +22,10 @@
     var(--font-instrument-serif), Georgia, 'Times New Roman', serif;
   --v9-font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
   --v9-font-mono: var(--font-jetbrains-mono), 'Courier New', monospace;
+
+  --v9-highlight-dim: 0.65;
+  --v9-highlight-inset-w: 4px;
+  --v9-highlight-bg: color-mix(in srgb, var(--v9-accent) 3%, transparent);
+  --v9-highlight-duration: 0.4s;
+  --v9-highlight-easing: cubic-bezier(0.16, 1, 0.3, 1);
 }

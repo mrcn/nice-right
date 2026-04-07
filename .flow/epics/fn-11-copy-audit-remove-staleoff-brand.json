@@ -1,0 +1,13 @@
+{
+  "branch_name": "fn-11-copy-audit-remove-staleoff-brand",
+  "created_at": "2026-04-07T02:21:00.868800Z",
+  "depends_on_epics": [],
+  "id": "fn-11-copy-audit-remove-staleoff-brand",
+  "next_task": 1,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "spec_path": ".flow/specs/fn-11-copy-audit-remove-staleoff-brand.md",
+  "status": "open",
+  "title": "Copy audit: remove stale/off-brand phrases across all pages",
+  "updated_at": "2026-04-07T02:21:00.869246Z"
+}

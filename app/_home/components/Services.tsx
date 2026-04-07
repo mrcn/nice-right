@@ -412,29 +412,33 @@ export function Services() {
 
         /* Scroll highlight */
         .v9-services--highlight .v9-lever-col {
-          opacity: 0.65;
-          transition: opacity 0.35s linear, box-shadow 0.35s linear;
+          opacity: var(--v9-highlight-dim);
+          transition:
+            opacity var(--v9-highlight-duration) var(--v9-highlight-easing),
+            box-shadow var(--v9-highlight-duration) var(--v9-highlight-easing),
+            background 0.2s ease-out;
         }
 
         .v9-services--highlight .v9-lever-col .v9-lever-title {
-          transition: color 0.35s linear;
+          transition: color var(--v9-highlight-duration) var(--v9-highlight-easing);
         }
 
         .v9-services--highlight .v9-lever-col--active {
           opacity: 1;
-          box-shadow: inset 3px 0 0 #0B8A6E;
+          box-shadow: inset var(--v9-highlight-inset-w) 0 0 var(--v9-accent);
+          background: var(--v9-highlight-bg);
         }
 
         .v9-services--highlight .v9-lever-col--active .v9-lever-title {
-          color: #0B8A6E;
+          color: var(--v9-accent);
         }
 
+        /* bg tint intentionally preserved under reduced-motion — color cue, not animation */
         @media (prefers-reduced-motion: reduce) {
           .v9-services-header,
           .v9-lever-col,
           .v9-lever-col .v9-lever-title {
             opacity: 1 !important;
-            transform: none !important;
             transition: none !important;
           }
         }

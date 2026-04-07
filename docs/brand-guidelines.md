@@ -181,6 +181,13 @@ The Nice Right logo combines the initials "NR" with an integrated checkmark—sy
 - Subtle radial gradients (never harsh)
 - Organic shapes kept minimal and purposeful
 
+**Scroll-active state:**
+
+- Pattern: left inset border (`--v9-highlight-inset-w: 4px`) + subtle bg tint (`--v9-highlight-bg`) + title color (`--v9-accent`)
+- Dimmed siblings: `--v9-highlight-dim` opacity applied to inactive rows while section is active
+- Transition tokens: `--v9-highlight-duration` (0.4s), `--v9-highlight-easing` (cubic-bezier(0.16, 1, 0.3, 1))
+- Note: Services uses `0.2s ease-out` for background (scrub context); Pricing uses the standard spring duration
+
 ---
 
 ## Photography & Imagery
