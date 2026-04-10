@@ -11,6 +11,10 @@
 .swarm/
 .hive/
 .sisyphus/
+.claude/agents/
+.claude/commands/
+.claude/skills/
+.claude/helpers/
 tsconfig.tsbuildinfo
 
 # Root-level design screenshot PNGs (already in history — gitignore prevents future commits)
