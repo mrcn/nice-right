@@ -44,9 +44,8 @@ Run `ruflo init` to regenerate the `.claude/` infrastructure, then reconcile pro
 - [ ] `npm run build` passes
 - [ ] Migration committed on `chore/ruflo-migration` branch, ready for PR to main
 ## Done summary
-TBD
-
+Ran ruflo init --force to regenerate .claude/ infrastructure (agents, helpers, hooks, commands, skills), then reconciled project config: updated .claude/settings.json with full ruflo hooks and permissions, replaced all @claude-flow/cli@latest references in CLAUDE.md with ruflo@latest, and ensured .mcp.json points to ruflo mcp start. Build and tests pass, ruflo MCP connected.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 1bb86bf61582b1a3b50e22e1dc7ada79b165b526
+- Tests: npm test, npm run build
 - PRs:

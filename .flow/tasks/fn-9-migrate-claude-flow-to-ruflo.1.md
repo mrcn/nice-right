@@ -46,9 +46,8 @@ Create migration branch and remove all claude-flow V3 artifacts from the project
 - [ ] `git status` shows clean working tree after commit (no orphaned claude-flow files)
 - [ ] No dangling hook references in `.claude/settings.json` pointing to deleted helper files
 ## Done summary
-TBD
-
+Removed all remaining git-tracked claude-flow artifacts (.claude/agents, .claude/commands, .claude/skills, .claude/helpers — 258 files), deleted .claude-flow runtime dir from disk, purged all dangling hook references from .claude/settings.json, and added the four subdirs to .gitignore.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 0b3d51d24b04330c35957eeb1e172446b35742c2
+- Tests: npm test
 - PRs:
