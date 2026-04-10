@@ -8,6 +8,9 @@
 .vercel
 .env*.local
 .claude-flow/
+.swarm/
+.hive/
+.sisyphus/
 tsconfig.tsbuildinfo
 
 # Root-level design screenshot PNGs (already in history — gitignore prevents future commits)
