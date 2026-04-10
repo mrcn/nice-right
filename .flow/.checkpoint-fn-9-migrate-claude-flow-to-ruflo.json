@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-04-09T02:16:37.348284Z",
+  "epic": {
+    "data": {
+      "branch_name": "chore/ruflo-migration",
+      "completion_review_status": "unknown",
+      "completion_reviewed_at": null,
+      "created_at": "2026-04-09T02:14:39.081812Z",
+      "default_impl": null,
+      "default_review": null,
+      "default_sync": null,
+      "depends_on_epics": [],
+      "id": "fn-9-migrate-claude-flow-to-ruflo",
+      "next_task": 1,
+      "plan_review_status": "unknown",
+      "plan_reviewed_at": null,
+      "spec_path": ".flow/specs/fn-9-migrate-claude-flow-to-ruflo.md",
+      "status": "open",
+      "title": "Migrate claude-flow to ruflo",
+      "updated_at": "2026-04-09T02:15:07.692150Z"
+    },
+    "spec": "# Migrate claude-flow to ruflo\n\n## Overview\n\nRemove stale claude-flow V3 project config and re-initialize with ruflo (the renamed successor). ruflo IS claude-flow \u2014 same codebase, v3.5.78 vs current v3.5.40 pinned in `.mcp.json`. ruflo is already installed globally at `/usr/local/bin/ruflo v3.5.78`. This is a rebrand/version-update + project config refresh, not a functional rewrite.\n\n**Scope: project-level only** \u2014 no changes to global `~/.claude/` or `~/.claude.json` (ruflo MCP already registered globally).\n\n**Branch**: `chore/ruflo-migration` (do NOT pollute `fix/copy-text-updates`)\n\n## What stays\n\n- `.flow/` \u2014 flow-next plugin (gmickel-claude-marketplace), actively used\n- `.opencode/` \u2014 separate AI tool, unrelated\n- `.claude/testing-hooks.json` \u2014 project-specific testing rules (build-must-pass, tests-must-pass)\n- `.claude/settings.local.json` \u2014 flow-next flowctl permissions\n- `.husky/pre-commit` \u2014 runs `npm test`, unrelated\n- `CLAUDE.md` behavioral rules section (\"Behavioral Rules Always Enforced\", file org, DDD, security, build)\n\n## What gets removed\n\n- `.claude/agents/` (25+ files) \u2014 claude-flow boilerplate, ruflo init regenerates\n- `.claude/commands/` (~90 files) \u2014 claude-flow boilerplate, ruflo init regenerates\n- `.claude/skills/` (32 files) \u2014 claude-flow boilerplate, ruflo init regenerates\n- `.claude/helpers/` (41 scripts) \u2014 claude-flow hook handlers, ruflo init regenerates\n- `.claude-flow/` runtime dir \u2014 gitignored except 2 leaked files (`agents/store.json`, `daemon-state.json`)\n- `.hive/issues.jsonl` \u2014 tracked, remove\n- `.swarm/` (`memory.db`, `schema.sql`, `hnsw.index`) \u2014 tracked/untracked, remove\n- `.sisyphus/` (`boulder.json`, `plans/`) \u2014 tracked, remove\n- `.claude/settings.json` claude-flow blocks \u2014 hooks, claudeFlow config, env vars, permissions\n\n## Quick commands\n\n```bash\n# Verify ruflo is installed globally\nruflo --version\n\n# Run dry-run cleanup first\nnpx @claude-flow/cli cleanup\n\n# After migration: verify health\nruflo doctor --fix\n\n# Verify MCP server responds\nclaude mcp list\n```\n\n## Acceptance\n\n- [ ] `ruflo --version` prints 3.5.78 (or latest)\n- [ ] `.mcp.json` points to `ruflo mcp start` (not `@claude-flow/cli@3.5.40`)\n- [ ] `ruflo doctor` passes without errors\n- [ ] No references to `@claude-flow/cli` or `npx @claude-flow` remain in tracked files (except historical gitignore)\n- [ ] `.claude/settings.json` has ruflo hooks, not claude-flow hooks\n- [ ] `CLAUDE.md` project behavioral rules preserved; claude-flow V3 boilerplate sections replaced with ruflo equivalents\n- [ ] `.claude/testing-hooks.json` and `settings.local.json` preserved intact\n- [ ] `.flow/` (flow-next) still functional\n- [ ] Build still passes: `npm run build`\n- [ ] Git history clean: migration isolated on `chore/ruflo-migration` branch\n\n## References\n\n- https://github.com/ruvnet/ruflo \u2014 source of truth for ruflo init behavior\n- `/usr/local/bin/ruflo` \u2014 already installed globally (v3.5.78)\n- `/Users/marcin/Code/nice-right/.claude/settings.json` \u2014 296 lines, needs selective cleanup (preserve project hooks, remove claudeFlow block)\n- `/Users/marcin/Code/nice-right/CLAUDE.md` \u2014 189 lines, mostly boilerplate\n- Practice-scout finding: `npx @claude-flow/cli cleanup --force --keep-config` is the safest starting point\n"
+  },
+  "epic_id": "fn-9-migrate-claude-flow-to-ruflo",
+  "schema_version": 2,
+  "tasks": [
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-09T02:15:15.446565Z",
+        "depends_on": [],
+        "epic": "fn-9-migrate-claude-flow-to-ruflo",
+        "id": "fn-9-migrate-claude-flow-to-ruflo.1",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-9-migrate-claude-flow-to-ruflo.1.md",
+        "status": "todo",
+        "title": "Prep branch + cleanup claude-flow artifacts",
+        "updated_at": "2026-04-09T02:15:37.114894Z"
+      },
+      "id": "fn-9-migrate-claude-flow-to-ruflo.1",
+      "runtime": null,
+      "spec": "# fn-9-migrate-claude-flow-to-ruflo.1 Prep branch + cleanup claude-flow artifacts\n\n## Description\nCreate migration branch and remove all claude-flow V3 artifacts from the project. This establishes a clean slate for ruflo init to run.\n\n**Size:** M\n**Files:**\n- `.claude/agents/` \u2014 delete entirely (25+ agent .md files, git-tracked)\n- `.claude/commands/` \u2014 delete entirely (~90 command .md files, git-tracked)\n- `.claude/skills/` \u2014 delete entirely (32 skill .md files, git-tracked)\n- `.claude/helpers/` \u2014 delete entirely (41 hook scripts, git-tracked)\n- `.claude-flow/agents/store.json` \u2014 delete (leaked past gitignore)\n- `.claude-flow/daemon-state.json` \u2014 delete (leaked past gitignore)\n- `.hive/issues.jsonl` \u2014 delete (git-tracked)\n- `.swarm/memory.db`, `.swarm/schema.sql` \u2014 delete (git-tracked)\n- `.swarm/hnsw.index` \u2014 delete (untracked, 1.5MB)\n- `.sisyphus/boulder.json`, `.sisyphus/plans/` \u2014 delete (git-tracked)\n- `.mcp.json` \u2014 update command (not delete)\n- `.gitignore` \u2014 add entries for `.swarm/`, `.hive/`, `.sisyphus/`\n\n## Approach\n\n1. `git checkout -b chore/ruflo-migration` from main (not from fix/copy-text-updates)\n2. Back up `.claude/settings.json` and `.claude/testing-hooks.json` to `/tmp/` (not committed)\n3. Run `npx @claude-flow/cli cleanup` (dry-run) to see what the CLI identifies \u2014 compare against this list\n4. Run `npx @claude-flow/cli cleanup --force` (do NOT use `--keep-config` \u2014 we want to remove the claudeFlow blocks from settings.json, then manually restore project-specific parts from backup)\n5. Manually `git rm -r` the tracked dirs not caught by cleanup: `.claude/agents/`, `.claude/commands/`, `.claude/skills/` (cleanup may not touch these)\n6. Remove runtime dirs (untracked): `.claude-flow/`, `.hive/`, `.swarm/`, `.sisyphus/`\n7. Update `.gitignore`: add `.swarm/`, `.hive/`, `.sisyphus/` entries\n8. Stage and commit: `chore: remove claude-flow V3 artifacts`\n\n## Key context\n\n- `.claude/helpers/hook-handler.cjs` and `.claude/helpers/auto-memory-hook.mjs` are referenced by hooks in `.claude/settings.json`. Cleanup command should handle removing these hook entries, but verify settings.json has no dangling hook references after cleanup.\n- `.claude/testing-hooks.json` and `.claude/settings.local.json` must NOT be deleted \u2014 preserve both.\n- `.flow/` (flow-next) and `.opencode/` are separate tools \u2014 do not touch.\n- The `cleanup` command identifies only ~4 artifacts. The rest must be removed manually via `git rm -r`.\n## Acceptance\n- [ ] Branch `chore/ruflo-migration` created from main\n- [ ] `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.claude/helpers/` all removed from git\n- [ ] `.claude-flow/`, `.hive/`, `.swarm/`, `.sisyphus/` removed from disk\n- [ ] `.claude/testing-hooks.json` still present and unchanged\n- [ ] `.claude/settings.local.json` still present and unchanged\n- [ ] `.flow/` directory still present (flow-next untouched)\n- [ ] `.gitignore` updated with `.swarm/`, `.hive/`, `.sisyphus/`\n- [ ] `git status` shows clean working tree after commit (no orphaned claude-flow files)\n- [ ] No dangling hook references in `.claude/settings.json` pointing to deleted helper files\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-09T02:15:15.642903Z",
+        "depends_on": [
+          "fn-9-migrate-claude-flow-to-ruflo.1"
+        ],
+        "epic": "fn-9-migrate-claude-flow-to-ruflo",
+        "id": "fn-9-migrate-claude-flow-to-ruflo.2",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-9-migrate-claude-flow-to-ruflo.2.md",
+        "status": "todo",
+        "title": "Ruflo init + config reconciliation + verify",
+        "updated_at": "2026-04-09T02:16:06.359575Z"
+      },
+      "id": "fn-9-migrate-claude-flow-to-ruflo.2",
+      "runtime": null,
+      "spec": "# fn-9-migrate-claude-flow-to-ruflo.2 Ruflo init + config reconciliation + verify\n\n## Description\nRun `ruflo init` to regenerate the `.claude/` infrastructure, then reconcile project-specific configuration that must be preserved. Update `.mcp.json` and `CLAUDE.md`. Verify health with `ruflo doctor`.\n\n**Size:** M\n**Files:**\n- `.mcp.json` \u2014 replace `@claude-flow/cli@3.5.40 mcp start` with `ruflo mcp start`\n- `.claude/settings.json` \u2014 generated fresh by ruflo init; restore project-specific hooks (testing-hooks.json ref, custom permissions)\n- `CLAUDE.md` \u2014 merge: keep \"Behavioral Rules Always Enforced\" + file org + DDD + security + build sections; replace \"Claude Code Configuration - Claude Flow V3\" title and claude-flow V3 boilerplate sections with ruflo equivalents (update CLI command names from `npx @claude-flow/cli@latest` to `npx ruflo@latest`)\n- `.claude/agents/`, `.claude/commands/`, `.claude/skills/`, `.claude/helpers/` \u2014 regenerated by ruflo init\n\n## Approach\n\n1. Run `ruflo init` (binary at `/usr/local/bin/ruflo`) \u2014 without `--force` first to see what it generates\n2. Update `.mcp.json`: change `command` from `npx` with `@claude-flow/cli@3.5.40` args to `ruflo mcp start` \u2014 follow the shape of current file at L1-20\n3. Restore from `/tmp/` backup: merge `testing-hooks.json` back, verify `settings.local.json` still intact\n4. Reconcile `CLAUDE.md`:\n   - Keep verbatim: \"Behavioral Rules (Always Enforced)\", \"File Organization\", \"Project Architecture\" (DDD section), \"Build & Test\", \"Security Rules\"\n   - Replace: title line, \"Project Config\" block (Topology/Max Agents/HNSW), \"Swarm Orchestration\" npx commands, \"V3 CLI Commands\" table, \"Memory Commands Reference\", \"Quick Setup\", \"Support\" links\n   - Rule: all `npx @claude-flow/cli@latest` \u2192 `npx ruflo@latest` throughout\n5. Run `ruflo doctor --fix` \u2014 fix any issues it reports\n6. Run `claude mcp list` \u2014 verify ruflo MCP server appears\n7. Run `npm run build` \u2014 confirm nothing broken\n8. Commit: `chore: init ruflo, reconcile project config`\n\n## Key context\n\n- `/usr/local/bin/ruflo` is already v3.5.78 \u2014 no install needed, just `ruflo init`\n- `ruflo init` without `--force` skips existing files. Since we deleted all the targets in T1, it will generate fresh versions.\n- `.claude/settings.json` from ruflo init will have the standard hook set. After generation, merge back in: the reference to `testing-hooks.json` for PreToolUse/Bash hook if present, and any `settings.local.json` permission entries.\n- Global `~/.claude.json` already has ruflo MCP registered \u2014 the project `.mcp.json` adds project-scoped MCP, which overrides.\n- `CLAUDE.md` \u2014 The ruflo init generates a generic `CLAUDE.md`. Our project's current one has project-specific rules in the top ~30 lines (\"Behavioral Rules\") \u2014 those must survive. The bottom 150 lines are pure boilerplate that can be replaced.\n## Acceptance\n- [ ] `ruflo init` completed without errors\n- [ ] `.mcp.json` references `ruflo mcp start` (not `@claude-flow/cli`)\n- [ ] `ruflo doctor` passes with no errors (or only warnings)\n- [ ] `claude mcp list` shows ruflo MCP server active for this project\n- [ ] `.claude/settings.json` has ruflo hooks and no dangling helper references\n- [ ] `CLAUDE.md` project behavioral rules preserved verbatim (Behavioral Rules, File Organization, DDD, Security, Build sections)\n- [ ] No `@claude-flow/cli` or `npx @claude-flow` references in tracked files\n- [ ] `.claude/testing-hooks.json` present and functional\n- [ ] `.claude/settings.local.json` present and intact\n- [ ] `npm run build` passes\n- [ ] Migration committed on `chore/ruflo-migration` branch, ready for PR to main\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    }
+  ]
+}

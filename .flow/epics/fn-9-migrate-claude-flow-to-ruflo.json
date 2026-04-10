@@ -1,0 +1,18 @@
+{
+  "branch_name": "chore/ruflo-migration",
+  "completion_review_status": "unknown",
+  "completion_reviewed_at": null,
+  "created_at": "2026-04-09T02:14:39.081812Z",
+  "default_impl": null,
+  "default_review": null,
+  "default_sync": null,
+  "depends_on_epics": [],
+  "id": "fn-9-migrate-claude-flow-to-ruflo",
+  "next_task": 1,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "spec_path": ".flow/specs/fn-9-migrate-claude-flow-to-ruflo.md",
+  "status": "open",
+  "title": "Migrate claude-flow to ruflo",
+  "updated_at": "2026-04-09T02:15:07.692150Z"
+}
