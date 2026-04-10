@@ -316,6 +316,34 @@ Examples: "Results", "Services", "Testimonials", "FAQ"
 - CTA button right: "Book a Free Call"
 - Scroll progress bar in amber (subtle)
 
+**Nav variants** (`app/_shared/nav.css`):
+
+| Class | Background | Text | When used |
+|---|---|---|---|
+| *(none)* | Transparent | White | Default; hero scroll behaviour |
+| `.v9-nav--solid` | `rgba(255,255,255,0.95)` | Dark `#0c1117` | Homepage after hero exits viewport |
+| `.v9-nav--solid-dark` | `rgba(12,17,23,0.95)` | White / teal accent | Work/case-study pages (`variant="dark"` prop) |
+
+To use the dark variant: `<Nav defaultSolid variant="dark" />` — keeps the nav immediately opaque on page load while applying the dark palette.
+
+### Breadcrumb
+
+Used on all `/work/*` routes, rendered by `app/work/layout.tsx`.
+
+- Component: `app/work/_components/Breadcrumb.tsx`
+- Renders: `Home / Work / [Page Title]`
+- Styles: `.v9-breadcrumb` in `app/work/work.css`
+- Label map is a static const in the component — update it when adding new case studies
+
+### Case Study CTA Card
+
+Persistent section at the bottom of every case study page, inserted by the work layout.
+
+- Component: `app/work/_components/CaseCTA.tsx`
+- Copy: "Let's work together" → `/#contact`
+- Fires: `cta_click` GA4 event with `location: 'case_study_footer'`
+- Styles: `.v9-case-cta` in `app/work/work.css`
+
 ### Hero Section
 
 - Headline with accent color on second line

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Green Goods: Biodiversity Impact Platform | Nice Right',
@@ -486,11 +485,6 @@ export default function GreenGoodsPage() {
         </section>
       </div>
 
-      <footer className="v9-case-footer">
-        <Link href="/work" className="v9-case-back">
-          <span aria-hidden="true">← </span>All Work
-        </Link>
-      </footer>
     </article>
   );
 }

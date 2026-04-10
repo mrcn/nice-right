@@ -6,9 +6,10 @@ import { trackCTAClick, trackNavClick } from '@/app/lib/analytics';
 
 interface NavProps {
   defaultSolid?: boolean;
+  variant?: 'dark' | 'light';
 }
 
-export function Nav({ defaultSolid }: NavProps = {}) {
+export function Nav({ defaultSolid, variant }: NavProps = {}) {
   const navRef = useRef<HTMLElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -97,7 +98,7 @@ export function Nav({ defaultSolid }: NavProps = {}) {
     <>
       <nav
         ref={navRef}
-        className={`v9-nav ${solid ? 'v9-nav--solid' : ''}`}
+        className={`v9-nav ${solid ? (variant === 'dark' ? 'v9-nav--solid-dark' : 'v9-nav--solid') : ''}`}
         aria-label="Main navigation"
       >
         <div className="v9-nav-inner">

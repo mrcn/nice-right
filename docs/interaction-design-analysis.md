@@ -192,6 +192,17 @@ Based on visual inspection and GSAP library usage:
 
 ## 4. NAVIGATION INTERACTIONS
 
+### Nav Variant Behaviour
+
+The nav component (`app/_home/components/Nav.tsx`) supports two solid states, determined by layout context:
+
+| Prop | Solid class | Visual |
+|---|---|---|
+| `<Nav />` (default) | None on load; `.v9-nav--solid` after hero scrolls past | Transparent → white |
+| `<Nav defaultSolid variant="dark" />` | `.v9-nav--solid-dark` immediately on mount | Dark `rgba(12,17,23,0.95)` always |
+
+The `defaultSolid` prop skips the GSAP ScrollTrigger entirely and forces `solid=true` on mount. This is used on work/case study pages where there is no `#hero` element to trigger the scroll transition. The `variant="dark"` prop then selects the dark palette so the opaque nav matches the page background.
+
 ### Current State
 
 #### Anchor Link Smooth Scrolling

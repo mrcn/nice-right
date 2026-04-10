@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-04-10T15:42:13.083267Z",
+  "depends_on": [],
+  "epic": "fn-10-fix-case-study-nav-breadcrumb-cta",
+  "id": "fn-10-fix-case-study-nav-breadcrumb-cta.1",
+  "priority": null,
+  "spec_path": ".flow/tasks/fn-10-fix-case-study-nav-breadcrumb-cta.1.md",
+  "status": "todo",
+  "title": "Add dark nav variant for work layout",
+  "updated_at": "2026-04-10T15:42:30.109617Z"
+}

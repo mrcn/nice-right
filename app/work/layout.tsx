@@ -1,6 +1,8 @@
 import './work.css';
 import { Nav } from '@/app/_home/components/Nav';
 import { Footer } from '@/app/_home/components/Footer';
+import { Breadcrumb } from './_components/Breadcrumb';
+import { CaseCTA } from './_components/CaseCTA';
 
 export default function WorkLayout({
   children,
@@ -9,8 +11,12 @@ export default function WorkLayout({
 }) {
   return (
     <div className="v9-work">
-      <Nav defaultSolid />
-      <main id="main-content">{children}</main>
+      <Nav defaultSolid variant="dark" />
+      <main id="main-content">
+        <Breadcrumb />
+        {children}
+        <CaseCTA />
+      </main>
       <Footer />
     </div>
   );

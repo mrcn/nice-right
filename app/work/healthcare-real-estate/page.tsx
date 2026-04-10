@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Healthcare Real Estate Investment Portal | Nice Right',
@@ -173,9 +172,6 @@ export default function HealthcareRealEstatePage() {
         </section>
       </div>
 
-      <footer className="v9-case-footer">
-        <Link href="/work" className="v9-case-back"><span aria-hidden="true">← </span>All Work</Link>
-      </footer>
     </article>
   )
 }

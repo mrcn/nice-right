@@ -22,6 +22,13 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.v9-nav--solid-dark {
+  background: rgba(12, 17, 23, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(6, 214, 160, 0.15);
+}
+
 .v9-nav-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -194,6 +201,20 @@
   padding: 12px 20px;
   border-radius: 10px;
   border-bottom: none;
+}
+
+/* Dark solid variant — mobile dropdown */
+.v9-nav--solid-dark .v9-nav-mobile {
+  background: rgba(12, 17, 23, 0.98);
+}
+
+.v9-nav--solid-dark .v9-nav-mobile a {
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.v9-nav--solid-dark .v9-nav-mobile a:hover {
+  color: #06d6a0;
 }
 
 /* Responsive */
