@@ -59,46 +59,34 @@ export default function HealthcareRealEstatePage() {
         </section>
 
         <section className="v9-case-section">
-          <h2>Research and Discovery</h2>
-          <ul>
-            <li>Conducted user interviews and cognitive walkthroughs</li>
-            <li>Organized workshop with client&apos;s team</li>
-            <li>Created system map and user journeys</li>
-            <li>Performed design pattern research</li>
-          </ul>
+          <h2>UX Process</h2>
+
+          <h3>Discovery</h3>
           <p>
-            My research phase was multifaceted. I began with one-on-one interviews with platform administrators to understand their needs, pain points, and expectations. A series of cognitive walkthroughs with the lead analyst, a primary user type, provided invaluable insights into the day-to-day use of the system. These sessions were captured on a whiteboard, allowing us to iteratively expand our understanding of the system from the Admin&apos;s perspective.
-          </p>
-          <p>
-            To strengthen our view and increase buy-in, I organized a workshop with a group from the client&apos;s company, including sales team members and our Technical Product Manager. This collaborative session helped us draft a detailed platform description and identify core processes, features, and user actions. We engaged in object-action pairing and exploration, which proved productive and strengthened our relationship with the client.
+            Interviews with platform admins, cognitive walkthroughs with the lead analyst, and a cross-functional workshop with the client&apos;s sales team and our Technical Product Manager. This produced a detailed platform description, identified core processes and user actions, and surfaced the object-action relationships that would drive the architecture.
           </p>
           <p>
             A significant discovery came mid-project: portfolio deals — bundles of multiple facilities sold together — were a meaningful part of the business and hadn&apos;t surfaced in early conversations. We adapted the design to clearly distinguish portfolio listings from single-asset listings, redesigning the hero and photo section so buyers immediately understood what they were evaluating. The underlying architecture required minimal rework; the visual treatment did the heavy lifting.
           </p>
-          <p>
-            I also conducted design pattern research focused on document management and photo gallery systems — the two areas where the platform&apos;s functional complexity was highest. This research grounded our decisions in established patterns while allowing us to tailor interactions to the specific demands of high-stakes real estate transactions.
-          </p>
-        </section>
 
-        <section className="v9-case-section">
-          <h2>UX Process and Deliverables</h2>
-          <ul>
-            <li>Created system map, user journeys, and task flows</li>
-            <li>Developed Action Inventory and UX Object Map</li>
-            <li>Progressed from low-fi map to wireframes and prototypes</li>
-            <li>Conducted usability testing</li>
-          </ul>
+          <h3>System Mapping</h3>
           <p>
-            The UX process began with the creation of a system map, which became a cornerstone piece of design documentation. This map not only helped define the project scope but also provided a holistic view of the system, revealing areas for improvement and supporting informed decision-making later on. From there, I developed detailed user journeys and task flows, giving us a clear picture of user processes paired with pain points.
+            From discovery outputs, I built a system map — the central piece of design documentation for the project. It defined scope, gave the full team a shared view of the system, and became the reference point for every subsequent design decision.
           </p>
+
+          <h3>Object Mapping &amp; Task Flows</h3>
           <p>
-            One of the most valuable exercises was the creation of an Action Inventory and UX Object Map. The Action Inventory served as a comprehensive catalog of user actions, including triggers, outputs, and user roles. This granular view of system functionality was critical in informing the UX design and setting the context for the next step, Object Mapping. The UX Object Map complemented this by visualizing the various elements within the system and their relationships, which began to shape our user-facing architecture.
+            Using an OOUX-influenced approach, I developed an Action Inventory cataloging every user action, its trigger, output, and associated role. This fed directly into a UX Object Map — a visualization of system elements and their relationships that shaped the user-facing architecture. User journeys and task flows followed, pairing user processes with pain points.
           </p>
+
+          <h3>Wireframes &amp; Prototyping</h3>
           <p>
-            Our wireframing process evolved as the project progressed. We started with low-fidelity wireframes in Balsamiq for speed, but as the complexity of the project unfolded, we transitioned to Adobe XD for its superior prototyping capabilities. This allowed us to create interactive prototypes that were valuable for client presentation and usability testing.
+            We started in Balsamiq for speed. As complexity grew, we moved to Adobe XD for interactive prototyping — used for client presentations, stakeholder alignment, and usability testing.
           </p>
+
+          <h3>Usability Testing</h3>
           <p>
-            Throughout the process, we conducted usability tests to refine and improve our designs. This iterative approach ensured that our final product was not only visually appealing but also highly functional and user-friendly.
+            Iterative testing throughout, refining interactions and validating decisions before handoff to the dev team.
           </p>
         </section>
 
