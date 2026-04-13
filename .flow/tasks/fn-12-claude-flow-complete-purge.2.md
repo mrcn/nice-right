@@ -42,9 +42,8 @@ Commit: `chore: delete .flow/fn-9 migration files, close fn-9 epic`
 - [ ] No hook errors appear when starting a new Claude Code session
 - [ ] `grep -r "CLAUDE_FLOW" .claude/ .mcp.json` returns no matches (cross-check fn-12.1)
 ## Done summary
-TBD
-
+Deleted .claude-flow/ runtime directory and fn-9 task/spec/checkpoint files from .flow/, then closed the fn-9-migrate-claude-flow-to-ruflo epic via flowctl. The fn-9 epic JSON was preserved for fn-13 dependency resolution.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 16406a20183ad4d5b717bab5b32e9f9776602ff6
+- Tests: npm test (vitest run — 4 tests passed)
 - PRs:

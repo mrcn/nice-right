@@ -1,7 +1,7 @@
 {
   "branch_name": "fn-12-claude-flow-complete-purge",
-  "completion_review_status": "unknown",
-  "completion_reviewed_at": null,
+  "completion_review_status": "ship",
+  "completion_reviewed_at": "2026-04-13T13:09:22.410087Z",
   "created_at": "2026-04-13T12:34:52.152660Z",
   "default_impl": null,
   "default_review": null,
@@ -14,5 +14,5 @@
   "spec_path": ".flow/specs/fn-12-claude-flow-complete-purge.md",
   "status": "open",
   "title": "claude-flow: complete purge",
-  "updated_at": "2026-04-13T12:53:13.865699Z"
+  "updated_at": "2026-04-13T13:09:22.410750Z"
 }
