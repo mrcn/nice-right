@@ -173,8 +173,6 @@ npx ruflo@latest memory store --key "pattern-auth" --value "JWT with refresh" --
 # Semantic search
 npx ruflo@latest memory search --query "authentication patterns"
 
-# Import all Claude Code memories into AgentDB
-node .claude/helpers/auto-memory-hook.mjs import-all
 ```
 
 ### Claude Code ↔ AgentDB Bridge

@@ -7,7 +7,6 @@
 *.log
 .vercel
 .env*.local
-.claude-flow/
 .swarm/
 .hive/
 .sisyphus/

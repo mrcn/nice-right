@@ -1,0 +1,68 @@
+{
+  "created_at": "2026-04-13T12:48:26.178850Z",
+  "epic": {
+    "data": {
+      "branch_name": "fn-12-claude-flow-complete-purge",
+      "completion_review_status": "unknown",
+      "completion_reviewed_at": null,
+      "created_at": "2026-04-13T12:34:52.152660Z",
+      "default_impl": null,
+      "default_review": null,
+      "default_sync": null,
+      "depends_on_epics": [],
+      "id": "fn-12-claude-flow-complete-purge",
+      "next_task": 1,
+      "plan_review_status": "unknown",
+      "plan_reviewed_at": null,
+      "spec_path": ".flow/specs/fn-12-claude-flow-complete-purge.md",
+      "status": "open",
+      "title": "claude-flow: complete purge",
+      "updated_at": "2026-04-13T12:39:56.580123Z"
+    },
+    "spec": "# claude-flow: complete purge\n\n## Overview\n\nFinish what fn-9 started. The ruflo migration removed the `.claude/helpers/` scripts and the runtime agent dirs, but left dead config in three tracked files. Every Claude Code session currently fires broken hooks (non-blocking but noisy). This epic purges all remaining claude-flow artifacts from tracked files and disk.\n\n## Scope\n\n**In scope:**\n- `.claude/settings.json` \u2014 remove all hooks (every handler file deleted), `statusLine`, `claudeFlow` block, `CLAUDE_FLOW_*` env vars\n- `.mcp.json` \u2014 remove 5 `CLAUDE_FLOW_*` env vars; keep command + `npm_config_update_notifier`\n- `CLAUDE.md` lines 176\u2013177 \u2014 remove dead comment + `auto-memory-hook.mjs import-all` command\n- `.gitignore:10` \u2014 remove `.claude-flow/` entry (directory deleted, entry is dead artifact)\n- `.claude-flow/` runtime dir on disk \u2014 delete (gitignored, safe)\n- `.flow/fn-9-*` migration files \u2014 close epic in flowctl; optionally delete files\n\n**Out of scope:**\n- Global `~/.claude/settings.json` (no claude-flow hooks there \u2014 confirmed by docs-scout)\n- Global claude-flow MCP registration (separate concern)\n- ruflo configuration or permissions (keep everything that isn't explicitly claude-flow)\n- `.gitignore` lines 11\u201312 (`.swarm/`, `.hive/`) \u2014 ruflo may regenerate these dirs; leave\n\n## Approach\n\nTask 1: all tracked file edits in one commit. Task 2: disk cleanup + flowctl bookkeeping (separate commit for tracked `.flow/fn-9-*` deletions).\n\nValidate JSON after edits with `jq . .claude/settings.json > /dev/null`.\n\n**What to keep in settings.json:**\n- `permissions` block (lines 164\u2013175): valid ruflo allow/deny rules including `Bash(node .claude/*)`\n- `attribution` block (lines 176\u2013179): ruflo co-author\n- `env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS` (line 181): generic Claude Code feature flag\n\n**What to remove from settings.json:**\n- `hooks` entire block (lines 2\u2013158): all reference `hook-handler.cjs` or `auto-memory-hook.mjs` \u2014 both deleted\n- `statusLine` block (lines 160\u2013163): references `statusline.cjs` \u2014 deleted\n- `env.CLAUDE_FLOW_V3_ENABLED` (line 182)\n- `env.CLAUDE_FLOW_HOOKS_ENABLED` (line 183)\n- `claudeFlow` object (lines 185\u2013288): 104 lines of stale config\n\n## Quick commands\n\n```bash\n# Validate JSON after edits\njq . .claude/settings.json > /dev/null && echo OK\nnode -e \"require('./.mcp.json')\" && echo OK\n\n# Verify MCP still works after env var removal\nnpx ruflo@latest mcp status 2>/dev/null || echo \"check manually\"\n\n# Confirm .claude-flow/ deleted\nls .claude-flow/ 2>&1 | grep \"No such\"\n```\n\n## Risks\n\n- Keeping `Bash(node .claude/*)` in permissions.allow is correct \u2014 ruflo may regenerate `.claude/helpers/` at runtime (gitignored, expected)\n- If ruflo reads `CLAUDE_FLOW_*` env vars internally: low risk (other projects don't set these and ruflo works); verify via MCP health check after removal\n- Deleting fn-9 epic file: fn-13 declares a dependency on fn-9; close (not delete) fn-9 to avoid broken dependency resolution\n\n## Acceptance\n\n- [ ] `.claude/settings.json` contains no `hooks`, `statusLine`, `claudeFlow` keys\n- [ ] `.claude/settings.json` env block has no `CLAUDE_FLOW_*` keys\n- [ ] `.mcp.json` env block has no `CLAUDE_FLOW_*` keys\n- [ ] `CLAUDE.md` has no reference to `auto-memory-hook.mjs`\n- [ ] `.gitignore` has no `.claude-flow/` entry\n- [ ] Both JSON files are valid (`jq` exits 0)\n- [ ] ruflo MCP server responds after env var removal (verify `npx ruflo@latest mcp status` or check tools load)\n- [ ] `.claude-flow/` does not exist on disk\n- [ ] No hook errors on next Claude Code session start/stop\n- [ ] fn-9 epic closed (not deleted) in flowctl\n\n## Dependencies\n\n- fn-9-migrate-claude-flow-to-ruflo (predecessor \u2014 this epic completes its unmet acceptance criteria)\n"
+  },
+  "epic_id": "fn-12-claude-flow-complete-purge",
+  "schema_version": 2,
+  "tasks": [
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-13T12:35:58.881538Z",
+        "depends_on": [],
+        "epic": "fn-12-claude-flow-complete-purge",
+        "id": "fn-12-claude-flow-complete-purge.1",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-12-claude-flow-complete-purge.1.md",
+        "status": "todo",
+        "title": "Purge claude-flow config from tracked files",
+        "updated_at": "2026-04-13T12:40:19.156229Z"
+      },
+      "id": "fn-12-claude-flow-complete-purge.1",
+      "runtime": null,
+      "spec": "# fn-12-claude-flow-complete-purge.1 Purge claude-flow config from tracked files\n\n## Description\nRemove all claude-flow dead config from the four tracked files that still reference it. Every Claude Code session currently fires broken hooks on start and stop \u2014 this eliminates them atomically in one commit.\n\n**Size:** M  \n**Files:** `.claude/settings.json`, `.mcp.json`, `CLAUDE.md`, `.gitignore`\n\n## Approach\n\nEdit `.claude/settings.json` \u2014 result is a valid JSON object with exactly these top-level keys: `permissions`, `attribution`, `env` (one key only):\n- Remove `\"hooks\"` entire block (lines 2\u2013158) \u2014 all handlers (`hook-handler.cjs`, `auto-memory-hook.mjs`) deleted in fn-9\n- Remove `\"statusLine\"` block (lines 160\u2013163) \u2014 `statusline.cjs` deleted\n- Remove `\"env.CLAUDE_FLOW_V3_ENABLED\"` (line 182) and `\"env.CLAUDE_FLOW_HOOKS_ENABLED\"` (line 183)\n- Remove entire `\"claudeFlow\"` block (lines 185\u2013288)\n- Keep: `\"permissions\"` (164\u2013175), `\"attribution\"` (176\u2013179), `\"env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS\"` (181)\n\nWatch for trailing commas in the `env` block after removing keys \u2014 `jq` validation catches this.\n\nEdit `.mcp.json` \u2014 remove 5 env vars from the ruflo server `env` block:\n- Remove: `CLAUDE_FLOW_MODE`, `CLAUDE_FLOW_HOOKS_ENABLED`, `CLAUDE_FLOW_TOPOLOGY`, `CLAUDE_FLOW_MAX_AGENTS`, `CLAUDE_FLOW_MEMORY_BACKEND`\n- Keep: `npm_config_update_notifier: \"false\"` and the command/args\n\nEdit `CLAUDE.md` lines 176\u2013177 \u2014 remove both the comment line AND the dead command:\n- Line 176: `node .claude/helpers/auto-memory-hook.mjs import-all` (the command)\n- Context: this is the third CLI example in the \"Memory & Vector Search > CLI Commands\" subsection; removing it leaves the other examples intact\n\nEdit `.gitignore:10` \u2014 remove the `.claude-flow/` entry (directory will be deleted in task 2; gitignore entry is dead artifact).\n\nValidate:\n```bash\njq . .claude/settings.json > /dev/null && echo settings OK\nnode -e \"require('./.mcp.json')\" && echo mcp OK\n```\n\nCommit: `chore: purge remaining claude-flow config from settings.json, .mcp.json, CLAUDE.md, .gitignore`\n## Approach\n\nEdit `.claude/settings.json` \u2014 make it a valid JSON object containing only the keys that belong to ruflo:\n- Remove `\"hooks\"` entire key (lines 2\u2013158) \u2014 all handlers (`hook-handler.cjs`, `auto-memory-hook.mjs`) were deleted in fn-9\n- Remove `\"statusLine\"` key (lines 160\u2013163) \u2014 handler `statusline.cjs` deleted\n- Remove `\"env.CLAUDE_FLOW_V3_ENABLED\"` and `\"env.CLAUDE_FLOW_HOOKS_ENABLED\"` (lines 182\u2013183)\n- Remove entire `\"claudeFlow\"` key (lines 185\u2013288) \u2014 104 lines of stale config\n- Keep: `\"permissions\"` (lines 164\u2013175), `\"attribution\"` (lines 176\u2013179), `\"env.CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS\"` (line 181)\n\nEdit `.mcp.json` \u2014 remove 5 env vars from the ruflo server's `env` block:\n- Remove: `CLAUDE_FLOW_MODE`, `CLAUDE_FLOW_HOOKS_ENABLED`, `CLAUDE_FLOW_TOPOLOGY`, `CLAUDE_FLOW_MAX_AGENTS`, `CLAUDE_FLOW_MEMORY_BACKEND`\n- Keep: `npm_config_update_notifier: \"false\"` and the command/args\n\nEdit `CLAUDE.md:177` \u2014 remove the `node .claude/helpers/auto-memory-hook.mjs import-all` CLI example line (dead reference; helper file deleted in fn-9).\n\nValidate both JSON files:\n```bash\njq . .claude/settings.json > /dev/null && echo OK\nnode -e \"require('./.mcp.json')\" && echo OK\n```\n\nCommit with: `chore: purge remaining claude-flow config from settings.json, .mcp.json, CLAUDE.md`\n## Acceptance\n- [ ] `.claude/settings.json` has no `hooks` key\n- [ ] `.claude/settings.json` has no `statusLine` key\n- [ ] `.claude/settings.json` has no `claudeFlow` key\n- [ ] `.claude/settings.json` env block has no `CLAUDE_FLOW_*` keys\n- [ ] `.claude/settings.json` retains `permissions` and `attribution` blocks intact\n- [ ] `.mcp.json` env block has no `CLAUDE_FLOW_*` keys\n- [ ] `.mcp.json` retains the ruflo command, args, and `npm_config_update_notifier`\n- [ ] `CLAUDE.md` lines 176\u2013177 removed (no reference to `auto-memory-hook.mjs`)\n- [ ] `.gitignore` has no `.claude-flow/` line\n- [ ] `jq . .claude/settings.json` exits 0\n- [ ] `node -e \"require('./.mcp.json')\"` exits 0\n- [ ] Changes committed\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    },
+    {
+      "data": {
+        "assignee": null,
+        "claim_note": "",
+        "claimed_at": null,
+        "created_at": "2026-04-13T12:35:59.153468Z",
+        "depends_on": [
+          "fn-12-claude-flow-complete-purge.1"
+        ],
+        "epic": "fn-12-claude-flow-complete-purge",
+        "id": "fn-12-claude-flow-complete-purge.2",
+        "priority": null,
+        "spec_path": ".flow/tasks/fn-12-claude-flow-complete-purge.2.md",
+        "status": "todo",
+        "title": "Delete .claude-flow/ runtime and close fn-9 migration",
+        "updated_at": "2026-04-13T12:40:35.948079Z"
+      },
+      "id": "fn-12-claude-flow-complete-purge.2",
+      "runtime": null,
+      "spec": "# fn-12-claude-flow-complete-purge.2 Delete .claude-flow/ runtime and close fn-9 migration\n\n## Description\nLocal disk cleanup and flowctl bookkeeping after fn-12.1 is committed. Removes the claude-flow runtime directory from disk and closes out the fn-9 migration epic.\n\n**Size:** S  \n**Files:** `.claude-flow/` (disk only, gitignored), `.flow/fn-9-*` files (tracked \u2014 commit their deletion)\n\n## Approach\n\nDelete the runtime directory (gitignored, not tracked):\n```bash\nrm -rf .claude-flow/\n```\n\nRemove fn-9 migration task/spec/checkpoint files from `.flow/` \u2014 these are tracked; commit their deletion:\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.1.md`\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.1.json`\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.2.md`\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.2.json`\n- `.flow/specs/fn-9-migrate-claude-flow-to-ruflo.md`\n- `.flow/.checkpoint-fn-9-migrate-claude-flow-to-ruflo.json`\n\n**Important:** Close fn-9 epic via flowctl \u2014 do NOT delete the epic JSON file itself, as fn-13 declares a dependency on fn-9 and flowctl may resolve it by reading that file:\n```bash\n$FLOWCTL epic close fn-9-migrate-claude-flow-to-ruflo --json\n```\n\nVerify MCP health after fn-12.1's env var removals:\n```bash\nnpx ruflo@latest mcp status 2>/dev/null\n# or open a new Claude Code session and verify ruflo tools load\n```\n\nCommit: `chore: delete .flow/fn-9 migration files, close fn-9 epic`\n## Approach\n\nDelete the runtime directory:\n```bash\nrm -rf .claude-flow/\n```\nVerify: `ls .claude-flow/ 2>&1` should return \"No such file or directory\".\n\nRemove fn-9 migration task/spec/epic files from `.flow/` \u2014 these documented completed work and are no longer needed:\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.1.{md,json}`\n- `.flow/tasks/fn-9-migrate-claude-flow-to-ruflo.2.{md,json}`\n- `.flow/specs/fn-9-migrate-claude-flow-to-ruflo.md`\n- `.flow/.checkpoint-fn-9-migrate-claude-flow-to-ruflo.json`\n\nClose fn-9 epic in flowctl:\n```bash\n$FLOWCTL epic close fn-9-migrate-claude-flow-to-ruflo --json\n```\n(Or delete via `$FLOWCTL epic delete fn-9-migrate-claude-flow-to-ruflo --json` if close is unavailable.)\n\nNo commit needed \u2014 all changes are either gitignored (`.claude-flow/`) or tracked but logically complete (`.flow/fn-9-*` files can be committed as cleanup, optional).\n## Acceptance\n- [ ] `.claude-flow/` does not exist on disk\n- [ ] `.flow/fn-9-*` task and spec files deleted and committed (keep epic JSON \u2014 fn-13 depends on it)\n- [ ] fn-9 epic closed in flowctl (status: closed, not deleted)\n- [ ] ruflo MCP server still responds after env var removal (tools load in new session)\n- [ ] No hook errors appear when starting a new Claude Code session\n- [ ] `grep -r \"CLAUDE_FLOW\" .claude/ .mcp.json` returns no matches (cross-check fn-12.1)\n## Done summary\nTBD\n\n## Evidence\n- Commits:\n- Tests:\n- PRs:\n"
+    }
+  ]
+}

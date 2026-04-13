@@ -1,0 +1,18 @@
+{
+  "branch_name": "fn-12-claude-flow-complete-purge",
+  "completion_review_status": "unknown",
+  "completion_reviewed_at": null,
+  "created_at": "2026-04-13T12:34:52.152660Z",
+  "default_impl": null,
+  "default_review": null,
+  "default_sync": null,
+  "depends_on_epics": [],
+  "id": "fn-12-claude-flow-complete-purge",
+  "next_task": 1,
+  "plan_review_status": "ship",
+  "plan_reviewed_at": "2026-04-13T12:53:13.865366Z",
+  "spec_path": ".flow/specs/fn-12-claude-flow-complete-purge.md",
+  "status": "open",
+  "title": "claude-flow: complete purge",
+  "updated_at": "2026-04-13T12:53:13.865699Z"
+}
