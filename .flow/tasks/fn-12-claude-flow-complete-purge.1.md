@@ -49,9 +49,8 @@ Commit: `chore: purge remaining claude-flow config from settings.json, .mcp.json
 - [ ] `node -e "require('./.mcp.json')"` exits 0
 - [ ] Changes committed
 ## Done summary
-TBD
-
+Purged all remaining claude-flow config from tracked files: removed hooks/statusLine/claudeFlow blocks and CLAUDE_FLOW_* env vars from .claude/settings.json, removed CLAUDE_FLOW_* env vars from .mcp.json, removed dead auto-memory-hook.mjs example from CLAUDE.md, and removed .claude-flow/ from .gitignore.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 73ff170981f449e50825469a486462bed2b75138
+- Tests: npm test (vitest run — 4 tests passed), jq . .claude/settings.json, node -e "require('./.mcp.json')"
 - PRs:
