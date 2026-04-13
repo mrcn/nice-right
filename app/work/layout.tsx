@@ -1,4 +1,5 @@
 import './work.css';
+import '@/app/_shared/nav.css';
 import { Nav } from '@/app/_home/components/Nav';
 import { Footer } from '@/app/_home/components/Footer';
 import { Breadcrumb } from './_components/Breadcrumb';

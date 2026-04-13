@@ -12,7 +12,7 @@
   "plan_review_status": "unknown",
   "plan_reviewed_at": null,
   "spec_path": ".flow/specs/fn-9-migrate-claude-flow-to-ruflo.md",
-  "status": "open",
+  "status": "done",
   "title": "Migrate claude-flow to ruflo",
-  "updated_at": "2026-04-09T02:15:07.692150Z"
+  "updated_at": "2026-04-13T13:06:45.477955Z"
 }
