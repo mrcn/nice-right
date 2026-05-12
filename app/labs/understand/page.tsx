@@ -551,6 +551,15 @@ export default function UnderstandPage() {
           </div>
         </section>
 
+        <a
+          href="mailto:apps@uxoxo.xyz?subject=Tester%20for%20Understand&body=Hi%20-%20I'd%20like%20to%20join%20the%20closed%20test%20for%20Understand.%20Please%20send%20me%20the%20Google%20Play%20opt-in%20link.%20Thanks!"
+          className="u-mobile-sticky"
+          aria-label="Become a tester"
+        >
+          <span>Help me launch</span>
+          <span className="u-mobile-sticky-cta">Become a tester →</span>
+        </a>
+
         <footer className="u-footer">
           <div className="u-container u-footer-inner">
             <span>
@@ -573,6 +582,14 @@ export default function UnderstandPage() {
           color: var(--fg);
           background: var(--bg);
           min-height: 100vh;
+        }
+        .u-root h1,
+        .u-root h2,
+        .u-root h3,
+        .u-root h4,
+        .u-root h5,
+        .u-root h6 {
+          color: var(--fg);
         }
         .u-italic {
           font-style: italic;
@@ -1355,6 +1372,9 @@ export default function UnderstandPage() {
           color: var(--warm);
           text-decoration: none;
         }
+        .u-mobile-sticky {
+          display: none;
+        }
         @media (max-width: 980px) {
           .u-hero-grid {
             grid-template-columns: 1fr;
@@ -1365,6 +1385,33 @@ export default function UnderstandPage() {
           }
           .u-pillars-grid {
             grid-template-columns: 1fr;
+          }
+          .u-footer-inner {
+            padding-bottom: 80px;
+          }
+          .u-mobile-sticky {
+            position: fixed;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 14px 18px;
+            background: var(--fg);
+            color: var(--bg);
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+            z-index: 60;
+          }
+          .u-mobile-sticky-cta {
+            font-size: 14px;
+            color: var(--warm-2);
+            font-weight: 700;
           }
         }
       `}</style>
