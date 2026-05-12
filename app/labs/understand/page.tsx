@@ -277,7 +277,7 @@ export default function UnderstandPage() {
               <a href="#features">Features</a>
               <a href="#tester">Become a tester</a>
             </nav>
-            <a href="#play" className="u-play-badge">
+            <a href="#tester" className="u-play-badge">
               <span className="u-triangle" />
               Get on Play Store
             </a>
@@ -308,11 +308,11 @@ export default function UnderstandPage() {
                   Listen on a walk.
                 </p>
                 <div className="u-hero-ctas">
-                  <a href="#play" className="u-play-badge-big">
+                  <a href="#tester" className="u-play-badge-big">
                     <span className="u-icon">▶</span>
                     <span>
-                      <span className="u-label-small">Get on</span>
-                      <span className="u-label-big">Google Play</span>
+                      <span className="u-label-small">Help me launch</span>
+                      <span className="u-label-big">Become a tester</span>
                     </span>
                   </a>
                   <a href="#demo" className="u-ghost-link">
@@ -332,25 +332,17 @@ export default function UnderstandPage() {
                     <div className="u-phone-content">
                       <div className="u-phone-back">← Library</div>
                       <div className="u-phone-eyebrow">NOW LISTENING</div>
-                      <div className="u-phone-title">Phenomenology of Spirit</div>
-                      <div className="u-phone-meta">HEGEL · 1807 · TRANSLATED FOR THE EAR</div>
+                      <div className="u-phone-title">{s.title}</div>
+                      <div className="u-phone-meta">
+                        {s.attribution.replace(/^—\s*/, '').toUpperCase()} · TRANSLATED FOR THE EAR
+                      </div>
                       <div className="u-phone-text">
                         <div className="u-phone-text-scroll">
                           {[0, 1].map((rep) => (
                             <div key={rep}>
-                              <p>
-                                Truth isn&apos;t a single thing. It&apos;s the entire{' '}
-                                <span className="u-hi">picture</span>, only revealed when something
-                                completes the long process of becoming itself.
-                              </p>
-                              <p>
-                                This is what philosophers mean when they say the truth is the whole
-                                — not a fragment, but the totality.
-                              </p>
-                              <p>
-                                And the totality is not a static state. It&apos;s a development. A
-                                becoming. A long unfolding.
-                              </p>
+                              <p>{rewrites[curSource].plain}</p>
+                              <p>{rewrites[curSource].bedtime}</p>
+                              <p>{rewrites[curSource].wellness}</p>
                             </div>
                           ))}
                         </div>
@@ -542,11 +534,14 @@ export default function UnderstandPage() {
               I need 12 Android testers opted in for 14 consecutive days before Google lets me ship
               to production. You get the app early. I get over the line.
             </p>
-            <a href="#play" className="u-play-badge-big">
+            <a
+              href="mailto:apps@uxoxo.xyz?subject=Tester%20for%20Understand&body=Hi%20-%20I'd%20like%20to%20join%20the%20closed%20test%20for%20Understand.%20Please%20send%20me%20the%20Google%20Play%20opt-in%20link.%20Thanks!"
+              className="u-play-badge-big"
+            >
               <span className="u-icon">▶</span>
               <span>
-                <span className="u-label-small">Get on</span>
-                <span className="u-label-big">Google Play</span>
+                <span className="u-label-small">Email me the</span>
+                <span className="u-label-big">tester link</span>
               </span>
             </a>
             <div className="u-tester-fineprint">
@@ -561,6 +556,11 @@ export default function UnderstandPage() {
             <span>
               © 2026 Understand · An experiment by{' '}
               <a href="https://niceright.co">Nice Right</a>
+            </span>
+            <span className="u-footer-legal">
+              <a href="https://uxoxo.xyz/apps/understand/privacy/">Privacy</a>
+              <a href="https://uxoxo.xyz/apps/understand/terms/">Terms</a>
+              <a href="https://uxoxo.xyz/apps/understand/support/">Support</a>
             </span>
             <span>v0.1 · 2026.05.11</span>
           </div>
@@ -731,6 +731,7 @@ export default function UnderstandPage() {
           line-height: 0.98;
           letter-spacing: -2.5px;
           margin: 0 0 28px;
+          color: var(--fg);
         }
         .u-cycle {
           display: inline-block;
@@ -1012,6 +1013,7 @@ export default function UnderstandPage() {
           line-height: 1.05;
           margin: 0 0 12px;
           max-width: 760px;
+          color: var(--fg);
         }
         .u-section-sub {
           color: var(--fg-dim);
@@ -1334,8 +1336,20 @@ export default function UnderstandPage() {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          gap: 24px;
           font-size: 13px;
           color: var(--fg-faint);
+          flex-wrap: wrap;
+        }
+        .u-footer-legal {
+          display: inline-flex;
+          gap: 20px;
+        }
+        .u-footer-legal a {
+          color: var(--fg-dim);
+        }
+        .u-footer-legal a:hover {
+          color: var(--fg);
         }
         .u-footer a {
           color: var(--warm);
