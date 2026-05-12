@@ -5,6 +5,18 @@
     "formats": ["image/avif", "image/webp"],
     "minimumCacheTTL": 2592000
   },
+  "redirects": [
+    {
+      "source": "/landing/understand",
+      "destination": "/labs/understand",
+      "permanent": true
+    },
+    {
+      "source": "/landing/understand/:path*",
+      "destination": "/labs/understand/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
