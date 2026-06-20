@@ -1,0 +1,10 @@
+'use client';
+import { useState } from 'react';
+import { builtStudies } from '../studyData';
+import { PhoneFrame, StudyFrame } from '../_components/StudyFrame';
+const study = builtStudies.find(s => s.slug === 'performance-capability')!;
+const voices = {
+  local: { label: 'Local clear voice', badge: 'Free · neutral read', copy: 'Before there was land beneath anyone’s feet, the world rested in a deep and quiet dark.', capability: 'Reads clearly. Limited pacing, warmth, and style-following performance.' },
+  expressive: { label: 'Mira expressive', badge: 'Premium · performs style', copy: 'Before there was land beneath anyone’s feet… the world rested in a deep, quiet dark — soft, slow, and waiting.', capability: 'Certain expressive voices can perform bedtime pacing, emphasis, warmth, and energy.' },
+};
+export default function Page(){const [voice,setVoice]=useState<'local'|'expressive'>('local'); const v=voices[voice]; return <StudyFrame study={study}><section className="us-demo"><PhoneFrame label="Performance capability"><h3>Voice performance</h3><p className="us-mini">Retelling: Bedtime storyteller · Retold</p><div className="us-chip-row"><button className={voice==='local'?'active':''} onClick={()=>setVoice('local')}>Local</button><button className={voice==='expressive'?'active':''} onClick={()=>setVoice('expressive')}>Expressive</button></div><div className="us-preview"><strong>{v.label}</strong><br/><span className="us-mini">{v.badge}</span><p>{v.copy}</p></div><div className="us-notice">{v.capability}</div><button className="us-primary">Preview audio behavior</button></PhoneFrame><aside className="us-side-panel"><div className="us-state-card"><h3>Premium truth</h3><p>Premium is not “all voices do everything.” It is a capability boundary: certain expressive models can perform selected styles.</p></div><div className="us-state-card"><h3>PLG upgrade trigger</h3><p>The upgrade appears after the retelling has value, as a previewable enhancement rather than a wall.</p></div></aside></section></StudyFrame>}
