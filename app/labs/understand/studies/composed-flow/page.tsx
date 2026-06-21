@@ -5,11 +5,11 @@ import type { Study } from '../studyData';
 
 const study: Study = {
   slug: 'composed-flow',
-  title: 'Composed User Story Prototype',
+  title: 'End-to-End First Session Prototype',
   eyebrow: 'Candidate app direction · OOUX + IxD + IA + PLG',
   status: 'composed',
   value: 'Very high',
-  hypothesis: 'The strongest models can work together as one smooth user story: sample aha, Passage stage, Retelling Style + Fidelity, trust comparison, Performance capability, Continue, and shareable artifact.',
+  hypothesis: 'The strongest models can work together as one smooth user story: sample aha, Passage stage, Choose the Retelling Style and Closeness, trust comparison, Performance capability, Continue, and shareable artifact.',
   problem: 'The individual studies isolate important decisions, but the real app has to make them feel like one natural story. If the combined flow feels like a checklist of concepts, the model is not ready for product work.',
   whyItMatters: 'This is the bridge from study lab to app direction. It shows whether the object model, IA, interaction decisions, trust layer, monetization moment, and PLG loop can coexist without turning Understand into a settings-heavy utility.',
   primaryObject: 'Passage → Retelling → Performance → Listening Session',

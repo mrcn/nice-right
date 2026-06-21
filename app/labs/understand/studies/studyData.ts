@@ -26,8 +26,8 @@ export type Study = {
 export const builtStudies: Study[] = [
   {
     slug: 'retelling-style-fidelity',
-    title: 'Retelling Style + Fidelity',
-    eyebrow: 'Study 01 · Core transformation model',
+    title: 'Choose the Retelling Style and Closeness',
+    eyebrow: 'Study 01 · What changes the text?',
     status: 'built',
     value: 'Highest',
     hypothesis: 'Users will understand the product better if Retelling Style and Fidelity are separate controls.',
@@ -48,8 +48,8 @@ export const builtStudies: Study[] = [
   },
   {
     slug: 'passage-stage',
-    title: 'Passage-first Stage',
-    eyebrow: 'Study 02 · Root object / IA spine',
+    title: 'Start with the Text to Understand',
+    eyebrow: 'Study 02 · What is the app centered on?',
     status: 'built',
     value: 'Very high',
     hypothesis: 'The app should organize around Passage, not Reader / History / Voice chrome.',
@@ -70,8 +70,8 @@ export const builtStudies: Study[] = [
   },
   {
     slug: 'performance-capability',
-    title: 'Performance Capability',
-    eyebrow: 'Study 03 · Voice / premium model',
+    title: 'Can the Voice Perform the Retelling?',
+    eyebrow: 'Study 03 · What is premium improving?',
     status: 'built',
     value: 'High',
     hypothesis: 'Premium is more compelling when framed as expressive performance capability, not generic cloud voice quality.',
@@ -92,8 +92,8 @@ export const builtStudies: Study[] = [
   },
   {
     slug: 'sample-aha',
-    title: 'Sample Aha',
-    eyebrow: 'Study 04 · First-session proof',
+    title: 'Try a Proof Sample First',
+    eyebrow: 'Study 04 · How does the app prove itself?',
     status: 'built',
     value: 'Very high',
     hypothesis: 'First-run should begin with curated proof passages before asking users to paste their own text.',
@@ -114,8 +114,8 @@ export const builtStudies: Study[] = [
   },
   {
     slug: 'compare-trust',
-    title: 'Compare / Trust',
-    eyebrow: 'Study 05 · Trust model',
+    title: 'Check the Retelling Against the Original',
+    eyebrow: 'Study 05 · How does the app earn trust?',
     status: 'built',
     value: 'Very high',
     hypothesis: 'Serious texts need enough Original ↔ Understand comparison to create trust without turning the app into a study tool.',
@@ -136,8 +136,8 @@ export const builtStudies: Study[] = [
   },
   {
     slug: 'continue-loop',
-    title: 'Continue Loop',
-    eyebrow: 'Study 06 · Return / retention model',
+    title: 'Keep Listening / Continue Understanding',
+    eyebrow: 'Study 06 · What brings people back?',
     status: 'built',
     value: 'Medium-high',
     hypothesis: 'History should become Continue / Library, not primary navigation.',
@@ -159,21 +159,21 @@ export const builtStudies: Study[] = [
 ];
 
 export const candidateStudies = [
-  ['retelling-first', 'Retelling-first', 'Should the generated Retelling be the hero object after generation?'],
-  ['fidelity-first', 'Fidelity-first', 'Should source-distance be the first choice for high-trust material?'],
-  ['persona-first', 'Persona / Medium-first', 'Should users choose the kind of telling before text in discovery or sample contexts?'],
-  ['coach-first', 'Coach / Guide-first', 'Should the app act like a tutor/guide, or would that pull it away from listening?'],
-  ['narrator-first', 'Narrator-first', 'Should a narrator/host become the product face, or is that too gimmicky before the core is clear?'],
-  ['workflow-first', 'Workflow-first', 'Is import/process/save/share the main frame for power users, or a later utility layer?'],
+  ['retelling-first', 'Make the Retelling the Main Thing', 'Should the generated Retelling be the hero object after generation?'],
+  ['fidelity-first', 'Choose Closeness Before Style', 'Should source-distance be the first choice for high-trust material?'],
+  ['persona-first', 'Choose the Telling Format First', 'Should users choose the kind of telling before text in discovery or sample contexts?'],
+  ['coach-first', 'Make the App a Guide or Coach', 'Should the app act like a tutor/guide, or would that pull it away from listening?'],
+  ['narrator-first', 'Make a Narrator the Product Face', 'Should a narrator/host become the product face, or is that too gimmicky before the core is clear?'],
+  ['workflow-first', 'Make Import–Save–Share the Main Workflow', 'Is import/process/save/share the main frame for power users, or a later utility layer?'],
 ] as const;
 
 export const decisionFamilies = [
-  ['Core transformation', 'Retelling Style + Fidelity', 'What kind of telling is this, and how far may it move from the source?'],
-  ['IA / root object', 'Passage-first Stage', 'What is the app organized around?'],
-  ['Trust', 'Compare / Trust', 'How much source comparison is needed before listening feels safe?'],
-  ['Onboarding / PLG', 'Sample Aha', 'How does the product prove itself before asking for effort?'],
-  ['Monetization', 'Performance Capability', 'What is premium actually improving?'],
-  ['Retention', 'Continue Loop', 'What brings someone back after the first aha?'],
+  ['Core transformation', 'Choose the Retelling Style and Closeness', 'What kind of telling is this, and how far may it move from the source?'],
+  ['IA / root object', 'Start with the Text to Understand', 'What is the app organized around?'],
+  ['Trust', 'Check the Retelling Against the Original', 'How much source comparison is needed before listening feels safe?'],
+  ['Onboarding / PLG', 'Try a Proof Sample First', 'How does the product prove itself before asking for effort?'],
+  ['Monetization', 'Can the Voice Perform the Retelling?', 'What is premium actually improving?'],
+  ['Retention', 'Keep Listening / Continue Understanding', 'What brings someone back after the first aha?'],
 ] as const;
 
 export const allStudyLinks = [...builtStudies.map(s => s.slug), 'composed-flow', 'decision-log'];

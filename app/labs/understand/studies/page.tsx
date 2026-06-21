@@ -10,9 +10,9 @@ export default function StudiesIndex() {
           <h1>Understand Interface Studies</h1>
           <p className="us-lede">These are coded decision studies for the next Understand app. They are not a gallery of final screens. They are working arguments about how the product should think: what the user brings in, what the app transforms, how trust is earned, where audio performance belongs, and when growth asks should appear.</p>
           <div className="us-hero-links">
-            <Link href="/labs/understand/studies/composed-flow">Open composed user story</Link>
-            <Link href="/labs/understand/studies/retelling-style-fidelity">Start with Style + Fidelity</Link>
-            <Link href="/labs/understand/studies/compare-trust">Test Compare / Trust</Link>
+            <Link href="/labs/understand/studies/composed-flow">Open end-to-end first session</Link>
+            <Link href="/labs/understand/studies/retelling-style-fidelity">Start with Retelling Style + Closeness</Link>
+            <Link href="/labs/understand/studies/compare-trust">Test Original Check</Link>
             <Link href="/labs/understand/studies/decision-log">Decision log</Link>
           </div>
         </section>
@@ -77,8 +77,8 @@ export default function StudiesIndex() {
             ))}
             <article className="us-study-card">
               <span className="us-badge">composed</span>
-              <h3>Composed User Story</h3>
-              <p>The working candidate flow that combines Passage, Retelling Style, Fidelity, Performance Capability, Continue, and PLG artifacts.</p>
+              <h3>End-to-End First Session</h3>
+              <p>The working candidate flow that combines Passage, Retelling Style, Fidelity, Can the Voice Perform the Retelling?, Continue, and PLG artifacts.</p>
               <p><strong>Decision:</strong> Can these models work together as the app direction?</p>
               <Link href="/labs/understand/studies/composed-flow">Open prototype →</Link>
             </article>
