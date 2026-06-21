@@ -11,7 +11,18 @@ export function StudyFrame({ study, children }: { study: Study; children: ReactN
           <p className="us-eyebrow">{study.eyebrow}</p>
           <h1>{study.title}</h1>
           <p className="us-hypothesis"><strong>Hypothesis:</strong> {study.hypothesis}</p>
+          <div className="us-induction-grid">
+            <article>
+              <span>Problem this study exists to clarify</span>
+              <p>{study.problem}</p>
+            </article>
+            <article>
+              <span>Why it matters</span>
+              <p>{study.whyItMatters}</p>
+            </article>
+          </div>
           <div className="us-meta-grid">
+            <div><span>Strategic value</span><strong>{study.value}</strong></div>
             <div><span>Primary object</span><strong>{study.primaryObject}</strong></div>
             <div><span>Mental model</span><strong>{study.mentalModel}</strong></div>
             <div><span>IA implication</span><strong>{study.ia}</strong></div>
@@ -40,9 +51,25 @@ export function StudyFrame({ study, children }: { study: Study; children: ReactN
 
         {children}
 
+        <section className="us-study-grid us-evaluation-grid">
+          <article className="us-card us-success-card">
+            <h2>Success looks like</h2>
+            <ul>{study.success.map(item => <li key={item}>{item}</li>)}</ul>
+          </article>
+          <article className="us-card us-failure-card">
+            <h2>Failure looks like</h2>
+            <ul>{study.failure.map(item => <li key={item}>{item}</li>)}</ul>
+          </article>
+          <article className="us-card">
+            <h2>Current recommendation</h2>
+            <p>{study.recommendation}</p>
+          </article>
+        </section>
+
         <section className="us-decision">
           <p className="us-eyebrow">Decision prompt</p>
           <h2>{study.decision}</h2>
+          <p>This is not a vote on whether the screen is pretty. It is a decision about whether this mental model should shape the real app.</p>
           <div className="us-score-grid">
             {['Adopt', 'Iterate labels', 'Combine', 'Reject'].map(label => <button key={label}>{label}</button>)}
           </div>
