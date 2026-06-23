@@ -277,7 +277,7 @@ export default function UnderstandPage() {
               <a href="#features">Features</a>
               <a href="#tester">Become a tester</a>
             </nav>
-            <a href="#tester" className="u-play-badge">
+            <a href="https://play.google.com/apps/testing/xyz.uxoxo.understand" className="u-play-badge" target="_blank" rel="noopener noreferrer">
               <span className="u-triangle" />
               Get on Play Store
             </a>
@@ -308,7 +308,7 @@ export default function UnderstandPage() {
                   Listen on a walk.
                 </p>
                 <div className="u-hero-ctas">
-                  <a href="#tester" className="u-play-badge-big">
+                  <a href="https://play.google.com/apps/testing/xyz.uxoxo.understand" className="u-play-badge-big" target="_blank" rel="noopener noreferrer">
                     <span className="u-icon">▶</span>
                     <span>
                       <span className="u-label-small">Help me launch</span>
@@ -535,29 +535,32 @@ export default function UnderstandPage() {
               to production. You get the app early. I get over the line.
             </p>
             <a
-              href="mailto:apps@uxoxo.xyz?subject=Tester%20for%20Understand&body=Hi%20-%20I'd%20like%20to%20join%20the%20closed%20test%20for%20Understand.%20Please%20send%20me%20the%20Google%20Play%20opt-in%20link.%20Thanks!"
+              href="https://play.google.com/apps/testing/xyz.uxoxo.understand"
               className="u-play-badge-big"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <span className="u-icon">▶</span>
               <span>
-                <span className="u-label-small">Email me the</span>
-                <span className="u-label-big">tester link</span>
+                <span className="u-label-small">Open the</span>
+                <span className="u-label-big">Play testing link</span>
               </span>
             </a>
             <div className="u-tester-fineprint">
-              Or comment <span className="u-warm">&quot;tester&quot;</span> on any of my posts and
-              I&apos;ll DM you the closed-test link.
+              This opens the official Google Play closed-testing opt-in page. If it does not work, comment <span className="u-warm">&quot;tester&quot;</span> and I&apos;ll help.
             </div>
           </div>
         </section>
 
         <a
-          href="mailto:apps@uxoxo.xyz?subject=Tester%20for%20Understand&body=Hi%20-%20I'd%20like%20to%20join%20the%20closed%20test%20for%20Understand.%20Please%20send%20me%20the%20Google%20Play%20opt-in%20link.%20Thanks!"
+          href="https://play.google.com/apps/testing/xyz.uxoxo.understand"
           className="u-mobile-sticky"
+          target="_blank"
+          rel="noopener noreferrer"
           aria-label="Become a tester"
         >
           <span>Help me launch</span>
-          <span className="u-mobile-sticky-cta">Become a tester →</span>
+          <span className="u-mobile-sticky-cta">Open Play testing link →</span>
         </a>
 
         <footer className="u-footer">
