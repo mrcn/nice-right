@@ -274,6 +274,7 @@ export default function UnderstandPage() {
             </div>
             <nav className="u-nav">
               <a href="#demo">Try it</a>
+              <a href="/labs/understand/examples/">Examples</a>
               <a href="#features">Features</a>
               <a href="#tester">Become a tester</a>
             </nav>
@@ -291,7 +292,7 @@ export default function UnderstandPage() {
               <div className="u-hero-text">
                 <div className="u-status-pill">Closed test live · Android · May 2026</div>
                 <h1 className="u-h1">
-                  Listen to anything.
+                  An on-ramp to difficult text.
                   <br />
                   Even{' '}
                   <span
@@ -303,9 +304,7 @@ export default function UnderstandPage() {
                   .
                 </h1>
                 <p className="u-hero-sub">
-                  A reader for dense texts. AI rewrites the words for the ear, then reads them
-                  aloud. Pick a register — plain English, wellness influencer, sports announcer.
-                  Listen on a walk.
+                  Paste old, dense, annoying, or intimidating text. Understand retells it for listening, lets you compare it with the original, then helps you keep going on your phone.
                 </p>
                 <div className="u-hero-ctas">
                   <a href="https://play.google.com/apps/testing/xyz.uxoxo.understand" className="u-play-badge-big" target="_blank" rel="noopener noreferrer">
@@ -315,8 +314,8 @@ export default function UnderstandPage() {
                       <span className="u-label-big">Become a tester</span>
                     </span>
                   </a>
-                  <a href="#demo" className="u-ghost-link">
-                    Try the demo →
+                  <a href="/labs/understand/examples/aesop-fables-retold-audio/" className="u-ghost-link">
+                    Hear Aesop proof →
                   </a>
                 </div>
               </div>
@@ -368,9 +367,45 @@ export default function UnderstandPage() {
                   Verified on<span className="u-chip">Pixel 6 · Pixel 8</span>
                 </div>
                 <div className="u-trust-item">
-                  Built by<span className="u-chip">Nice Right</span>
+                  First proof<span className="u-chip">Aesop audio live</span>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Proof library */}
+        <section className="u-demo-section" id="examples">
+          <div className="u-container">
+            <div className="u-section-eyebrow">Public proof</div>
+            <h2 className="u-h2">
+              Not just snippets.
+              <br />
+              <span className="u-italic">Texts you can actually listen to.</span>
+            </h2>
+            <p className="u-section-sub">
+              The SEO effort starts with public-domain texts that have an original, an Understand version,
+              comparison notes, and ready audio. The first proof page is live now.
+            </p>
+            <div className="u-pillars-grid" style={{ marginTop: 40 }}>
+              <a className="u-pillar" href="/labs/understand/examples/aesop-fables-retold-audio/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <div className="u-pillar-icon">♪</div>
+                <h3 className="u-pillar-h3"><em>Aesop's Fables</em> retold for listening.</h3>
+                <p>Five public-domain fables with original text, clearer retellings, what changed, what stayed close, and audio ready to play.</p>
+              </a>
+              <div className="u-pillar">
+                <div className="u-pillar-icon">⌁</div>
+                <h3 className="u-pillar-h3">Shakespeare / classics next.</h3>
+                <p>The next footprint expansion should prove old, intimidating literature can become a phone-native listening on-ramp.</p>
+              </div>
+              <div className="u-pillar">
+                <div className="u-pillar-icon">→</div>
+                <h3 className="u-pillar-h3">Examples become SEO pages.</h3>
+                <p>Each page is a useful public artifact: source attribution, retelling, trust notes, audio, and direct Android testing CTA.</p>
+              </div>
+            </div>
+            <div className="u-hero-ctas" style={{ marginTop: 34 }}>
+              <a href="/labs/understand/examples/" className="u-ghost-link">Browse the example library →</a>
             </div>
           </div>
         </section>
@@ -378,16 +413,14 @@ export default function UnderstandPage() {
         {/* Demo */}
         <section className="u-demo-section" id="demo">
           <div className="u-container">
-            <div className="u-section-eyebrow">The Translator</div>
+            <div className="u-section-eyebrow">The retelling model</div>
             <h2 className="u-h2">
               Same source.
               <br />
-              <span className="u-italic">Different mind.</span>
+              <span className="u-italic">Different telling.</span>
             </h2>
             <p className="u-section-sub">
-              The AI rewrites the source text in a register you pick. Plain English preserves
-              everything. Wellness Influencer reframes it. Sports Announcer embellishes for drama.
-              Pick the mind. Hear the result.
+              Understand changes the telling style and the closeness to the original. The goal is not novelty for its own sake; it is making hard text easier to keep listening to without hiding the source.
             </p>
 
             <div className="u-demo-stage">
@@ -419,8 +452,8 @@ export default function UnderstandPage() {
 
                 <div className="u-pills-block">
                   <div className="u-pills-label">
-                    Register{' '}
-                    <span className="u-help">— how the AI rewrites · fidelity descends</span>
+                    Retelling style{' '}
+                    <span className="u-help">— how the text is told · closeness changes</span>
                   </div>
                   <div className="u-pills-row">
                     {registersOrder.map((reg) => (
@@ -504,7 +537,7 @@ export default function UnderstandPage() {
                 </h3>
                 <p>
                   Numbers spelled out. Abbreviations expanded. Archaic prose modernized. Dense
-                  academic writing translated for 1.5× speed on a walk.
+                  academic writing retold for 1.5× speed on a walk.
                 </p>
               </div>
               <div className="u-pillar">
