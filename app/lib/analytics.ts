@@ -120,3 +120,11 @@ export function trackNavClick(label: string) {
 export function trackElementHover(element: string, params?: Record<string, unknown>) {
   track('element_hover', { element, ...params, page: window.location.pathname });
 }
+
+export function trackUnderstandEvent(eventName: string, params?: Record<string, unknown>) {
+  track(eventName, {
+    product: 'understand',
+    ...params,
+    page: window.location.pathname,
+  });
+}

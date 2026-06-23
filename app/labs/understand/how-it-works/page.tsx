@@ -1,3 +1,4 @@
+import { UnderstandAnalytics } from '../_components/UnderstandAnalytics';
 const playTestingHref = 'https://play.google.com/apps/testing/xyz.uxoxo.understand';
 
 export const metadata = {
@@ -55,7 +56,9 @@ const contrasts = [
 
 export default function HowItWorksPage() {
   return (
-    <main className="hiw-page">
+    <>
+      <UnderstandAnalytics />
+      <main className="hiw-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="hiw-hero">
         <p className="hiw-eyebrow">How it works</p>
@@ -64,8 +67,8 @@ export default function HowItWorksPage() {
           Understand is not just a voice reading dense prose out loud. It creates an on-ramp: original text, retelling style, closeness, trust check, and phone-native listening.
         </p>
         <div className="hiw-actions">
-          <a className="hiw-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer">Try the Android test</a>
-          <a className="hiw-secondary" href="/labs/understand/examples/">See examples</a>
+          <a className="hiw-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer" data-understand-event="understand_play_testing_cta_clicked" data-understand-label="play_testing">Try the Android test</a>
+          <a className="hiw-secondary" href="/labs/understand/examples/" data-understand-event="understand_examples_clicked" data-understand-label="examples_index">See examples</a>
         </div>
       </section>
 
@@ -107,12 +110,13 @@ export default function HowItWorksPage() {
         <p className="hiw-eyebrow">Closed Android test</p>
         <h2>Try the loop on your own text.</h2>
         <p>The public examples show the model. The Android test is where you bring your own hard text.</p>
-        <a className="hiw-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer">Open the Play testing link</a>
+        <a className="hiw-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer" data-understand-event="understand_play_testing_cta_clicked" data-understand-label="play_testing">Open the Play testing link</a>
       </section>
 
       <style>{`
         .hiw-page{background:#0d1117;color:#f7f0e7;min-height:100vh;padding:48px 20px;font-family:Inter,system-ui,sans-serif}.hiw-hero,.hiw-steps,.hiw-card{max-width:1120px;margin:0 auto}.hiw-hero{padding:68px 0}.hiw-eyebrow,.hiw-object{color:#06d6a0;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:900}.hiw-hero h1{font-family:Georgia,serif;font-size:clamp(2.8rem,7vw,6.2rem);line-height:.94;margin:12px 0}.hiw-lede{font-size:1.25rem;line-height:1.65;color:rgba(247,240,231,.77);max-width:880px}.hiw-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.hiw-primary,.hiw-secondary{border-radius:999px;padding:14px 20px;font-weight:900;text-decoration:none}.hiw-primary{background:#06d6a0;color:#0d1117}.hiw-secondary{border:1px solid rgba(255,255,255,.18);color:#f7f0e7}.hiw-steps{display:grid;gap:16px;margin-bottom:28px}.hiw-step,.hiw-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:28px}.hiw-step{display:grid;grid-template-columns:90px 1fr;gap:18px}.hiw-step-number{font-family:Georgia,serif;font-size:2.8rem;color:rgba(247,240,231,.2)}.hiw-step h2,.hiw-card h2{font-family:Georgia,serif;font-size:2rem;line-height:1.05;margin:8px 0 12px}.hiw-step p,.hiw-card p{color:rgba(247,240,231,.76);line-height:1.65}.hiw-card{margin-bottom:24px}.hiw-contrast{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}.hiw-contrast div{background:rgba(0,0,0,.22);border-radius:18px;padding:18px}.hiw-cta{text-align:center}.hiw-cta .hiw-primary{display:inline-block;margin-top:12px}@media(max-width:820px){.hiw-step,.hiw-contrast{grid-template-columns:1fr}.hiw-hero{padding-top:32px}}
       `}</style>
-    </main>
+      </main>
+    </>
   );
 }

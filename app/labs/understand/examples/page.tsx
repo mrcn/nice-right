@@ -1,3 +1,4 @@
+import { UnderstandAnalytics } from '../_components/UnderstandAnalytics';
 const playTestingHref = 'https://play.google.com/apps/testing/xyz.uxoxo.understand';
 
 const jsonLd = {
@@ -42,7 +43,9 @@ export const metadata = {
 
 export default function UnderstandExamplesIndex() {
   return (
-    <main className="ex-page">
+    <>
+      <UnderstandAnalytics />
+      <main className="ex-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="ex-hero">
         <p className="ex-eyebrow">Understand example library</p>
@@ -51,7 +54,7 @@ export default function UnderstandExamplesIndex() {
           This is the SEO and product-proof footprint: useful public pages built from real source texts, not tiny demo snippets. Each example should show the original, the Understand version, what changed, what stayed close, and audio you can play.
         </p>
         <div className="ex-actions">
-          <a className="ex-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer">Try the Android test</a>
+          <a className="ex-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer" data-understand-event="understand_play_testing_cta_clicked" data-understand-label="play_testing">Try the Android test</a>
           <a className="ex-secondary" href="/labs/understand/">Back to Understand</a>
         </div>
       </section>
@@ -90,6 +93,7 @@ export default function UnderstandExamplesIndex() {
       <style>{`
         .ex-page{background:#0b1117;color:#f6efe4;min-height:100vh;padding:48px 20px;font-family:Inter,system-ui,sans-serif}.ex-hero,.ex-grid,.ex-card{max-width:1120px;margin-left:auto;margin-right:auto}.ex-hero{padding:64px 0}.ex-eyebrow{color:#06d6a0;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:900}.ex-hero h1{font-family:Georgia,serif;font-size:clamp(2.7rem,7vw,6.6rem);line-height:.94;margin:12px 0}.ex-lede{font-size:1.22rem;line-height:1.65;color:rgba(246,239,228,.76);max-width:880px}.ex-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.ex-primary,.ex-secondary,.ex-link{border-radius:999px;padding:13px 18px;font-weight:900;text-decoration:none}.ex-primary{background:#06d6a0;color:#0b1117}.ex-secondary{border:1px solid rgba(255,255,255,.18);color:#f6efe4}.ex-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:28px}.ex-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:26px}.ex-card h2{font-family:Georgia,serif;font-size:1.8rem;line-height:1.05;margin:18px 0 12px}.ex-card p,.ex-card li{color:rgba(246,239,228,.76);line-height:1.6}.ex-card-top{display:flex;justify-content:space-between;gap:12px;color:rgba(246,239,228,.58);font-size:.82rem;font-weight:800}.ex-status-live,.ex-status-next{border-radius:999px;padding:6px 10px}.ex-status-live{background:rgba(6,214,160,.16);color:#93f0d0}.ex-status-next{background:rgba(232,185,118,.14);color:#e8b976}.ex-proof{background:rgba(0,0,0,.22);border-radius:18px;padding:16px;margin:18px 0;color:rgba(246,239,228,.78);line-height:1.55}.ex-link{display:inline-block;background:#f6efe4;color:#0b1117}.ex-planned{display:inline-block;color:#e8b976;font-weight:900}.ex-model{margin-top:20px}.ex-model ol{padding-left:20px}@media(max-width:900px){.ex-grid{grid-template-columns:1fr}.ex-hero{padding-top:32px}}
       `}</style>
-    </main>
+      </main>
+    </>
   );
 }

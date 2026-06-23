@@ -1,3 +1,4 @@
+import { UnderstandAnalytics } from '../../_components/UnderstandAnalytics';
 import source from '@/data/understand_examples/sources/aesop-fables-vernon-jones.json';
 import selections from '@/data/understand_examples/selections/aesop-fables.json';
 import retellings from '@/data/understand_examples/retellings/aesop-clear-retellings.json';
@@ -38,7 +39,9 @@ export default function AesopExamplePage() {
   );
 
   return (
-    <main className="ae-page">
+    <>
+      <UnderstandAnalytics />
+      <main className="ae-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="ae-hero">
         <p className="ae-eyebrow">Understand example library · Public-domain proof</p>
@@ -48,7 +51,7 @@ export default function AesopExamplePage() {
           real source text, an Understand version, audio you can play, and a direct path to test the app on Android.
         </p>
         <div className="ae-actions">
-          <a className="ae-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer">
+          <a className="ae-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer" data-understand-event="understand_play_testing_cta_clicked" data-understand-label="play_testing">
             Try the Android test
           </a>
           <a className="ae-secondary" href="#audio">Play audio sample</a>
@@ -75,7 +78,7 @@ export default function AesopExamplePage() {
       <section className="ae-card" id="audio">
         <p className="ae-eyebrow">Ready audio</p>
         <h2>Five fables, retold for clearer listening</h2>
-        <audio controls preload="metadata" src={audioPath} className="ae-audio">
+        <audio controls preload="metadata" src={audioPath} data-understand-audio="aesop-clear-retellings" className="ae-audio">
           Your browser does not support the audio element.
         </audio>
         <p className="ae-note">
@@ -135,7 +138,7 @@ export default function AesopExamplePage() {
         <p>
           This example page is public proof. The Android test is where you try the product loop on your own text.
         </p>
-        <a className="ae-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer">
+        <a className="ae-primary" href={playTestingHref} target="_blank" rel="noopener noreferrer" data-understand-event="understand_play_testing_cta_clicked" data-understand-label="play_testing">
           Open the Play testing link
         </a>
       </section>
@@ -160,6 +163,7 @@ export default function AesopExamplePage() {
       <style>{`
         .ae-page{background:#101820;color:#f7f1e8;min-height:100vh;padding:48px 20px;font-family:Inter,system-ui,sans-serif}.ae-hero,.ae-section,.ae-card{max-width:1120px;margin:0 auto 28px}.ae-hero{padding:72px 0}.ae-eyebrow{color:#06d6a0;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:900}.ae-hero h1{font-family:Georgia,serif;font-size:clamp(2.8rem,7vw,6.4rem);line-height:.95;margin:12px 0}.ae-lede,.ae-section-copy{font-size:1.22rem;line-height:1.65;color:rgba(247,241,232,.78);max-width:850px}.ae-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.ae-primary,.ae-secondary{border-radius:999px;padding:14px 20px;font-weight:900;text-decoration:none}.ae-primary{background:#06d6a0;color:#101820}.ae-secondary{border:1px solid rgba(255,255,255,.2);color:#f7f1e8}.ae-card,.ae-example{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:28px}.ae-source{display:grid;grid-template-columns:1fr 1fr;gap:24px}.ae-card h2,.ae-section h2{font-family:Georgia,serif;font-size:2.2rem;margin:8px 0 12px}.ae-note{color:rgba(247,241,232,.64);line-height:1.55}.ae-audio{width:100%;margin:18px 0}.ae-grid{display:grid;gap:22px}.ae-example h3{font-family:Georgia,serif;font-size:1.8rem;margin:8px 0 16px}.ae-badge{display:inline-block;background:rgba(6,214,160,.13);color:#91f0cf;border:1px solid rgba(6,214,160,.25);border-radius:999px;padding:8px 12px;font-weight:800;font-size:.82rem}.ae-compare,.ae-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px}.ae-compare div,.ae-notes div{background:rgba(0,0,0,.2);border-radius:18px;padding:18px}.ae-compare p,.ae-notes li,.ae-card p{line-height:1.6;color:rgba(247,241,232,.78)}.ae-card a{color:#06d6a0}.ae-cta{text-align:center}.ae-cta .ae-primary{display:inline-block;color:#101820;margin-top:12px}details{border-top:1px solid rgba(255,255,255,.12);padding:16px 0}summary{font-weight:900;cursor:pointer}@media(max-width:760px){.ae-source,.ae-compare,.ae-notes{grid-template-columns:1fr}.ae-hero{padding-top:36px}.ae-card,.ae-example{padding:20px}}
       `}</style>
-    </main>
+      </main>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { UnderstandAnalytics } from './_components/UnderstandAnalytics';
 
 const cycleWords = [
   'Hegel',
@@ -149,6 +150,7 @@ export default function UnderstandPage() {
 
   return (
     <>
+      <UnderstandAnalytics />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(understandProductJsonLd) }}
@@ -234,11 +236,11 @@ export default function UnderstandPage() {
             </div>
             <nav className="u-nav">
               <a href="#demo">Try it</a>
-              <a href="/labs/understand/how-it-works/">How it works</a>
-              <a href="/labs/understand/examples/">Examples</a>
-              <a href="/labs/understand/testing/">Testing</a>
+              <a href="/labs/understand/how-it-works/" data-understand-event="understand_how_it_works_clicked" data-understand-label="how_it_works">How it works</a>
+              <a href="/labs/understand/examples/" data-understand-event="understand_examples_clicked" data-understand-label="examples_index">Examples</a>
+              <a href="/labs/understand/testing/" data-understand-event="understand_testing_page_clicked" data-understand-label="testing_page">Testing</a>
             </nav>
-            <a href="/labs/understand/testing/" className="u-play-badge">
+            <a href="/labs/understand/testing/" data-understand-event="understand_testing_page_clicked" data-understand-label="testing_page" className="u-play-badge">
               <span className="u-triangle" />
               Get on Play Store
             </a>
@@ -274,7 +276,7 @@ export default function UnderstandPage() {
                       <span className="u-label-big">Become a tester</span>
                     </span>
                   </a>
-                  <a href="/labs/understand/examples/aesop-fables-retold-audio/" className="u-ghost-link">
+                  <a href="/labs/understand/examples/aesop-fables-retold-audio/" data-understand-event="understand_example_clicked" data-understand-label="aesop" className="u-ghost-link">
                     Hear Aesop proof →
                   </a>
                 </div>
@@ -348,7 +350,7 @@ export default function UnderstandPage() {
               comparison notes, and ready audio. The first proof page is live now.
             </p>
             <div className="u-pillars-grid" style={{ marginTop: 40 }}>
-              <a className="u-pillar" href="/labs/understand/examples/aesop-fables-retold-audio/" style={{ textDecoration: 'none', color: 'inherit' }}>
+              <a className="u-pillar" href="/labs/understand/examples/aesop-fables-retold-audio/" data-understand-event="understand_example_clicked" data-understand-label="aesop" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div className="u-pillar-icon">♪</div>
                 <h3 className="u-pillar-h3"><em>Aesop's Fables</em> retold for listening.</h3>
                 <p>Five public-domain fables with original text, clearer retellings, what changed, what stayed close, and audio ready to play.</p>
@@ -365,8 +367,8 @@ export default function UnderstandPage() {
               </div>
             </div>
             <div className="u-hero-ctas" style={{ marginTop: 34 }}>
-              <a href="/labs/understand/examples/" className="u-ghost-link">Browse the example library →</a>
-              <a href="/labs/understand/how-it-works/" className="u-ghost-link">How it works →</a>
+              <a href="/labs/understand/examples/" data-understand-event="understand_examples_clicked" data-understand-label="examples_index" className="u-ghost-link">Browse the example library →</a>
+              <a href="/labs/understand/how-it-works/" data-understand-event="understand_how_it_works_clicked" data-understand-label="how_it_works" className="u-ghost-link">How it works →</a>
             </div>
           </div>
         </section>
@@ -527,7 +529,7 @@ export default function UnderstandPage() {
               to production. You get the app early. I get over the line.
             </p>
             <a
-              href="/labs/understand/testing/"
+              href="/labs/understand/testing/" data-understand-event="understand_testing_page_clicked" data-understand-label="testing_page"
               className="u-play-badge-big"
             >
               <span className="u-icon">▶</span>
@@ -543,7 +545,7 @@ export default function UnderstandPage() {
         </section>
 
         <a
-          href="/labs/understand/testing/"
+          href="/labs/understand/testing/" data-understand-event="understand_testing_page_clicked" data-understand-label="testing_page"
           className="u-mobile-sticky"
           aria-label="Become a tester"
         >
