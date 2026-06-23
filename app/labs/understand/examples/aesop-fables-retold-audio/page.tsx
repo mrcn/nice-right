@@ -10,6 +10,20 @@ export const metadata = {
   description: "Listen to public-domain Aesop's Fables retold in clearer language for phone listening, with original text, comparison notes, and audio.",
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: "Aesop's Fables Retold as Clear Audio",
+  description: "Public-domain Aesop's Fables with original text, Understand retellings, comparison notes, and audio.",
+  url: 'https://niceright.co/labs/understand/examples/aesop-fables-retold-audio/',
+  audio: {
+    '@type': 'AudioObject',
+    name: "Aesop's Fables retold for clearer listening",
+    contentUrl: 'https://niceright.co/audio/understand-examples/aesop-clear-retellings.ogg',
+    encodingFormat: 'audio/ogg',
+  },
+};
+
 function titleCaseFromSource(title: string) {
   return title
     .toLowerCase()
@@ -25,6 +39,7 @@ export default function AesopExamplePage() {
 
   return (
     <main className="ae-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="ae-hero">
         <p className="ae-eyebrow">Understand example library · Public-domain proof</p>
         <h1>Listen to Aesop&apos;s Fables in clearer language</h1>

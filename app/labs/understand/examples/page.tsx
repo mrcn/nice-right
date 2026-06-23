@@ -1,5 +1,13 @@
 const playTestingHref = 'https://play.google.com/apps/testing/xyz.uxoxo.understand';
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Understand Examples',
+  description: 'Public-domain texts retold for listening with original text, Understand versions, comparison notes, and audio proof.',
+  url: 'https://niceright.co/labs/understand/examples/',
+};
+
 const examples = [
   {
     status: 'Live',
@@ -35,6 +43,7 @@ export const metadata = {
 export default function UnderstandExamplesIndex() {
   return (
     <main className="ex-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="ex-hero">
         <p className="ex-eyebrow">Understand example library</p>
         <h1>Public-domain texts, retold for listening.</h1>

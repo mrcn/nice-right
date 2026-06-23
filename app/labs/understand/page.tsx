@@ -15,14 +15,7 @@ const cycleWords = [
 ];
 
 type SourceKey = 'hegel' | 'marx' | 'iliad' | 'terms' | 'nejm';
-type RegisterKey =
-  | 'plain'
-  | 'kindergarten'
-  | 'bedtime'
-  | 'wellness'
-  | 'barista'
-  | 'announcer'
-  | 'uncle';
+type RegisterKey = 'plain' | 'simpler' | 'story' | 'guided' | 'audio';
 
 const sources: Record<SourceKey, { title: string; attribution: string; text: string }> = {
   hegel: {
@@ -54,95 +47,48 @@ const sources: Record<SourceKey, { title: string; attribution: string; text: str
 
 const rewrites: Record<SourceKey, Record<RegisterKey, string>> = {
   hegel: {
-    plain:
-      "Truth isn't a single thing. It's the entire picture, only revealed when something completes the long process of becoming itself.",
-    kindergarten:
-      "Truth is like a really big puzzle. You only see the picture when ALL the pieces are in. So you can't know the truth until something has finished growing up.",
-    bedtime:
-      'And so, the truth was the whole. Slowly, gently, the whole became itself — not all at once, but through a long quiet process. By the end, it was complete.',
-    wellness:
-      "Babe, truth is a journey. It's not a destination. The whole self only emerges when you've done the WORK and completed the unfolding.",
-    barista:
-      "Okay so, truth? It's not, like, one thing. It's the whole thing. But the whole thing only happens after a long, exhausting process of becoming. Anyway, your latte's ready.",
-    announcer:
-      "FOLKS, truth is the whole. THE WHOLE. And he's gotta complete the development, ladies and gentlemen. Through the entire process. Unbelievable.",
-    uncle:
-      "Lemme tell ya something. The truth? Is the WHOLE thing. Not part of it. The whole damn thing. And it only shows up when somethin' grows all the way up.",
+    plain: "Truth is not one isolated fact. It is the whole picture, understood only after the thing has gone through its full development.",
+    simpler: "You cannot understand the truth by looking at one piece. You need the whole process, from beginning to end.",
+    story: 'Think of truth as a road, not a snapshot. You only see where it was going after the journey has unfolded.',
+    guided: "Pause on the word whole. Hegel is saying truth appears through development, not through a single disconnected claim.",
+    audio: "Truth is the whole picture. And the whole picture only becomes clear after something has finished becoming what it is.",
   },
   marx: {
-    plain:
-      'In capitalist societies, wealth shows up as a huge pile of things you can buy and sell. The basic unit of that wealth is a single thing for sale.',
-    kindergarten:
-      'In some places, being rich means having a LOT of things. Like a big pile of toys. And one toy is the smallest piece of that pile.',
-    bedtime:
-      'Long ago, in lands where buying and selling ruled, wealth became a great mountain of things. And the smallest piece of that mountain was a single thing, waiting to be sold.',
-    wellness:
-      'Capitalism is the energy where abundance shows up as STUFF. The accumulation is real. The unit is a single object — the commodity. Notice how it makes you feel.',
-    barista:
-      "So like, in capitalism, wealth is just... stuff. A LOT of stuff. And the basic building block of all that wealth is one piece of stuff. That's it.",
-    announcer:
-      "IN CAPITALIST SOCIETIES, folks, what you're looking at is an IMMENSE accumulation of commodities. And the unit, the basic UNIT — it's one single commodity.",
-    uncle:
-      "Capitalism, right? It's just a buncha stuff. Mountain of stuff. And every piece of that mountain? One commodity. Same as it ever was.",
+    plain: 'In capitalist societies, wealth appears as a huge collection of things that can be bought and sold. Marx calls each one a commodity.',
+    simpler: 'In capitalism, wealth often looks like a giant pile of sellable things. One sellable thing is a commodity.',
+    story: 'Imagine a society where almost everything shows up as something for sale. Marx begins there: with the single object in that pile.',
+    guided: 'The key move is simple: Marx starts with the commodity because it is the basic unit of capitalist wealth.',
+    audio: 'In capitalist society, wealth shows up as a huge pile of things for sale. The basic piece of that pile is the commodity.',
   },
   iliad: {
-    plain:
-      "Goddess, sing about Achilles' anger — the son of Peleus — and how that anger caused enormous suffering to the Greek army.",
-    kindergarten:
-      'A long time ago there was a man named Achilles. And he got SUPER angry. And his anger made a lot of his friends get hurt.',
-    bedtime:
-      'Goddess, please tell us the story of the angry warrior Achilles. Tell us how his anger spread, like ripples on dark water, and brought sorrow.',
-    wellness:
-      "Goddess, hold space for Achilles' rage. His unprocessed anger created a thousandfold ripple of pain across the Greek collective.",
-    barista:
-      'Okay so, can you tell me the story about how mad Achilles got, and how it ruined everything for the Greeks? Thousands of dead people kind of mad.',
-    announcer:
-      "GODDESS! Sing it! The ANGER of PELEUS'S SON ACHILLES! And the DEVASTATION! Thousandfold pains upon the ACHAIANS!",
-    uncle:
-      "There was this guy, Achilles. Got REAL mad. And his mad ruined everything for his whole army. Thousand guys hurt, easy. Sing it.",
+    plain: "The poet asks the goddess to sing about Achilles' anger, and the terrible suffering that anger caused for the Greek army.",
+    simpler: 'This story begins with Achilles getting very angry. His anger brings pain to many people around him.',
+    story: 'The poem opens by asking a goddess to tell the story of a warrior whose anger spread disaster through an army.',
+    guided: "Listen for the cause-and-effect: Achilles' anger is not private. It becomes the force that drives the story.",
+    audio: "The story starts with Achilles' anger — a rage so powerful that it brings suffering to the Greeks.",
   },
   terms: {
-    plain:
-      "You're not buying the app. You're renting permission to use it under specific rules. The company that made it still owns it.",
-    kindergarten:
-      "When you get an app, you don't really own it. The company that made it lets you borrow it. You have to follow their rules!",
-    bedtime:
-      'And the company spoke softly: this little app is not yours. It is mine. You may use it gently, by these terms.',
-    wellness:
-      "You don't own the app — and that's actually fine. You're holding space for it. The provider holds the energy of ownership.",
-    barista:
-      "You don't own the app, okay? You're renting it. The rules are the rules. You already agreed.",
-    announcer:
-      'You AGREE, folks — agree — that the application is LICENSED, NOT SOLD. By the Application Provider. For use, under THE TERMS.',
-    uncle:
-      "Listen, you don't OWN the app. You're BORROWIN' it. From them. They got rules. You break the rules, they take it back.",
+    plain: "You are not buying the app outright. You are getting permission to use it under rules set by the provider.",
+    simpler: "The app is not fully yours. The company lets you use it, but you have to follow the rules.",
+    story: 'The agreement says: this app is still owned by the provider. You may use it, but only within the license.',
+    guided: 'The important distinction is licensed, not sold. That means permission to use, not ownership.',
+    audio: "You don't own the app. You have a license to use it, and that license comes with rules.",
   },
   nejm: {
-    plain:
-      'A class of cancer drugs called TKIs works really well for patients whose tumors have specific genetic mutations. The problem: tumors often find a workaround and stop responding.',
-    kindergarten:
-      "There's special medicine that fights cancer cells with broken parts. And it works! But sometimes the cancer learns to go AROUND the medicine.",
-    bedtime:
-      'Once there was a medicine that knew exactly where the sickness lived. It worked beautifully — for a time. But the sickness was clever. It found another way.',
-    wellness:
-      'TKIs are a beautiful targeted therapy — they meet the cancer where it is. The challenge is that the body finds another path.',
-    barista:
-      "There's these cancer drugs called TKIs. They work GREAT — for a while. Then the cancer just like, finds a side road and goes around them.",
-    announcer:
-      'TKIs, folks. Tyrosine kinase inhibitors. CRUSHING IT for patients with driver mutations. But — BUT — resistance! Through bypass-track activation!',
-    uncle:
-      "These cancer pills, the TKIs, they work great. Real great. But the cancer's sneaky — it finds a back door.",
+    plain: 'TKI cancer drugs can work well for tumors with certain mutations, but tumors may later find another pathway and become resistant.',
+    simpler: 'Some cancer drugs work by targeting a specific weakness. The problem is that cancer can sometimes find a workaround.',
+    story: 'At first, the treatment finds the tumor’s weak point. Then the tumor adapts, using another path to keep growing.',
+    guided: 'Track two ideas: targeted success first, acquired resistance later. The drug works, but the disease can route around it.',
+    audio: 'These cancer drugs can work well when the tumor has the right mutation. But over time, the tumor may find a back door.',
   },
 };
 
 const registerNames: Record<RegisterKey, string> = {
-  plain: 'Plain English',
-  kindergarten: 'Kindergarten',
-  bedtime: 'Bedtime story',
-  wellness: 'Wellness',
-  barista: 'Tired barista',
-  announcer: 'Sports announcer',
-  uncle: 'Drunk uncle',
+  plain: 'Plain explainer',
+  simpler: 'Simpler words',
+  story: 'Story mode',
+  guided: 'Guided reading',
+  audio: 'Audio-first',
 };
 
 const sourcesOrder: { key: SourceKey; label: string }[] = [
@@ -153,14 +99,24 @@ const sourcesOrder: { key: SourceKey; label: string }[] = [
   { key: 'nejm', label: 'NEJM · oncology paper' },
 ];
 
-const registersOrder: { key: RegisterKey; label: string; fidelity: 'HIGH' | 'MED' | 'LOW' }[] = [
-  { key: 'plain', label: 'Plain English', fidelity: 'HIGH' },
-  { key: 'kindergarten', label: 'Kindergarten', fidelity: 'HIGH' },
-  { key: 'bedtime', label: 'Bedtime story', fidelity: 'MED' },
-  { key: 'wellness', label: 'Wellness', fidelity: 'MED' },
-  { key: 'barista', label: 'Tired barista', fidelity: 'MED' },
-  { key: 'announcer', label: 'Sports announcer', fidelity: 'LOW' },
-  { key: 'uncle', label: 'Drunk uncle', fidelity: 'LOW' },
+
+const understandProductJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Understand',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Android',
+  description: 'Understand is an AI listening app for difficult text. It retells hard text for listening while keeping the original available when trust matters.',
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
+  url: 'https://niceright.co/labs/understand/',
+};
+
+const registersOrder: { key: RegisterKey; label: string; fidelity: 'CLOSE' | 'CLEAR' | 'RETOLD' }[] = [
+  { key: 'plain', label: 'Plain explainer', fidelity: 'CLOSE' },
+  { key: 'simpler', label: 'Simpler words', fidelity: 'CLOSE' },
+  { key: 'guided', label: 'Guided reading', fidelity: 'CLEAR' },
+  { key: 'audio', label: 'Audio-first', fidelity: 'CLEAR' },
+  { key: 'story', label: 'Story mode', fidelity: 'RETOLD' },
 ];
 
 export default function UnderstandPage() {
@@ -182,7 +138,7 @@ export default function UnderstandPage() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fade output when source/register changes
+  // Fade output when source/style changes
   useEffect(() => {
     setOutputVisible(false);
     const t = setTimeout(() => setOutputVisible(true), 220);
@@ -193,6 +149,10 @@ export default function UnderstandPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(understandProductJsonLd) }}
+      />
       <style jsx global>{`
         :root {
           --bg: #07060a;
@@ -340,8 +300,8 @@ export default function UnderstandPage() {
                           {[0, 1].map((rep) => (
                             <div key={rep}>
                               <p>{rewrites[curSource].plain}</p>
-                              <p>{rewrites[curSource].bedtime}</p>
-                              <p>{rewrites[curSource].wellness}</p>
+                              <p>{rewrites[curSource].guided}</p>
+                              <p>{rewrites[curSource].audio}</p>
                             </div>
                           ))}
                         </div>
@@ -473,9 +433,7 @@ export default function UnderstandPage() {
                 <div className="u-paid-callout">
                   <div className="u-paid-callout-dot" />
                   <div>
-                    <strong>Paid tier:</strong> the voice adapts to match the register. Wellness
-                    gets a calm warm voice. Sports Announcer gets high-energy. Drunk Uncle gets a
-                    slow rasp. Coming with cloud voice.
+                    <strong>Voice capability:</strong> some voices only read clearly. More capable voices can perform the retelling style — calmer, warmer, more guided, or more energetic when the text calls for it.
                   </div>
                 </div>
               </div>
@@ -503,7 +461,7 @@ export default function UnderstandPage() {
                   <div className="u-audio-time">0:12</div>
                 </div>
                 <div className="u-output-meta">
-                  <span>Voice · Supertonic Emma (neutral)</span>
+                  <span>Voice · neutral read</span>
                   <span>Rewritten on-device in 1.8s</span>
                 </div>
               </div>

@@ -5,6 +5,17 @@ export const metadata = {
   description: 'Join the Understand Android closed test through Google Play and help test the on-ramp to difficult text.',
 };
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Understand',
+  applicationCategory: 'EducationalApplication',
+  operatingSystem: 'Android',
+  description: 'Understand is an AI listening app for difficult text, currently available through Google Play closed testing.',
+  offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
+  url: 'https://niceright.co/labs/understand/testing/',
+};
+
 const steps = [
   'Open the official Google Play testing link.',
   'Opt in with the Google account you use on your Android phone.',
@@ -16,6 +27,7 @@ const steps = [
 export default function TestingPage() {
   return (
     <main className="test-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="test-hero">
         <p className="test-eyebrow">Android closed test</p>
         <h1>Help launch Understand.</h1>

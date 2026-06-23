@@ -33,6 +33,20 @@ const steps = [
   },
 ];
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'How Understand Works',
+  description: 'Understand turns hard text into listenable retellings through original text, retelling style, closeness, comparison, and phone-native listening.',
+  breadcrumb: {
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Understand', item: 'https://niceright.co/labs/understand/' },
+      { '@type': 'ListItem', position: 2, name: 'How it works', item: 'https://niceright.co/labs/understand/how-it-works/' },
+    ],
+  },
+};
+
 const contrasts = [
   ['Ordinary TTS', 'Reads the original text aloud, even when the original was never written for the ear.'],
   ['Summarizers', 'Often compress the text so much that the experience no longer feels like reading or listening through the work.'],
@@ -42,6 +56,7 @@ const contrasts = [
 export default function HowItWorksPage() {
   return (
     <main className="hiw-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <section className="hiw-hero">
         <p className="hiw-eyebrow">How it works</p>
         <h1>Difficult text becomes a listenable path.</h1>
