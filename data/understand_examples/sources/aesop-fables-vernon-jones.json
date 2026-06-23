@@ -1,0 +1,15 @@
+{
+  "slug": "aesop-fables-vernon-jones",
+  "title": "Aesop's Fables; a new translation",
+  "author": "Aesop",
+  "translator": "V. S. Vernon Jones",
+  "source_name": "Project Gutenberg",
+  "source_url": "https://www.gutenberg.org/ebooks/11339",
+  "ebook_id": "11339",
+  "public_domain_status": "public-domain-confirmed-us",
+  "rights_note": "Project Gutenberg states this eBook is for use by anyone in the United States with almost no restrictions. Rights should be rechecked before standalone production launch, especially for non-US audiences.",
+  "attribution_text": "Source text from Project Gutenberg eBook #11339: Aesop's Fables; a new translation.",
+  "raw_path": "data/understand_examples/sources/raw/aesop-fables-vernon-jones.txt",
+  "normalized_path": "data/understand_examples/sources/normalized/aesop-fables-vernon-jones.txt",
+  "normalized_word_count": 41977
+}

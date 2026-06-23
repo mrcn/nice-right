@@ -1,0 +1,52 @@
+[
+  {
+    "source_title": "THE FOX AND THE GRAPES",
+    "style": "plain-explainer",
+    "style_label": "Plain explainer",
+    "closeness": "clear",
+    "closeness_label": "Clear — same story, easier to hear",
+    "retold_text": "A hungry fox saw a bunch of ripe grapes hanging high above him. He jumped again and again, trying to reach them, but they were too far away. At last he gave up and walked off, pretending he had never wanted them. 'They are probably sour anyway,' he said. The lesson: it is easy to despise what we cannot get.",
+    "what_changed": ["shorter sentences", "modern phrasing", "moral stated plainly for listening"],
+    "what_stayed_close": ["same fox", "same grapes", "same failed attempt", "same moral"]
+  },
+  {
+    "source_title": "THE CROW AND THE PITCHER",
+    "style": "plain-explainer",
+    "style_label": "Plain explainer",
+    "closeness": "clear",
+    "closeness_label": "Clear — same plot, smoother listening",
+    "retold_text": "A thirsty crow found a pitcher with a little water at the bottom. The water was too low for his beak to reach. He tried to tip the pitcher over, but it was too heavy. Then he dropped small stones into it, one by one. The water rose higher each time until he could drink. The lesson: patient thinking can solve what force cannot.",
+    "what_changed": ["cause and effect made explicit", "older phrasing smoothed", "lesson stated in listener-friendly language"],
+    "what_stayed_close": ["same crow", "same pitcher", "same stone solution", "same ingenuity moral"]
+  },
+  {
+    "source_title": "THE NORTH WIND AND THE SUN",
+    "style": "plain-explainer",
+    "style_label": "Plain explainer",
+    "closeness": "clear",
+    "closeness_label": "Clear — preserves the argument and moral",
+    "retold_text": "The North Wind and the Sun argued about which of them was stronger. They saw a traveler wearing a cloak and agreed that whoever could make him take it off would win. The Wind blew as hard as he could, but the traveler only wrapped the cloak tighter around himself. Then the Sun shone warmly. Soon the traveler grew hot and took the cloak off on his own. The lesson: gentleness can succeed where force fails.",
+    "what_changed": ["contest setup clarified", "sentences shortened", "moral made easy to retain"],
+    "what_stayed_close": ["same contest", "same traveler", "same cloak", "same gentleness-over-force moral"]
+  },
+  {
+    "source_title": "THE DOG AND THE SHADOW",
+    "style": "plain-explainer",
+    "style_label": "Plain explainer",
+    "closeness": "clear",
+    "closeness_label": "Clear — same action, modernized wording",
+    "retold_text": "A dog was carrying a piece of meat across a bridge. Looking down into the water, he saw his own reflection and thought it was another dog with a bigger piece of meat. Wanting that one too, he opened his mouth to grab it. His own meat fell into the water and was lost. The lesson: greed can make us lose what we already have.",
+    "what_changed": ["reflection explained directly", "moral stated in simple language", "listening rhythm improved"],
+    "what_stayed_close": ["same dog", "same reflection", "same lost meat", "same greed moral"]
+  },
+  {
+    "source_title": "THE TOWN MOUSE AND THE COUNTRY MOUSE",
+    "style": "plain-explainer",
+    "style_label": "Plain explainer",
+    "closeness": "retold",
+    "closeness_label": "Retold — same story, more conversational",
+    "retold_text": "A town mouse visited his cousin in the country and was not impressed by the simple meal. He invited the country mouse back to town, where there was rich food everywhere. But just as they began eating, people came in and the mice had to run for their lives. After several scares, the country mouse decided he preferred plain food in peace to fancy food in fear. The lesson: safety and contentment can be worth more than luxury.",
+    "what_changed": ["longer original compressed", "dialogue reduced", "central tradeoff made explicit"],
+    "what_stayed_close": ["same two mice", "same country/town contrast", "same danger", "same peace-over-luxury moral"]
+  }
+]
