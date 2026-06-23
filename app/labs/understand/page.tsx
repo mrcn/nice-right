@@ -274,11 +274,11 @@ export default function UnderstandPage() {
             </div>
             <nav className="u-nav">
               <a href="#demo">Try it</a>
+              <a href="/labs/understand/how-it-works/">How it works</a>
               <a href="/labs/understand/examples/">Examples</a>
-              <a href="#features">Features</a>
-              <a href="#tester">Become a tester</a>
+              <a href="/labs/understand/testing/">Testing</a>
             </nav>
-            <a href="https://play.google.com/apps/testing/xyz.uxoxo.understand" className="u-play-badge" target="_blank" rel="noopener noreferrer">
+            <a href="/labs/understand/testing/" className="u-play-badge">
               <span className="u-triangle" />
               Get on Play Store
             </a>
@@ -406,6 +406,7 @@ export default function UnderstandPage() {
             </div>
             <div className="u-hero-ctas" style={{ marginTop: 34 }}>
               <a href="/labs/understand/examples/" className="u-ghost-link">Browse the example library →</a>
+              <a href="/labs/understand/how-it-works/" className="u-ghost-link">How it works →</a>
             </div>
           </div>
         </section>
@@ -568,10 +569,8 @@ export default function UnderstandPage() {
               to production. You get the app early. I get over the line.
             </p>
             <a
-              href="https://play.google.com/apps/testing/xyz.uxoxo.understand"
+              href="/labs/understand/testing/"
               className="u-play-badge-big"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               <span className="u-icon">▶</span>
               <span>
@@ -586,10 +585,8 @@ export default function UnderstandPage() {
         </section>
 
         <a
-          href="https://play.google.com/apps/testing/xyz.uxoxo.understand"
+          href="/labs/understand/testing/"
           className="u-mobile-sticky"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Become a tester"
         >
           <span>Help me launch</span>
