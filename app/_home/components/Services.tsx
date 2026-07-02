@@ -103,6 +103,13 @@ export function Services() {
       section.style.removeProperty('--services-pad-y');
       section.style.removeProperty('--services-gap-y');
       section.style.removeProperty('--services-card-pad-y');
+      section.style.removeProperty('--services-heading-size');
+      section.style.removeProperty('--services-sub-size');
+      section.style.removeProperty('--services-title-size');
+      section.style.removeProperty('--services-quote-size');
+      section.style.removeProperty('--services-bullet-size');
+      section.style.removeProperty('--services-tag-size');
+      section.style.removeProperty('--services-info-size');
     };
 
     const killLocalTriggers = () => {
@@ -130,9 +137,16 @@ export function Services() {
 
       for (let step = 0; step < 9; step += 1) {
         section.style.setProperty('--services-fit', fit.toFixed(3));
-        section.style.setProperty('--services-pad-y', `${Math.max(18, Math.round(56 * fit))}px`);
-        section.style.setProperty('--services-gap-y', `${Math.max(14, Math.round(48 * fit))}px`);
-        section.style.setProperty('--services-card-pad-y', `${Math.max(14, Math.round(36 * fit))}px`);
+        section.style.setProperty('--services-pad-y', `${Math.max(28, Math.round(42 * fit))}px`);
+        section.style.setProperty('--services-gap-y', `${Math.max(22, Math.round(34 * fit))}px`);
+        section.style.setProperty('--services-card-pad-y', `${Math.max(18, Math.round(26 * fit))}px`);
+        section.style.setProperty('--services-heading-size', `${Math.max(42, 46 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-sub-size', `${Math.max(14, 15.2 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-title-size', `${Math.max(24, 26 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-quote-size', `${Math.max(13.2, 14.2 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-bullet-size', `${Math.max(12.8, 13.6 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-tag-size', `${Math.max(11.2, 12 * fit).toFixed(2)}px`);
+        section.style.setProperty('--services-info-size', `${Math.max(12.2, 13 * fit).toFixed(2)}px`);
 
         // Force layout before measuring the next correction step.
         section.getBoundingClientRect();
@@ -391,6 +405,13 @@ export function Services() {
           --services-gap-y: 72px;
           --services-card-pad-y: 40px;
           --services-nav-offset: 64px;
+          --services-heading-size: clamp(2.2rem, 3.5vw, 2.9rem);
+          --services-sub-size: 0.95rem;
+          --services-title-size: 1.625rem;
+          --services-quote-size: 0.9rem;
+          --services-bullet-size: 0.85rem;
+          --services-tag-size: 0.75rem;
+          --services-info-size: 0.8125rem;
           padding: 120px 0;
         }
 
@@ -406,7 +427,7 @@ export function Services() {
 
         .v9-services-header {
           margin-bottom: 72px;
-          max-width: min(1040px, 100%);
+          max-width: min(1120px, 100%);
         }
 
         .v9-section-label {
@@ -422,19 +443,19 @@ export function Services() {
 
         .v9-services-heading {
           font-family: var(--v9-font-heading);
-          font-size: clamp(1.45rem, calc(2.55rem * var(--services-fit)), 2.7rem);
+          font-size: var(--services-heading-size);
           font-weight: 400;
           color: #0C1117;
-          line-height: clamp(1.05, calc(1.15 * var(--services-fit)), 1.15);
+          line-height: 1.08;
           letter-spacing: -0.02em;
           margin: 0 0 clamp(8px, calc(14px * var(--services-fit)), 14px) 0;
         }
 
         .v9-services-sub {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.72rem, calc(0.95rem * var(--services-fit)), 0.95rem);
+          font-size: var(--services-sub-size);
           color: rgba(12, 17, 23, 0.55);
-          line-height: clamp(1.32, calc(1.65 * var(--services-fit)), 1.65);
+          line-height: 1.45;
           margin: 0;
         }
 
@@ -468,19 +489,19 @@ export function Services() {
 
         .v9-lever-title {
           font-family: 'Instrument Serif', Georgia, serif;
-          font-size: clamp(1rem, calc(1.3rem * var(--services-fit)), 1.3rem);
+          font-size: var(--services-title-size);
           font-weight: 400;
           color: #0C1117;
-          line-height: clamp(1.05, calc(1.25 * var(--services-fit)), 1.25);
+          line-height: 1.08;
           margin: 0 0 clamp(7px, calc(12px * var(--services-fit)), 12px) 0;
         }
 
         .v9-lever-quote {
           font-family: 'Instrument Serif', Georgia, serif;
           font-style: italic;
-          font-size: clamp(0.68rem, calc(0.85rem * var(--services-fit)), 0.85rem);
+          font-size: var(--services-quote-size);
           color: rgba(12, 17, 23, 0.60);
-          line-height: clamp(1.24, calc(1.6 * var(--services-fit)), 1.6);
+          line-height: 1.36;
           margin: 0 0 clamp(8px, calc(22px * var(--services-fit)), 22px) 0;
           padding-bottom: clamp(8px, calc(22px * var(--services-fit)), 22px);
           border-bottom: 1px solid rgba(12, 17, 23, 0.07);
@@ -489,7 +510,7 @@ export function Services() {
         .v9-lever-bullets {
           list-style: none;
           padding: 0;
-          margin: 0 0 clamp(10px, calc(28px * var(--services-fit)), 28px) 0;
+          margin: 0 0 clamp(12px, calc(18px * var(--services-fit)), 18px) 0;
           display: flex;
           flex-direction: column;
           gap: clamp(3px, calc(8px * var(--services-fit)), 8px);
@@ -497,11 +518,11 @@ export function Services() {
 
         .v9-lever-bullets li {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.66rem, calc(0.8rem * var(--services-fit)), 0.8rem);
+          font-size: var(--services-bullet-size);
           color: rgba(12, 17, 23, 0.75);
           padding-left: clamp(12px, calc(16px * var(--services-fit)), 16px);
           position: relative;
-          line-height: clamp(1.2, calc(1.4 * var(--services-fit)), 1.4);
+          line-height: 1.32;
         }
 
         .v9-lever-bullets li::before {
@@ -513,17 +534,17 @@ export function Services() {
         }
 
         .v9-lever-info {
-          margin-top: auto;
+          margin-top: clamp(10px, calc(14px * var(--services-fit)), 14px);
           background: #ffffff;
           border-radius: 10px;
-          padding: clamp(8px, calc(14px * var(--services-fit)), 14px) clamp(10px, calc(16px * var(--services-fit)), 16px);
+          padding: clamp(7px, calc(9px * var(--services-fit)), 10px) clamp(9px, calc(12px * var(--services-fit)), 12px);
           border: 1px solid rgba(12, 17, 23, 0.07);
         }
 
         .v9-lever-tag {
           display: inline-block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.58rem, calc(0.75rem * var(--services-fit)), 0.75rem);
+          font-size: var(--services-tag-size);
           font-weight: 600;
           letter-spacing: 0.08em;
           text-transform: uppercase;
@@ -537,9 +558,9 @@ export function Services() {
 
         .v9-lever-info p {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: clamp(0.62rem, calc(0.76rem * var(--services-fit)), 0.76rem);
+          font-size: var(--services-info-size);
           color: rgba(12, 17, 23, 0.55);
-          line-height: clamp(1.28, calc(1.65 * var(--services-fit)), 1.65);
+          line-height: 1.36;
           margin: 0;
         }
 
