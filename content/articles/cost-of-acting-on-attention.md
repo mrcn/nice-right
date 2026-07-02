@@ -7,7 +7,13 @@ type: ["Perspective"]
 
 # The Cost of Acting on Attention Is Dropping
 
-Your business already knows more than it uses.
+Your business already knows more than it uses. Customer-facing people already see repeated friction. AI lowers the cost of turning those patterns into systems.
+
+The practical opportunity is not "AI transformation." It is converting complaints, workarounds, explanations, and objections into pages, scripts, forms, workflows, documentation, and product decisions before the noticing gets buried again.
+
+---
+
+## The knowledge is already in the business
 
 Not in a mystical way. Not because there is some hidden genius trapped inside the org chart. The knowledge is usually sitting in plain sight.
 
@@ -40,6 +46,9 @@ That used to require more budget, more technical help, more coordination, and mo
 Now the distance between noticing the problem and building the first version of the fix is much shorter.
 
 That changes what attention is worth.
+
+
+---
 
 ## The work existed before the titles
 
@@ -78,6 +87,9 @@ That is the danger.
 The useful version of a framework sharpens attention.
 
 The useless version lets a business pretend it paid attention.
+
+
+---
 
 ## Proximity is not insight
 
@@ -119,6 +131,9 @@ That is the point.
 
 The value is not in making the business sound more like a tech company. The value is in removing drag from the way the business already works.
 
+
+---
+
 ## Why product roles get buried
 
 This is also why product roles are so often misunderstood.
@@ -146,6 +161,9 @@ Knowledge-management research has been circling this problem for decades. Nonaka
 Put less academically: the business has to turn what people know from experience into something the organization can use.
 
 That mechanism is becoming cheaper to build.
+
+
+---
 
 ## People hold on tightly to their pain
 
@@ -185,6 +203,9 @@ Where is pain being mistaken for proof?
 
 Those are not software questions first. They are attention questions.
 
+
+---
+
 ## AI does not make everyone creative
 
 AI does not make everyone creative.
@@ -218,6 +239,9 @@ You learn which customer questions matter. Which outputs need review. Which proc
 That is the work.
 
 This also keeps the AI argument honest. The U.S. Chamber of Commerce reports that almost 60% of small businesses now say they use AI, more than double from 2023.[^uschamber] That does not mean almost 60% have built an AI practice. It means access is spreading. When access spreads, the advantage shifts from having the tool to knowing what to do with it.
+
+
+---
 
 ## What to do with this on Monday
 
@@ -263,6 +287,9 @@ If nothing changed, you learned cheaply.
 If something changed, you have started building a practice.
 
 This is the same logic behind lead-user research, but scaled down to a practical operating habit. Eric von Hippel's classic work showed that users can be a source of novel product concepts when their needs and preferences are systematically identified and incorporated.[^vonhippel] For a small business, the first version may be less formal: listen for the repeated need, build a small fix, test whether it changes the work.
+
+
+---
 
 ## The actual AI opportunity
 
