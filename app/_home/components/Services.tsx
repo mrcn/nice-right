@@ -63,6 +63,7 @@ const DESKTOP_QUERY = '(min-width: 1025px)';
 const TABLET_QUERY = '(min-width: 769px) and (max-width: 1024px)';
 const MOBILE_QUERY = '(max-width: 768px)';
 const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const DESKTOP_NAV_OFFSET = 64;
 
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -119,7 +120,7 @@ export function Services() {
       let passed = false;
 
       const measureOverflow = () => {
-        const sectionOverflow = Math.max(0, section.scrollHeight - window.innerHeight);
+        const sectionOverflow = Math.max(0, section.scrollHeight - section.clientHeight);
         const cardOverflow = Math.max(
           0,
           ...cols.map((col) => Math.max(0, col.scrollHeight - col.clientHeight))
@@ -252,7 +253,7 @@ export function Services() {
 
           const pinTrigger = makeTrigger({
             trigger: section,
-            start: 'top top',
+            start: () => `top ${DESKTOP_NAV_OFFSET}px`,
             end: '+=120%',
             pin: true,
             anticipatePin: 1,
@@ -389,6 +390,7 @@ export function Services() {
           --services-pad-y: 120px;
           --services-gap-y: 72px;
           --services-card-pad-y: 40px;
+          --services-nav-offset: 64px;
           padding: 120px 0;
         }
 
@@ -404,7 +406,7 @@ export function Services() {
 
         .v9-services-header {
           margin-bottom: 72px;
-          max-width: 640px;
+          max-width: min(1040px, 100%);
         }
 
         .v9-section-label {
@@ -543,10 +545,10 @@ export function Services() {
 
         @media (min-width: 1025px) {
           .v9-services {
-            height: 100vh;
-            height: 100svh;
-            min-height: 100vh;
-            min-height: 100svh;
+            height: calc(100vh - var(--services-nav-offset));
+            height: calc(100svh - var(--services-nav-offset));
+            min-height: calc(100vh - var(--services-nav-offset));
+            min-height: calc(100svh - var(--services-nav-offset));
             padding: var(--services-pad-y) 0;
             display: flex;
             align-items: stretch;
