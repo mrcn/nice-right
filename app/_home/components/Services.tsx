@@ -98,8 +98,26 @@ export function Services() {
         }
       );
 
+      let prevActive = -1;
+
+      const animateBullets = (col: HTMLElement) => {
+        const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
+        gsap.killTweensOf(bullets);
+        gsap.fromTo(bullets,
+          { opacity: 0, x: -6 },
+          { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
+        );
+      };
+
+      const setActiveCol = (active: number) => {
+        if (active === prevActive || !cols[active]) return;
+        cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+        animateBullets(cols[active]);
+        prevActive = active;
+      };
+
       if (window.innerWidth <= 768) {
-        // Mobile: cols are stacked — highlight each as it crosses center
+        // Mobile: cols are stacked — highlight each as it crosses center.
         section.classList.add('v9-services--highlight');
         cols.forEach((col) => {
           ScrollTrigger.create({
@@ -110,18 +128,29 @@ export function Services() {
           });
         });
       } else {
-        // Desktop: pin section and scrub through each col in sequence
-        let prevActive = -1;
+        const sectionFitsViewport = section.scrollHeight <= window.innerHeight - 24;
 
-        const animateBullets = (col: HTMLElement) => {
-          const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
-          gsap.killTweensOf(bullets);
-          gsap.fromTo(bullets,
-            { opacity: 0, x: -6 },
-            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
-          );
-        };
+        if (!sectionFitsViewport) {
+          // Do not pin this section on shorter laptop viewports. The pinned
+          // version can trap the lower card content below the fold while the
+          // scroll progress is controlling the section. Let the page scroll
+          // normally and only scrub the active-column emphasis.
+          section.classList.add('v9-services--highlight');
+          ScrollTrigger.create({
+            trigger: section,
+            start: 'top 70%',
+            end: 'bottom 30%',
+            scrub: 0.6,
+            onUpdate: (self) => {
+              const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
+              setActiveCol(active);
+            },
+          });
+          setActiveCol(0);
+          return;
+        }
 
+        // Large desktop: pin section and scrub through each col in sequence.
         ScrollTrigger.create({
           trigger: section,
           start: 'top top',
@@ -131,9 +160,7 @@ export function Services() {
           scrub: 0.6,
           onEnter: () => {
             section.classList.add('v9-services--highlight');
-            cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === 0));
-            prevActive = 0;
-            animateBullets(cols[0]);
+            setActiveCol(0);
           },
           onLeave: () => {
             section.classList.remove('v9-services--highlight');
@@ -151,11 +178,7 @@ export function Services() {
           },
           onUpdate: (self) => {
             const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
-            if (active !== prevActive) {
-              cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
-              animateBullets(cols[active]);
-              prevActive = active;
-            }
+            setActiveCol(active);
           },
         });
       }
