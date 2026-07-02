@@ -59,132 +59,281 @@ const levers = [
   },
 ];
 
+const DESKTOP_QUERY = '(min-width: 1025px)';
+const TABLET_QUERY = '(min-width: 769px) and (max-width: 1024px)';
+const MOBILE_QUERY = '(max-width: 768px)';
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
 export function Services() {
   const sectionRef = useRef<HTMLElement>(null);
+  const trackedViewRef = useRef(false);
 
   useEffect(() => {
     initGSAP();
     const section = sectionRef.current;
     if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const ctx = gsap.context(() => {
-      const header = section.querySelector('.v9-services-header');
-      const cols = Array.from(section.querySelectorAll<HTMLElement>('.v9-lever-col'));
+    let ctx: gsap.Context | null = null;
+    let resizeTimer: ReturnType<typeof setTimeout> | null = null;
+    let activeTriggers: ScrollTrigger[] = [];
 
-      gsap.fromTo(
-        header,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: header, start: 'top 85%', once: true, onEnter: () => trackSectionView('services') },
-        }
-      );
+    const setAttr = (name: string, value: string) => {
+      section.setAttribute(name, value);
+    };
 
-      gsap.fromTo(
-        cols,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: cols[0], start: 'top 85%', once: true },
-          onComplete: () => { gsap.set(cols, { clearProps: 'opacity,transform' }); },
-        }
-      );
+    const setReady = (value: boolean) => setAttr('data-services-ready', String(value));
+    const setPinned = (value: boolean) => setAttr('data-services-pinned', String(value));
+    const setPinEnabled = (value: boolean) => setAttr('data-services-pin-enabled', String(value));
+    const setFitStatus = (value: 'ok' | 'min-fit-failed') => setAttr('data-services-fit-status', value);
 
-      let prevActive = -1;
+    const markViewedOnce = () => {
+      if (trackedViewRef.current) return;
+      trackedViewRef.current = true;
+      trackSectionView('services');
+    };
 
-      const animateBullets = (col: HTMLElement) => {
-        const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
-        gsap.killTweensOf(bullets);
-        gsap.fromTo(bullets,
-          { opacity: 0, x: -6 },
-          { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
+    const clearActive = (cols: HTMLElement[]) => {
+      section.classList.remove('v9-services--highlight');
+      cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
+    };
+
+    const clearDesktopFit = () => {
+      section.style.removeProperty('--services-fit');
+      section.style.removeProperty('--services-pad-y');
+      section.style.removeProperty('--services-gap-y');
+      section.style.removeProperty('--services-card-pad-y');
+    };
+
+    const killLocalTriggers = () => {
+      activeTriggers.forEach((trigger) => trigger.kill(true));
+      activeTriggers = [];
+    };
+
+    const applyDesktopFit = (cols: HTMLElement[]) => {
+      setReady(false);
+      setFitStatus('ok');
+
+      const minFit = 0.68;
+      const tolerance = 4;
+      let fit = 1;
+      let passed = false;
+
+      const measureOverflow = () => {
+        const sectionOverflow = Math.max(0, section.scrollHeight - window.innerHeight);
+        const cardOverflow = Math.max(
+          0,
+          ...cols.map((col) => Math.max(0, col.scrollHeight - col.clientHeight))
         );
+        return Math.max(sectionOverflow, cardOverflow);
       };
 
-      const setActiveCol = (active: number) => {
-        if (active === prevActive || !cols[active]) return;
-        cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
-        animateBullets(cols[active]);
-        prevActive = active;
-      };
+      for (let step = 0; step < 9; step += 1) {
+        section.style.setProperty('--services-fit', fit.toFixed(3));
+        section.style.setProperty('--services-pad-y', `${Math.max(18, Math.round(56 * fit))}px`);
+        section.style.setProperty('--services-gap-y', `${Math.max(14, Math.round(48 * fit))}px`);
+        section.style.setProperty('--services-card-pad-y', `${Math.max(14, Math.round(36 * fit))}px`);
 
-      if (window.innerWidth <= 768) {
-        // Mobile: cols are stacked — highlight each as it crosses center.
-        section.classList.add('v9-services--highlight');
-        cols.forEach((col) => {
-          ScrollTrigger.create({
-            trigger: col,
-            start: 'top 65%',
-            end: 'bottom 35%',
-            toggleClass: { targets: col, className: 'v9-lever-col--active' },
-          });
-        });
-      } else {
-        const sectionFitsViewport = section.scrollHeight <= window.innerHeight - 24;
+        // Force layout before measuring the next correction step.
+        section.getBoundingClientRect();
 
-        if (!sectionFitsViewport) {
-          // Do not pin this section on shorter laptop viewports. The pinned
-          // version can trap the lower card content below the fold while the
-          // scroll progress is controlling the section. Let the page scroll
-          // normally and only scrub the active-column emphasis.
+        if (measureOverflow() <= tolerance) {
+          passed = true;
+          break;
+        }
+
+        fit = Math.max(minFit, fit - 0.04);
+        if (fit <= minFit) break;
+      }
+
+      if (!passed && measureOverflow() > tolerance) {
+        setFitStatus('min-fit-failed');
+      }
+    };
+
+    const setup = () => {
+      ctx?.revert();
+      ctx = null;
+      killLocalTriggers();
+      setReady(false);
+      setPinned(false);
+      setPinEnabled(false);
+      clearDesktopFit();
+
+      ctx = gsap.context(() => {
+        const header = section.querySelector<HTMLElement>('.v9-services-header');
+        const cols = Array.from(section.querySelectorAll<HTMLElement>('.v9-lever-col'));
+        let prevActive = -1;
+
+        const animateBullets = (col: HTMLElement) => {
+          const bullets = col.querySelectorAll<HTMLElement>('.v9-lever-bullets li');
+          gsap.killTweensOf(bullets);
+          gsap.fromTo(
+            bullets,
+            { opacity: 0, x: -6 },
+            { opacity: 1, x: 0, duration: 0.25, stagger: 0.04, ease: 'power2.out', overwrite: 'auto' }
+          );
+        };
+
+        const setActiveCol = (active: number) => {
+          if (active === prevActive || !cols[active]) return;
+          cols.forEach((col, i) => col.classList.toggle('v9-lever-col--active', i === active));
+          animateBullets(cols[active]);
+          prevActive = active;
+        };
+
+        const showHeader = () => {
+          markViewedOnce();
+          if (!header) return;
+          gsap.fromTo(header, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.55, ease: 'power3.out', overwrite: 'auto' });
+        };
+
+        const showCols = () => {
+          gsap.fromTo(
+            cols,
+            { opacity: 0, y: 18 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.45,
+              stagger: 0.06,
+              ease: 'power3.out',
+              overwrite: 'auto',
+              onComplete: () => {
+                gsap.set(cols, { clearProps: 'opacity,transform' });
+              },
+            }
+          );
+        };
+
+        const makeTrigger = (vars: ScrollTrigger.Vars) => {
+          const trigger = ScrollTrigger.create(vars);
+          activeTriggers.push(trigger);
+          return trigger;
+        };
+
+        if (window.matchMedia(REDUCED_MOTION_QUERY).matches) {
+          setAttr('data-services-mode', 'reduced-motion');
+          clearActive(cols);
+          gsap.set([header, cols], { clearProps: 'all' });
+          setReady(true);
+          return;
+        }
+
+        makeTrigger({ trigger: header ?? section, start: 'top 85%', once: true, onEnter: showHeader });
+        makeTrigger({ trigger: cols[0] ?? section, start: 'top 85%', once: true, onEnter: showCols });
+
+        if (window.matchMedia(MOBILE_QUERY).matches) {
+          setAttr('data-services-mode', 'mobile');
           section.classList.add('v9-services--highlight');
-          ScrollTrigger.create({
+          cols.forEach((col) => {
+            makeTrigger({
+              trigger: col,
+              start: 'top 65%',
+              end: 'bottom 35%',
+              toggleClass: { targets: col, className: 'v9-lever-col--active' },
+            });
+          });
+          setReady(true);
+          return;
+        }
+
+        if (window.matchMedia(TABLET_QUERY).matches) {
+          setAttr('data-services-mode', 'tablet');
+          clearActive(cols);
+          setReady(true);
+          return;
+        }
+
+        if (window.matchMedia(DESKTOP_QUERY).matches) {
+          setAttr('data-services-mode', 'desktop-pin');
+          setPinEnabled(true);
+          section.classList.add('v9-services--highlight');
+          applyDesktopFit(cols);
+
+          const pinTrigger = makeTrigger({
             trigger: section,
-            start: 'top 70%',
-            end: 'bottom 30%',
+            start: 'top top',
+            end: '+=120%',
+            pin: true,
+            anticipatePin: 1,
             scrub: 0.6,
+            invalidateOnRefresh: true,
+            onEnter: () => {
+              setPinned(true);
+              section.classList.add('v9-services--highlight');
+              setActiveCol(0);
+            },
+            onLeave: () => {
+              setPinned(false);
+              clearActive(cols);
+              prevActive = -1;
+            },
+            onEnterBack: () => {
+              setPinned(true);
+              section.classList.add('v9-services--highlight');
+              prevActive = -1;
+            },
+            onLeaveBack: () => {
+              setPinned(false);
+              clearActive(cols);
+              prevActive = -1;
+            },
+            onToggle: (self) => {
+              setPinned(self.isActive);
+            },
             onUpdate: (self) => {
+              setPinned(self.isActive);
               const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
               setActiveCol(active);
             },
           });
-          setActiveCol(0);
-          return;
+
+          requestAnimationFrame(() => {
+            ScrollTrigger.refresh();
+            setPinEnabled(true);
+            setReady(true);
+            if (pinTrigger.isActive) setPinned(true);
+          });
         }
+      }, section);
+    };
 
-        // Large desktop: pin section and scrub through each col in sequence.
-        ScrollTrigger.create({
-          trigger: section,
-          start: 'top top',
-          end: '+=120%',
-          pin: true,
-          anticipatePin: 1,
-          scrub: 0.6,
-          onEnter: () => {
-            section.classList.add('v9-services--highlight');
-            setActiveCol(0);
-          },
-          onLeave: () => {
-            section.classList.remove('v9-services--highlight');
-            cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
-            prevActive = -1;
-          },
-          onEnterBack: () => {
-            section.classList.add('v9-services--highlight');
-            prevActive = -1;
-          },
-          onLeaveBack: () => {
-            section.classList.remove('v9-services--highlight');
-            cols.forEach((col) => col.classList.remove('v9-lever-col--active'));
-            prevActive = -1;
-          },
-          onUpdate: (self) => {
-            const active = Math.min(Math.floor(self.progress * cols.length), cols.length - 1);
-            setActiveCol(active);
-          },
-        });
+    setup();
+
+    const onResize = () => {
+      setReady(false);
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(setup, 160);
+    };
+
+    window.addEventListener('resize', onResize);
+    window.addEventListener('orientationchange', onResize);
+    const reducedMotion = window.matchMedia(REDUCED_MOTION_QUERY);
+    reducedMotion.addEventListener?.('change', onResize);
+    document.fonts?.ready.then(() => requestAnimationFrame(() => {
+      if (section.getAttribute('data-services-mode') !== 'desktop-pin') {
+        setFitStatus('ok');
+        setReady(true);
+        return;
       }
-    }, section);
+      applyDesktopFit(Array.from(section.querySelectorAll<HTMLElement>('.v9-lever-col')));
+      ScrollTrigger.refresh();
+      setReady(true);
+    }));
 
-    return () => { ctx.revert(); section.classList.remove('v9-services--highlight'); };
+    return () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('orientationchange', onResize);
+      reducedMotion.removeEventListener?.('change', onResize);
+      killLocalTriggers();
+      ctx?.revert();
+      section.classList.remove('v9-services--highlight');
+      setPinned(false);
+      setPinEnabled(false);
+      setReady(false);
+      clearDesktopFit();
+    };
   }, []);
 
   return (
@@ -194,6 +343,11 @@ export function Services() {
         id="services"
         aria-label="Services — four ways to grow a business"
         className="v9-services v9-section-warm"
+        data-services-mode="pending"
+        data-services-pin-enabled="false"
+        data-services-pinned="false"
+        data-services-ready="false"
+        data-services-fit-status="ok"
       >
         <div className="v9-services-container">
           <div className="v9-services-header">
@@ -231,6 +385,10 @@ export function Services() {
 
       <style>{`
         .v9-services {
+          --services-fit: 1;
+          --services-pad-y: 120px;
+          --services-gap-y: 72px;
+          --services-card-pad-y: 40px;
           padding: 120px 0;
         }
 
@@ -252,29 +410,29 @@ export function Services() {
         .v9-section-label {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
+          font-size: clamp(0.66rem, calc(0.75rem * var(--services-fit)), 0.75rem);
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
           color: #0B8A6E;
-          margin-bottom: 14px;
+          margin-bottom: clamp(8px, calc(14px * var(--services-fit)), 14px);
         }
 
         .v9-services-heading {
           font-family: var(--v9-font-heading);
-          font-size: clamp(1.9rem, 3vw, 2.7rem);
+          font-size: clamp(1.45rem, calc(2.55rem * var(--services-fit)), 2.7rem);
           font-weight: 400;
           color: #0C1117;
-          line-height: 1.15;
+          line-height: clamp(1.05, calc(1.15 * var(--services-fit)), 1.15);
           letter-spacing: -0.02em;
-          margin: 0 0 14px 0;
+          margin: 0 0 clamp(8px, calc(14px * var(--services-fit)), 14px) 0;
         }
 
         .v9-services-sub {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.95rem;
+          font-size: clamp(0.72rem, calc(0.95rem * var(--services-fit)), 0.95rem);
           color: rgba(12, 17, 23, 0.55);
-          line-height: 1.65;
+          line-height: clamp(1.32, calc(1.65 * var(--services-fit)), 1.65);
           margin: 0;
         }
 
@@ -299,49 +457,49 @@ export function Services() {
 
         .v9-lever-num {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
+          font-size: clamp(0.62rem, calc(0.75rem * var(--services-fit)), 0.75rem);
           font-weight: 600;
           letter-spacing: 0.12em;
           color: #0B8A6E;
-          margin-bottom: 12px;
+          margin-bottom: clamp(6px, calc(12px * var(--services-fit)), 12px);
         }
 
         .v9-lever-title {
           font-family: 'Instrument Serif', Georgia, serif;
-          font-size: 1.3rem;
+          font-size: clamp(1rem, calc(1.3rem * var(--services-fit)), 1.3rem);
           font-weight: 400;
           color: #0C1117;
-          line-height: 1.25;
-          margin: 0 0 12px 0;
+          line-height: clamp(1.05, calc(1.25 * var(--services-fit)), 1.25);
+          margin: 0 0 clamp(7px, calc(12px * var(--services-fit)), 12px) 0;
         }
 
         .v9-lever-quote {
           font-family: 'Instrument Serif', Georgia, serif;
           font-style: italic;
-          font-size: 0.85rem;
+          font-size: clamp(0.68rem, calc(0.85rem * var(--services-fit)), 0.85rem);
           color: rgba(12, 17, 23, 0.60);
-          line-height: 1.6;
-          margin: 0 0 22px 0;
-          padding-bottom: 22px;
+          line-height: clamp(1.24, calc(1.6 * var(--services-fit)), 1.6);
+          margin: 0 0 clamp(8px, calc(22px * var(--services-fit)), 22px) 0;
+          padding-bottom: clamp(8px, calc(22px * var(--services-fit)), 22px);
           border-bottom: 1px solid rgba(12, 17, 23, 0.07);
         }
 
         .v9-lever-bullets {
           list-style: none;
           padding: 0;
-          margin: 0 0 28px 0;
+          margin: 0 0 clamp(10px, calc(28px * var(--services-fit)), 28px) 0;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: clamp(3px, calc(8px * var(--services-fit)), 8px);
         }
 
         .v9-lever-bullets li {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.8rem;
+          font-size: clamp(0.66rem, calc(0.8rem * var(--services-fit)), 0.8rem);
           color: rgba(12, 17, 23, 0.75);
-          padding-left: 16px;
+          padding-left: clamp(12px, calc(16px * var(--services-fit)), 16px);
           position: relative;
-          line-height: 1.4;
+          line-height: clamp(1.2, calc(1.4 * var(--services-fit)), 1.4);
         }
 
         .v9-lever-bullets li::before {
@@ -353,17 +511,17 @@ export function Services() {
         }
 
         .v9-lever-info {
-          margin-top: 24px;
+          margin-top: auto;
           background: #ffffff;
           border-radius: 10px;
-          padding: 14px 16px;
+          padding: clamp(8px, calc(14px * var(--services-fit)), 14px) clamp(10px, calc(16px * var(--services-fit)), 16px);
           border: 1px solid rgba(12, 17, 23, 0.07);
         }
 
         .v9-lever-tag {
           display: inline-block;
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
+          font-size: clamp(0.58rem, calc(0.75rem * var(--services-fit)), 0.75rem);
           font-weight: 600;
           letter-spacing: 0.08em;
           text-transform: uppercase;
@@ -372,15 +530,52 @@ export function Services() {
           border: 1px solid rgba(11, 138, 110, 0.15);
           border-radius: 20px;
           padding: 3px 10px;
-          margin-bottom: 8px;
+          margin-bottom: clamp(4px, calc(8px * var(--services-fit)), 8px);
         }
 
         .v9-lever-info p {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.76rem;
+          font-size: clamp(0.62rem, calc(0.76rem * var(--services-fit)), 0.76rem);
           color: rgba(12, 17, 23, 0.55);
-          line-height: 1.65;
+          line-height: clamp(1.28, calc(1.65 * var(--services-fit)), 1.65);
           margin: 0;
+        }
+
+        @media (min-width: 1025px) {
+          .v9-services {
+            height: 100vh;
+            height: 100svh;
+            min-height: 100vh;
+            min-height: 100svh;
+            padding: var(--services-pad-y) 0;
+            display: flex;
+            align-items: stretch;
+          }
+
+          .v9-services-container {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-rows: auto minmax(0, 1fr);
+            row-gap: var(--services-gap-y);
+          }
+
+          .v9-services-header {
+            margin-bottom: 0;
+          }
+
+          .v9-levers {
+            min-height: 0;
+            height: 100%;
+            align-items: stretch;
+          }
+
+          .v9-lever-col {
+            min-height: 0;
+            height: 100%;
+            padding-top: var(--services-card-pad-y);
+            padding-bottom: var(--services-card-pad-y);
+          }
         }
 
         @media (max-width: 1024px) {
@@ -408,7 +603,7 @@ export function Services() {
           }
         }
 
-        @media (max-width: 640px) {
+        @media (max-width: 768px) {
           .v9-services {
             padding: 80px 0;
           }
@@ -458,6 +653,13 @@ export function Services() {
 
         /* bg tint intentionally preserved under reduced-motion — color cue, not animation */
         @media (prefers-reduced-motion: reduce) {
+          .v9-services {
+            height: auto;
+            min-height: 0;
+            display: block;
+            padding: 120px 0;
+          }
+
           .v9-services-header,
           .v9-lever-col,
           .v9-lever-col .v9-lever-title {
