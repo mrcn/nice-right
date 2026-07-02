@@ -1,13 +1,12 @@
 ---
 title: "Why You Shouldn't Trust Most AI Testing Statistics (Including Ours)"
 description: "A framework for evaluating AI testing claims: vendor epistemology, benchmark contamination, ceiling-as-average, and category errors — including an honest accounting of the data in this cluster."
-lastUpdated: "March 2026"
+lastUpdated: "January 2026"
 type: ["Thinking"]
 ---
 
 # Why You Shouldn't Trust Most AI Testing Statistics (Including Ours)
 
-*Last updated: March 2026*
 
 The articles in this cluster are meant to be utilitarian and actionable. But most of the statistics they cite — and most of the statistics you'll encounter anywhere in this space — come from vendors who profit from specific findings. Before acting on any number in this field, you need a framework for evaluating where it came from and why it exists.
 

@@ -1,7 +1,7 @@
 ---
 title: "What AI Testing Misses: The Gaps That Still Require Human Judgment"
 description: "82% of teams use AI in testing. Most either disable it within three months or spend more time managing AI misses than the AI saves. Here's why."
-lastUpdated: "March 2026"
+lastUpdated: "January 2026"
 primaryKeyword: "what AI testing misses"
 relatedKeywords: ["AI UAT limitations", "AI testing gaps", "automated testing vs human testing"]
 type: ["Thinking"]

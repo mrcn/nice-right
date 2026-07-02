@@ -301,6 +301,12 @@
   color: var(--nr-amber);
 }
 
+.art-date {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--nr-text-dim);
+}
+
 /* Prose */
 
 .art-content {

@@ -1,13 +1,12 @@
 ---
 title: "AI Coding Teams and User Acceptance Testing: A Practitioner's Guide"
 description: "The closed-loop problem, four UAT patterns that work, benchmark contamination explained, and a decision framework across Claude Code, OpenCode, and open-source models."
-lastUpdated: "March 2026"
+lastUpdated: "April 2026"
 type: ["Guide", "Thinking"]
 ---
 
 # AI Coding Teams and User Acceptance Testing: A Practitioner's Guide
 
-*Last updated: March 2026*
 
 84% of developers use or are planning to use AI coding tools. Only 29% trust the output (Stack Overflow Developer Survey, 2025, n=49,009 — the 84% figure includes "planning to use"; active users are a subset). They ship it anyway. This article covers the specific failure modes that creates, the patterns that actually contain them, and the tooling decisions that determine whether AI accelerates your QA or buries it.
 

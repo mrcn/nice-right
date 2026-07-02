@@ -1,13 +1,12 @@
 ---
 title: "Visual Regression Testing for AI-Generated Frontends"
 description: "DOM assertions test structure, not what users see. The screenshot feedback loop, tool comparison, and handling non-deterministic AI-generated content."
-lastUpdated: "March 2026"
+lastUpdated: "February 2026"
 type: ["Guide"]
 ---
 
 # Visual Regression Testing for AI-Generated Frontends
 
-*Last updated: March 2026*
 
 Playwright assertions test DOM state. They do not test what the user sees. A component can have every element present, every attribute set, every ARIA role assigned — and the layout can be completely broken. Visual regression testing for AI-generated code is not optional; it's the only way to catch what DOM assertions structurally cannot.
 

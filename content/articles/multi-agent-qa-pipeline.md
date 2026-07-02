@@ -7,7 +7,6 @@ type: ["Guide"]
 
 # Building a Multi-Agent QA Pipeline: The OpenObserve Model
 
-*Last updated: March 2026*
 
 A single Claude Code agent asked to "write comprehensive tests" produces mediocre output across every dimension — shallow coverage, flaky assertions, tests that pass by modifying themselves when they fail. The fix isn't a better prompt. It's a different architecture.
 

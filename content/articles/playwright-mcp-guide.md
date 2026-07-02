@@ -1,13 +1,12 @@
 ---
 title: "Playwright MCP for AI Coding Teams: Setup, Token Economics, and When to Use It"
 description: "114k tokens per task via MCP vs 27k via CLI. Token economics, setup, and a decision framework across Playwright MCP, agent-browser, playwright-skill, and Stagehand."
-lastUpdated: "March 2026"
+lastUpdated: "February 2026"
 type: ["Guide"]
 ---
 
 # Playwright MCP for AI Coding Teams: Setup, Token Economics, and When to Use It
 
-*Last updated: March 2026*
 
 Microsoft's `@playwright/mcp` package lets Claude Code control a real browser directly through the Model Context Protocol. Whether that's the right call for your team depends almost entirely on token economics — and the numbers are less flattering to MCP than the hype suggests.
 

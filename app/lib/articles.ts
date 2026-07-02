@@ -16,6 +16,11 @@ export interface Article extends ArticleMeta {
   content: string;
 }
 
+function parseArticleMonth(value: string): number {
+  const parsed = Date.parse(`1 ${value}`);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
 export function getAllArticles(): ArticleMeta[] {
   const files = fs.readdirSync(articlesDir).filter((f) => f.endsWith('.md'));
   return files
@@ -31,7 +36,10 @@ export function getAllArticles(): ArticleMeta[] {
         type: (data.type as string[]) ?? [],
       };
     })
-    .sort((a, b) => a.title.localeCompare(b.title));
+    .sort((a, b) => {
+      const byDate = parseArticleMonth(b.lastUpdated) - parseArticleMonth(a.lastUpdated);
+      return byDate || a.title.localeCompare(b.title);
+    });
 }
 
 export function getArticle(slug: string): Article | null {

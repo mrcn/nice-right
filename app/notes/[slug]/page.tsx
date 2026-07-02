@@ -71,6 +71,9 @@ export default async function ArticlePage({ params }: Props) {
         <div className="art-container">
           <div className="art-meta">
             <span className="art-type">{article.type.join(' · ')}</span>
+            {article.lastUpdated && (
+              <span className="art-date">Last updated: {article.lastUpdated}</span>
+            )}
           </div>
           <div
             className="art-content"

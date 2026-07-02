@@ -1,13 +1,12 @@
 ---
 title: "The Practice Is the Moat"
 description: "AI tools will become table stakes within two to three years. The competitive advantage is practice — the judgment you build by using the tools, not the tools themselves."
-lastUpdated: "March 2026"
+lastUpdated: "April 2026"
 type: ["Perspective"]
 ---
 
 # The Practice Is the Moat
 
-*Last updated: March 2026*
 
 58% of small businesses say they use AI ([U.S. Chamber of Commerce, 2025](https://www.uschamber.com/technology/empowering-small-business-the-impact-of-technology-on-u-s-small-business) — *vendor-adjacent; treat as directional*). 3% have integrated it into how they actually make decisions [primary source unverified — widely cited but attribution to Kellogg Northwestern could not be confirmed; the 55-point gap directionally matches independent survey data].
 

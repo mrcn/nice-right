@@ -7,7 +7,6 @@ type: ["Guide"]
 
 # CI/CD Pipeline Design When AI Writes the Code: The Merge Gate Architecture
 
-*Last updated: March 2026*
 
 Every team that ships AI-generated code to production eventually reaches the same architectural conclusion: the merge gate cannot be controlled by the AI. Not as a policy. Not as a guideline. As a hard architectural constraint enforced by the pipeline itself. This article covers how to build that pipeline, what runs in it, and what the tooling decisions actually cost.
 

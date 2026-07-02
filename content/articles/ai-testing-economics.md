@@ -1,7 +1,7 @@
 ---
 title: "The Real Economics of AI-Assisted Testing: What It Actually Costs"
 description: "Individual subscription vs. enterprise token billing, open-source model cost spreads, human QA benchmarks, and where the ROI actually is."
-lastUpdated: "March 2026"
+lastUpdated: "January 2026"
 type: ["Thinking"]
 ---
 
