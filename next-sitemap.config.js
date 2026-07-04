@@ -5,5 +5,6 @@ module.exports = {
   trailingSlash: true,
   generateRobotsTxt: true,
   generateIndexSitemap: false,
-  exclude: ['/landing/*', '/*.svg', '/*.png', '/*.ico', '/*.xml', '/*.txt'],
+  // Keep intentionally noindexed product-lab / landing surfaces out of XML sitemap.
+  exclude: ['/landing/*', '/labs/understand', '/labs/understand/*', '/*.svg', '/*.png', '/*.ico', '/*.xml', '/*.txt'],
 };
