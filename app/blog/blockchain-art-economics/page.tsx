@@ -1,14 +1,38 @@
 import Link from 'next/link'
 import '../blog-shared.css'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata = {
+const page = {
   title: 'Dynamic Visions: The Intersection of Art and Economics in NFTs | Nice Right',
   description: 'Exploring how time and economic value can directly influence artwork through programmable NFTs.',
+  path: '/blog/blockchain-art-economics/',
 }
 
+export const metadata = buildSeoMetadata({ ...page, type: 'article' })
 export default function BlockchainArtEconomicsPage() {
+  const articleSchema = buildArticleSchema({
+    title: 'Dynamic Visions: The Intersection of Art and Economics in NFTs',
+    description: page.description,
+    path: page.path,
+    date: '2024-01-01',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Dynamic Visions: The Intersection of Art and Economics in NFTs', path: page.path },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

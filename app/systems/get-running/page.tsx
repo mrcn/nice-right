@@ -1,8 +1,39 @@
 import { BookingSection } from '@/app/systems/_components/BookingSection';
+import { buildBreadcrumbSchema, buildServiceSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
+
+const page = {
+  title: 'Get Running | Nice Right',
+  description:
+    'A starter business automation system for missed calls, CRM, reviews, web chat, booking, and lead follow-up.',
+  path: '/systems/get-running/',
+};
+
+export const metadata = buildSeoMetadata(page);
 
 export default function GetRunningPage() {
+  const serviceSchema = buildServiceSchema({
+    name: 'Get Running',
+    description: page.description,
+    path: page.path,
+    serviceType: 'Business automation setup',
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Systems', path: '/systems/get-running/' },
+    { name: 'Get Running', path: page.path },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* 1. Hero */}
       <section className="gr-hero">
         <div className="gr-container">

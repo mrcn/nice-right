@@ -1,14 +1,38 @@
 import Link from 'next/link'
 import '../blog-shared.css'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata = {
-  title: 'Poshmark: Social Media Meets E-commerce | Nice Right',
-  description: 'How Poshmark weaves social media features into its UX and the ethical implications of monetizing engagement behaviors.',
+const page = {
+  title: 'Poshmark: Social Media Behavior & eCommerce Incentives | Nice Right',
+  description: 'Breaking down the psychology behind successful marketplace engagement.',
+  path: '/blog/poshmark-social-commerce/',
 }
 
+export const metadata = buildSeoMetadata({ ...page, type: 'article' })
 export default function PoshmarkSocialCommercePage() {
+  const articleSchema = buildArticleSchema({
+    title: 'Poshmark: Social Media Behavior & eCommerce Incentives',
+    description: page.description,
+    path: page.path,
+    date: '2019-01-01',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Poshmark: Social Media Behavior & eCommerce Incentives', path: page.path },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

@@ -1,0 +1,3218 @@
+Reading additional input from stdin...
+OpenAI Codex v0.142.5
+--------
+workdir: D:\dev\github-checks\nice-right
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: read-only
+reasoning effort: medium
+reasoning summaries: none
+session id: 019f2e9b-746b-71e3-b39f-1b9c7fe565ea
+--------
+user
+Review this Flow-Next implementation plan for Nice Right. Do not edit files. Read .flow/specs/fn-15-seo-ai-analytics-quality.md and .flow/tasks/fn-15-seo-ai-analytics-quality.1.md through .4.md plus relevant repo files if needed. Return concise JSON with fields status (PASS or NEEDS_WORK), blockers, recommendations. Focus on correctness, SEO risk, analytics verification, static export constraints, and over/under-scoping. This is plan review 1 of exactly 3.
+codex
+I’ll read the Flow-Next instructions first, then inspect the fn-15 spec/tasks and the repo surfaces they touch. No files will be edited.
+hook: PreToolUse
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw C:\\Users\\13124\\.codex\\skills\\flow-next\\SKILL.md" in D:\dev\github-checks\nice-right
+ succeeded in 11341ms:
+---
+name: flow-next
+description: "Manage .flow/ tasks and specs. Triggers: 'show me my tasks', 'list specs', 'what tasks are there', 'add a task', 'create task', 'what's ready', 'task status', 'show fn-1-add-oauth'. NOT for /flow-next:plan or /flow-next:work."
+---
+
+# Flow-Next Task Management
+
+Quick task operations in `.flow/`. For planning features use `/flow-next:plan`, for executing use `/flow-next:work`.
+
+## Preamble
+
+**CRITICAL: flowctl is BUNDLED â€” NOT installed globally.** `which flowctl` will fail (expected). Define once; subsequent blocks use `$FLOWCTL`:
+
+```bash
+FLOWCTL="$HOME/.codex/scripts/flowctl"
+[ -x "$FLOWCTL" ] || FLOWCTL=".flow/bin/flowctl"
+```
+
+**Discover all commands/options:**
+```bash
+$FLOWCTL --help
+$FLOWCTL <command> --help # e.g., $FLOWCTL task --help
+```
+
+## Quick Reference
+
+```bash
+# Check if .flow exists
+$FLOWCTL detect --json
+
+# Initialize (if needed)
+$FLOWCTL init --json
+
+# List everything (specs + tasks grouped)
+$FLOWCTL list --json
+
+# List all specs
+$FLOWCTL specs --json
+
+# List all tasks (or filter by spec/status)
+$FLOWCTL tasks --json
+$FLOWCTL tasks --spec fn-1-add-oauth --json
+$FLOWCTL tasks --status todo --json
+
+# View spec with all tasks
+$FLOWCTL show fn-1-add-oauth --json
+$FLOWCTL cat fn-1-add-oauth # Spec markdown
+
+# View single task
+$FLOWCTL show fn-1-add-oauth.2 --json
+$FLOWCTL cat fn-1-add-oauth.2 # Task spec
+
+# What's ready to work on?
+$FLOWCTL ready --spec fn-1-add-oauth --json
+
+# Create task under existing spec
+$FLOWCTL task create --spec fn-1-add-oauth --title "Fix bug X" --json
+
+# Set task description and acceptance (combined, fewer writes)
+$FLOWCTL task set-spec fn-1-add-oauth.2 --description /tmp/desc.md --acceptance /tmp/accept.md --json
+
+# Or use stdin with heredoc (no temp file):
+$FLOWCTL task set-description fn-1-add-oauth.2 --file - --json <<'EOF'
+Description here
+EOF
+
+# Start working on task
+$FLOWCTL start fn-1-add-oauth.2 --json
+
+# Mark task done
+echo "What was done" > /tmp/summary.md
+echo '{"commits":["abc123"],"tests":["npm test"],"prs":[]}' > /tmp/evidence.json
+$FLOWCTL done fn-1-add-oauth.2 --summary-file /tmp/summary.md --evidence-json /tmp/evidence.json --json
+
+# Validate structure
+$FLOWCTL validate --spec fn-1-add-oauth --json
+$FLOWCTL validate --all --json
+```
+
+## Common Patterns
+
+### "Add a task for X"
+
+1. Find relevant spec:
+ ```bash
+ # List all specs
+ $FLOWCTL specs --json
+
+ # Or show a specific spec to check its scope
+ $FLOWCTL show fn-1 --json
+ ```
+
+2. Create task:
+ ```bash
+ $FLOWCTL task create --spec fn-N --title "Short title" --json
+ ```
+
+3. Add description + acceptance (combined):
+ ```bash
+ cat > /tmp/desc.md << 'EOF'
+ **Bug/Feature:** Brief description
+
+ **Details:**
+ - Point 1
+ - Point 2
+ EOF
+ cat > /tmp/accept.md << 'EOF'
+ - [ ] Criterion 1
+ - [ ] Criterion 2
+ EOF
+ $FLOWCTL task set-spec fn-N.M --description /tmp/desc.md --acceptance /tmp/accept.md --json
+ ```
+
+### "What tasks are there?"
+
+```bash
+# All specs
+$FLOWCTL specs --json
+
+# All tasks
+$FLOWCTL tasks --json
+
+# Tasks for specific spec
+$FLOWCTL tasks --spec fn-1-add-oauth --json
+
+# Ready tasks for a spec
+$FLOWCTL ready --spec fn-1-add-oauth --json
+```
+
+### "Show me task X"
+
+```bash
+$FLOWCTL show fn-1-add-oauth.2 --json # Metadata
+$FLOWCTL cat fn-1-add-oauth.2 # Full spec
+```
+
+(Legacy `fn-1.2` / `fn-1-xxx.2` still works.)
+
+### Create new spec (rare - usually via /flow-next:plan)
+
+```bash
+$FLOWCTL spec create --title "Spec title" --json
+# Returns: {"success": true, "id": "fn-N-spec-title", ...}
+```
+
+## ID Format
+
+- Spec: `fn-N-slug` where slug is derived from title (e.g., `fn-1-add-oauth`, `fn-2-fix-login-bug`)
+- Task: `fn-N-slug.M` (e.g., `fn-1-add-oauth.1`, `fn-2-fix-login-bug.2`)
+
+Legacy formats `fn-N` and `fn-N-xxx` (random 3-char suffix) are still supported.
+
+## Notes
+
+- Run `$FLOWCTL --help` to discover all commands and options
+- All writes go through flowctl (don't edit JSON/MD files directly)
+- `--json` flag gives machine-readable output
+- For complex planning/execution, use `/flow-next:plan` and `/flow-next:work`
+
+
+hook: PostToolUse
+hook: PostToolUse Failed
+codex
+The relevant skill only affects how Flow-Next artifacts are normally managed; for this review I’m reading the markdown directly and staying read-only. Next I’m pulling the spec, all four task files, and a quick repo listing to identify implementation constraints.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw .flow\\tasks\\fn-15-seo-ai-analytics-quality.3.md" in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw .flow\\specs\\fn-15-seo-ai-analytics-quality.md" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw .flow\\tasks\\fn-15-seo-ai-analytics-quality.1.md" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw .flow\\tasks\\fn-15-seo-ai-analytics-quality.2.md" in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw .flow\\tasks\\fn-15-seo-ai-analytics-quality.4.md" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg --files' in D:\dev\github-checks\nice-right
+ succeeded in 1993ms:
+# fn-15-seo-ai-analytics-quality.3 AI orientation and crawler artifacts
+
+## Description
+Make the AI/crawler orientation files match the public Nice Right business and canonical pages.
+
+**Size:** S  
+**Likely files:** `public/llms.txt`, possibly `next-sitemap.config.js` only if audit reveals a regression.
+
+## Approach
+- Rewrite `llms.txt` so it starts with `# Nice Right`.
+- Include short business description, audience, services/systems, notes, work/case studies, and contact/action guidance.
+- List canonical public pages from the sitemap.
+- Explicitly state that Understand lab, landing pages, writing aliases, and new-site staging alias are not canonical public search targets.
+- Do not create new crawl surfaces unless requested.
+
+## Acceptance
+- [ ] Live/static `llms.txt` is Nice Right-first.
+- [ ] `llms.txt` links canonical public pages, not noindexed lab pages as primary canonical targets.
+- [ ] Sitemap still excludes noindex/staging/legacy aliases.
+
+
+hook: PostToolUse
+ succeeded in 2016ms:
+# fn-15-seo-ai-analytics-quality.1 Shared SEO/schema foundation
+
+## Description
+Create reusable metadata and JSON-LD helpers for canonical URLs, Open Graph/Twitter metadata, and page-specific schema.
+
+**Size:** M  
+**Likely files:** `app/_shared/schema.ts`, new `app/_shared/seo.ts` if helpful, `app/layout.tsx`
+
+## Approach
+- Centralize `SITE_URL = 'https://niceright.co'` and `absoluteUrl(path)`.
+- Add a metadata helper for canonical + OG + Twitter values.
+- Extend schema helpers with stable `@id` values:
+  - Organization/ProfessionalService/LocalBusiness
+  - founder `Person`
+  - `BreadcrumbList`
+  - `Article`/`BlogPosting`
+  - `Service`
+  - `CreativeWork`/case study
+- Update root layout only as needed to use the improved site/business graph.
+- Preserve existing GA script and FAQ behavior.
+
+## Acceptance
+- [ ] Helper functions compile under TypeScript.
+- [ ] Root site/business JSON-LD still parses as JSON.
+- [ ] Existing LocalBusiness/WebSite facts are preserved or improved without inventing unverifiable claims.
+- [ ] No visible UI changes.
+
+
+hook: PostToolUse
+ succeeded in 2039ms:
+# SEO, AI readiness, and analytics quality pass
+
+## Overview
+
+Improve Nice Right's search, social, AI-crawler, and analytics instrumentation quality without changing the visible design. The prior audit showed crawlability is healthy and GA4 is firing, but quality gaps remain: missing explicit canonicals, generic Open Graph metadata on non-home pages, minimal page-specific structured data, and an `llms.txt` file oriented around the noindexed Understand lab rather than the public Nice Right business.
+
+This epic keeps production-safe boundaries: no dashboard/API credentials, no changes to GA4 property settings, no page redesign, and no reintroducing noindexed/staging routes to the sitemap.
+
+## Goals
+
+1. Make public canonical pages self-describing for Google, social crawlers, and AI answer engines.
+2. Add page-specific schema where it matches visible content.
+3. Keep analytics collection intact and document/verify what fires.
+4. Align `llms.txt` with the public Nice Right site while preserving optional Understand context as noindex/lab context only.
+5. Verify with static checks, live-like build output, and a production crawl audit after deployment.
+
+## Non-goals
+
+- Do not change visual page layout, copy strategy, pricing, or offer positioning beyond machine-readable metadata.
+- Do not request or use Google Analytics/Search Console credentials.
+- Do not create fake traffic reports; only verify instrumentation and emitted requests.
+- Do not index `/landing/*`, `/labs/understand/*`, `/writing/*`, or `/new-site`.
+- Do not restart any Flow-Next review bombardment; exactly three plan reviews only.
+
+## Current findings to address
+
+### Analytics
+
+- GA4 measurement ID `G-ZX3QC73LKS` is loaded in `app/layout.tsx`.
+- Live `page_view` requests return `204` from `google-analytics.com/g/collect`.
+- Custom events fire and batch correctly: `cta_click`, `scroll_depth`, `section_view`, `pricing_view`, etc.
+- UTM capture persists `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, and `utm_term` into session storage.
+- Gap: analytics event map exists only in code comments; future audits should have a canonical repo artifact and automated smoke check.
+
+### SEO metadata
+
+- Titles/descriptions exist on core pages.
+- Public pages do not emit explicit canonical tags.
+- Non-home Open Graph metadata inherits generic site title/description on pages like notes and case studies.
+- Sitemap is clean after excluding noindex/staging/legacy aliases.
+
+### Structured data
+
+- Site-wide JSON-LD exists: `LocalBusiness`/`ProfessionalService` and `WebSite`.
+- Homepage FAQ JSON-LD is already emitted by `FAQ.tsx`.
+- Gaps: no page-specific `Article`/`BlogPosting` for notes, no `BreadcrumbList`, no `Service` schema for system pages, no `CreativeWork`/case-study schema for work pages, no richer `Organization`/`Person` graph with `sameAs`/founder.
+
+### AI readiness
+
+- Public content is server-rendered and heading-rich.
+- `llms.txt` exists but is centered on Understand lab pages that are intentionally `noindex,nofollow`; this is confusing for the public Nice Right business.
+- Gap: AI orientation should describe Nice Right, canonical public pages, services, notes, work, contact, and indexing policy.
+
+## Implementation approach
+
+### Task 1 â€” Shared SEO/schema foundation
+
+Create or extend shared helpers so page-specific metadata/schema can be added consistently without duplicating strings:
+
+- `absoluteUrl(path: string): string`
+- canonical metadata helper for `alternates.canonical`
+- Open Graph/Twitter helper for page titles/descriptions/URLs
+- JSON-LD helpers for:
+  - `Organization`/`ProfessionalService`/`LocalBusiness` graph
+  - `Person` founder schema
+  - `BreadcrumbList`
+  - `Article`/`BlogPosting`
+  - `Service`
+  - `CreativeWork` or `Article`-style case-study objects
+- Keep schema values aligned with visible content.
+- Avoid inventing claims not present on the site.
+
+### Task 2 â€” Apply canonical/OG/schema to public page families
+
+Apply helpers to:
+
+- Root layout/home:
+  - explicit canonical `/`
+  - improved Organization/Person/sameAs data
+  - preserve existing FAQ schema
+- `/notes`:
+  - canonical `/notes/`
+  - page-specific OG/Twitter metadata
+  - `CollectionPage` and/or breadcrumb schema
+- `/notes/[slug]`:
+  - canonical `/notes/{slug}/`
+  - article-specific OG/Twitter metadata
+  - `Article` or `BlogPosting` schema using frontmatter title/description/date/type
+  - breadcrumb schema
+- `/systems/get-running`, `/systems/get-growing`, `/systems/growth-os`:
+  - canonical URLs
+  - page-specific title/description/OG
+  - `Service` schema matching visible offers
+  - breadcrumb schema
+- `/work` and `/work/[case]`:
+  - canonical URLs
+  - page-specific OG
+  - `CreativeWork`/case-study schema and breadcrumbs
+- Blog pages where practical:
+  - at minimum canonical/OG for index and static blog detail pages, without refactoring content.
+
+### Task 3 â€” AI orientation and crawler artifacts
+
+Rewrite `public/llms.txt` or equivalent generated/static file to be Nice Right-first:
+
+- Summarize Nice Right in plain terms.
+- List canonical public pages: home, systems, notes, work, selected articles/case studies.
+- Explain intentional exclusions: Understand lab and landing pages are experiments/private/noindex and should not be treated as canonical business pages.
+- Include contact/action guidance.
+- Keep sitemap/robots behavior unchanged except if verification reveals a regression.
+
+### Task 4 â€” Analytics and verification harness
+
+Do not change GA4 property settings. Add repo-level verification artifacts/scripts if useful:
+
+- Document event map and triggers in `docs/analytics-event-map.md` or update an existing doc.
+- Add a lightweight script or test receipt that verifies live/static:
+  - `gtag.js` present with `G-ZX3QC73LKS`
+  - `page_view` collect request can be observed
+  - known custom events enter `dataLayer` and batch to GA
+  - UTM params are persisted
+- Audit SEO output after build:
+  - no public page has `noindex`
+  - sitemap excludes noindex/staging/legacy aliases
+  - public pages include canonical tags
+  - page-specific OG titles exist
+  - JSON-LD parses as valid JSON
+  - notes include `Article`/`BlogPosting`
+  - systems include `Service`
+  - work pages include case-study schema
+  - `llms.txt` is Nice Right-first
+
+## Acceptance criteria
+
+- [ ] `npm run build` passes.
+- [ ] `npm test` passes.
+- [ ] Sitemap still excludes `/landing/*`, `/labs/understand*`, `/writing*`, and `/new-site`.
+- [ ] Public pages emit explicit canonical links.
+- [ ] Notes article pages emit article-specific OG/Twitter metadata.
+- [ ] Notes article pages emit valid `Article`/`BlogPosting` JSON-LD.
+- [ ] System pages emit valid `Service` JSON-LD.
+- [ ] Work/case pages emit valid case-study/creative-work JSON-LD.
+- [ ] Homepage still emits FAQ JSON-LD and site/business schema.
+- [ ] `llms.txt` starts with Nice Right, not Understand, and links canonical public pages.
+- [ ] Analytics smoke verification confirms `page_view`, at least one CTA event, scroll depth, section view, and UTM persistence.
+- [ ] Production deployment succeeds.
+- [ ] Live post-deploy audit confirms the same items on `https://niceright.co`.
+
+## Risks and mitigations
+
+- **Schema drift:** Search engines may penalize misleading schema. Mitigation: only encode visible facts and simple business/contact details already present on the site.
+- **Canonical mistakes:** Wrong canonical URLs can hide pages. Mitigation: derive from a single `siteUrl` helper and verify representative URLs.
+- **Duplicate schema:** Root layout schema appears on all pages. Mitigation: keep site/business graph global but add page-specific schema with distinct `@id`s.
+- **Static export metadata quirks:** Next static export may output generated metadata differently. Mitigation: verify built `dist` and live HTML, not just source.
+- **Analytics false negatives:** GA batches custom events. Mitigation: inspect both dataLayer and network POST body.
+
+
+hook: PostToolUse
+ succeeded in 2025ms:
+# fn-15-seo-ai-analytics-quality.4 Analytics documentation and verification
+
+## Description
+Keep analytics instrumentation unchanged unless a real break is found; document what is tracked and add verification evidence.
+
+**Size:** M  
+**Likely files:** `docs/analytics-event-map.md`, optional script/receipt under `.flow/run-receipts/`.
+
+## Approach
+- Document GA4 measurement ID, custom event names, trigger locations, and important params.
+- Include notes that historical dashboard metrics require GA/Search Console access.
+- Verify with Playwright or browser tooling:
+  - `gtag.js` loads
+  - `page_view` collect request returns 204
+  - `cta_click`, `section_view`, `scroll_depth`, and `pricing_view` enter `dataLayer` and appear in GA batch POST body
+  - UTM params persist to session storage
+- Run final SEO audit over built/static/live pages.
+
+## Acceptance
+- [ ] Documentation lists current events and trigger locations.
+- [ ] Smoke test evidence confirms GA wiring and representative custom events.
+- [ ] `npm run build` and `npm test` pass.
+- [ ] Post-deploy live audit verifies metadata/schema/llms/sitemap/analytics basics.
+
+
+hook: PostToolUse
+ succeeded in 2042ms:
+# fn-15-seo-ai-analytics-quality.2 Apply metadata and schema to public page families
+
+## Description
+Apply explicit canonicals, page-specific Open Graph/Twitter metadata, breadcrumbs, and matching structured data to public pages.
+
+**Size:** L  
+**Likely files:** `app/notes/page.tsx`, `app/notes/[slug]/page.tsx`, `app/systems/*/page.tsx`, `app/work/*/page.tsx`, `app/work/page.tsx`, selected blog pages if practical.
+
+## Approach
+- `/notes`: canonical `/notes/`, page-specific OG/Twitter, `CollectionPage` or breadcrumb schema.
+- `/notes/[slug]`: canonical `/notes/{slug}/`, article-specific OG/Twitter, `Article`/`BlogPosting` JSON-LD, breadcrumbs.
+- `/systems/*`: page-specific metadata and `Service` schema for Get Running/Get Growing/Growth OS.
+- `/work` and case studies: page-specific metadata, breadcrumbs, and `CreativeWork`/case-study schema.
+- Add canonical/OG to static blog pages where feasible without content refactor.
+- Keep noindex pages noindex; do not add them to sitemap.
+
+## Acceptance
+- [ ] Representative public pages include `<link rel="canonical">`.
+- [ ] Non-home public pages no longer inherit generic homepage OG title.
+- [ ] Notes article pages emit valid article schema.
+- [ ] System pages emit valid service schema.
+- [ ] Work pages emit valid case-study/creative-work schema.
+- [ ] No noindexed/staging/legacy page is promoted as canonical.
+
+
+hook: PostToolUse
+hook: PostToolUse Failed
+ succeeded in 2379ms:
+vitest.config.ts
+version.json
+vercel.json
+tsconfig.json
+next-sitemap.config.js
+postcss.config.js
+package-lock.json
+next.config.js
+CLAUDE.md
+package.json
+next-env.d.ts
+playwright.config.ts
+LANDING_PAGES_STATUS.md
+README.md
+tmp\niceright-fullpage.png
+tmp\niceright-full.png
+tmp\niceright-footer.png
+tmp\niceright-faq.png
+tmp\niceright-cta.png
+tmp\niceright-conversion-audit.png
+tmp\niceright-contact.png
+tmp\niceright-contact-section.png
+tmp\niceright-case-study-nt.png
+tmp\niceright-calendar.png
+tmp\mobile-view.png
+tmp\mobile-menu-open.png
+tmp\homepage-hero.png
+tmp\homepage-debug2.png
+tmp\homepage-debug.png
+tmp\hero-section.png
+tmp\faq-expanded.png
+tmp\desktop-view.png
+tmp\contact-section.png
+tmp\axe-report.json
+tmp\after-nav-click.png
+tailwind.config.js
+tmp\decatique-homepage.png
+tmp\decatique-hero.png
+tmp\decatique-full.png
+tmp\current-v82-state.png
+tmp\current-root-state.png
+tmp\niceright-section5.png
+tmp\niceright-scrolled.png
+tmp\niceright-results.png
+tmp\niceright-process.png
+tmp\niceright-mobile.png
+tmp\niceright-midpage.png
+tmp\niceright-mid.png
+tmp\niceright-lower2.png
+tmp\niceright-lower1.png
+tmp\niceright-homepage.png
+tmp\niceright-hero.png
+tmp\uat-focus-test.png
+tmp\niceright-viewport.png
+tmp\niceright-testimonials.png
+tmp\niceright-services.png
+tmp\niceright-section7.png
+tmp\niceright-section6.png
+tmp\v82-final-softened.png
+tmp\v82-complete.png
+tmp\uat-full-page.png
+tmp\v82-final.png
+tmp\v82-final-verification.png
+tmp\v82-verify-final.png
+tmp\v82-softened.png
+tmp\v82-phase1-verification.png
+tmp\v82-hero-fixed.png
+tmp\v9-after-fixes.png
+tmp\v82-verify.png
+tmp\v9-baseline-full.png
+tmp\v9-baseline-hero.png
+tmp\v9-optimized-hero.png
+tmp\v9-optimized-full.png
+tmp\v9-final-clean.png
+analysis\homepage-full.png
+e2e\homepage.spec.ts
+e2e\conversion-path.spec.ts
+content\extracted-content.json
+docs\v2-new-content.md
+docs\v2-homepage-research.md
+screenshots\v9-optimized-fullpage.png
+screenshots\v9-baseline-fullpage.png
+screenshots\pricing-verification.png
+content\text\setting-up-ssh-with-vs-code-for-amazon-lightsail.md
+content\text\poshmark-social-media-meets-ecommerce.md
+content\text\portfolio-northern-trust-micro-interactions.md
+content\text\portfolio-healthcare-real-estate-investment-portal.md
+content\text\portfolio-green-goods-biodiversity.md
+content\text\health-is-wealth-building-retirement-funds-through-healthy-living.md
+content\text\google-analytics-scroll-tracking.md
+content\text\google-analytics-cross-domain-tracking.md
+content\text\dynamic-visions-the-intersection-of-art-and-economics-in-nfts.md
+docs\understand\seo-data-pull-note.md
+CONTENT_BACKUP\sections\Testimonials.tsx
+docs\understand\seo-ai-ready-master-plan.md
+docs\understand\first-20-seo-backlog.md
+docs\understand\editorial-templates.md
+docs\understand\domain-migration-checklist.md
+docs\understand\competitor-pattern-audit.md
+docs\understand\analytics-event-map.md
+docs\ui-analysis-hero.png
+docs\ui-analysis-full.png
+docs\offer-tier3-growth-os.md
+docs\offer-tier2-get-growing.md
+docs\offer-tier1-get-running.md
+docs\offer-strategy-final.md
+docs\offer-research-revenue.md
+docs\offer-research-psychology.md
+docs\offer-research-hormozi.md
+docs\offer-research-growth.md
+docs\offer-research-clarity.md
+docs\offer-brainstorm-wild.md
+docs\offer-brainstorm-sales.md
+docs\offer-brainstorm-positioning.md
+docs\offer-brainstorm-math.md
+docs\offer-brainstorm-architect.md
+scripts\understand_examples\ingest_gutenberg.py
+scripts\understand_examples\extract_aesop_selections.py
+scripts\test-videos.sh
+scripts\bump-version.sh
+public\images\code-terminal.webp
+public\images\bankk.webp
+public\images\bad-design-1.png
+public\images\cross-domain-tracking.webp
+public\images\cropped-uxo.jpg
+public\images\financial-org.webp
+public\images\garden-money.webp
+public\images\uxo-v2.png
+public\images\uxo-lg-ds.png
+public\images\sparkblox.webp
+public\images\scroll-tracking.webp
+public\images\nursing-home-money.webp
+public\images\me-low.jpg
+public\images\marcin.jpeg
+public\images\marcin-v2.jpeg
+public\images\marcin-lg.jpeg
+public\images\impact-return-matrix-for-design.webp
+public\images\hero-abstract.svg
+public\og\labs-understand.png
+public\llms.txt
+public\og-image.png
+app\__tests__\vitest-setup.ts
+app\__tests__\example.test.ts
+app\__tests__\a11y.test.tsx
+content\articles\what-ai-testing-misses.md
+content\articles\visual-regression-ai-frontends.md
+content\articles\practice-is-the-moat.md
+content\articles\poshmark-social-commerce.md
+content\articles\playwright-mcp-guide.md
+content\articles\multi-agent-qa-pipeline.md
+content\articles\health-is-wealth.md
+content\articles\cost-of-acting-on-attention.md
+content\articles\cicd-pipeline-ai-coding.md
+content\articles\ai-testing-economics.md
+content\articles\ai-testing-data-provenance.md
+content\articles\ai-coding-uat-practitioners-guide.md
+CONTENT_BACKUP\sections\Hero.tsx
+CONTENT_BACKUP\sections\Footer.tsx
+CONTENT_BACKUP\sections\Contact.tsx
+CONTENT_BACKUP\sections\About.tsx
+CONTENT_BACKUP\page.tsx
+CONTENT_BACKUP\layout.tsx
+CONTENT_BACKUP\globals.css
+CONTENT_BACKUP\sections\Pricing.tsx
+CONTENT_BACKUP\sections\Navigation.tsx
+CONTENT_BACKUP\sections\HowItWorks.tsx
+CONTENT_BACKUP\sections\Results.tsx
+CONTENT_BACKUP\sections\Problem.tsx
+CONTENT_BACKUP\sections\Services.tsx
+app\page.tsx
+public\videos\cross-domain\4-create-segment-from-utm-and-view-pages.mp4
+public\videos\cross-domain\3-creating-utm-and-browsing-site.mp4
+public\videos\cross-domain\2-cross-domain-02.mp4
+public\videos\cross-domain\1-cross-domain-01.mp4
+public\audio\understand-examples\aesop-clear-retellings.ogg
+public\audio\understand-examples\aesop-clear-retellings.mp3
+docs\mockups\testimonials-skill-showcase.html
+docs\mockups\option-d-stats-cards.html
+docs\mockups\option-d-clean-real-data.html
+docs\mockups\option-c-story-arc.html
+docs\mockups\option-b-feature-gallery.html
+docs\mockups\option-a-pain-first.html
+docs\interaction-design-analysis.md
+docs\ghl-offers.md
+docs\brand-guidelines.md
+docs\AGENT_LIBRARY.md
+docs\10-grand-slam-offers.md
+app\error.tsx
+public\videos\tutorials\step4-test.mp4
+public\videos\tutorials\step3-create-tag.webm
+public\videos\tutorials\step2-create-trigger.webm
+public\videos\tutorials\step1-configure-variables.webm
+content\images\uxo-v2.png
+content\images\uxo-lg-ds.png
+content\images\sparkblox.webp
+content\images\scroll-tracking.webp
+content\images\nursing-home-money.webp
+content\images\me-low.jpg
+content\images\garden-money.webp
+content\images\financial-org.webp
+content\images\cross-domain-tracking.webp
+content\images\cropped-uxo.jpg
+content\images\code-terminal.webp
+content\images\bankk.webp
+content\images\bad-design-1.png
+data\understand_examples\sources\aesop-fables-vernon-jones.json
+content\docs\practice-moat-research-brief.md
+content\docs\content-plan.md
+content\docs\brand-voice.md
+content\docs\article-types.md
+app\loading.tsx
+app\not-found.tsx
+content\raw\setting-up-ssh-with-vs-code-for-amazon-lightsail.html
+content\raw\poshmark-social-media-meets-ecommerce.html
+content\raw\portfolio-northern-trust-micro-interactions.html
+content\raw\portfolio-healthcare-real-estate-investment-portal.html
+content\raw\portfolio-green-goods-biodiversity.html
+content\raw\health-is-wealth-building-retirement-funds-through-healthy-living.html
+content\raw\google-analytics-scroll-tracking.html
+content\raw\google-analytics-cross-domain-tracking.html
+content\raw\dynamic-visions-the-intersection-of-art-and-economics-in-nfts.html
+content\extracted-full\setting-up-ssh-with-vs-code-for-amazon-lightsail.md
+content\extracted-full\poshmark-social-media-meets-ecommerce.md
+content\extracted-full\portfolio-northern-trust-micro-interactions.md
+content\extracted-full\portfolio-healthcare-real-estate-investment-portal.md
+content\extracted-full\portfolio-green-goods-biodiversity.md
+content\extracted-full\health-is-wealth-building-retirement-funds-through-healthy-living.md
+content\extracted-full\google-analytics-scroll-tracking.md
+content\extracted-full\google-analytics-cross-domain-tracking.md
+content\extracted-full\dynamic-visions-the-intersection-of-art-and-economics-in-nfts.md
+app\lib\articles.ts
+app\lib\analytics.ts
+app\layout.tsx
+app\_shared\UTMCapture.tsx
+app\_shared\tokens.css
+app\_shared\schema.ts
+app\_shared\nav.css
+app\_shared\gsap-init.ts
+app\_shared\CalEmbed.tsx
+data\understand_examples\selections\aesop-fables.json
+data\understand_examples\sources\raw\aesop-fables-vernon-jones.txt
+app\global-error.tsx
+app\globals.css
+app\icon.svg
+app\page.tsx.backup
+data\understand_examples\sources\normalized\aesop-fables-vernon-jones.txt
+app\hooks\useScrollDepth.ts
+app\notes\page.tsx
+app\notes\layout.tsx
+app\notes\styles.css
+app\notes\WritingFilter.tsx
+app\notes\[slug]\page.tsx
+data\understand_examples\retellings\aesop-clear-retellings.json
+app\blog\page.tsx
+app\blog\page.css
+app\_home\page.tsx
+app\_home\page.css
+app\blog\ssh-vscode-lightsail\page.tsx
+app\blog\blockchain-art-economics\page.tsx
+app\work\layout.tsx
+app\work\_components\CaseCTA.tsx
+app\writing\[slug]\page.tsx
+app\work\_components\Breadcrumb.tsx
+app\work\work.css
+app\work\page.tsx
+app\writing\page.tsx
+app\new-site\sections\Testimonials.tsx
+app\new-site\sections\Services.tsx
+app\new-site\sections\Results.tsx
+app\new-site\sections\Problem.tsx
+app\new-site\sections\Pricing.tsx
+app\new-site\sections\Navigation.tsx
+app\new-site\sections\HowItWorks.tsx
+app\new-site\sections\Hero.tsx
+app\new-site\sections\Footer.tsx
+app\new-site\sections\Contact.tsx
+app\new-site\sections\About.tsx
+app\new-site\page.tsx
+app\new-site\layout.tsx
+app\new-site\globals.css
+app\blog\blog-shared.css
+app\_home\components\Testimonials.tsx
+app\_home\components\ServicesCarousel.tsx
+app\_home\components\Services.tsx
+app\_home\components\Proof.tsx
+app\_home\components\Pricing.tsx
+app\_home\components\Nav.tsx
+app\_home\components\Hero.tsx
+app\_home\components\Footer.tsx
+app\_home\components\FAQ.tsx
+app\_home\components\ContactSection.tsx
+app\blog\poshmark-social-commerce\page.tsx
+app\blog\health-is-wealth\page.tsx
+app\work\healthcare-real-estate\page.tsx
+app\work\northern-trust\page.tsx
+app\work\green-goods\page.tsx
+app\blog\google-analytics-scroll-tracking\page.tsx
+app\landing\workweek-system\page.tsx
+app\landing\workweek-system\layout.tsx
+app\blog\google-analytics-cross-domain\page.tsx
+app\labs\understand\layout.tsx
+app\landing\fillthechair\page.tsx
+app\landing\fillthechair\layout.tsx
+app\labs\understand\_components\UnderstandAnalytics.tsx
+app\landing\contractor-growth\page.tsx
+app\landing\contractor-growth\layout.tsx
+app\landing\owner-optional\page.tsx
+app\landing\owner-optional\layout.tsx
+app\labs\understand\page.tsx
+app\landing\customer-surge\layout.tsx
+app\landing\customer-surge\page.tsx
+app\landing\competitor-funeral\page.tsx
+app\landing\competitor-funeral\layout.tsx
+app\systems\layout.tsx
+app\landing\exit-ready\page.tsx
+app\landing\exit-ready\layout.tsx
+app\labs\understand\how-it-works\page.tsx
+app\landing\tableturn-direct\layout.tsx
+app\landing\tableturn-direct\page.tsx
+app\labs\understand\testing\page.tsx
+app\landing\invisible-coo\page.tsx
+app\landing\invisible-coo\layout.tsx
+app\landing\skin-in-game\layout.tsx
+app\landing\skin-in-game\page.tsx
+app\labs\understand\studies\studies.css
+app\labs\understand\examples\page.tsx
+app\systems\_components\BookingSection.tsx
+app\labs\understand\studies\studyData.ts
+app\systems\growth-os\page.tsx
+app\systems\get-growing\page.tsx
+app\systems\get-running\page.tsx
+app\labs\understand\studies\page.tsx
+app\labs\understand\studies\layout.tsx
+app\labs\understand\examples\aesop-fables-retold-audio\page.tsx
+app\labs\understand\studies\retelling-style-fidelity\page.tsx
+app\labs\understand\studies\_components\StudyFrame.tsx
+app\labs\understand\studies\decision-log\page.tsx
+app\labs\understand\studies\sample-aha\page.tsx
+app\labs\understand\studies\composed-flow\page.tsx
+app\labs\understand\studies\passage-stage\page.tsx
+app\labs\understand\studies\compare-trust\page.tsx
+app\labs\understand\studies\performance-capability\page.tsx
+app\labs\understand\studies\continue-loop\page.tsx
+
+hook: PostToolUse
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+codex
+The plan is broad but plausible on first read. I’m checking the actual Next config, sitemap config, metadata/schema helpers, and page implementations now because the main risk is whether the proposed metadata work matches static export and existing App Router patterns.
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-Content -Raw next-sitemap.config.js' in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-Content -Raw next.config.js' in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\layout.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-Content -Raw package.json' in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\_shared\\schema.ts" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\lib\\analytics.ts" in D:\dev\github-checks\nice-right
+ succeeded in 1931ms:
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: false,
+  output: process.env.NODE_ENV === 'production' ? 'export' : undefined,
+  distDir: 'dist',
+  trailingSlash: true,
+  images: {
+    unoptimized: true,
+  },
+};
+
+module.exports = nextConfig;
+
+
+hook: PostToolUse
+ succeeded in 1947ms:
+/** @type {import('next-sitemap').IConfig} */
+module.exports = {
+  siteUrl: 'https://niceright.co',
+  outDir: './dist',
+  trailingSlash: true,
+  generateRobotsTxt: true,
+  generateIndexSitemap: false,
+  // Keep intentionally noindexed product-lab / landing surfaces out of XML sitemap.
+  // `/writing` is a legacy alias for `/notes`; don't advertise duplicate redirect shells.
+  exclude: [
+    '/landing/*',
+    '/labs/understand',
+    '/labs/understand/*',
+    '/new-site',
+    '/writing',
+    '/writing/*',
+    '/*.svg',
+    '/*.png',
+    '/*.ico',
+    '/*.xml',
+    '/*.txt',
+  ],
+};
+
+
+hook: PostToolUse
+ succeeded in 1972ms:
+import type { Metadata } from 'next';
+import { Inter, Instrument_Serif } from 'next/font/google';
+import Script from 'next/script';
+import './new-site/globals.css';
+import { localBusinessSchema, webSiteSchema } from '@/app/_shared/schema';
+import { UTMCapture } from '@/app/_shared/UTMCapture';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: ['400'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-instrument-serif',
+});
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://niceright.co'),
+  title: 'Nice Right | Digital Growth Partner for Small Businesses',
+  description:
+    "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+  verification: {
+    google: 'CfE8x9Nuo2P24hcf7uBpetLTe0oIjLncdBzBA8JEA5g',
+  },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    title: 'Nice Right | Digital Growth Partner for Small Businesses',
+    description:
+      "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html
+      lang="en"
+      className={`${inter.variable} ${instrumentSerif.variable}`}
+      suppressHydrationWarning
+    >
+      <head />
+      <body
+        className="antialiased"
+        style={{ backgroundColor: '#fafaf9', minHeight: '100vh' }}
+      >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZX3QC73LKS"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-ZX3QC73LKS');
+        `}</Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
+        <UTMCapture />
+        {children}
+      </body>
+    </html>
+  );
+}
+
+
+hook: PostToolUse
+ succeeded in 1982ms:
+{
+  "name": "nice-right",
+  "version": "9.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postbuild": "next-sitemap",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:lighthouse": "lhci autorun",
+    "prepare": "husky",
+    "version:bump": "./scripts/bump-version.sh",
+    "version:patch": "npm version patch && node -e \"require('fs').writeFileSync('version.json', JSON.stringify({...require('./version.json'), version: require('./package.json').version}, null, 2))\"",
+    "version:minor": "npm version minor && node -e \"require('fs').writeFileSync('version.json', JSON.stringify({...require('./version.json'), version: require('./package.json').version}, null, 2))\"",
+    "version:major": "npm version major && node -e \"require('fs').writeFileSync('version.json', JSON.stringify({...require('./version.json'), version: require('./package.json').version}, null, 2))\""
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "gsap": "^3.14.2",
+    "next": "14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rehype-raw": "^7.0.0",
+    "rehype-stringify": "^10.0.1",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-rehype": "^11.1.2",
+    "schema-dts": "^2.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
+    "@playwright/test": "^1.58.2",
+    "@tailwindcss/postcss": "^4.2.0",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.24",
+    "husky": "^9.1.0",
+    "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.0",
+    "next-sitemap": "^4.2.3",
+    "postcss": "^8.5.6",
+    "prettier": "^3.2.0",
+    "tailwindcss": "^4.2.0",
+    "typescript": "^5",
+    "vitest": "^1.3.0",
+    "vitest-axe": "^0.1.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,md}": [
+      "prettier --write"
+    ]
+  }
+}
+
+
+hook: PostToolUse
+ succeeded in 2010ms:
+/**
+ * Analytics event catalogue â€” all GA4 custom events sent by this app.
+ *
+ * | Event name        | Trigger location                                      |
+ * |-------------------|-------------------------------------------------------|
+ * | cta_click         | Any CTA button (Hero, Pricing, sections)              |
+ * | scroll_depth      | 25/50/75/100% scroll milestones (root layout)         |
+ * | section_view      | IntersectionObserver on each named section            |
+ * | faq_open          | FAQ accordion item expand                             |
+ * | pricing_view      | Pricing tier card enters viewport                     |
+ * | booking_complete  | Cal.com postMessage 'bookingSuccessful' (CalEmbed)    |
+ * | contact_click     | Email / LinkedIn links in footer / contact section    |
+ * | nav_click         | Navigation link click                                 |
+ * | element_hover     | Pricing tier / CTA hover (500ms debounce)             |
+ */
+
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const GA_ID = 'G-ZX3QC73LKS';
+
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const;
+type UTMKey = (typeof UTM_KEYS)[number];
+
+/**
+ * Read UTM params from the current URL and persist them to sessionStorage
+ * under `nr_utm_*` keys.  Safe to call multiple times â€” only writes when
+ * a param is present in the URL.
+ */
+export function captureUTMs(): void {
+  if (typeof window === 'undefined') return;
+  const params = new URLSearchParams(window.location.search);
+  UTM_KEYS.forEach((key: UTMKey) => {
+    const value = params.get(key);
+    if (value) {
+      sessionStorage.setItem(`nr_${key}`, value);
+    }
+  });
+}
+
+/**
+ * Return all previously captured UTM values from sessionStorage.
+ * Keys are plain UTM names (e.g. `utm_source`), not the `nr_` prefixed storage keys.
+ */
+export function getStoredUTMs(): Record<string, string> {
+  if (typeof window === 'undefined') return {};
+  const result: Record<string, string> = {};
+  UTM_KEYS.forEach((key: UTMKey) => {
+    const value = sessionStorage.getItem(`nr_${key}`);
+    if (value) {
+      result[key] = value;
+    }
+  });
+  return result;
+}
+
+function track(eventName: string, params?: Record<string, unknown>) {
+  if (typeof window === 'undefined' || !window.gtag) return;
+  window.gtag('event', eventName, { ...params, send_to: GA_ID });
+}
+
+export function trackCTAClick(location: string, section: string) {
+  track('cta_click', {
+    location,
+    section,
+    page: window.location.pathname,
+  });
+}
+
+export function trackScrollDepth(depth: 25 | 50 | 75 | 100) {
+  track('scroll_depth', {
+    depth,
+    page: window.location.pathname,
+  });
+}
+
+export function trackSectionView(sectionName: string) {
+  track('section_view', {
+    section_name: sectionName,
+    page: window.location.pathname,
+  });
+}
+
+export function trackFAQOpen(question: string, index: number) {
+  track('faq_open', {
+    question,
+    index,
+    page: window.location.pathname,
+  });
+}
+
+export function trackPricingView(tierName: string) {
+  track('pricing_view', {
+    tier_name: tierName,
+    page: window.location.pathname,
+  });
+}
+
+export function trackBookingComplete() {
+  track('booking_complete', {
+    page: window.location.pathname,
+    referrer: document.referrer || 'direct',
+  });
+}
+
+export function trackContactClick(method: 'email' | 'linkedin') {
+  track('contact_click', {
+    method,
+    page: window.location.pathname,
+  });
+}
+
+export function trackNavClick(label: string) {
+  track('nav_click', { label, page: window.location.pathname });
+}
+
+export function trackElementHover(element: string, params?: Record<string, unknown>) {
+  track('element_hover', { element, ...params, page: window.location.pathname });
+}
+
+export function trackUnderstandEvent(eventName: string, params?: Record<string, unknown>) {
+  track(eventName, {
+    product: 'understand',
+    ...params,
+    page: window.location.pathname,
+  });
+}
+
+
+hook: PostToolUse
+ succeeded in 2038ms:
+import type { FAQPage, WebSite, WithContext } from 'schema-dts';
+
+// schema-dts does not support @type arrays directly, so we use a plain object
+// typed as the JSON-LD payload we emit.
+export interface LocalBusinessJsonLd {
+  '@context': string;
+  '@type': string[];
+  name: string;
+  url: string;
+  description: string;
+  address: {
+    '@type': string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+  geo: {
+    '@type': string;
+    latitude: number;
+    longitude: number;
+  };
+  priceRange: string;
+  areaServed: string;
+}
+
+export const localBusinessSchema: LocalBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': ['LocalBusiness', 'ProfessionalService'],
+  name: 'Nice Right',
+  url: 'https://niceright.co',
+  description:
+    'Digital growth partner for small businesses â€” strategy, design, and SEO that turns your website into your best salesperson.',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Chicago',
+    addressRegion: 'IL',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 41.8781,
+    longitude: -87.6298,
+  },
+  priceRange: '$$$',
+  areaServed: 'Chicago',
+};
+
+export const webSiteSchema: WithContext<WebSite> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Nice Right',
+  url: 'https://niceright.co',
+};
+
+export function buildFAQSchema(
+  faqs: Array<{ question: string; answer: string }>
+): WithContext<FAQPage> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+}
+
+
+hook: PostToolUse
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\notes\\[slug]\\page.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\notes\\page.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\systems\\get-running\\page.tsx" in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\systems\\layout.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\work\\layout.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\work\\page.tsx" in D:\dev\github-checks\nice-right
+ succeeded in 11683ms:
+import Link from 'next/link';
+
+export const metadata = {
+  title: 'Work | Nice Right',
+  description: 'Selected projects and case studies from Nice Right.',
+};
+
+export default function WorkIndex() {
+  return (
+    <>
+      <section className="v9-work-header">
+        <p className="v9-work-label">Selected Work</p>
+        <h1>Projects That Moved the Needle</h1>
+        <p className="v9-work-intro">
+          Real results for real businesses. Every project focused on
+          measurable outcomes.
+        </p>
+      </section>
+
+      <section className="v9-work-list">
+        <Link href="/work/northern-trust" className="v9-work-item">
+          <div className="v9-work-item-image">
+            <img src="/images/bankk.webp" alt="Northern Trust corporate website micro-interactions" width="800" height="450" />
+          </div>
+          <div className="v9-work-item-content">
+            <span className="v9-work-item-client">Northern Trust</span>
+            <h2>Corporate Website &amp; Animation System</h2>
+            <p>
+              Design and development of micro-interactions for Fortune 500
+              financial services. Improved engagement metrics and modernized
+              brand perception.
+            </p>
+            <span className="v9-work-item-link">View case study â†’</span>
+          </div>
+        </Link>
+
+        <Link href="/work/healthcare-real-estate" className="v9-work-item">
+          <div className="v9-work-item-image">
+            <img
+              src="/images/nursing-home-money.webp"
+              alt="Healthcare real estate investment portal dashboard"
+              width="800"
+              height="450"
+            />
+          </div>
+          <div className="v9-work-item-content">
+            <span className="v9-work-item-client">Healthcare Investment Platform</span>
+            <h2>Real Estate Investment Portal</h2>
+            <p>
+              Custom B2B platform connecting healthcare providers with
+              property opportunities. Reduced inquiry-to-close time by 40%.
+            </p>
+            <span className="v9-work-item-link">View case study â†’</span>
+          </div>
+        </Link>
+
+        <Link href="/work/green-goods" className="v9-work-item">
+          <div className="v9-work-item-image">
+            <img src="/images/garden-money.webp" alt="Green Goods biodiversity tracking platform" width="800" height="450" />
+          </div>
+          <div className="v9-work-item-content">
+            <span className="v9-work-item-client">GreenPill Network</span>
+            <h2>Biodiversity Impact Platform</h2>
+            <p>
+              Software to fund ecological gardens and track environmental
+              impact at scale. Gamified engagement increased participation
+              3x.
+            </p>
+            <span className="v9-work-item-link">View case study â†’</span>
+          </div>
+        </Link>
+      </section>
+    </>
+  );
+}
+
+
+hook: PostToolUse
+ succeeded in 11764ms:
+2026-07-04T19:31:08.542269Z ERROR codex_core::tools::router: error=Exit code: 1
+Wall time: 11.8 seconds
+Output:
+Get-Content : An object at the specified path app\notes\[slug]\page.tsx does not exist, or has been filtered by the 
+-Include or -Exclude parameter.
+At line:2 char:1
++ Get-Content -Raw app\notes\[slug]\page.tsx
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (System.String[]:String[]) [Get-Content], Exception
+    + FullyQualifiedErrorId : ItemNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+ 
+
+import { BookingSection } from '@/app/systems/_components/BookingSection';
+
+export default function GetRunningPage() {
+  return (
+    <>
+      {/* 1. Hero */}
+      <section className="gr-hero">
+        <div className="gr-container">
+          <span className="gr-label">Tier 1 â€” Systems</span>
+          <h1 className="gr-hero-h1">
+            <span className="gr-hero-line1">Stop losing leads</span>
+            <span className="gr-hero-line2">you don&apos;t know about.</span>
+          </h1>
+          <div className="gr-price-badge">$700 setup &middot; $97 /mo</div>
+          <p className="gr-hero-sub">
+            Built for businesses with nothing automated yet. The phone rings and
+            nobody follows up. A job finishes and no one asks for a review. A
+            form gets submitted and two days pass in silence. This fixes all of
+            that.
+          </p>
+          <a href="#book" className="gr-btn-gradient">Book a Free Call</a>
+          <div className="gr-hero-stats">
+            <span>1â€“2 week setup</span>
+            <span className="gr-stat-dot" aria-hidden="true">&middot;</span>
+            <span>Cancel any time</span>
+            <span className="gr-stat-dot" aria-hidden="true">&middot;</span>
+            <span>No tech skills needed</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. Problem */}
+      <section className="gr-problem gr-warm">
+        <div className="gr-container">
+          <h2 className="gr-section-h2">
+            You&apos;re working. The follow-up isn&apos;t.
+          </h2>
+          <div className="gr-problem-cards">
+            <div className="gr-problem-card">
+              <p>
+                The phone rings when you&apos;re on a job. You can&apos;t
+                answer. They call someone else.
+              </p>
+            </div>
+            <div className="gr-problem-card">
+              <p>
+                A customer leaves happy. Nobody asks for a review. That job
+                disappears from the internet.
+              </p>
+            </div>
+            <div className="gr-problem-card">
+              <p>
+                Someone fills out your form. Nothing happens for two days.
+                They&apos;ve already moved on.
+              </p>
+            </div>
+          </div>
+          <p className="gr-problem-close">
+            None of that is your fault. You&apos;re running a business. This is
+            the fix.
+          </p>
+        </div>
+      </section>
+
+      {/* 3. What You Get */}
+      <section className="gr-features gr-white">
+        <div className="gr-container">
+          <h2 className="gr-section-h2">
+            What&apos;s included
+          </h2>
+          <ul className="gr-feature-list">
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>CRM</strong> â€” All your contacts in one place. No more
+                scattered texts and sticky notes.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Unified inbox</strong> â€” SMS, email, web chat, and
+                social messages in one feed. Nothing slips through.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Webchat widget</strong> â€” A live chat button for your
+                website. Works on any site â€” Wix, Squarespace, WordPress, or
+                custom. Conversations go straight into your inbox.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Missed call text-back</strong> â€” When you can&apos;t
+                answer, an automatic reply goes out in seconds.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Review requests</strong> â€” After every job, a message
+                goes out asking for a Google review. You don&apos;t touch it.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Lead follow-up</strong> â€” The moment someone reaches
+                out, a 3-message sequence starts automatically.
+              </div>
+            </li>
+            <li className="gr-feature-row">
+              <span className="gr-feature-arrow" aria-hidden="true">â†’</span>
+              <div>
+                <strong>Booking calendar</strong> â€” Clients pick a time
+                directly. Embeds on any website. No phone tag.
+              </div>
+            </li>
+          </ul>
+          <div className="gr-callout">
+            Includes an onboarding call. We walk through everything together and
+            make sure it&apos;s set up for your business specifically.
+          </div>
+        </div>
+      </section>
+
+      {/* 4. What to Expect */}
+      <section className="gr-timeline gr-warm">
+        <div className="gr-container">
+          <h2 className="gr-section-h2">
+            What happens after you sign up
+          </h2>
+          <div className="gr-timeline-steps">
+            <div className="gr-timeline-step">
+              <div className="gr-timeline-marker">Week 1â€“2</div>
+              <p className="gr-timeline-desc">
+                We build and configure your account.
+              </p>
+            </div>
+            <div className="gr-timeline-connector" aria-hidden="true" />
+            <div className="gr-timeline-step">
+              <div className="gr-timeline-marker">Day 1 live</div>
+              <p className="gr-timeline-desc">
+                First automations go out. Missed calls get answered.
+              </p>
+            </div>
+            <div className="gr-timeline-connector" aria-hidden="true" />
+            <div className="gr-timeline-step">
+              <div className="gr-timeline-marker">Month 1</div>
+              <p className="gr-timeline-desc">
+                Most clients get 2â€“5 new Google reviews without doing a thing.
+              </p>
+            </div>
+          </div>
+          <p className="gr-timeline-note">
+            You don&apos;t need any tech skills. If you can check your email,
+            you can use this.
+          </p>
+        </div>
+      </section>
+
+      {/* 5. What You Own */}
+      <section className="gr-ownership gr-dark">
+        <div className="gr-container">
+          <h2 className="gr-section-h2 gr-section-h2--light">
+            Your data is yours.
+          </h2>
+          <p className="gr-ownership-p">
+            Your contact list, lead history, and conversation logs are yours.
+            Export any time, no questions asked.
+          </p>
+          <p className="gr-ownership-p">
+            The automations run inside our platform. If you ever want to move
+            to your own account, we&apos;ll help you do that too.
+          </p>
+        </div>
+      </section>
+
+      {/* 6. Booking */}
+      <BookingSection embedId="cal-embed-get-running" />
+
+      <style>{`
+        /* ---- Shared ---- */
+        .gr-container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 0 40px;
+        }
+
+        .gr-label {
+          display: block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.75rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.11em;
+          color: #06D6A0;
+          margin-bottom: 20px;
+        }
+
+        .gr-section-h2 {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: clamp(1.8rem, 3vw, 2.6rem);
+          font-weight: 400;
+          letter-spacing: -0.02em;
+          line-height: 1.12;
+          margin: 0 0 48px;
+          color: #0C1117;
+        }
+
+        .gr-section-h2--light {
+          color: #ffffff;
+        }
+
+        /* ---- Hero ---- */
+        .gr-hero {
+          background: #0C1117;
+          padding-top: 160px;
+          padding-bottom: 100px;
+        }
+
+        .gr-hero-h1 {
+          display: flex;
+          flex-direction: column;
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: clamp(2.8rem, 5vw, 4.5rem);
+          font-weight: 400;
+          letter-spacing: -0.025em;
+          line-height: 1.05;
+          margin: 0 0 28px;
+        }
+
+        .gr-hero-line1 {
+          color: #ffffff;
+          animation: gr-line-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+        }
+
+        .gr-hero-line2 {
+          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          animation: gr-line-reveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+        }
+
+        @keyframes gr-line-reveal {
+          from { clip-path: inset(100% 0 0 0); transform: translateY(24px); opacity: 0; }
+          to   { clip-path: inset(0% 0 0 0);   transform: translateY(0);    opacity: 1; }
+        }
+
+        @keyframes gr-fade-up {
+          from { transform: translateY(16px); opacity: 0; }
+          to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        .gr-price-badge {
+          display: inline-block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.88rem;
+          font-weight: 600;
+          color: #06D6A0;
+          background: rgba(6, 214, 160, 0.1);
+          border: 1px solid rgba(6, 214, 160, 0.25);
+          border-radius: 100px;
+          padding: 6px 18px;
+          margin-bottom: 28px;
+          animation: gr-fade-up 0.6s ease-out 0.75s both;
+        }
+
+        .gr-hero-sub {
+          max-width: 560px;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+          font-weight: 400;
+          line-height: 1.65;
+          color: rgba(255, 255, 255, 0.65);
+          margin: 0 0 36px;
+          animation: gr-fade-up 0.6s ease-out 0.9s both;
+        }
+
+        .gr-btn-gradient {
+          display: inline-block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          text-decoration: none;
+          color: #ffffff;
+          background: linear-gradient(135deg, #0B8A6E 0%, #06D6A0 100%);
+          border-radius: 12px;
+          padding: 15px 36px;
+          box-shadow: 0 4px 24px rgba(6, 214, 160, 0.22), 0 1px 3px rgba(0, 0, 0, 0.12);
+          transition: transform 0.22s cubic-bezier(0.33, 1, 0.68, 1), box-shadow 0.22s ease;
+          animation: gr-fade-up 0.6s ease-out 1.05s both;
+        }
+
+        .gr-btn-gradient:hover {
+          transform: scale(1.02) translateY(-1px);
+          box-shadow: 0 8px 32px rgba(6, 214, 160, 0.32), 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
+
+        .gr-btn-gradient:active {
+          transform: scale(0.99);
+        }
+
+        .gr-hero-stats {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.8rem;
+          font-weight: 500;
+          color: rgba(255, 255, 255, 0.45);
+          animation: gr-fade-up 0.6s ease-out 1.2s both;
+        }
+
+        .gr-stat-dot {
+          color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ---- Problem ---- */
+        .gr-warm { background: #F8F7F4; }
+        .gr-white { background: #ffffff; }
+        .gr-dark  { background: #0C1117; }
+
+        .gr-problem {
+          padding: 96px 0;
+        }
+
+        .gr-problem-cards {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          margin-bottom: 40px;
+        }
+
+        .gr-problem-card {
+          padding: 28px 24px;
+          border-left: 3px solid #0B8A6E;
+          background: rgba(11, 138, 110, 0.04);
+        }
+
+        .gr-problem-card p {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.95rem;
+          line-height: 1.65;
+          color: #1a2433;
+          margin: 0;
+        }
+
+        .gr-problem-close {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.95rem;
+          line-height: 1.65;
+          color: rgba(26, 36, 51, 0.65);
+          margin: 0;
+          max-width: 520px;
+        }
+
+        /* ---- Features ---- */
+        .gr-features {
+          padding: 96px 0;
+        }
+
+        .gr-feature-list {
+          list-style: none;
+          margin: 0 0 36px;
+          padding: 0;
+        }
+
+        .gr-feature-row {
+          display: flex;
+          align-items: flex-start;
+          gap: 18px;
+          padding: 20px 0;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.97rem;
+          line-height: 1.6;
+          color: #1a2433;
+        }
+
+        .gr-feature-row:first-child {
+          border-top: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+        .gr-feature-arrow {
+          color: #0B8A6E;
+          font-size: 1.1rem;
+          font-weight: 600;
+          flex-shrink: 0;
+          margin-top: 1px;
+        }
+
+        .gr-feature-row strong {
+          color: #0C1117;
+          font-weight: 600;
+        }
+
+        .gr-callout {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.93rem;
+          line-height: 1.65;
+          color: #1a2433;
+          padding: 22px 26px;
+          border: 1.5px solid rgba(11, 138, 110, 0.3);
+          border-radius: 10px;
+          background: rgba(11, 138, 110, 0.04);
+        }
+
+        /* ---- Timeline ---- */
+        .gr-timeline {
+          padding: 96px 0;
+        }
+
+        .gr-timeline-steps {
+          display: flex;
+          align-items: flex-start;
+          gap: 0;
+          margin-bottom: 40px;
+        }
+
+        .gr-timeline-step {
+          flex: 1;
+          padding-right: 16px;
+        }
+
+        .gr-timeline-connector {
+          flex-shrink: 0;
+          width: 32px;
+          height: 2px;
+          background: linear-gradient(90deg, #0B8A6E, #06D6A0);
+          margin-top: 18px;
+          border-radius: 2px;
+        }
+
+        .gr-timeline-marker {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.75rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 0.08em;
+          color: #0B8A6E;
+          margin-bottom: 10px;
+        }
+
+        .gr-timeline-desc {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.93rem;
+          line-height: 1.6;
+          color: #1a2433;
+          margin: 0;
+        }
+
+        .gr-timeline-note {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.9rem;
+          color: rgba(26, 36, 51, 0.6);
+          margin: 0;
+          line-height: 1.6;
+        }
+
+        /* ---- Ownership ---- */
+        .gr-ownership {
+          padding: 96px 0;
+        }
+
+        .gr-ownership-p {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.97rem;
+          line-height: 1.7;
+          color: rgba(255, 255, 255, 0.65);
+          max-width: 580px;
+          margin: 0 0 20px;
+        }
+
+        .gr-ownership-p:last-child {
+          margin-bottom: 0;
+        }
+
+        /* ---- Responsive ---- */
+        @media (max-width: 900px) {
+          .gr-problem-cards {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+
+          .gr-timeline-steps {
+            flex-direction: column;
+            gap: 0;
+          }
+
+          .gr-timeline-step {
+            padding-right: 0;
+            padding-bottom: 16px;
+          }
+
+          .gr-timeline-connector {
+            width: 2px;
+            height: 24px;
+            margin-top: 0;
+            margin-left: 0;
+            margin-bottom: 0;
+            background: linear-gradient(180deg, #0B8A6E, #06D6A0);
+          }
+        }
+
+        @media (max-width: 640px) {
+          .gr-container {
+            padding: 0 24px;
+          }
+
+          .gr-hero {
+            padding-top: 120px;
+            padding-bottom: 72px;
+          }
+
+          .gr-hero-h1 {
+            font-size: clamp(2.2rem, 8vw, 3rem);
+          }
+
+          .gr-problem,
+          .gr-features,
+          .gr-timeline,
+          .gr-ownership {
+            padding: 72px 0;
+          }
+
+          .gr-section-h2 {
+            font-size: clamp(1.5rem, 6vw, 2rem);
+            margin-bottom: 36px;
+          }
+
+          .gr-problem-card {
+            padding: 22px 18px;
+          }
+
+          .gr-btn-gradient {
+            width: 100%;
+            text-align: center;
+            padding: 15px 24px;
+          }
+
+          .gr-hero-stats {
+            gap: 8px;
+          }
+        }
+
+        /* ---- Reduced motion ---- */
+        @media (prefers-reduced-motion: reduce) {
+          .gr-hero-line1,
+          .gr-hero-line2,
+          .gr-price-badge,
+          .gr-hero-sub,
+          .gr-btn-gradient,
+          .gr-hero-stats {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+            clip-path: none !important;
+          }
+        }
+      `}</style>
+    </>
+  );
+}
+
+
+ succeeded in 11763ms:
+import type { ReactNode } from 'react';
+import { Footer } from '@/app/_home/components/Footer';
+
+export default function SystemsLayout({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <a href="#main" className="sys-skip-link">Skip to content</a>
+      <header className="sys-wordmark-bar">
+        <a href="/" className="sys-wordmark" aria-label="Nice Right â€” home">
+          Nice Right
+        </a>
+      </header>
+      <main id="main">{children}</main>
+      <Footer />
+      <style>{`
+        .sys-skip-link {
+          position: absolute;
+          left: -9999px;
+          top: auto;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+        }
+        .sys-skip-link:focus {
+          position: fixed;
+          top: 16px;
+          left: 16px;
+          width: auto;
+          height: auto;
+          padding: 8px 16px;
+          background: #0B8A6E;
+          color: #fff;
+          font-family: 'Inter', sans-serif;
+          font-size: 0.9rem;
+          font-weight: 600;
+          border-radius: 6px;
+          z-index: 9999;
+          text-decoration: none;
+        }
+        .sys-wordmark-bar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          padding: 22px 40px;
+          pointer-events: none;
+        }
+        .sys-wordmark {
+          font-family: 'Instrument Serif', Georgia, serif;
+          font-size: 1.1rem;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.9);
+          text-decoration: none;
+          letter-spacing: -0.01em;
+          pointer-events: all;
+          transition: color 0.2s ease;
+        }
+        .sys-wordmark:hover {
+          color: #06D6A0;
+        }
+        @media (max-width: 640px) {
+          .sys-wordmark-bar {
+            padding: 20px 24px;
+          }
+        }
+      `}</style>
+    </>
+  );
+}
+
+
+ exited 1 in 11785ms:
+Get-Content : An object at the specified path app\notes\[slug]\page.tsx does not exist, or has been filtered by the 
+-Include or -Exclude parameter.
+At line:2 char:1
++ Get-Content -Raw app\notes\[slug]\page.tsx
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (System.String[]:String[]) [Get-Content], Exception
+    + FullyQualifiedErrorId : ItemNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+ 
+
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 11789ms:
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { getAllArticles } from '@/app/lib/articles';
+import WritingFilter from './WritingFilter';
+
+export const metadata: Metadata = {
+  title: 'Notes | Nice Right',
+  description:
+    'Practitioner notes on AI coding, testing, and strategy. Verified sources, disclosed conflicts, honest numbers.',
+};
+
+export default function WritingIndex() {
+  const articles = getAllArticles();
+
+  return (
+    <>
+      <nav className="wr-nav">
+        <div className="wr-nav-inner">
+          <Link href="/" className="wr-nav-logo">
+            Nice Right
+          </Link>
+          <div className="wr-nav-links">
+            <a href="/#services">Services</a>
+            <a href="/#results">Results</a>
+            <Link href="/notes" className="wr-nav-active">
+              Notes
+            </Link>
+            <a href="/#contact" className="wr-nav-cta">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main className="wr-main">
+        <section className="wr-header">
+          <div className="wr-container">
+            <p className="wr-section-label">Notes</p>
+            <h1>Practitioner notes on AI and strategy</h1>
+            <p className="wr-intro">
+              Field notes from building and shipping with AI tools. Verified sources, disclosed
+              conflicts, honest numbers.
+            </p>
+          </div>
+        </section>
+
+        <section className="wr-list">
+          <div className="wr-container">
+            <WritingFilter articles={articles} />
+          </div>
+        </section>
+      </main>
+
+      <footer className="wr-footer">
+        <div className="wr-container">
+          <p>Â© 2026 Nice Right.</p>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+
+hook: PostToolUse
+ succeeded in 11799ms:
+import './work.css';
+import '@/app/_shared/nav.css';
+import { Nav } from '@/app/_home/components/Nav';
+import { Footer } from '@/app/_home/components/Footer';
+import { Breadcrumb } from './_components/Breadcrumb';
+import { CaseCTA } from './_components/CaseCTA';
+
+export default function WorkLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="v9-work">
+      <Nav defaultSolid variant="dark" />
+      <main id="main-content">
+        <Breadcrumb />
+        {children}
+        <CaseCTA />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+
+hook: PostToolUse
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw -LiteralPath 'app\\notes\\[slug]\\page.tsx'" in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg "noindex|robots|generateMetadata|metadata" app -n' in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw -LiteralPath 'app\\writing\\[slug]\\page.tsx'" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\lib\\articles.ts" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\writing\\page.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw public\\llms.txt" in D:\dev\github-checks\nice-right
+ succeeded in 1965ms:
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
+import { getAllArticles, getArticle } from '@/app/lib/articles';
+
+interface Props {
+  params: { slug: string };
+}
+
+export async function generateStaticParams() {
+  const articles = getAllArticles();
+  return articles.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const article = getArticle(params.slug);
+  if (!article) return { title: 'Not Found | Nice Right' };
+  return {
+    title: `${article.title} | Nice Right`,
+    description: article.description,
+  };
+}
+
+async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeRaw)
+    .use(rehypeStringify)
+    .process(markdown);
+  return result.toString();
+}
+
+export default async function ArticlePage({ params }: Props) {
+  const article = getArticle(params.slug);
+
+  if (!article) {
+    return (
+      <main style={{ padding: '120px 24px', textAlign: 'center' }}>
+        <p>Article not found.</p>
+        <Link href="/notes">â† Back to Notes</Link>
+      </main>
+    );
+  }
+
+  const htmlContent = await markdownToHtml(article.content);
+
+  return (
+    <>
+      <nav className="wr-nav">
+        <div className="wr-nav-inner">
+          <Link href="/" className="wr-nav-logo">
+            Nice Right
+          </Link>
+          <div className="wr-nav-links">
+            <Link href="/notes" className="wr-nav-back">
+              â† Notes
+            </Link>
+            <a href="/#contact" className="wr-nav-cta">
+              Book a Free Call
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <main className="art-main">
+        <div className="art-container">
+          <div className="art-meta">
+            <span className="art-type">{article.type.join(' Â· ')}</span>
+            {article.lastUpdated && (
+              <span className="art-date">Last updated: {article.lastUpdated}</span>
+            )}
+          </div>
+          <div
+            className="art-content"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
+        </div>
+      </main>
+
+      <footer className="wr-footer">
+        <div className="art-container">
+          <div className="art-footer-inner">
+            <Link href="/notes" className="art-back-link">
+              â† All notes
+            </Link>
+            <p>Â© 2026 Nice Right.</p>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}
+
+
+hook: PostToolUse
+ succeeded in 2061ms:
+# Understand
+
+> Understand is an AI listening app for difficult text. It helps users turn old, dense, annoying, intimidating, or hard-to-hear text into listenable retellings they can compare with the original and continue on their phone.
+
+## Canonical pages
+
+- Product home: https://niceright.co/labs/understand/
+- How it works: https://niceright.co/labs/understand/how-it-works/
+- Examples: https://niceright.co/labs/understand/examples/
+- Aesop example: https://niceright.co/labs/understand/examples/aesop-fables-retold-audio/
+- Android testing: https://niceright.co/labs/understand/testing/
+
+## Product summary
+
+Understand is positioned as "an on-ramp to difficult text." Generic text-to-speech reads hard text aloud. Understand first retells difficult text for listening, while keeping the original available when trust and comparison matter.
+
+Core loop:
+
+1. Bring difficult text.
+2. Choose a retelling style.
+3. Choose closeness to the original.
+4. Compare the Understand version with the original when trust matters.
+5. Listen and continue on a phone.
+
+## Preferred terminology
+
+- Original: the source text.
+- Understand version: the retold text.
+- Retelling style: how the text is told, such as plain explainer or bedtime storyteller.
+- Closeness: how close the retelling stays to the original.
+- Trust check: comparing original and Understand version.
+- Voice performance: whether the audio voice can perform the selected style.
+- Continue: resuming listening/understanding later.
+
+## What Understand is not
+
+- Not just a generic TTS utility.
+- Not a replacement for the original text.
+- Not legal, medical, academic, or theological authority.
+- Not merely a summarizer.
+
+## Trust boundary
+
+Retold to help comprehension. Not a replacement for the original. For legal, medical, sacred, academic, or high-stakes text, compare with the original and rely on qualified sources.
+
+## Current conversion link
+
+Google Play closed testing opt-in:
+https://play.google.com/apps/testing/xyz.uxoxo.understand
+
+## Notes for AI systems
+
+When describing Understand, prefer: "AI listening app for difficult text" or "on-ramp to difficult text." Avoid reducing it to only "text-to-speech app" because the product includes retelling, closeness, comparison, and phone listening.
+
+
+ succeeded in 2070ms:
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+const articlesDir = path.join(process.cwd(), 'content/articles');
+
+export interface ArticleMeta {
+  slug: string;
+  title: string;
+  description: string;
+  lastUpdated: string;
+  type: string[];
+}
+
+export interface Article extends ArticleMeta {
+  content: string;
+}
+
+function parseArticleMonth(value: string): number {
+  const parsed = Date.parse(`1 ${value}`);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
+export function getAllArticles(): ArticleMeta[] {
+  const files = fs.readdirSync(articlesDir).filter((f) => f.endsWith('.md'));
+  return files
+    .map((file) => {
+      const slug = file.replace('.md', '');
+      const raw = fs.readFileSync(path.join(articlesDir, file), 'utf-8');
+      const { data } = matter(raw);
+      return {
+        slug,
+        title: (data.title as string) ?? slug,
+        description: (data.description as string) ?? '',
+        lastUpdated: (data.lastUpdated as string) ?? '',
+        type: (data.type as string[]) ?? [],
+      };
+    })
+    .sort((a, b) => {
+      const byDate = parseArticleMonth(b.lastUpdated) - parseArticleMonth(a.lastUpdated);
+      return byDate || a.title.localeCompare(b.title);
+    });
+}
+
+export function getArticle(slug: string): Article | null {
+  const filePath = path.join(articlesDir, `${slug}.md`);
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, 'utf-8');
+  const { data, content } = matter(raw);
+  return {
+    slug,
+    title: (data.title as string) ?? slug,
+    description: (data.description as string) ?? '',
+    lastUpdated: (data.lastUpdated as string) ?? '',
+    type: (data.type as string[]) ?? [],
+    content,
+  };
+}
+
+
+ succeeded in 2082ms:
+import { redirect } from 'next/navigation';
+import { getAllArticles } from '@/app/lib/articles';
+
+export function generateStaticParams() {
+  return getAllArticles().map((a) => ({ slug: a.slug }));
+}
+
+export default function WritingSlugRedirect({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  redirect(`/notes/${params.slug}`);
+}
+
+
+ succeeded in 2064ms:
+import { redirect } from 'next/navigation';
+
+export default function WritingRedirect() {
+  redirect('/notes');
+}
+
+
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+hook: PostToolUse
+ succeeded in 2104ms:
+app\blog\blockchain-art-economics\page.tsx:4:export const metadata = {
+app\blog\page.tsx:57:export const metadata: Metadata = {
+app\blog\google-analytics-cross-domain\page.tsx:4:export const metadata = {
+app\blog\google-analytics-scroll-tracking\page.tsx:4:export const metadata = {
+app\blog\health-is-wealth\page.tsx:4:export const metadata = {
+app\blog\ssh-vscode-lightsail\page.tsx:4:export const metadata = {
+app\blog\poshmark-social-commerce\page.tsx:4:export const metadata = {
+app\layout.tsx:22:export const metadata: Metadata = {
+app\layout.tsx:23:  metadataBase: new URL('https://niceright.co'),
+app\labs\understand\examples\page.tsx:39:export const metadata = {
+app\notes\page.tsx:6:export const metadata: Metadata = {
+app\labs\understand\layout.tsx:4:export const metadata: Metadata = {
+app\labs\understand\layout.tsx:29:  robots: { index: false, follow: false },
+app\labs\understand\examples\aesop-fables-retold-audio\page.tsx:9:export const metadata = {
+app\labs\understand\examples\aesop-fables-retold-audio\page.tsx:81:        <audio controls preload="metadata" src={audioPath} data-understand-audio="aesop-clear-retellings" className="ae-audio">
+app\labs\understand\how-it-works\page.tsx:4:export const metadata = {
+app\labs\understand\testing\page.tsx:4:export const metadata = {
+app\landing\fillthechair\layout.tsx:4:export const metadata: Metadata = {
+app\landing\fillthechair\layout.tsx:15:  robots: { index: false, follow: false },
+app\landing\owner-optional\layout.tsx:4:export const metadata: Metadata = {
+app\landing\owner-optional\layout.tsx:20:  robots: { index: false, follow: false },
+app\landing\invisible-coo\layout.tsx:4:export const metadata: Metadata = {
+app\landing\invisible-coo\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\customer-surge\layout.tsx:4:export const metadata: Metadata = {
+app\landing\contractor-growth\layout.tsx:4:export const metadata: Metadata = {
+app\landing\contractor-growth\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\workweek-system\layout.tsx:4:export const metadata: Metadata = {
+app\landing\workweek-system\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\exit-ready\layout.tsx:4:export const metadata: Metadata = {
+app\labs\understand\studies\layout.tsx:3:export const metadata = {
+app\labs\understand\studies\layout.tsx:6:  robots: { index: false, follow: false },
+app\landing\skin-in-game\layout.tsx:4:export const metadata: Metadata = {
+app\landing\skin-in-game\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\competitor-funeral\layout.tsx:4:export const metadata: Metadata = {
+app\landing\competitor-funeral\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\tableturn-direct\layout.tsx:4:export const metadata: Metadata = {
+app\landing\tableturn-direct\layout.tsx:14:  robots: { index: false, follow: false },
+app\labs\understand\studies\decision-log\page.tsx:14:export const metadata = { title: 'Understand Study Decision Log | Nice Right Labs', robots: { index: false, follow: false } };
+app\new-site\layout.tsx:19:export const metadata: Metadata = {
+app\notes\[slug]\page.tsx:19:export async function generateMetadata({ params }: Props): Promise<Metadata> {
+app\work\page.tsx:3:export const metadata = {
+app\work\northern-trust\page.tsx:3:export const metadata: Metadata = {
+app\work\healthcare-real-estate\page.tsx:3:export const metadata: Metadata = {
+app\work\green-goods\page.tsx:3:export const metadata: Metadata = {
+
+hook: PostToolUse
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -TotalCount 20 content\\articles\\ai-testing-economics.md" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\blog\\page.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\landing\\customer-surge\\layout.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\landing\\exit-ready\\layout.tsx" in D:\dev\github-checks\nice-right
+hook: PreToolUse Failed
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\work\\northern-trust\\page.tsx" in D:\dev\github-checks\nice-right
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Raw app\\blog\\google-analytics-scroll-tracking\\page.tsx" in D:\dev\github-checks\nice-right
+ succeeded in 1906ms:
+---
+title: "The Real Economics of AI-Assisted Testing: What It Actually Costs"
+description: "Individual subscription vs. enterprise token billing, open-source model cost spreads, human QA benchmarks, and where the ROI actually is."
+lastUpdated: "January 2026"
+type: ["Thinking"]
+---
+
+# The Real Economics of AI-Assisted Testing: What It Actually Costs
+
+_Last updated: March 2026_
+
+Every "AI testing cost" breakdown you've read has probably made the same mistake: it treats individual developer subscriptions and enterprise token billing as the same cost structure. They're not. Understanding which model applies to your situation is the first and most important step.
+
+---
+
+## Two Cost Structures, Not One
+
+**The core confusion in most AI testing cost discussions is conflating individual developer costs with team or enterprise costs â€” they work completely differently.**
+
+Individual developers pay a flat monthly subscription. There is no marginal cost per test run, no cost per PR, no token bill at the end of the month. Run 10,000 tests or 1,000,000 â€” the cost is the same.
+
+hook: PostToolUse
+ succeeded in 1925ms:
+import { Metadata } from 'next'
+import Link from 'next/link'
+import './page.css'
+
+// This would be replaced with actual data fetching
+const blogPosts = [
+  {
+    slug: 'health-is-wealth',
+    title: 'Design a Self-Funded Retirement System Through Healthy Living',
+    category: 'Product Strategy',
+    readTime: '2 min',
+    date: '2024',
+    excerpt: 'Exploring behavioral economics and incentive design to create sustainable health habits.',
+  },
+  {
+    slug: 'blockchain-art-economics',
+    title: 'Designing at the Intersection of Blockchain, Art, and Economics',
+    category: 'Web3 & Economics',
+    readTime: '5 min',
+    date: '2024',
+    excerpt: 'How tokenomics and user experience converge in the creator economy.',
+  },
+  {
+    slug: 'ssh-vscode-lightsail',
+    title: 'Setting up SSH with VS Code for Amazon Lightsail',
+    category: 'Coding & Config',
+    readTime: '3 min',
+    date: '2020',
+    excerpt: 'A technical guide to connecting VS Code to Amazon Lightsail instances via SSH.',
+  },
+  {
+    slug: 'poshmark-social-commerce',
+    title: 'Poshmark: Social Media Behavior & eCommerce Incentives',
+    category: 'UX Analysis',
+    readTime: '7 min',
+    date: '2019',
+    excerpt: 'Breaking down the psychology behind successful marketplace engagement.',
+  },
+  {
+    slug: 'google-analytics-scroll-tracking',
+    title: 'Google Analytics: Scroll Event Tracking',
+    category: 'Analytics',
+    readTime: '1 min',
+    date: '2019',
+    excerpt: 'Technical guide to understanding user engagement through scroll depth measurement.',
+  },
+  {
+    slug: 'google-analytics-cross-domain',
+    title: 'Google Analytics: Cross Domain Tracking',
+    category: 'Analytics',
+    readTime: '4 min',
+    date: '2019',
+    excerpt: 'How to set up and test cross domain tracking in Google Analytics and Tag Manager.',
+  },
+]
+
+export const metadata: Metadata = {
+  title: 'Insights | Nice Right',
+  description: 'Thinking on product, UX, and growth strategy.',
+}
+
+export default function BlogIndex() {
+  return (
+    <>
+      <nav className="nav">
+        <div className="container nav-content">
+          <Link href="/" className="logo">Nice Right</Link>
+          <div className="nav-links">
+            <a href="/#services">Services</a>
+            <a href="/#work">Work</a>
+            <a href="/blog">Insights</a>
+            <a href="/#contact" className="btn btn-sm">Start Project</a>
+          </div>
+        </div>
+      </nav>
+
+      <section className="blog-header">
+        <div className="container">
+          <p className="section-label">Insights</p>
+          <h1>Thinking on Product, UX & Growth</h1>
+          <p className="blog-intro">
+            Insights on digital strategy, product design, user experience, and the intersection 
+            of technology and business growth.
+          </p>
+        </div>
+      </section>
+
+      <section className="blog-list">
+        <div className="container">
+          <div className="posts-grid">
+            {blogPosts.map((post) => (
+              <article key={post.slug} className="post-card">
+                <Link href={`/blog/${post.slug}`} className="post-link">
+                  <div className="post-meta">
+                    <span className="post-category">{post.category}</span>
+                    <span className="post-dot">â€¢</span>
+                    <span className="post-read-time">{post.readTime} read</span>
+                  </div>
+                  <h2 className="post-title">{post.title}</h2>
+                  <p className="post-excerpt">{post.excerpt}</p>
+                  <span className="read-more">Read article â†’</span>
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <footer className="page-footer">
+        <div className="container">
+          <p>Â© 2026 Nice Right. Digital growth for small businesses.</p>
+        </div>
+      </footer>
+    </>
+  )
+}
+
+hook: PostToolUse
+ succeeded in 1945ms:
+import type { Metadata } from 'next';
+import '../../new-site/globals.css';
+
+export const metadata: Metadata = {
+  title: '100-Customer Surge System | Get 100 New Customers in 90 Days',
+  description:
+    'The CUSTOMER MAGNET Protocol: A proven system to generate 100 new paying customers for your local business in 90 days. Restaurants, clinics, salons â€” guaranteed results or full refund.',
+  openGraph: {
+    title: '100-Customer Surge System | Guaranteed Growth',
+    description:
+      'Get 100 new paying customers in 90 days or your money back. The CUSTOMER MAGNET Protocol for local businesses.',
+    type: 'website',
+  },
+};
+
+export default function CustomerSurgeLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}
+
+
+hook: PostToolUse
+ succeeded in 1959ms:
+import type { Metadata } from 'next';
+import '../../new-site/globals.css';
+
+export const metadata: Metadata = {
+  title: 'Exit-Ready Business Build | Add $250K-$1M to Your Sale Price',
+  description:
+    'Transform your business into an exit-ready asset. Add $250K-$1M to your sale price with our proven 5-pillar system. Only 2 clients per year. 15% valuation increase guaranteed.',
+  openGraph: {
+    title: 'Exit-Ready Business Build | Add $250K-$1M to Your Sale Price',
+    description:
+      'Transform your business into an exit-ready asset. Add $250K-$1M to your sale price with our proven 5-pillar system.',
+    type: 'website',
+  },
+};
+
+export default function ExitReadyLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return <>{children}</>;
+}
+
+
+hook: PostToolUse
+ succeeded in 1979ms:
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Northern Trust Micro-Interactions | Nice Right',
+  description: 'Designing and developing micro-interactions for Northern Trust\'s corporate website.',
+}
+
+export default function NorthernTrustPage() {
+  return (
+    <article className="v9-case">
+      <header className="v9-case-header">
+        <span className="v9-case-client">Northern Trust</span>
+        <h1>Designing &amp; Developing Micro-Interactions for Northern Trust&apos;s Corporate Website</h1>
+        <p className="v9-case-subtitle">
+          Enhancing a global financial institution&apos;s online presence through strategic addition of micro-interactions and transitions.
+        </p>
+
+        <div className="v9-case-meta">
+          <div className="v9-meta-item">
+            <span className="v9-meta-label">Industry</span>
+            <span className="v9-meta-value">Financial Services</span>
+          </div>
+          <div className="v9-meta-item">
+            <span className="v9-meta-label">Role</span>
+            <span className="v9-meta-value">UX Designer &amp; Developer</span>
+          </div>
+          <div className="v9-meta-item">
+            <span className="v9-meta-label">Timeline</span>
+            <span className="v9-meta-value">2020 - 2021</span>
+          </div>
+        </div>
+      </header>
+
+      <div className="v9-case-content">
+        <section className="v9-case-section">
+          <h2>Project Overview</h2>
+          <p>
+            As a contracted UX designer and developer, I was engaged to enhance Northern Trust&apos;s global online presence through strategic addition of micro-interactions and transitions. The initial 6-week project aimed to implement a carefully curated set of animations on the client&apos;s public website, with the goal of elevating the brand experience and improving user engagement.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Role and Collaboration</h2>
+          <p>
+            While working primarily independently, I maintained close collaboration with key stakeholders within the organization: Front-End Engineer, Senior UX Designer, and UX Manager. This collaborative approach ensured solid integration of my work into the client&apos;s development environment and brand guidelines.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Project Scope and Evolution</h2>
+          <p>The initial engagement focused on:</p>
+          <ul>
+            <li>Designing and prototyping brand-centric animations</li>
+            <li>Coding and implementing these elements into the live website</li>
+            <li>Measuring success through brand cohesion and feel</li>
+          </ul>
+          <p>
+            Due to the project&apos;s success and ongoing value, the contract was extended multiple times, spanning throughout 2020 and 2021. This allowed for key refinement and expansion.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Impact and Approach</h2>
+          <p>By incorporating these brand-centric elements, we achieved a dual-purpose solution:</p>
+          <ul>
+            <li>Engaging user attention with key elements</li>
+            <li>Reinforcing the brand narrative throughout the user journey</li>
+          </ul>
+          <p>
+            This strategic approach to UX design demonstrated how functionality and branding could be seamlessly merged, resulting in a more holistic and resonant user experience.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Results</h2>
+          <p>Before diving into the process, let&apos;s look at some of the results and the reasoning behind them.</p>
+
+          <h3>Hero Load Sequence</h3>
+          <p>
+            The hero section animation activates upon page load, featuring an interactive line progressively drawn across the page, sequential fade-in of nearby elements, cued by the line animation&apos;s left-to-right motion, gradient exposure, and progressive fade-ins. This required custom motion eases crafted specifically for this demo. The sequence concludes by highlighting tiles on the right side of the screen, subtly directing viewer attention.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/gbGHvEiZT7Y"
+                title="Hero Load Sequence"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3>Revealing Page Elements During Scroll</h3>
+          <p>
+            I developed scroll-based transitions to enhance user engagement utilizing primary design elements and content on the page. Prototyped using HTML, CSS, and GSAP (GreenSock Animation Platform), based on visual designs provided by the client.
+          </p>
+          <p>
+            Key feature: I ensured these animations are highly flexible by reviewing the existing HTML structure and tailoring the code to it. By appending CSS attributes to design elements you&apos;d like to animate, the elements can be predictably animated without altering existing HTML or CSS structure.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/7IIi7cutMzY"
+                title="Scroll-Based Transitions"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3>Animated Interactive Vue Component</h3>
+          <p>
+            I created a prototype for a tab-change animation coded with Vue.js and GSAP based on designs provided by the client. I split the hexagonal image into several layers, each containing an individual hexagon. The transitional animations are triggered by clicking the tabs.
+          </p>
+          <p>
+            I used Vue.js for tab functionality intended as a simple copy/paste solution with CDN reference. Vue was chosen to meet specific technical constraints, and as an opportunity to work with Vue.js.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/v432vRNkRbY"
+                title="Vue.js Tab Component"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3>Key Section Fade-ins</h3>
+          <p>
+            Based on designs provided by the client via Figma, I developed fade-in animations for key sections intended to draw more attention. I cleaned up the provided SVG files for easier programmatic manipulation. Coded with GSAP.js. We explored numerous transition states.
+          </p>
+
+          <div className="v9-video-grid">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/NWuMI7CY1Cc"
+                title="Promo Card Animation 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/DKmFuTVYvj4"
+                title="Promo Card Animation 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>The Process</h2>
+
+          <h3>Project Preparation and Research</h3>
+          <p>
+            Before diving into the design and development of micro-interactions and transitions, I conducted a thorough analysis of the client&apos;s brand and market position. This preparatory phase was crucial in ensuring that our animations would align with the client&apos;s brand identity and stand out in their competitive landscape.
+          </p>
+
+          <h3>Brand Immersion</h3>
+          <p>
+            I began by immersing myself in the client&apos;s branding materials and their recent website redesign. This process involved identifying key brand principles and important on-site design elements. By highlighting these crucial points, I established a solid foundation for guiding and explaining my subsequent design decisions.
+          </p>
+
+          <h3>Competitive Analysis</h3>
+          <p>
+            To contextualize our approach, I conducted a comprehensive review of competitors&apos; websites and explored other relevant visual references. This step was vital in helping stakeholders visualize and confirm our intended art direction. The insights gained from this analysis significantly informed and refined the direction of our animation strategy.
+          </p>
+
+          <h3>Existing Design Audit</h3>
+          <p>
+            I meticulously cataloged on-site design elements, paying particular attention to those with multiple states and transitions. This audit involved listing and video recording these elements to create a comprehensive reference document. By understanding the existing design language, we could ensure that our new animations would integrate and enhance the site&apos;s overall aesthetic and functionality.
+          </p>
+          <p>
+            This preparatory work laid a strong foundation for the project, ensuring that our micro-interactions and transitions would not only enhance user experience but also reinforce the client&apos;s brand identity effectively. The documentation created during this phase served as a valuable reference throughout the design and development process, helping to maintain consistency and alignment with the project goals.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Streamlined Delivery Process</h2>
+          <p>Given the client&apos;s busy schedule, we adopted a direct approach:</p>
+          <ul>
+            <li>Developed initial variations</li>
+            <li>Narrowed down options</li>
+            <li>Presented to stakeholders for feedback</li>
+            <li>Refined based on input</li>
+            <li>Final presentation to the Director of Marketing</li>
+          </ul>
+          <p>
+            This process ensured efficient communication while allowing for necessary adaptations based on collective feedback.
+          </p>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Prioritization</h2>
+          <p>
+            After completing the initial research and analysis phase, I needed to strategically allocate my design efforts for the upcoming weeks. To achieve this, we conducted a collaborative impact/effort exercise, synthesizing insights from the animation audit and the codebase.
+          </p>
+          <p>The exercise focused on two key questions:</p>
+          <ul>
+            <li>Which elements, when animated, would potentially have the most significant impact on user experience?</li>
+            <li>Considering the client&apos;s technical architecture, how challenging would each element be to implement?</li>
+          </ul>
+
+          <h3>Methodology</h3>
+          <p>
+            We used a visual mapping technique for this exercise. Each design element under consideration was written on a Post-it note. These notes were then placed on an impact/effort matrix, leveraging input from both the design team and front-end engineering.
+          </p>
+          <p>
+            The horizontal axis represented the implementation effort required, while the vertical axis indicated the potential impact on user experience. This approach allowed us to visually prioritize elements that offered high impact with relatively low implementation effort.
+          </p>
+
+          <div className="v9-case-image">
+            <img
+              src="/images/impact-return-matrix-for-design.webp"
+              alt="Impact/Effort Matrix for Design Prioritization"
+            />
+            <p className="v9-case-image-caption">
+              Visual mapping technique showing design elements prioritized by impact vs. effort
+            </p>
+          </div>
+
+          <h3>Collaborative Decision-Making</h3>
+          <p>
+            The initial mapping was done collaboratively with the core team. This ensured that both creative and technical perspectives were considered in the prioritization process.
+          </p>
+          <p>
+            To finalize our selections, we presented the mapped matrix to the project director. This step allowed for higher-level strategic input and alignment with overall project goals.
+          </p>
+
+          <h3>Outcome</h3>
+          <p>This exercise resulted in a clear, prioritized list of animation elements to focus on. It helped us:</p>
+          <ul>
+            <li>Identify high-impact, lower-effort quick wins</li>
+            <li>Recognize potentially challenging implementations that might require additional resources or reconsideration</li>
+            <li>Align the team on priorities and expectations for the animation phase of the project</li>
+          </ul>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Design Exploration and Refinement</h2>
+          <p>
+            For each selected element, I developed multiple variations, pushing beyond conventional boundaries to fully understand the design space. This approach led to unexpected solutions, such as our final card animation resulting from a CSS code experiment.
+          </p>
+
+          <h3>Buttons</h3>
+          <p>
+            As frequently interacted elements, buttons required responsive, quick, and elegant animations that balanced branding opportunities with usability.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/fcjiQzf_GVM"
+                title="Button Animation Exploration"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3>Cards</h3>
+          <p>
+            I modified the design system to include a hover state, emphasizing copy over imagery to reflect the content hierarchy.
+          </p>
+
+          <div className="v9-video-grid">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/ztjUp1OetQI"
+                title="Card Animation Exploration 1"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/z9GDUW84NrA"
+                title="Card Animation Exploration 2"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <h3>Headers</h3>
+          <p>
+            Large header images required slower transitions to achieve the desired effect without blocking access to content below.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/ahSfTIIveBI"
+                title="Header Zoom Animation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Additional Finalized Animations</h2>
+
+          <h3>Final Card Implementation</h3>
+          <p>
+            The final card hover state increases copy real estate and centrality, creating a more engaging user experience while maintaining brand consistency.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/kjYDEI3vRLA"
+                title="Final Card Animation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="v9-case-section">
+          <h2>Documentation &amp; Handoff</h2>
+          <p>
+            All design details were recorded in an accessible CodePen for easy transition to the company&apos;s official design library. This ensured that the development team could easily implement and maintain the animations going forward.
+          </p>
+
+          <div className="v9-video-container">
+            <div className="v9-video-item">
+              <iframe
+                src="https://www.youtube.com/embed/w3mZ-qDJW6o"
+                title="Final Documentation"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </article>
+  )
+}
+
+
+hook: PostToolUse
+ succeeded in 2018ms:
+import Link from 'next/link'
+import '../blog-shared.css'
+
+export const metadata = {
+  title: 'Google Analytics Scroll Tracking | Nice Right',
+  description: 'Using Scroll Depth trigger to gauge how interested users are in your page content.',
+}
+
+export default function ScrollTrackingPage() {
+  return (
+    <>
+      <nav className="nav">
+        <div className="container nav-content">
+          <Link href="/" className="logo">Nice Right</Link>
+          <div className="nav-links">
+            <a href="/#services">Services</a>
+            <a href="/#work">Work</a>
+            <a href="/blog">Insights</a>
+            <a href="/#contact" className="btn btn-sm">Start Project</a>
+          </div>
+        </div>
+      </nav>
+
+      <article className="blog-post">
+        <div className="container">
+          <header className="post-header">
+            <div className="post-meta">
+              <span className="post-category">Analytics</span>
+              <span className="post-dot">â€¢</span>
+              <span className="post-date">November 24, 2019</span>
+              <span className="post-dot">â€¢</span>
+              <span className="post-read-time">4 min read</span>
+            </div>
+            <h1 className="post-title">Google Analytics Scroll Tracking</h1>
+            <p className="post-subtitle">Using Scroll Depth trigger to gauge how interested users are in your page content.</p>
+          </header>
+
+          <div className="post-content">
+            <p>It seems like a lot of my clients do not get really useful information from Google Analytics because they do not segment their data, and they do not leverage the various tools that GA provides.</p>
+
+            <p>Using this Scroll Depth trigger is one way to gauge how interested users are in a page&apos;s content.</p>
+
+            <h2>Step 1 â€“ Configure Your Variables</h2>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="/videos/tutorials/step1-configure-variables.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <h2>Step 2 â€“ Create The Trigger</h2>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="/videos/tutorials/step2-create-trigger.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <h2>Step 3 â€“ Create The Tag</h2>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="/videos/tutorials/step3-create-tag.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <h2>Step 4 â€“ Test</h2>
+
+            <div className="video-container">
+              <video controls width="100%">
+                <source src="/videos/tutorials/step4-test.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <footer className="post-footer">
+            <div className="post-tags">
+              <span className="tag">Google Analytics</span>
+              <span className="tag">GTM</span>
+              <span className="tag">Scroll Tracking</span>
+              <span className="tag">Tutorial</span>
+            </div>
+            
+            <nav className="post-nav">
+              <Link href="/blog" className="back-link">â† All Insights</Link>
+            </nav>
+          </footer>
+        </div>
+      </article>
+
+      <footer className="site-footer">
+        <div className="container">
+          <p>Â© 2026 Nice Right. Digital growth for small businesses.</p>
+        </div>
+      </footer>
+    </>
+  )
+}
+
+
+hook: PostToolUse
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+hook: PostToolUse Failed
+codex
+One concrete SEO risk surfaced: exclusion from `sitemap.xml` is not the same as `noindex`. I’m checking whether the pages the plan says must not be indexed actually emit robots metadata, because that affects whether the plan is complete or under-scoped.
+hook: PreToolUse
+hook: PreToolUse Failed
+exec
+"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg \"export const metadata|robots:\" app\\landing -n" in D:\dev\github-checks\nice-right
+ succeeded in 10397ms:
+app\landing\customer-surge\layout.tsx:4:export const metadata: Metadata = {
+app\landing\exit-ready\layout.tsx:4:export const metadata: Metadata = {
+app\landing\invisible-coo\layout.tsx:4:export const metadata: Metadata = {
+app\landing\invisible-coo\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\competitor-funeral\layout.tsx:4:export const metadata: Metadata = {
+app\landing\competitor-funeral\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\contractor-growth\layout.tsx:4:export const metadata: Metadata = {
+app\landing\contractor-growth\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\fillthechair\layout.tsx:4:export const metadata: Metadata = {
+app\landing\fillthechair\layout.tsx:15:  robots: { index: false, follow: false },
+app\landing\workweek-system\layout.tsx:4:export const metadata: Metadata = {
+app\landing\workweek-system\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\tableturn-direct\layout.tsx:4:export const metadata: Metadata = {
+app\landing\tableturn-direct\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\skin-in-game\layout.tsx:4:export const metadata: Metadata = {
+app\landing\skin-in-game\layout.tsx:14:  robots: { index: false, follow: false },
+app\landing\owner-optional\layout.tsx:4:export const metadata: Metadata = {
+app\landing\owner-optional\layout.tsx:20:  robots: { index: false, follow: false },
+
+hook: PostToolUse
+hook: PostToolUse Failed
+codex
+{
+  "status": "NEEDS_WORK",
+  "blockers": [
+    "Plan says `/landing/*` must not be indexed, but current `app/landing/customer-surge/layout.tsx` and `app/landing/exit-ready/layout.tsx` lack `robots: { index: false, follow: false }`. Sitemap exclusion alone does not prevent indexing; the plan must include fixing/verifying robots metadata for all excluded surfaces.",
+    "Task 2 under-scopes public canonicals: `/blog` and static `/blog/*` pages are public and sitemap-eligible, but the plan says to update them only 'where practical' while epic acceptance requires public pages to emit explicit canonicals."
+  ],
+  "recommendations": [
+    "Add a route inventory to the plan: canonical public pages, excluded noindex pages, redirect/legacy aliases, and expected sitemap membership.",
+    "Make static export verification explicit: run `npm run build`, inspect `dist/**/*.html`, serve `dist` with a static server for Playwright, and verify live `https://niceright.co` after deploy.",
+    "Adjust analytics verification to tolerate GA4 batching and GET/POST differences; assert `dataLayer` events plus observed `g/collect` requests containing expected event names/params.",
+    "Normalize article dates before emitting `Article`/`BlogPosting` schema; current frontmatter uses values like `January 2026`, which are weak for schema dates.",
+    "Keep schema scope conservative: encode only visible claims, use stable `@id`s, and avoid adding Service/CreativeWork properties not supported by page copy."
+  ]
+}
+hook: Stop
+hook: Stop Failed
+tokens used
+44,576
+{
+  "status": "NEEDS_WORK",
+  "blockers": [
+    "Plan says `/landing/*` must not be indexed, but current `app/landing/customer-surge/layout.tsx` and `app/landing/exit-ready/layout.tsx` lack `robots: { index: false, follow: false }`. Sitemap exclusion alone does not prevent indexing; the plan must include fixing/verifying robots metadata for all excluded surfaces.",
+    "Task 2 under-scopes public canonicals: `/blog` and static `/blog/*` pages are public and sitemap-eligible, but the plan says to update them only 'where practical' while epic acceptance requires public pages to emit explicit canonicals."
+  ],
+  "recommendations": [
+    "Add a route inventory to the plan: canonical public pages, excluded noindex pages, redirect/legacy aliases, and expected sitemap membership.",
+    "Make static export verification explicit: run `npm run build`, inspect `dist/**/*.html`, serve `dist` with a static server for Playwright, and verify live `https://niceright.co` after deploy.",
+    "Adjust analytics verification to tolerate GA4 batching and GET/POST differences; assert `dataLayer` events plus observed `g/collect` requests containing expected event names/params.",
+    "Normalize article dates before emitting `Article`/`BlogPosting` schema; current frontmatter uses values like `January 2026`, which are weak for schema dates.",
+    "Keep schema scope conservative: encode only visible claims, use stable `@id`s, and avoid adding Service/CreativeWork properties not supported by page copy."
+  ]
+}

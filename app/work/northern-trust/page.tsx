@@ -1,13 +1,38 @@
 import { Metadata } from 'next'
+import { buildBreadcrumbSchema, buildCreativeWorkSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata: Metadata = {
+const page = {
   title: 'Northern Trust Micro-Interactions | Nice Right',
   description: 'Designing and developing micro-interactions for Northern Trust\'s corporate website.',
+  path: '/work/northern-trust/',
 }
 
+export const metadata: Metadata = buildSeoMetadata(page)
+
 export default function NorthernTrustPage() {
+  const workSchema = buildCreativeWorkSchema({
+    name: 'Northern Trust Micro-Interactions',
+    description: page.description,
+    path: page.path,
+    client: 'Northern Trust',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Work', path: '/work/' },
+    { name: 'Northern Trust', path: page.path },
+  ])
+
   return (
     <article className="v9-case">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <header className="v9-case-header">
         <span className="v9-case-client">Northern Trust</span>
         <h1>Designing &amp; Developing Micro-Interactions for Northern Trust&apos;s Corporate Website</h1>

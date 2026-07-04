@@ -1,13 +1,38 @@
 import { Metadata } from 'next'
+import { buildBreadcrumbSchema, buildCreativeWorkSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata: Metadata = {
+const page = {
   title: 'Healthcare Investment Portal | Nice Right',
   description: 'A two-sided deal management platform for a healthcare real estate advisory firm — connecting advisors and global private equity buyers across hundreds of facility listings.',
+  path: '/work/healthcare-real-estate/',
 }
 
+export const metadata: Metadata = buildSeoMetadata(page)
+
 export default function HealthcareRealEstatePage() {
+  const workSchema = buildCreativeWorkSchema({
+    name: 'Healthcare Investment Portal',
+    description: page.description,
+    path: page.path,
+    client: 'Healthcare Real Estate Advisory',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Work', path: '/work/' },
+    { name: 'Healthcare Investment Portal', path: page.path },
+  ])
+
   return (
     <article className="v9-case">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <header className="v9-case-header">
         <span className="v9-case-client">Healthcare Real Estate Advisory</span>
         <h1>A Deal Management Platform for Healthcare Real Estate Advisory</h1>

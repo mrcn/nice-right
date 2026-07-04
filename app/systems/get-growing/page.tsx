@@ -1,8 +1,39 @@
 import { BookingSection } from '@/app/systems/_components/BookingSection';
+import { buildBreadcrumbSchema, buildServiceSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
+
+const page = {
+  title: 'Get Growing | Nice Right',
+  description:
+    'A retention and referral engine for small businesses: rebooking automation, referral asks, newsletters, funnels, invoicing, and pipeline visibility.',
+  path: '/systems/get-growing/',
+};
+
+export const metadata = buildSeoMetadata(page);
 
 export default function GetGrowingPage() {
+  const serviceSchema = buildServiceSchema({
+    name: 'Get Growing',
+    description: page.description,
+    path: page.path,
+    serviceType: 'Retention and referral automation',
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Systems', path: '/systems/get-running/' },
+    { name: 'Get Growing', path: page.path },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* 1. Hero */}
       <section className="gg-hero">
         <div className="gg-container">

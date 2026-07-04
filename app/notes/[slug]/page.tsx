@@ -5,6 +5,8 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
 import { getAllArticles, getArticle } from '@/app/lib/articles';
 
 interface Props {
@@ -19,10 +21,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const article = getArticle(params.slug);
   if (!article) return { title: 'Not Found | Nice Right' };
-  return {
+  return buildSeoMetadata({
     title: `${article.title} | Nice Right`,
     description: article.description,
-  };
+    path: `/notes/${article.slug}/`,
+    type: 'article',
+  });
 }
 
 async function markdownToHtml(markdown: string): Promise<string> {
@@ -48,9 +52,29 @@ export default async function ArticlePage({ params }: Props) {
   }
 
   const htmlContent = await markdownToHtml(article.content);
+  const articleSchema = buildArticleSchema({
+    title: article.title,
+    description: article.description,
+    path: `/notes/${article.slug}/`,
+    date: article.lastUpdated,
+    keywords: article.type,
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Notes', path: '/notes/' },
+    { name: article.title, path: `/notes/${article.slug}/` },
+  ]);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="wr-nav">
         <div className="wr-nav-inner">
           <Link href="/" className="wr-nav-logo">

@@ -1,0 +1,13 @@
+{
+  "epic": "fn-15-seo-ai-analytics-quality",
+  "current_task": 1,
+  "plan_reviews_requested": 3,
+  "plan_reviews_completed": 3,
+  "plan_review_status": "PASS",
+  "plan_review_repairs": [
+    "After review 1: added route inventory, landing noindex cleanup for customer-surge/exit-ready, full blog canonical scope, static export verification, GA4 batch handling, and ISO date mitigation.",
+    "After review 2: added explicit /writing alias handling because static export emits HTML refresh pages; require noindex,nofollow and canonical-to-/notes verification, plus trailing slash normalization.",
+    "After review 3: PASS; tightened /writing wording to require both noindex,nofollow and canonical-to-/notes, and clarified all sitemap-eligible blog pages are in scope."
+  ],
+  "execution_started": true
+}

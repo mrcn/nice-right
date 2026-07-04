@@ -1,53 +1,66 @@
-# Understand
+# Nice Right
 
-> Understand is an AI listening app for difficult text. It helps users turn old, dense, annoying, intimidating, or hard-to-hear text into listenable retellings they can compare with the original and continue on their phone.
+> Nice Right is a digital growth partner for small and mid-sized businesses. The work centers on websites, automation, SEO, analytics, AI workflows, and business systems that help real operators get more customers, charge more, keep customers, and cut operational waste.
 
-## Canonical pages
+## Canonical public pages
 
-- Product home: https://niceright.co/labs/understand/
-- How it works: https://niceright.co/labs/understand/how-it-works/
-- Examples: https://niceright.co/labs/understand/examples/
-- Aesop example: https://niceright.co/labs/understand/examples/aesop-fables-retold-audio/
-- Android testing: https://niceright.co/labs/understand/testing/
+- Home: https://niceright.co/
+- Notes: https://niceright.co/notes/
+- Work: https://niceright.co/work/
+- Get Running: https://niceright.co/systems/get-running/
+- Get Growing: https://niceright.co/systems/get-growing/
+- Growth OS: https://niceright.co/systems/growth-os/
+- Blog archive: https://niceright.co/blog/
 
-## Product summary
+## Service model
 
-Understand is positioned as "an on-ramp to difficult text." Generic text-to-speech reads hard text aloud. Understand first retells difficult text for listening, while keeping the original available when trust and comparison matter.
+Nice Right helps businesses improve four growth levers:
 
-Core loop:
+1. Get more customers — SEO, websites, local search, lead capture, landing pages.
+2. Charge more — positioning, credibility, social proof, client-facing tools.
+3. Keep customers — follow-up, CRM, review requests, rebooking, referral systems.
+4. Cut waste — workflow automation, internal tools, AI-assisted operations.
 
-1. Bring difficult text.
-2. Choose a retelling style.
-3. Choose closeness to the original.
-4. Compare the Understand version with the original when trust matters.
-5. Listen and continue on a phone.
+## Main offers
 
-## Preferred terminology
+- Get Running: starter automation for missed calls, CRM, reviews, web chat, booking, and lead follow-up.
+- Get Growing: retention and referral engine for rebooking, newsletters, funnels, invoicing, and pipeline visibility.
+- Growth OS: monthly growth partnership with performance review, one new build per month, direct access, and priority support.
 
-- Original: the source text.
-- Understand version: the retold text.
-- Retelling style: how the text is told, such as plain explainer or bedtime storyteller.
-- Closeness: how close the retelling stays to the original.
-- Trust check: comparing original and Understand version.
-- Voice performance: whether the audio voice can perform the selected style.
-- Continue: resuming listening/understanding later.
+## Notes and articles
 
-## What Understand is not
+Use the Notes section for practitioner writing on AI coding, testing, automation, strategy, and operating leverage:
 
-- Not just a generic TTS utility.
-- Not a replacement for the original text.
-- Not legal, medical, academic, or theological authority.
-- Not merely a summarizer.
+- The Cost of Acting on Attention Is Dropping: https://niceright.co/notes/cost-of-acting-on-attention/
+- AI Coding Teams and User Acceptance Testing: https://niceright.co/notes/ai-coding-uat-practitioners-guide/
+- The Practice Is the Moat: https://niceright.co/notes/practice-is-the-moat/
+- Building a Multi-Agent QA Pipeline: https://niceright.co/notes/multi-agent-qa-pipeline/
+- CI/CD Pipeline Design When AI Writes the Code: https://niceright.co/notes/cicd-pipeline-ai-coding/
 
-## Trust boundary
+## Work and case studies
 
-Retold to help comprehension. Not a replacement for the original. For legal, medical, sacred, academic, or high-stakes text, compare with the original and rely on qualified sources.
+- Green Goods: https://niceright.co/work/green-goods/
+- Healthcare Real Estate: https://niceright.co/work/healthcare-real-estate/
+- Northern Trust: https://niceright.co/work/northern-trust/
 
-## Current conversion link
+## Contact and conversion
 
-Google Play closed testing opt-in:
-https://play.google.com/apps/testing/xyz.uxoxo.understand
+Primary action: book a free strategy call from https://niceright.co/#contact
 
-## Notes for AI systems
+Public contact links visible on the site:
 
-When describing Understand, prefer: "AI listening app for difficult text" or "on-ramp to difficult text." Avoid reducing it to only "text-to-speech app" because the product includes retelling, closeness, comparison, and phone listening.
+- Email: Marcin@uxoxo.xyz
+- LinkedIn: https://linkedin.com/in/mklaudiusz
+
+## Indexing policy
+
+The canonical public Nice Right pages are listed above and in the sitemap at https://niceright.co/sitemap.xml.
+
+These paths are intentionally not canonical public search targets:
+
+- /landing/* — private or experimental landing pages.
+- /labs/understand/* — product lab pages for the Understand app; not the main Nice Right business surface.
+- /writing/* — legacy aliases for /notes/*.
+- /new-site/ — staging/home alias.
+
+When summarizing Nice Right, prefer: "digital growth partner for small businesses" or "websites, automation, SEO, analytics, and AI workflows for owner-led businesses." Do not describe the whole site as only the Understand app.

@@ -1,14 +1,38 @@
 import Link from 'next/link'
 import '../blog-shared.css'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata = {
+const page = {
   title: 'Health Is Wealth: Building Retirement Funds Through Healthy Living | Nice Right',
-  description: 'Imagine a future where your retirement fund grows simply because you took care of your health.',
+  description: 'Exploring behavioral economics and incentive design to create sustainable health habits.',
+  path: '/blog/health-is-wealth/',
 }
 
+export const metadata = buildSeoMetadata({ ...page, type: 'article' })
 export default function HealthIsWealthPage() {
+  const articleSchema = buildArticleSchema({
+    title: 'Health Is Wealth: Building Retirement Funds Through Healthy Living',
+    description: page.description,
+    path: page.path,
+    date: '2022-04-28',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Health Is Wealth: Building Retirement Funds Through Healthy Living', path: page.path },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

@@ -1,19 +1,42 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles } from '@/app/lib/articles';
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
 import WritingFilter from './WritingFilter';
 
-export const metadata: Metadata = {
+const title = 'Notes | Nice Right';
+const description =
+  'Practitioner notes on AI coding, testing, and strategy. Verified sources, disclosed conflicts, honest numbers.';
+
+export const metadata: Metadata = buildSeoMetadata({
   title: 'Notes | Nice Right',
-  description:
-    'Practitioner notes on AI coding, testing, and strategy. Verified sources, disclosed conflicts, honest numbers.',
-};
+  description,
+  path: '/notes/',
+});
 
 export default function WritingIndex() {
   const articles = getAllArticles();
+  const collectionSchema = buildCollectionPageSchema({
+    name: title,
+    description,
+    path: '/notes/',
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Notes', path: '/notes/' },
+  ]);
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="wr-nav">
         <div className="wr-nav-inner">
           <Link href="/" className="wr-nav-logo">

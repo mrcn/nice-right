@@ -1,0 +1,22 @@
+{
+  "id": "fn-15-seo-ai-analytics-quality",
+  "title": "SEO, AI readiness, and analytics quality pass",
+  "status": "planned",
+  "spec": ".flow/specs/fn-15-seo-ai-analytics-quality.md",
+  "tasks": [
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.1.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.2.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.3.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.4.md"
+  ],
+  "acceptance": [
+    "build passes",
+    "tests pass",
+    "public canonicals emitted",
+    "page-specific OG metadata emitted",
+    "page-specific structured data emitted",
+    "llms.txt is Nice Right-first",
+    "analytics smoke evidence captured",
+    "production audit passes"
+  ]
+}

@@ -1,14 +1,38 @@
 import Link from 'next/link'
 import '../blog-shared.css'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata = {
+const page = {
   title: 'Google Analytics Scroll Tracking | Nice Right',
   description: 'Using Scroll Depth trigger to gauge how interested users are in your page content.',
+  path: '/blog/google-analytics-scroll-tracking/',
 }
 
+export const metadata = buildSeoMetadata({ ...page, type: 'article' })
 export default function ScrollTrackingPage() {
+  const articleSchema = buildArticleSchema({
+    title: 'Google Analytics Scroll Tracking',
+    description: page.description,
+    path: page.path,
+    date: '2019-11-24',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Google Analytics Scroll Tracking', path: page.path },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

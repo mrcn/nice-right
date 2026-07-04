@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Transform your business into an exit-ready asset. Add $250K-$1M to your sale price with our proven 5-pillar system.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export default function ExitReadyLayout({

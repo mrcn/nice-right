@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, Instrument_Serif } from 'next/font/google';
 import Script from 'next/script';
 import './new-site/globals.css';
-import { localBusinessSchema, webSiteSchema } from '@/app/_shared/schema';
+import { founderSchema, localBusinessSchema, webSiteSchema } from '@/app/_shared/schema';
 import { UTMCapture } from '@/app/_shared/UTMCapture';
 
 const inter = Inter({
@@ -78,6 +78,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(founderSchema) }}
         />
         <UTMCapture />
         {children}

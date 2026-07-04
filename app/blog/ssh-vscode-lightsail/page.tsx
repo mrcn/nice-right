@@ -1,14 +1,38 @@
 import Link from 'next/link'
 import '../blog-shared.css'
+import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
-export const metadata = {
+const page = {
   title: 'Setting up SSH with VS Code for Amazon Lightsail | Nice Right',
-  description: 'Connect to your Lightsail instance using Remote SSH in VS Code.',
+  description: 'A technical guide to connecting VS Code to Amazon Lightsail instances via SSH.',
+  path: '/blog/ssh-vscode-lightsail/',
 }
 
+export const metadata = buildSeoMetadata({ ...page, type: 'article' })
 export default function SshVsCodeLightsailPage() {
+  const articleSchema = buildArticleSchema({
+    title: 'Setting up SSH with VS Code for Amazon Lightsail',
+    description: page.description,
+    path: page.path,
+    date: '2020-01-01',
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+    { name: 'Setting up SSH with VS Code for Amazon Lightsail', path: page.path },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

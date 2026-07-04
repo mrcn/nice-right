@@ -1,13 +1,36 @@
 import Link from 'next/link';
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
 
-export const metadata = {
+const page = {
   title: 'Work | Nice Right',
   description: 'Selected projects and case studies from Nice Right.',
+  path: '/work/',
 };
 
+export const metadata = buildSeoMetadata(page);
+
 export default function WorkIndex() {
+  const collectionSchema = buildCollectionPageSchema({
+    name: page.title,
+    description: page.description,
+    path: page.path,
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Work', path: '/work/' },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="v9-work-header">
         <p className="v9-work-label">Selected Work</p>
         <h1>Projects That Moved the Needle</h1>

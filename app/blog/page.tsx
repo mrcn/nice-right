@@ -1,6 +1,8 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import './page.css'
+import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/app/_shared/schema'
+import { buildSeoMetadata } from '@/app/_shared/seo'
 
 // This would be replaced with actual data fetching
 const blogPosts = [
@@ -54,14 +56,35 @@ const blogPosts = [
   },
 ]
 
-export const metadata: Metadata = {
+const page = {
   title: 'Insights | Nice Right',
   description: 'Thinking on product, UX, and growth strategy.',
+  path: '/blog/',
 }
 
+export const metadata: Metadata = buildSeoMetadata(page)
+
 export default function BlogIndex() {
+  const collectionSchema = buildCollectionPageSchema({
+    name: page.title,
+    description: page.description,
+    path: page.path,
+  })
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog/' },
+  ])
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <nav className="nav">
         <div className="container nav-content">
           <Link href="/" className="logo">Nice Right</Link>

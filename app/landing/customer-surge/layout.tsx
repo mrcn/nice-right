@@ -11,6 +11,7 @@ export const metadata: Metadata = {
       'Get 100 new paying customers in 90 days or your money back. The CUSTOMER MAGNET Protocol for local businesses.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export default function CustomerSurgeLayout({

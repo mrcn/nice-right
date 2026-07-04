@@ -1,8 +1,39 @@
 import { BookingSection } from '@/app/systems/_components/BookingSection';
+import { buildBreadcrumbSchema, buildServiceSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
+
+const page = {
+  title: 'Growth OS | Nice Right',
+  description:
+    'A monthly growth partnership for businesses with systems in place: performance review, one new build per month, direct access, and priority support.',
+  path: '/systems/growth-os/',
+};
+
+export const metadata = buildSeoMetadata(page);
 
 export default function GrowthOSPage() {
+  const serviceSchema = buildServiceSchema({
+    name: 'Growth OS',
+    description: page.description,
+    path: page.path,
+    serviceType: 'Monthly growth partnership',
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Systems', path: '/systems/get-running/' },
+    { name: 'Growth OS', path: page.path },
+  ]);
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* ── 1. Hero ─────────────────────────────────────────────────── */}
       <section className="go-hero">
         <div className="go-container">

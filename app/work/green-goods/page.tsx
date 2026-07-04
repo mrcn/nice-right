@@ -1,14 +1,39 @@
 import { Metadata } from 'next';
+import { buildBreadcrumbSchema, buildCreativeWorkSchema } from '@/app/_shared/schema';
+import { buildSeoMetadata } from '@/app/_shared/seo';
 
-export const metadata: Metadata = {
+const page = {
   title: 'Green Goods: Biodiversity Impact Platform | Nice Right',
   description:
     'How I co-originated a blockchain-powered conservation tool — from a failed hackathon to two grants and a live community of gardeners.',
+  path: '/work/green-goods/',
 };
 
+export const metadata: Metadata = buildSeoMetadata(page);
+
 export default function GreenGoodsPage() {
+  const workSchema = buildCreativeWorkSchema({
+    name: 'Green Goods: Biodiversity Impact Platform',
+    description: page.description,
+    path: page.path,
+    client: 'GreenPill Network',
+  });
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Work', path: '/work/' },
+    { name: 'Green Goods', path: page.path },
+  ]);
+
   return (
     <article className="v9-case">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <header className="v9-case-header">
         <span className="v9-case-client">GreenPill Network</span>
         <h1>Green Goods: A Biodiversity Impact Platform</h1>
