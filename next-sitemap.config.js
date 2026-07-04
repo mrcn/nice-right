@@ -11,6 +11,7 @@ module.exports = {
     '/landing/*',
     '/labs/understand',
     '/labs/understand/*',
+    '/new-site',
     '/writing',
     '/writing/*',
     '/*.svg',
