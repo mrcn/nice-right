@@ -6,5 +6,17 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   // Keep intentionally noindexed product-lab / landing surfaces out of XML sitemap.
-  exclude: ['/landing/*', '/labs/understand', '/labs/understand/*', '/*.svg', '/*.png', '/*.ico', '/*.xml', '/*.txt'],
+  // `/writing` is a legacy alias for `/notes`; don't advertise duplicate redirect shells.
+  exclude: [
+    '/landing/*',
+    '/labs/understand',
+    '/labs/understand/*',
+    '/writing',
+    '/writing/*',
+    '/*.svg',
+    '/*.png',
+    '/*.ico',
+    '/*.xml',
+    '/*.txt',
+  ],
 };
