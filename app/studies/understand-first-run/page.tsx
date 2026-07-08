@@ -44,50 +44,53 @@ export default function UnderstandFirstRunStudy() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
-      <nav className="wr-nav">
-        <div className="wr-nav-inner">
-          <Link href="/" className="wr-nav-logo">
-            Nice Right
-          </Link>
-          <div className="wr-nav-links">
-            <Link href="/studies" className="wr-nav-back">
-              ← Studies
-            </Link>
-            <a href="/#contact" className="wr-nav-cta">
-              Book a Free Call
-            </a>
-          </div>
-        </div>
+      <nav
+        className="v9-breadcrumb v9-breadcrumb--studies"
+        aria-label="Breadcrumb"
+      >
+        <ol className="v9-breadcrumb-list">
+          <li className="v9-breadcrumb-item">
+            <Link href="/">Home</Link>
+          </li>
+          <li className="v9-breadcrumb-item">
+            <span className="v9-breadcrumb-sep" aria-hidden="true">
+              /
+            </span>
+            <Link href="/studies/">Studies</Link>
+          </li>
+          <li className="v9-breadcrumb-item">
+            <span className="v9-breadcrumb-sep" aria-hidden="true">
+              /
+            </span>
+            <span aria-current="page">Understand — First Run</span>
+          </li>
+        </ol>
       </nav>
 
-      <main className="art-main study-article-main">
-        <div className="art-container study-article-container">
-          <div className="art-meta">
-            <span className="art-type">Open Design · Product UX</span>
-            <span className="art-date">Last updated: July 2026</span>
-          </div>
+      <section className="v9-study-page">
+        <header className="v9-study-header">
+          <span className="v9-study-kicker">Open Design · Product UX</span>
+          <h1>Understand — First Run</h1>
+          <p className="v9-study-subtitle">
+            A first-run flow for Understand should feel like entry into a real
+            reading and listening session, not a small playable demo detached
+            from the product.
+          </p>
+        </header>
 
-          <article className="art-content study-content">
-            <h1>Understand — First Run</h1>
-            <p className="study-deck">
-              A first-run flow for Understand should feel like entry into a real
-              reading and listening session, not a small playable demo detached
-              from the product.
-            </p>
+        <article className="v9-study-sheet">
+          <figure className="v9-study-hero-figure">
+            <img
+              src="/images/studies/understand-first-run/current-library.png"
+              alt="Current Understand library wireframe with continue listening, starter books, and own-text entry."
+            />
+            <figcaption>
+              Current direction: a library surface that immediately looks like
+              the beginning of a real reading-and-listening product.
+            </figcaption>
+          </figure>
 
-            <figure className="study-hero-figure">
-              <img
-                src="/images/studies/understand-first-run/current-library.png"
-                alt="Current Understand library wireframe with continue listening, starter books, and own-text entry."
-              />
-              <figcaption>
-                Current direction: a library surface that immediately looks like
-                the beginning of a real reading-and-listening product.
-              </figcaption>
-            </figure>
-
-            <hr />
-
+          <div className="v9-study-content">
             <h2>The question</h2>
             <p>
               Understand is trying to help someone stay with a difficult, older,
@@ -108,15 +111,15 @@ export default function UnderstandFirstRunStudy() {
               beginning of a listening session inside a larger work, the product
               promise becomes much clearer.
             </p>
-            <div className="study-note-grid">
-              <div className="study-note-card">
+            <div className="v9-study-note-grid">
+              <div className="v9-study-note-card">
                 <h3>What first-run needed to prove</h3>
                 <p>
                   Not just that audio can start, but that the app can make a
                   difficult text feel easier to stay with and worth continuing.
                 </p>
               </div>
-              <div className="study-note-card">
+              <div className="v9-study-note-card">
                 <h3>Why the library mattered</h3>
                 <p>
                   Cold-open users should enter through a real library of whole
@@ -133,7 +136,7 @@ export default function UnderstandFirstRunStudy() {
               listening product, then a reader surface that makes it obvious the
               person is inside an actual book rather than a disposable sample.
             </p>
-            <div className="study-image-grid">
+            <div className="v9-study-image-grid">
               <figure>
                 <img
                   src="/images/studies/understand-first-run/current-library.png"
@@ -171,7 +174,7 @@ export default function UnderstandFirstRunStudy() {
               app read more like a novelty proof than an environment for
               sustained listening.
             </p>
-            <div className="study-image-grid study-image-grid--history">
+            <div className="v9-study-image-grid v9-study-image-grid--history">
               <figure>
                 <img
                   src="/images/studies/understand-first-run/v1-audio-card.png"
@@ -191,7 +194,7 @@ export default function UnderstandFirstRunStudy() {
                 <figcaption>
                   <strong>V2 — Fuller passage state.</strong> More text context
                   and a clearer sense of passage, but still a bridge artifact
-                  rather than the app’s actual next shape.
+                  rather than the app&apos;s actual next shape.
                 </figcaption>
               </figure>
             </div>
@@ -224,8 +227,8 @@ export default function UnderstandFirstRunStudy() {
               done UX work in the past: slower, clearer, and more focused on IA,
               big-picture structure, and layout.
             </p>
-            <div className="study-note-grid">
-              <div className="study-note-card">
+            <div className="v9-study-note-grid">
+              <div className="v9-study-note-card">
                 <h3>What Codex was doing before</h3>
                 <p>
                   Codex was helping directly with visual direction as well as
@@ -234,7 +237,7 @@ export default function UnderstandFirstRunStudy() {
                   thinking and artifact-making.
                 </p>
               </div>
-              <div className="study-note-card">
+              <div className="v9-study-note-card">
                 <h3>Why Open Design became the focus</h3>
                 <p>
                   Open Design gave the wireframe work a more natural place to
@@ -245,20 +248,15 @@ export default function UnderstandFirstRunStudy() {
                 </p>
               </div>
             </div>
-          </article>
-        </div>
-      </main>
-
-      <footer className="wr-footer">
-        <div className="art-container">
-          <div className="art-footer-inner">
-            <Link href="/studies" className="art-back-link">
-              ← All studies
-            </Link>
-            <p>© 2026 Nice Right.</p>
           </div>
+        </article>
+
+        <div className="v9-study-footer-nav">
+          <Link href="/studies/" className="v9-case-back">
+            ← All studies
+          </Link>
         </div>
-      </footer>
+      </section>
     </>
   );
 }
