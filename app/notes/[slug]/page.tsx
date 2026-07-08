@@ -5,7 +5,10 @@ import remarkGfm from 'remark-gfm';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
-import { buildArticleSchema, buildBreadcrumbSchema } from '@/app/_shared/schema';
+import {
+  buildArticleSchema,
+  buildBreadcrumbSchema,
+} from '@/app/_shared/schema';
 import { buildSeoMetadata } from '@/app/_shared/seo';
 import { getAllArticles, getArticle } from '@/app/lib/articles';
 
@@ -81,6 +84,7 @@ export default async function ArticlePage({ params }: Props) {
             Nice Right
           </Link>
           <div className="wr-nav-links">
+            <Link href="/studies">Studies</Link>
             <Link href="/notes" className="wr-nav-back">
               ← Notes
             </Link>
@@ -96,7 +100,9 @@ export default async function ArticlePage({ params }: Props) {
           <div className="art-meta">
             <span className="art-type">{article.type.join(' · ')}</span>
             {article.lastUpdated && (
-              <span className="art-date">Last updated: {article.lastUpdated}</span>
+              <span className="art-date">
+                Last updated: {article.lastUpdated}
+              </span>
             )}
           </div>
           <div

@@ -45,7 +45,8 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
     const menu = mobileMenuRef.current;
     if (!menu) return;
 
-    const focusableSelector = 'a[href], button, [tabindex]:not([tabindex="-1"])';
+    const focusableSelector =
+      'a[href], button, [tabindex]:not([tabindex="-1"])';
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -114,6 +115,9 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
             <a href="/#results" onClick={() => trackNavClick('results')}>
               Results
             </a>
+            <a href="/studies" onClick={() => trackNavClick('studies')}>
+              Studies
+            </a>
             <a href="/notes" onClick={() => trackNavClick('notes')}>
               Notes
             </a>
@@ -176,6 +180,15 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
               }}
             >
               Notes
+            </a>
+            <a
+              href="/studies"
+              onClick={() => {
+                handleLinkClick();
+                trackNavClick('studies');
+              }}
+            >
+              Studies
             </a>
             <a
               href="/#contact"

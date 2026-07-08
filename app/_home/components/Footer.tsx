@@ -6,10 +6,21 @@ export function Footer() {
       <footer className="v9-footer" aria-label="Site footer">
         <div className="v9-footer-inner">
           <nav aria-label="Footer navigation">
-            <a href="/#services" className="v9-footer-link">Services</a>
-            <a href="/#results" className="v9-footer-link">Results</a>
-            <a href="/notes" className="v9-footer-link">Notes</a>
-            <a href="/#contact" className="v9-footer-link">Contact</a>
+            <a href="/#services" className="v9-footer-link">
+              Services
+            </a>
+            <a href="/#results" className="v9-footer-link">
+              Results
+            </a>
+            <a href="/studies" className="v9-footer-link">
+              Studies
+            </a>
+            <a href="/notes" className="v9-footer-link">
+              Notes
+            </a>
+            <a href="/#contact" className="v9-footer-link">
+              Contact
+            </a>
           </nav>
           <p>&copy; 2026 Nice Right. Digital Partner for Growing Businesses.</p>
           <p className="v9-footer-version">v{versionData.version}</p>
