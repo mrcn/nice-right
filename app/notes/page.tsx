@@ -1,7 +1,10 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllArticles } from '@/app/lib/articles';
-import { buildBreadcrumbSchema, buildCollectionPageSchema } from '@/app/_shared/schema';
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+} from '@/app/_shared/schema';
 import { buildSeoMetadata } from '@/app/_shared/seo';
 import WritingFilter from './WritingFilter';
 
@@ -45,6 +48,7 @@ export default function WritingIndex() {
           <div className="wr-nav-links">
             <a href="/#services">Services</a>
             <a href="/#results">Results</a>
+            <Link href="/studies">Studies</Link>
             <Link href="/notes" className="wr-nav-active">
               Notes
             </Link>
@@ -61,8 +65,8 @@ export default function WritingIndex() {
             <p className="wr-section-label">Notes</p>
             <h1>Practitioner notes on AI and strategy</h1>
             <p className="wr-intro">
-              Field notes from building and shipping with AI tools. Verified sources, disclosed
-              conflicts, honest numbers.
+              Field notes from building and shipping with AI tools. Verified
+              sources, disclosed conflicts, honest numbers.
             </p>
           </div>
         </section>
