@@ -482,6 +482,11 @@
   max-width: 980px;
 }
 
+.v9-understand-image-grid--single {
+  grid-template-columns: minmax(0, 780px);
+  justify-content: center;
+}
+
 .v9-understand-note-card,
 .v9-understand-artifact-card,
 .v9-understand-decision {
@@ -527,6 +532,10 @@
   background: #f2e7d7;
 }
 
+.v9-understand-artifact-card--testing-build img {
+  background: #160e09;
+}
+
 .v9-understand-artifact-card figcaption {
   padding: 14px 4px 4px;
 }
@@ -536,6 +545,10 @@
   padding: 24px;
   background: rgba(184, 229, 211, 0.08);
   border-color: rgba(184, 229, 211, 0.22);
+}
+
+.v9-understand-decision + .v9-understand-image-grid {
+  margin-top: 18px;
 }
 
 .v9-understand-decision h3 {
@@ -616,5 +629,13 @@
 
   .v9-understand-button {
     width: 100%;
+  }
+
+  .v9-understand-artifact-card--testing-build {
+    padding: 8px;
+  }
+
+  .v9-understand-artifact-card--testing-build figcaption {
+    padding: 14px 10px 8px;
   }
 }

@@ -10,9 +10,9 @@ const imageBase = '/images/studies/understand-first-run';
 const page = {
   title: 'Understand - First Run | Nice Right',
   description:
-    "A portfolio-style design iteration study for Understand's first-run experience.",
+    "A present-state-first design retrospective for Understand's first-run experience.",
   path: '/studies/understand-first-run/',
-  image: `${imageBase}/current-library.png`,
+  image: `${imageBase}/prod-reader.png`,
 };
 
 export const metadata = buildSeoMetadata({
@@ -77,33 +77,33 @@ export default function UnderstandFirstRunStudy() {
             quickly?
           </h1>
           <p className="v9-understand-lead">
-            This portfolio piece is about a specific product shift: moving
-            first-run away from a small playable sample and toward a cleaner
-            library-to-reader flow that feels like the real app from the start.
+            This retrospective starts with the functional UI in Play Store
+            testing, then looks back at the prototypes that shaped the critique
+            and forward to a newer library-to-reader direction being developed
+            in wireframes.
           </p>
           <div className="v9-understand-actions" aria-label="Study sections">
             <a
               className="v9-understand-button v9-understand-button--primary"
               href="#current-proof"
             >
-              See the current wireframes
+              See the current testing build
             </a>
             <a className="v9-understand-button" href="#evolution">
               See the earlier versions
             </a>
-            <a className="v9-understand-button" href="#process-shift">
-              Why the process changed
+            <a className="v9-understand-button" href="#product-model">
+              See the newer wireframes
             </a>
           </div>
           <div className="v9-understand-proof-note">
-            <span className="v9-understand-label">Current proof</span>
-            <b>Current first-run library surface</b>
+            <span className="v9-understand-label">Current testing build</span>
+            <b>A functional first UI is in Play Store testing</b>
             <p>
-              The opening now reads like the start of a real listening product:
-              a continuing book, other whole works, and direct ways to paste
-              text or upload a file instead of a tiny self-contained demo card.
-              The current focus is the wireframe direction, not the older
-              prototype routes.
+              The current build makes the core reading and listening
+              functionality accessible, but it was not intended as the mature
+              product design. The newer redesign direction is being worked out
+              in wireframes later in this study.
             </p>
           </div>
         </header>
@@ -168,52 +168,41 @@ export default function UnderstandFirstRunStudy() {
 
           <section className="v9-understand-section" id="current-proof">
             <div className="v9-understand-section-head">
-              <div className="v9-understand-section-no">03 / Current proof</div>
+              <div className="v9-understand-section-no">
+                03 / Current testing build
+              </div>
               <div className="v9-understand-section-body">
-                <span className="v9-understand-label">The product move</span>
+                <span className="v9-understand-label">
+                  Present-state anchor
+                </span>
                 <h2>
-                  The strongest current direction is a library entry that leads
-                  straight into a real reading session.
+                  The current Play Store testing build is the first real,
+                  functional version of Understand.
                 </h2>
                 <p>
-                  The current proof is not one isolated screen. It is the
-                  first-run handoff: a library surface that feels like a real
-                  listening product, then a reader surface that makes it obvious
-                  the user is inside an actual book rather than a disposable
-                  sample.
+                  The core functionality came first. A simple UI followed so
+                  that functionality could be accessed in a working app. Its
+                  role was functional access, not design maturity; this
+                  retrospective starts there before looking back at the earlier
+                  experiments and forward to the proposed redesign direction.
                 </p>
               </div>
             </div>
-            <div className="v9-understand-image-grid">
-              <figure className="v9-understand-artifact-card">
+            <div className="v9-understand-image-grid v9-understand-image-grid--single">
+              <figure className="v9-understand-artifact-card v9-understand-artifact-card--testing-build">
                 <img
-                  src={`${imageBase}/current-library.png`}
-                  alt="Current library surface with continue listening, starter books, and direct text/file entry."
+                  src={`${imageBase}/prod-reader.png`}
+                  alt="Reader screen from the real Understand Play Store testing build, showing shared text and text-to-speech playback controls."
                 />
                 <figcaption>
-                  <span className="v9-understand-label">Entry point</span>
-                  <b>Library first, not a sample card first</b>
+                  <span className="v9-understand-label">
+                    Real Play Store testing build
+                  </span>
+                  <b>Reader screen in the functional testing build</b>
                   <p>
-                    The opening now gives the user a book to continue, whole
-                    works to start, and immediate ways to bring their own text.
-                    That makes first-run feel like entry into a durable product
-                    instead of a tiny teaser.
-                  </p>
-                </figcaption>
-              </figure>
-              <figure className="v9-understand-artifact-card">
-                <img
-                  src={`${imageBase}/current-reader.png`}
-                  alt="Current reader surface with a book title, passage text, playback controls, and Retelling versus Original controls."
-                />
-                <figcaption>
-                  <span className="v9-understand-label">Destination</span>
-                  <b>Reader view that feels like the beginning of a session</b>
-                  <p>
-                    Once the user enters the text, the app keeps the book
-                    context visible and the listening controls close. That is
-                    the difference between &ldquo;tap a demo&rdquo; and
-                    &ldquo;start reading with audio help.&rdquo;
+                    The real testing build pairs shared text with playback,
+                    speed, voice, and history controls. It is not the proposed
+                    visual direction shown later.
                   </p>
                 </figcaption>
               </figure>
@@ -235,8 +224,7 @@ export default function UnderstandFirstRunStudy() {
                   These two earlier states still matter because they make the
                   correction visible: first a tiny sample-centered opening, then
                   a fuller passage state that moved closer to the real product
-                  before the stronger current library-to-reader direction took
-                  over.
+                  before the newer library-to-reader direction was proposed.
                 </p>
               </div>
             </div>
@@ -351,30 +339,73 @@ export default function UnderstandFirstRunStudy() {
 
           <section className="v9-understand-section" id="product-model">
             <div className="v9-understand-section-head">
-              <div className="v9-understand-section-no">07 / Product model</div>
+              <div className="v9-understand-section-no">
+                07 / Newer direction
+              </div>
               <div className="v9-understand-section-body">
-                <span className="v9-understand-label">The reframe</span>
+                <span className="v9-understand-label">
+                  Proposed product model
+                </span>
                 <h2>
-                  The design got better once the product stopped centering the
-                  sample and started centering the session.
+                  The newer wireframes stop centering the sample and start
+                  centering the session.
                 </h2>
                 <p>
-                  That change affects everything: the library becomes an entry
-                  point, the text view becomes the real destination, and the
-                  first interaction starts to imply a whole work the user can
-                  continue through.
+                  The redesign direction argues for a structural change: the
+                  library becomes an entry point, the text view becomes the real
+                  destination, and the first interaction starts to imply a whole
+                  work the user can continue through. It is a product and design
+                  judgment about the app&rsquo;s next shape.
                 </p>
               </div>
             </div>
             <div className="v9-understand-decision">
-              <span className="v9-understand-label">Current decision</span>
+              <span className="v9-understand-label">Newer direction</span>
               <h3>Library &rarr; Play &rarr; text view &rarr; continue</h3>
               <p>
                 That is the core structural move this study is defending. The
-                current screenshots show the entry and destination together, and
-                the work is now being pushed forward through wireframes rather
-                than through the older prototype routes.
+                newer wireframe screenshots show the entry and destination
+                together. They are a proposed redesign being worked out after
+                the functional testing build, not screens from that build.
               </p>
+            </div>
+            <div className="v9-understand-image-grid">
+              <figure className="v9-understand-artifact-card">
+                <img
+                  src={`${imageBase}/current-library.png`}
+                  alt="Newer proposed library wireframe with continue listening, starter books, and direct text and file entry."
+                />
+                <figcaption>
+                  <span className="v9-understand-label">
+                    Proposed entry point
+                  </span>
+                  <b>Library first, not a sample card first</b>
+                  <p>
+                    The proposed opening gives the user a book to continue,
+                    whole works to start, and immediate ways to bring their own
+                    text. The aim is to make first-run feel like entry into a
+                    durable product instead of a tiny teaser.
+                  </p>
+                </figcaption>
+              </figure>
+              <figure className="v9-understand-artifact-card">
+                <img
+                  src={`${imageBase}/current-reader.png`}
+                  alt="Newer proposed reader wireframe with a book title, passage text, playback controls, and Retelling versus Original controls."
+                />
+                <figcaption>
+                  <span className="v9-understand-label">
+                    Proposed destination
+                  </span>
+                  <b>Reader view designed to begin a continuing session</b>
+                  <p>
+                    In the proposed reader, the book context stays visible and
+                    the listening controls stay close. The aim is to move from
+                    &ldquo;tap a demo&rdquo; to &ldquo;start reading with audio
+                    help.&rdquo;
+                  </p>
+                </figcaption>
+              </figure>
             </div>
           </section>
 
@@ -394,10 +425,10 @@ export default function UnderstandFirstRunStudy() {
                   meant the same tool was jumping across visual design,
                   structure, information architecture, and UX thinking at once.
                   The process then shifted into Open Design &mdash; the
-                  open-source design tool &mdash; because it fit the current job
-                  better and felt closer to how I had done UX work in the past:
-                  slower, clearer, and more focused on IA, big-picture
-                  structure, and layout.
+                  open-source design tool &mdash; because it fit that job better
+                  and felt closer to how I had done UX work in the past: slower,
+                  clearer, and more focused on IA, big-picture structure, and
+                  layout.
                 </p>
               </div>
             </div>
@@ -415,9 +446,9 @@ export default function UnderstandFirstRunStudy() {
                 <b>Why Open Design became the focus</b>
                 <p>
                   Open Design gave the wireframe work a more natural place to
-                  live. It matches the current phase better: fewer old prototype
-                  links, more attention on the wireframes, the product model,
-                  and the structural questions that still need resolving.
+                  live. It matches the newer design phase better: fewer old
+                  prototype links, more attention on the wireframes, the product
+                  model, and the structural questions that still need resolving.
                 </p>
               </div>
             </div>
