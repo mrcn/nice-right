@@ -1,0 +1,31 @@
+{
+  "branch_name": "fn-16-digital-footprint-scanner-site-promotion",
+  "completion_review_status": "unknown",
+  "completion_reviewed_at": null,
+  "created_at": "2026-08-21T19:21:12.299633Z",
+  "default_impl": null,
+  "default_review": null,
+  "default_sync": null,
+  "depends_on_epics": [],
+  "id": "fn-16-digital-footprint-scanner-site-promotion",
+  "impl_review_rounds": {},
+  "next_task": 1,
+  "plan_review_rounds": 0,
+  "plan_review_status": "ship",
+  "plan_reviewed_at": "2026-08-21T19:38:53.503265Z",
+  "spec_path": ".flow/specs/fn-16-digital-footprint-scanner-site-promotion.md",
+  "status": "open",
+  "title": "Digital Footprint Scanner + Site Promotion",
+  "tracker": {
+    "baseHashFlow": null,
+    "baseHashTracker": null,
+    "depRelations": [],
+    "id": null,
+    "identifier": null,
+    "lastSyncedAt": null,
+    "mergeBaseFlow": null,
+    "mergeBaseTracker": null,
+    "url": null
+  },
+  "updated_at": "2026-08-21T19:38:53.504452Z"
+}

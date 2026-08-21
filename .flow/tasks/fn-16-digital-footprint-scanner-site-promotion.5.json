@@ -1,0 +1,16 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-08-21T19:21:13.327743Z",
+  "depends_on": [
+    "fn-16-digital-footprint-scanner-site-promotion.4"
+  ],
+  "id": "fn-16-digital-footprint-scanner-site-promotion.5",
+  "priority": null,
+  "spec": "fn-16-digital-footprint-scanner-site-promotion",
+  "spec_path": ".flow/tasks/fn-16-digital-footprint-scanner-site-promotion.5.md",
+  "status": "todo",
+  "title": "Promote /scan + tool analytics + doc updates",
+  "updated_at": "2026-08-21T19:37:12.009334Z"
+}

@@ -1,0 +1,17 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-08-21T19:21:13.327595Z",
+  "depends_on": [
+    "fn-16-digital-footprint-scanner-site-promotion.2",
+    "fn-16-digital-footprint-scanner-site-promotion.3"
+  ],
+  "id": "fn-16-digital-footprint-scanner-site-promotion.4",
+  "priority": null,
+  "spec": "fn-16-digital-footprint-scanner-site-promotion",
+  "spec_path": ".flow/tasks/fn-16-digital-footprint-scanner-site-promotion.4.md",
+  "status": "todo",
+  "title": "Scan page UI: form, free score, email gate, a11y",
+  "updated_at": "2026-08-21T19:37:09.166165Z"
+}
