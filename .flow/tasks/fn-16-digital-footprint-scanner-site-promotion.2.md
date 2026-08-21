@@ -45,9 +45,8 @@ Shared email-capture backend (R4) plus **owned** shared modules that task .3 mus
 - [ ] `npm test` and `npm run lint` pass
 
 ## Done summary
-TBD
-
+Implemented Lead API + shared modules: scan-cache getScan/putScan, Turnstile verify, Upstash redis/ratelimit, POST /api/lead with SET NX idempotency before Resend, four-lever HTML report + strategy CTA, consent-gated Mailchimp. Vitest green for validation + concurrent idempotency. Did not implement /api/scan or /scan UI.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 939ca1c
+- Tests: npm test — 13 passed (validation + concurrent idempotency)
 - PRs:
