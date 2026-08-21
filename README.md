@@ -60,6 +60,7 @@ secrets):
 - `PAGESPEED_API_KEY` — Google PageSpeed Insights
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` — Cloudflare Turnstile
 - `RESEND_API_KEY` — report delivery email
+- `RESEND_FROM_EMAIL` — optional From header for report mail
 - `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` — GBP live lookup
 - `UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN` — cache + rate limiting
 - `MAILCHIMP_API_KEY` / `MAILCHIMP_SERVER_PREFIX` / `MAILCHIMP_LIST_ID` — marketing list
