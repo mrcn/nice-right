@@ -47,8 +47,7 @@ Unblock `/api/*` by leaving production static export and proving Route Handlers 
 - [ ] `npm run lint` passes on touched files
 
 ## Done summary
-TBD
-
+- Task completed
 ## Evidence
 - Commits:
 - Tests:
