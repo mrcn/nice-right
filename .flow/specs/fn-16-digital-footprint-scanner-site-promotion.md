@@ -103,6 +103,7 @@ npx playwright test
 - **Keep `images.unoptimized: true` through cutover:** was required for static export; changing image pipeline is out of scope for this epic.
 - **Mailchimp:** chosen for v1 list storage (free 500).
 - **Turnstile on both scan and email submits:** per approved plan; widget reset/re-execute per attempt (single-use tokens).
+- **Captcha UX (locked 2026-08-21):** Cloudflare Turnstile on `/api/scan` and `/api/lead` POSTs only. Do **not** hide the email field behind a pre-reveal captcha. Score stays free on-screen; email gate is where bots are stopped. Protection stack = Turnstile + IP rate limits + SSRF URL guards + opaque `scanId` (not a hashed URL). Marketing list consent stays unchecked-by-default.
 - **Task .2 owns shared lib contracts; .3 implements scan fill:** avoids interface drift without reordering the parallel wave after .1.
 - **HTML email report; opaque random `scanId`; atomic lead idempotency before Resend.**
 - **Upstash Redis** for cache, rate limit, and idempotency keys.
