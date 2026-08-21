@@ -1,5 +1,4 @@
 {
-  "outputDirectory": "dist",
   "images": {
     "sizes": [640, 750, 828, 1080, 1200, 1920],
     "formats": ["image/avif", "image/webp"],
@@ -47,7 +46,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://app.cal.com; connect-src 'self' https://www.google.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; img-src 'self' data: https://www.google.com https://*.google-analytics.com https://*.googletagmanager.com; frame-src https://cal.com https://*.cal.com; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://app.cal.com https://challenges.cloudflare.com; connect-src 'self' https://www.google.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://challenges.cloudflare.com; img-src 'self' data: https://www.google.com https://*.google-analytics.com https://*.googletagmanager.com; frame-src https://cal.com https://*.cal.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://app.cal.com; font-src 'self'"
         }
       ]
     }
