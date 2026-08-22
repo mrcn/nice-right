@@ -46,9 +46,8 @@ Implement `POST /api/scan` (R2) against the cache/Turnstile/Redis contracts from
 - [ ] `npm test` and `npm run lint` pass
 
 ## Done summary
-TBD
-
+Implemented POST /api/scan: PSI (4 cats) + cheerio HTML + DataForSEO GBP live; opaque scanId; 24h content-key cache; expensive RL with Retry-After (cache hits skip); SSRF pin + ≤3 redirect revalidation; renormalize weights; vitest URL guard + scoring. npm test 32 passed; lint clean on touched files. No /scan UI.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 2aae035
+- Tests: npm test — 32 passed
 - PRs:
