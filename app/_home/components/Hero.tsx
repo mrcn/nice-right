@@ -113,6 +113,13 @@ export function Hero() {
             >
               Book Your Free Strategy Call
             </a>
+            <a
+              href="/scan/"
+              className="v9-btn v9-btn-outline v9-hero-cta-secondary"
+              onClick={() => trackCTAClick('hero_scan', 'hero')}
+            >
+              Free Digital Footprint Scan
+            </a>
           </div>
 
           <p className="v9-hero-micro">
@@ -269,6 +276,25 @@ export function Hero() {
 
         .v9-hero-cta-wrap {
           margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+        }
+
+        .v9-hero-cta-secondary {
+          padding: clamp(10px, 1.6vh, 14px) clamp(22px, 3.5vw, 32px);
+          border-radius: 12px;
+          color: rgba(255, 255, 255, 0.9);
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.28);
+          box-shadow: none;
+        }
+
+        .v9-hero-cta-secondary:hover {
+          border-color: rgba(6, 214, 160, 0.55);
+          color: #ffffff;
+          background: rgba(6, 214, 160, 0.08);
         }
 
         .v9-btn {

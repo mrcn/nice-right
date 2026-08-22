@@ -13,6 +13,12 @@ import {
   TurnstileField,
   type TurnstileFieldHandle,
 } from './TurnstileField';
+import {
+  domainFromUrl,
+  trackToolEmailCapture,
+  trackToolReportCtaClick,
+  trackToolScanSubmit,
+} from '@/app/lib/analytics';
 
 type ScanSuccess = {
   ok: true;
@@ -157,6 +163,11 @@ export function ScanExperience() {
         return;
       }
 
+      trackToolScanSubmit({
+        domain: domainFromUrl(url),
+        cached: Boolean(body.cached),
+        partial: Boolean(body.partial),
+      });
       setResult(body);
       setStatusMessage('Scan complete. Score and findings below.');
       setPhase('scanned');
@@ -231,6 +242,10 @@ export function ScanExperience() {
         return;
       }
 
+      trackToolEmailCapture({
+        marketing_consent: marketingConsent === true,
+        duplicate: Boolean(body.duplicate),
+      });
       setStatusMessage(
         body.duplicate
           ? 'Report already sent for this email and scan. Check your inbox.'
@@ -471,6 +486,7 @@ export function ScanExperience() {
                 href="/#contact"
                 className="scan-cta"
                 data-analytics="tool_report_cta_click"
+                onClick={() => trackToolReportCtaClick('scan_post_email')}
               >
                 Book a free strategy call
               </a>

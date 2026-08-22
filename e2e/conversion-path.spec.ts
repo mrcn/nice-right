@@ -41,3 +41,34 @@ test('nav Book a Call CTA reaches booking section', async ({ page }) => {
   const contactSection = page.locator('#contact');
   await expect(contactSection).toBeInViewport({ ratio: 0.1, timeout: 20000 });
 });
+
+test('promo path — hero secondary CTA opens /scan without breaking #contact', async ({
+  page,
+}) => {
+  await page.goto('/');
+
+  const primary = page
+    .locator('a.v9-btn-gradient', { hasText: 'Book Your Free Strategy Call' })
+    .first();
+  await expect(primary).toHaveAttribute('href', '#contact');
+
+  const scanPromo = page.locator('a.v9-hero-cta-secondary', {
+    hasText: 'Free Digital Footprint Scan',
+  });
+  await expect(scanPromo).toBeVisible();
+  await expect(scanPromo).toHaveAttribute('href', '/scan/');
+
+  await scanPromo.click();
+  await expect(page).toHaveURL(/\/scan\/?$/);
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+
+  // Primary contact path still present on homepage
+  await page.goto('/');
+  await expect(page.locator('#contact')).toBeAttached();
+  await expect(page.locator('.v9-nav-links a.v9-nav-cta')).toHaveAttribute(
+    'href',
+    '/#contact',
+  );
+  await expect(page.locator('.v9-nav-links a[href="/scan/"]')).toBeVisible();
+  await expect(page.locator('.v9-footer-link[href="/scan/"]')).toBeVisible();
+});

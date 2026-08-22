@@ -31,6 +31,11 @@ This document records what the website sends from the code side. It does not inc
 | `element_hover` | Debounced CTA/pricing hover events | `element`, optional params, `page` |
 | `understand_click` | Understand lab clicks with data attributes | `product`, context params, `page` |
 | `understand_audio_play` | Understand lab audio play | `product`, context params, `page` |
+| `tool_scan_submit` | Successful `/scan` form submit | `tool`, optional `domain` (hostname only), `cached`, `partial`, `page` — **no raw URL, business name, or email** |
+| `tool_email_capture` | Successful email-gate report send | `tool`, optional `marketing_consent`, `duplicate`, `page` — **never include email** |
+| `tool_report_cta_click` | On-page post-report CTA (strategy call) | `tool`, `location`, `page` |
+
+`tool_calculator_use` is **not** shipped — Phase 1 `/tools` calculators are deferred.
 
 ## UTM capture
 

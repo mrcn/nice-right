@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
-import { trackSectionView } from '@/app/lib/analytics';
+import { trackCTAClick, trackSectionView } from '@/app/lib/analytics';
 
 const levers = [
   {
@@ -375,6 +375,16 @@ export function Services() {
               overhead. Every dollar of growth comes from one of these levers —
               and most businesses are stuck on one or two. Where are you stuck?
             </p>
+            <p className="v9-services-scan-line">
+              <a
+                href="/scan/"
+                className="v9-services-scan-link"
+                onClick={() => trackCTAClick('services_scan', 'services')}
+              >
+                Free Digital Footprint Scan
+              </a>
+              <span> — see where your owned assets are leaking jobs.</span>
+            </p>
           </div>
 
           <div className="v9-levers">
@@ -562,6 +572,24 @@ export function Services() {
           color: rgba(12, 17, 23, 0.55);
           line-height: 1.36;
           margin: 0;
+        }
+
+        .v9-services-scan-line {
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: var(--services-sub-size);
+          color: rgba(12, 17, 23, 0.55);
+          line-height: 1.45;
+          margin: clamp(10px, calc(14px * var(--services-fit)), 16px) 0 0 0;
+        }
+
+        .v9-services-scan-link {
+          color: #0B8A6E;
+          font-weight: 600;
+          text-decoration: none;
+        }
+
+        .v9-services-scan-link:hover {
+          text-decoration: underline;
         }
 
         @media (min-width: 1025px) {
