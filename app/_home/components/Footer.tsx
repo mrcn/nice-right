@@ -52,7 +52,7 @@ export function Footer() {
         }
 
         .v9-footer-link {
-          font-family: 'Inter', -apple-system, sans-serif;
+          font-family: Inter, -apple-system, sans-serif;
           font-size: 0.85rem;
           font-weight: 500;
           color: rgba(255, 255, 255, 0.55);
@@ -68,7 +68,7 @@ export function Footer() {
         }
 
         .v9-footer p {
-          font-family: 'Inter', -apple-system, sans-serif;
+          font-family: Inter, -apple-system, sans-serif;
           font-size: 0.85rem;
           font-weight: 400;
           color: rgba(255, 255, 255, 0.65);
