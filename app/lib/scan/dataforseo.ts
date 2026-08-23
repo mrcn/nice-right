@@ -26,7 +26,26 @@ export type GbpResult =
       timedOut?: boolean;
       /** True when provider responded but no usable business row. */
       empty?: boolean;
+      /**
+       * Intentional skip (no DataForSEO credentials / feature off).
+       * Not a provider failure — do not mark `partial.gbp` or emit
+       * "listing check incomplete" findings.
+       */
+      skipped?: boolean;
     };
+
+/** True when DataForSEO login+password are both configured. */
+export function isGbpLiveEnabled(
+  login = process.env.DATAFORSEO_LOGIN,
+  password = process.env.DATAFORSEO_PASSWORD,
+): boolean {
+  return Boolean(login?.trim() && password?.trim());
+}
+
+/** Stable miss used when GBP live is intentionally disabled. */
+export function skippedGbpResult(): GbpResult {
+  return { ok: false, reason: 'skipped', skipped: true };
+}
 
 type DfsItem = {
   type?: string;

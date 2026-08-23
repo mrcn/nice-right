@@ -79,7 +79,8 @@ function providerScore(input: ScoreInput): {
 
   if (input.gbp.ok) {
     values.gbp = input.gbp.score;
-  } else {
+  } else if (!input.gbp.skipped) {
+    // Intentional skip (no DataForSEO yet) is not a partial failure.
     partial.gbp = true;
   }
 
@@ -164,6 +165,8 @@ function buildFindings(input: ScoreInput): ScanFinding[] {
         lever: 'keep_customers',
       });
     }
+  } else if (input.gbp.ok === false && input.gbp.skipped) {
+    // DataForSEO intentionally off — no GBP finding.
   } else if (input.gbp.ok === false && input.gbp.empty) {
     findings.push({
       title: 'No clear Google Business match',

@@ -33,6 +33,8 @@ import { fetchPagespeed, PSI_TIMEOUT_MS } from '@/app/lib/scan/psi';
 import { fetchHtmlSignals, HTML_TIMEOUT_MS } from '@/app/lib/scan/html-signals';
 import {
   fetchGbpLive,
+  isGbpLiveEnabled,
+  skippedGbpResult,
   DATAFORSEO_TIMEOUT_MS,
 } from '@/app/lib/scan/dataforseo';
 import { computeFootprintScore } from '@/app/lib/scan/score';
@@ -161,10 +163,13 @@ export async function POST(request: Request): Promise<Response> {
     );
   }
 
+  const gbpEnabled = isGbpLiveEnabled();
   const [pagespeed, html, gbp] = await Promise.all([
     fetchPagespeed(websiteUrl, { timeoutMs: PSI_TIMEOUT_MS }),
     fetchHtmlSignals(websiteUrl, { timeoutMs: HTML_TIMEOUT_MS }),
-    fetchGbpLive(businessName, city, { timeoutMs: DATAFORSEO_TIMEOUT_MS }),
+    gbpEnabled
+      ? fetchGbpLive(businessName, city, { timeoutMs: DATAFORSEO_TIMEOUT_MS })
+      : Promise.resolve(skippedGbpResult()),
   ]);
 
   // Hard deny if HTML path hit SSRF mid-redirect (should be rare after pre-check)

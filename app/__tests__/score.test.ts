@@ -163,6 +163,21 @@ describe('computeFootprintScore', () => {
     expect(result.usedWeights.pagespeed).toBeUndefined();
   });
 
+  it('skips GBP without partial flag or incomplete finding when intentionally disabled', () => {
+    const result = computeFootprintScore({
+      pagespeed: psiOk(80),
+      html: htmlOk(80),
+      gbp: { ok: false, reason: 'skipped', skipped: true },
+    });
+    expect(result.partial?.gbp).toBeUndefined();
+    expect(result.usedWeights.gbp).toBeUndefined();
+    expect(result.findings.some((f) => /google listing|gbp|dataforseo/i.test(f.title + f.detail))).toBe(
+      false,
+    );
+    // PSI + HTML only — renormalized perfect-ish scores stay high
+    expect(result.score).toBeGreaterThanOrEqual(75);
+  });
+
   it('returns score 0 with clear finding when every provider fails', () => {
     const result = computeFootprintScore({
       pagespeed: { ok: false, reason: 'network_error' },
