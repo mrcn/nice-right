@@ -93,3 +93,15 @@ R1 decision); revisit the image pipeline separately.
 ## License
 
 Private
+
+## Local scanner checks
+
+Without Upstash/Turnstile env vars, `/api/scan` uses an in-memory store and accepts
+the UI mock Turnstile tokens so you can run a real scan against public sites.
+
+```bash
+npm run dev
+# other terminal:
+npm run test:scan-live
+```
+

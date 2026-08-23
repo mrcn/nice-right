@@ -30,7 +30,11 @@ export async function verifyTurnstile(
   }
 
   const secret = process.env.TURNSTILE_SECRET_KEY;
+  // Pair with TurnstileField mock tokens when no site key is configured.
   if (!secret) {
+    if (token.trim().startsWith('mock-turnstile-token-')) {
+      return { ok: true };
+    }
     return { ok: false, reason: 'misconfigured_secret' };
   }
 

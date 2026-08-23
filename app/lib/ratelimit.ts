@@ -4,7 +4,8 @@
  */
 
 import { Ratelimit } from '@upstash/ratelimit';
-import { getRedis } from '@/app/lib/redis';
+import { getRedis, isMemoryRedisMode } from '@/app/lib/redis';
+import type { Redis } from '@upstash/redis';
 
 export type RateLimitResult = {
   success: boolean;
@@ -24,12 +25,24 @@ function createSlidingWindow(
   requests: number,
   window: `${number} ${'s' | 'm' | 'h' | 'd'}`,
 ): Ratelimit {
+  // Upstash Ratelimit requires the real Upstash client — never MemoryRedis.
   return new Ratelimit({
-    redis: getRedis(),
+    redis: getRedis() as Redis,
     limiter: Ratelimit.slidingWindow(requests, window),
     prefix,
     analytics: false,
   });
+}
+
+/** Local/dev (no Upstash): allow traffic so scans are testable. */
+function allowAll(): RateLimitResult {
+  return {
+    success: true,
+    limit: 999,
+    remaining: 998,
+    reset: Date.now() + 60 * 60 * 1000,
+    retryAfterSeconds: 1,
+  };
 }
 
 /** Lead capture: 5 requests / hour / identifier (typically client IP). */
@@ -60,12 +73,17 @@ export function getScanRateLimiter(): Ratelimit {
 export async function limitLead(
   identifier: string,
 ): Promise<RateLimitResult> {
+  // Ensure mode is resolved before Upstash Ratelimit construction.
+  getRedis();
+  if (isMemoryRedisMode()) return allowAll();
   return normalize(await getLeadRateLimiter().limit(identifier));
 }
 
 export async function limitScan(
   identifier: string,
 ): Promise<RateLimitResult> {
+  getRedis();
+  if (isMemoryRedisMode()) return allowAll();
   return normalize(await getScanRateLimiter().limit(identifier));
 }
 

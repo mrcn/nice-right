@@ -12,6 +12,11 @@ const nextConfig = {
     // revisit the image pipeline separately.
     unoptimized: true,
   },
+  // Keep cheerio (and transitive parsers) out of the webpack bundle so
+  // Node-only syntax in deps cannot break /api/scan compilation.
+  experimental: {
+    serverComponentsExternalPackages: ['cheerio', 'undici'],
+  },
 };
 
 module.exports = nextConfig;
