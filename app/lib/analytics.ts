@@ -12,6 +12,9 @@
  * | contact_click     | Email / LinkedIn links in footer / contact section    |
  * | nav_click         | Navigation link click                                 |
  * | element_hover     | Pricing tier / CTA hover (500ms debounce)             |
+ * | tool_scan_submit  | /scan form submit (domain-only, no PII)               |
+ * | tool_email_capture| /scan email gate success (no email in params)         |
+ * | tool_report_cta_click | On-page report CTA → strategy call               |
  */
 
 declare global {
@@ -125,6 +128,55 @@ export function trackUnderstandEvent(eventName: string, params?: Record<string, 
   track(eventName, {
     product: 'understand',
     ...params,
+    page: window.location.pathname,
+  });
+}
+
+/** Hostname only — never pass raw URL, business name, or email. */
+export function domainFromUrl(raw: string): string | undefined {
+  try {
+    const withScheme = /^https?:\/\//i.test(raw.trim())
+      ? raw.trim()
+      : `https://${raw.trim()}`;
+    const host = new URL(withScheme).hostname.toLowerCase();
+    return host || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export function trackToolScanSubmit(params?: {
+  domain?: string;
+  cached?: boolean;
+  partial?: boolean;
+}) {
+  track('tool_scan_submit', {
+    tool: 'digital_footprint_scanner',
+    ...(params?.domain ? { domain: params.domain } : {}),
+    ...(typeof params?.cached === 'boolean' ? { cached: params.cached } : {}),
+    ...(typeof params?.partial === 'boolean' ? { partial: params.partial } : {}),
+    page: window.location.pathname,
+  });
+}
+
+export function trackToolEmailCapture(params?: {
+  marketing_consent?: boolean;
+  duplicate?: boolean;
+}) {
+  track('tool_email_capture', {
+    tool: 'digital_footprint_scanner',
+    ...(typeof params?.marketing_consent === 'boolean'
+      ? { marketing_consent: params.marketing_consent }
+      : {}),
+    ...(typeof params?.duplicate === 'boolean' ? { duplicate: params.duplicate } : {}),
+    page: window.location.pathname,
+  });
+}
+
+export function trackToolReportCtaClick(location: string) {
+  track('tool_report_cta_click', {
+    tool: 'digital_footprint_scanner',
+    location,
     page: window.location.pathname,
   });
 }

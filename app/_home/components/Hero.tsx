@@ -69,14 +69,13 @@ export function Hero() {
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
           <h1 className="v9-hero-h1">
-            <span className="v9-hero-line1">Growth work for businesses</span>
-            <span className="v9-hero-line2">that do real work.</span>
+            <span className="v9-hero-line1">Get found by people{' '}</span>
+            <span className="v9-hero-line2">looking for you right now.</span>
           </h1>
 
           <p className="v9-hero-sub">
-                        100+ small and medium businesses grown. Tell me where you are and
-            name your price. Whatever
-            brings you here, I&apos;ve probably built it.
+            For owners who already run a home service business. I build the digital
+            side — so your phone and calendar do more of the selling.
           </p>
 
           <div className="v9-hero-levers">
@@ -269,6 +268,10 @@ export function Hero() {
 
         .v9-hero-cta-wrap {
           margin: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
         }
 
         .v9-btn {

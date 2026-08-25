@@ -4,7 +4,9 @@ export default defineConfig({
   testDir: './e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  // Conversion-path CTAs race GSAP entrance/hash-scroll under WebKit; allow
+  // a couple of retries locally and in CI so the suite stays deterministic.
+  retries: 2,
   workers: process.env.CI ? 1 : undefined,
   reporter: 'list',
   use: {

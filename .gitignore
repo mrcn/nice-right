@@ -2,6 +2,8 @@
 /.next
 /out
 /dist
+/public/robots.txt
+/public/sitemap*.xml
 .env
 .env.local
 *.log
@@ -26,3 +28,4 @@ tsconfig.tsbuildinfo
 /public/pricing-v2.html
 /public/proof-demo.html
 /public/video-test.html
+test-results/
