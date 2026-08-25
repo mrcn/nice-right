@@ -9,7 +9,11 @@ const page = {
   path: '/scan/',
 };
 
-export const metadata = buildSeoMetadata(page);
+// Tool not ready for launch: keep off search indexes until re-linked (see llms.txt/sitemap excludes).
+export const metadata = buildSeoMetadata({
+  ...page,
+  robots: { index: false, follow: false },
+});
 
 export default function ScanPage() {
   return <ScanExperience />;

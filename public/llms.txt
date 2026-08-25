@@ -11,7 +11,6 @@
 - Get Growing: https://niceright.co/systems/get-growing/
 - Growth OS: https://niceright.co/systems/growth-os/
 - Blog archive: https://niceright.co/blog/
-- Digital Footprint Scanner: https://niceright.co/scan/
 
 ## Service model
 
@@ -44,15 +43,9 @@ Use the Notes section for practitioner writing on AI coding, testing, automation
 - Healthcare Real Estate: https://niceright.co/work/healthcare-real-estate/
 - Northern Trust: https://niceright.co/work/northern-trust/
 
-## Free tools
-
-- Digital Footprint Scanner (`/scan/`): free on-screen score + headline findings for a contractor/SMB website and local presence; optional emailed full report. Main-site surface only (not `/systems/*` for v1). Calculators under `/tools` are deferred.
-
 ## Contact and conversion
 
 Primary action: book a free strategy call from https://niceright.co/#contact
-
-Secondary action: run the free Digital Footprint Scanner at https://niceright.co/scan/
 
 Public contact links visible on the site:
 

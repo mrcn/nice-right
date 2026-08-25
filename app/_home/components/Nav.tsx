@@ -121,9 +121,6 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
             <a href="/notes" onClick={() => trackNavClick('notes')}>
               Notes
             </a>
-            <a href="/scan/" onClick={() => trackNavClick('scan')}>
-              Free Scan
-            </a>
             <a
               href="/#contact"
               className="v9-nav-cta"
@@ -192,15 +189,6 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
               }}
             >
               Studies
-            </a>
-            <a
-              href="/scan/"
-              onClick={() => {
-                handleLinkClick();
-                trackNavClick('scan');
-              }}
-            >
-              Free Scan
             </a>
             <a
               href="/#contact"

@@ -18,9 +18,6 @@ export function Footer() {
             <a href="/notes" className="v9-footer-link">
               Notes
             </a>
-            <a href="/scan/" className="v9-footer-link">
-              Free Scan
-            </a>
             <a href="/#contact" className="v9-footer-link">
               Contact
             </a>
