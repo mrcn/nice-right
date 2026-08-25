@@ -17,6 +17,21 @@ const nextConfig = {
   experimental: {
     serverComponentsExternalPackages: ['cheerio', 'undici'],
   },
+  async redirects() {
+    // P1 (seo-audit): /blog copies of these posts duplicate /notes — 301 to canonical.
+    return [
+      {
+        source: '/blog/health-is-wealth',
+        destination: '/notes/health-is-wealth/',
+        permanent: true,
+      },
+      {
+        source: '/blog/poshmark-social-commerce',
+        destination: '/notes/poshmark-social-commerce/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
