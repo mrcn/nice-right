@@ -17,18 +17,18 @@ export function Hero() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const ctx = gsap.context(() => {
-      const line1 = section.querySelector('.v9-hero-line1');
-      const line2 = section.querySelector('.v9-hero-line2');
-
-      // Scroll-triggered parallax fade-out
+      // Scroll-triggered parallax fade-out.
+      // Long distance + heavy scrub so trackpad jitter can't pulse the fade
+      // (felt like a "double animation"). Line-level parallax removed: CSS
+      // entrance animation-fill-mode:both permanently owns those transforms.
       ScrollTrigger.create({
         trigger: section,
         start: 'top top',
-        end: '+=80%',
+        end: '+=140%',
         pin: true,
         anticipatePin: 1,
         pinSpacing: true,
-        scrub: 0.5,
+        scrub: 0.8,
         onUpdate: (self) => {
           const p = self.progress;
           gsap.set(content, {
@@ -37,27 +37,6 @@ export function Hero() {
             y: p * -20,
           });
         },
-      });
-
-      // Subtle parallax on headline during scroll
-      gsap.to(line1, {
-        y: -40,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=50%',
-          scrub: 1
-        }
-      });
-
-      gsap.to(line2, {
-        y: -25,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=50%',
-          scrub: 1
-        }
       });
 
     }, section);
@@ -163,9 +142,10 @@ export function Hero() {
           gap: clamp(8px, 1.5vh, 16px);
         }
 
-        .v9-hero-h1 {
+        .v9 .v9-hero-h1 {
           display: flex;
           flex-direction: column;
+          align-items: center;
           gap: 0;
           font-family: 'Instrument Serif', Georgia, serif;
           font-size: clamp(2.5rem, 5vh + 2vw, 5rem);
@@ -183,6 +163,11 @@ export function Hero() {
         @keyframes v9-fade-up {
           from { transform: translateY(20px); opacity: 0; }
           to   { transform: translateY(0);    opacity: 1; }
+        }
+
+        .v9-hero-line1,
+        .v9-hero-line2 {
+          white-space: nowrap;
         }
 
         .v9-hero-line1 {
@@ -361,8 +346,9 @@ export function Hero() {
             padding: 80px 20px 40px;
           }
 
-          .v9-hero-h1 {
-            font-size: clamp(2.2rem, 8vw, 3rem);
+          .v9 .v9-hero-h1 {
+            /* Smaller floor so the nowrap lines never overflow narrow phones */
+            font-size: clamp(1.6rem, 8.5vw, 3rem);
           }
 
           .v9-hero-sub {
@@ -381,12 +367,12 @@ export function Hero() {
           }
         }
 
-        @media (max-height: 700px) {
+        @media (max-height: 700px) and (min-width: 641px) {
           .v9-hero-content {
             gap: 6px;
           }
 
-          .v9-hero-h1 {
+          .v9 .v9-hero-h1 {
             font-size: clamp(2rem, 4vh + 1vw, 3rem);
           }
 
