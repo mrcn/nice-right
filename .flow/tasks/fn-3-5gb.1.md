@@ -110,8 +110,8 @@ Right col — bio + contacts:
 - [ ] Stacks correctly ≤900px with bio above cal-stub
 - [ ] Section has 120px top/bottom padding
 ## Done summary
-Created public/contact-demo-2.html — Trust-First Stacked layout with bio panel (280x360px photo + text grid) above a full-width cal-stub, centered H2, and outlined contact cards below. Responsive down to 768px (bio stacks) and 640px (cards stack).
+Created the V1 Side-by-Side ContactSection demo. It shows the calendar stub and constrained bio at once, with direct contact cards, vivid palette candidates, responsive stacking, keyboard focus, hover feedback, and reduced-motion fallback.
 ## Evidence
-- Commits: d9d55a6ae668cf1b53ec43f52f68185d6282ccc4
-- Tests:
+- Commits: b26f1cb5a3ed4c87ef23905982f9aa794555161c
+- Tests: served http://127.0.0.1:8766/contact-demo-1.html, served image asset check, V1 structural, responsive, focus, hover, reduced-motion acceptance checks
 - PRs:
