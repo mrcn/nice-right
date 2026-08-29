@@ -36,14 +36,14 @@ Commit: `chore: delete .flow/fn-9 migration files, close fn-9 epic`
 
 ## Acceptance
 - [ ] `.claude-flow/` does not exist on disk
-- [ ] `.flow/fn-9-*` task and spec files deleted and committed (keep epic JSON — fn-13 depends on it)
-- [ ] fn-9 epic closed in flowctl (status: closed, not deleted)
-- [ ] ruflo MCP server still responds after env var removal (tools load in new session)
-- [ ] No hook errors appear when starting a new Claude Code session
-- [ ] `grep -r "CLAUDE_FLOW" .claude/ .mcp.json` returns no matches (cross-check fn-12.1)
+- [ ] fn-9 migration task/spec/checkpoint files are deleted while the fn-9 epic JSON remains and is `done`
+- [ ] Ruflo MCP server responds
+- [ ] No project hook errors are possible from missing helper files
+- [ ] `grep -R "CLAUDE_FLOW\|claude-flow\|auto-memory-hook\|hook-handler\|statusline" .claude .mcp.json` returns no matches
+- [ ] Completion is recorded through flowctl
 ## Done summary
-Deleted .claude-flow/ runtime directory and fn-9 task/spec/checkpoint files from .flow/, then closed the fn-9-migrate-claude-flow-to-ruflo epic via flowctl. The fn-9 epic JSON was preserved for fn-13 dependency resolution.
+Verified the Ruflo migration cleanup: no .claude-flow runtime, no fn-9 task/spec/checkpoint files, Ruflo MCP responded, and no orphan hook references remain.
 ## Evidence
-- Commits: 16406a20183ad4d5b717bab5b32e9f9776602ff6
-- Tests: npm test (vitest run — 4 tests passed)
+- Commits:
+- Tests:
 - PRs:

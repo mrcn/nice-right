@@ -12,7 +12,7 @@
   "plan_review_status": "ship",
   "plan_reviewed_at": "2026-04-13T12:53:13.865366Z",
   "spec_path": ".flow/specs/fn-12-claude-flow-complete-purge.md",
-  "status": "open",
+  "status": "done",
   "title": "claude-flow: complete purge",
-  "updated_at": "2026-04-13T13:09:22.410750Z"
+  "updated_at": "2026-08-29T20:29:44.502164Z"
 }

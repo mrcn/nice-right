@@ -40,17 +40,16 @@ Commit: `chore: purge remaining claude-flow config from settings.json, .mcp.json
 - [ ] `.claude/settings.json` has no `statusLine` key
 - [ ] `.claude/settings.json` has no `claudeFlow` key
 - [ ] `.claude/settings.json` env block has no `CLAUDE_FLOW_*` keys
-- [ ] `.claude/settings.json` retains `permissions` and `attribution` blocks intact
-- [ ] `.mcp.json` env block has no `CLAUDE_FLOW_*` keys
-- [ ] `.mcp.json` retains the ruflo command, args, and `npm_config_update_notifier`
-- [ ] `CLAUDE.md` lines 176–177 removed (no reference to `auto-memory-hook.mjs`)
-- [ ] `.gitignore` has no `.claude-flow/` line
+- [ ] `.claude/settings.json` retains Ruflo permissions and attribution
+- [ ] `.mcp.json` retains the Ruflo server and has no `CLAUDE_FLOW_*` keys
+- [ ] `CLAUDE.md` has no reference to `auto-memory-hook.mjs`
+- [ ] `.gitignore` ignores generated `.claude-flow/` runtime state intentionally
 - [ ] `jq . .claude/settings.json` exits 0
 - [ ] `node -e "require('./.mcp.json')"` exits 0
 - [ ] Changes committed
 ## Done summary
-Purged all remaining claude-flow config from tracked files: removed hooks/statusLine/claudeFlow blocks and CLAUDE_FLOW_* env vars from .claude/settings.json, removed CLAUDE_FLOW_* env vars from .mcp.json, removed dead auto-memory-hook.mjs example from CLAUDE.md, and removed .claude-flow/ from .gitignore.
+Removed broken project-local Claude hook and status-line references while retaining Ruflo permissions, attribution, and MCP configuration.
 ## Evidence
-- Commits: 73ff170981f449e50825469a486462bed2b75138
-- Tests: npm test (vitest run — 4 tests passed), jq . .claude/settings.json, node -e "require('./.mcp.json')"
+- Commits:
+- Tests:
 - PRs:

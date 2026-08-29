@@ -71,8 +71,8 @@ Use the JS import (not a CSS `@import` in work.css) — consistent with how the 
 - [ ] Tested in Safari: nav visible, fixed, not clipped
 - [ ] Changes committed
 ## Done summary
-Added `import '@/app/_shared/nav.css'` to `app/work/layout.tsx` so nav styles load on work/case-study pages, and changed `overflow-x: hidden` to `overflow-x: clip` on `.v9-work` to prevent WebKit scroll-container clipping bug #160953.
+Recorded the already-merged PR #18 work: shared nav CSS import and WebKit-safe overflow clipping are present on main.
 ## Evidence
-- Commits: 1c6bb069d25004ab1cb35c115537be83ac2f9fd9
-- Tests: npm run build, npm test
+- Commits:
+- Tests:
 - PRs:

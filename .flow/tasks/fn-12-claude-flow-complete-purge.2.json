@@ -6,11 +6,11 @@
   "depends_on": [
     "fn-12-claude-flow-complete-purge.1"
   ],
-  "epic": "fn-12-claude-flow-complete-purge",
   "id": "fn-12-claude-flow-complete-purge.2",
   "priority": null,
+  "spec": "fn-12-claude-flow-complete-purge",
   "spec_path": ".flow/tasks/fn-12-claude-flow-complete-purge.2.md",
   "status": "todo",
   "title": "Delete .claude-flow/ runtime and close fn-9 migration",
-  "updated_at": "2026-04-13T12:40:35.948079Z"
+  "updated_at": "2026-08-29T20:33:33.174218Z"
 }
