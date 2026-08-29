@@ -339,3 +339,92 @@ a:focus-visible {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
+
+.demo-v2 .demo-meta h1 {
+  max-width: 900px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.demo-v2 .demo-hypothesis {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.demo-v2 .demo-meta-top { justify-content: center; }
+.demo-v2 .demo-variant { margin-left: 0; }
+.demo-v2 .contact-header { text-align: center; }
+.demo-v2 .contact-header h2 { margin-inline: auto; }
+
+.v2-bio-panel {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+
+.v2-bio-photo {
+  display: block;
+  width: 280px;
+  height: 360px;
+  max-width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.v2-bio-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+.v2-bio-content h3 { font-size: 2.5rem; }
+.v2-bio-content .bio-quote,
+.v2-bio-content .bio-copy { max-width: 620px; }
+
+.v2-cal-frame {
+  overflow: hidden;
+  margin-bottom: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  background: var(--ink-soft);
+}
+
+.v2-cal-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 18px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.v2-cal-head strong { color: var(--text); font-size: 0.95rem; }
+.v2-cal-head span { color: var(--text-soft); font-size: 0.82rem; }
+.v2-cal-frame .cal-stub { min-height: 500px; }
+
+.v2-contact-group { width: 100%; }
+.v2-contact-group .contact-kicker { margin: 0 0 16px; }
+
+.v2-contact-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+}
+
+.v2-contact-cards .contact-card { flex: 1 1 260px; }
+
+@media (max-width: 768px) {
+  .v2-bio-panel { grid-template-columns: 1fr; gap: 28px; }
+  .v2-bio-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 480px; }
+}
+
+@media (max-width: 640px) {
+  .v2-contact-cards { flex-direction: column; }
+  .v2-contact-cards .contact-card { flex-basis: auto; width: 100%; }
+}

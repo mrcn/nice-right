@@ -102,8 +102,8 @@ Head: same font/preconnect setup as V1.
 - [ ] Bio panel stacks correctly ≤768px
 - [ ] Section has 120px top/bottom padding
 ## Done summary
-Created public/contact-demo-2.html — Trust-First Stacked layout with bio panel (280x360px photo + text grid) above a full-width cal-stub, centered H2, and outlined contact cards below. Responsive down to 768px (bio stacks) and 640px (cards stack).
+Created the V2 Trust-First stacked ContactSection demo. The bio panel appears before the full-width call stub, with a 280x360 photo, centered heading, direct contact cards below, responsive stacking, keyboard focus, and reduced-motion fallback.
 ## Evidence
-- Commits: d9d55a6ae668cf1b53ec43f52f68185d6282ccc4
-- Tests:
+- Commits: dc2f1f2da3727f5aae9d0b1787ad96d59fee5610
+- Tests: served http://127.0.0.1:8766/contact-demo-1.html and contact-demo-2.html, V1/V2 photo asset checks, V2 structural order, responsive, focus, hover, reduced-motion acceptance checks, npm run build (73 application routes)
 - PRs:
