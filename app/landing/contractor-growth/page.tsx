@@ -85,7 +85,7 @@ export default function ContractorGrowthLanding() {
           </div>
 
           <div className="mt-12 flex items-center justify-center gap-8 text-sm text-gray-500">
-            <span>✓ 12x Average Lead Increase</span>
+            <span>✓ 12x Average Inquiry Increase</span>
             <span className="hidden sm:inline">•</span>
             <span>✓ $500K Revenue Guarantee</span>
             <span className="hidden sm:inline">•</span>
@@ -175,7 +175,7 @@ export default function ContractorGrowthLanding() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Price Shoppers</h3>
               <p className="text-gray-400">
-                When you do get leads, they&apos;re comparing you to the cheapest
+                When new customers do find you, they&apos;re comparing you to the cheapest
                 option. You&apos;re competing on price, not value.
               </p>
             </div>
@@ -206,7 +206,7 @@ export default function ContractorGrowthLanding() {
               <ul className="space-y-4 text-gray-400">
                 <li className="flex items-start gap-3">
                   <span className="text-red-400">✗</span>
-                  <span>5-10 leads per month from referrals</span>
+                  <span>5-10 new inquiries per month from referrals</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-red-400">✗</span>
@@ -230,7 +230,7 @@ export default function ContractorGrowthLanding() {
               <ul className="space-y-4">
                 <li className="flex items-start gap-3">
                   <span className="text-[#06D6A0]">✓</span>
-                  <span>80+ qualified leads per month consistently</span>
+                  <span>80+ qualified inquiries per month consistently</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#06D6A0]">✓</span>
@@ -238,7 +238,7 @@ export default function ContractorGrowthLanding() {
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#06D6A0]">✓</span>
-                  <span>Calendar filled, customers calling YOU</span>
+                  <span>Jobs filled, customers calling YOU</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="text-[#06D6A0]">✓</span>
@@ -284,12 +284,12 @@ export default function ContractorGrowthLanding() {
               {
                 num: '03',
                 title: 'Review Velocity Engine',
-                desc: 'Automated 5-star review generation system (20+ reviews/month)',
+                desc: 'A simple review request after each completed job, so happy customers know where to share their experience.',
               },
               {
                 num: '04',
                 title: 'Instant Response Automation',
-                desc: 'AI chat that books appointments 24/7, never misses a lead',
+                desc: 'AI chat that answers common questions and helps people request an appointment at any hour.',
               },
               {
                 num: '05',
@@ -358,14 +358,14 @@ export default function ContractorGrowthLanding() {
             <div className="p-6 bg-gray-900 rounded-xl border border-gray-800">
               <h3 className="font-semibold mb-2">30-Day Momentum</h3>
               <p className="text-gray-400 text-sm">
-                25+ qualified leads in first 30 days or we pause and fix it
+                25+ qualified inquiries in first 30 days or we pause and fix it
               </p>
             </div>
 
             <div className="p-6 bg-gray-900 rounded-xl border border-gray-800">
               <h3 className="font-semibold mb-2">90-Day Acceleration</h3>
               <p className="text-gray-400 text-sm">
-                80+ leads/month system running or we work free until it does
+                80+ inquiries/month system running or we work free until it does
               </p>
             </div>
 

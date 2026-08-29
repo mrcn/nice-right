@@ -16,7 +16,7 @@ export default function HowItWorks() {
       number: '3',
       title: 'You Grow',
       description:
-        'Your new digital presence starts working for you. More leads, lower costs, happier customers. And I stick around to help you keep improving.',
+        'Your website starts working for you. More work, lower costs, happier customers. And I stick around to help you keep improving.',
     },
   ];
 

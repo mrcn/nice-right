@@ -54,7 +54,7 @@ export function Hero() {
 
           <p className="v9-hero-sub">
             For owners who already run a home service business. I build the digital
-            side — so your phone and calendar do more of the selling.
+            side, so your phone and website do more of the selling.
           </p>
 
           <div className="v9-hero-levers">

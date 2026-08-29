@@ -103,22 +103,22 @@ export default function TableturnDirectLanding() {
             {
               num: '01',
               title: 'Customer Capture',
-              desc: 'Description for Customer Capture phase goes here.',
+              desc: 'Turn delivery-app customers into first-party customers with a clear offer and an easy path to order direct.',
             },
             {
               num: '02',
               title: 'Direct Channel Build',
-              desc: 'Description for Direct Channel Build phase goes here.',
+              desc: 'Give regulars a reliable way to order from you without paying a marketplace fee on every order.',
             },
             {
               num: '03',
               title: 'Retention System',
-              desc: 'Description for Retention System phase goes here.',
+              desc: 'Keep the relationship after the first order with useful reminders, offers, and reasons to come back.',
             },
             {
               num: '04',
               title: 'Fee Elimination',
-              desc: 'Description for Fee Elimination phase goes here.',
+              desc: 'Shift repeat orders to a channel you own so more of each sale stays with the restaurant.',
             },
             ].map((phase, i) => (
               <div

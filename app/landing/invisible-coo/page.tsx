@@ -103,22 +103,22 @@ export default function InvisibleCooLanding() {
             {
               num: '01',
               title: 'Quarterly Intensives',
-              desc: 'Description for Quarterly Intensives phase goes here.',
+              desc: 'Use a focused working session to remove one operational bottleneck at a time.',
             },
             {
               num: '02',
               title: 'Unlimited Requests',
-              desc: 'Description for Unlimited Requests phase goes here.',
+              desc: 'Bring the decisions, drafts, and systems that keep landing on your plate.',
             },
             {
               num: '03',
               title: 'Weekly Dashboards',
-              desc: 'Description for Weekly Dashboards phase goes here.',
+              desc: 'See the few numbers that tell you what needs attention this week.',
             },
             {
               num: '04',
               title: 'Strategic Planning',
-              desc: 'Description for Strategic Planning phase goes here.',
+              desc: 'Turn the next quarter into a short list of decisions and work that move the business forward.',
             },
             ].map((phase, i) => (
               <div

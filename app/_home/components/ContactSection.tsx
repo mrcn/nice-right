@@ -84,11 +84,11 @@ export function ContactSection() {
               <CalEmbed
                 embedId="cal-embed-v9"
                 calLink="niceright/30min"
-                loadingText="Loading calendar..."
+                loadingText="Loading availability..."
                 ariaLabel="Book a call with Marcin"
                 fallbackText={
                   <p className="cal-embed-fallback">
-                    Calendar taking a while to load?{' '}
+                    Availability taking a while to load?{' '}
                     <a
                       href="https://cal.com/niceright/30min"
                       target="_blank"

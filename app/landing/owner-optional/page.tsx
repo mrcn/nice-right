@@ -103,22 +103,22 @@ export default function OwnerOptionalLanding() {
             {
               num: '01',
               title: 'Process Documentation',
-              desc: 'Description for Process Documentation phase goes here.',
+              desc: "Write down the recurring work so the business does not depend on one person's memory.",
             },
             {
               num: '02',
               title: 'Team Training',
-              desc: 'Description for Team Training phase goes here.',
+              desc: 'Teach the team the process, then watch where the handoff still breaks.',
             },
             {
               num: '03',
               title: 'System Automation',
-              desc: 'Description for System Automation phase goes here.',
+              desc: 'Automate the repeatable steps that slow the team down or get skipped.',
             },
             {
               num: '04',
               title: 'Owner Extraction',
-              desc: 'Description for Owner Extraction phase goes here.',
+              desc: "Move daily decisions out of the owner's head and into a system the team can run.",
             },
             ].map((phase, i) => (
               <div

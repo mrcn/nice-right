@@ -37,7 +37,7 @@ export default function NorthernTrustPage() {
         <span className="v9-case-client">Northern Trust</span>
         <h1>Designing &amp; Developing Micro-Interactions for Northern Trust&apos;s Corporate Website</h1>
         <p className="v9-case-subtitle">
-          Enhancing a global financial institution&apos;s online presence through strategic addition of micro-interactions and transitions.
+          Enhancing a global financial institution&apos;s online experience through carefully chosen micro-interactions and transitions.
         </p>
 
         <div className="v9-case-meta">
@@ -60,7 +60,7 @@ export default function NorthernTrustPage() {
         <section className="v9-case-section">
           <h2>Project Overview</h2>
           <p>
-            As a contracted UX designer and developer, I was engaged to enhance Northern Trust&apos;s global online presence through strategic addition of micro-interactions and transitions. The initial 6-week project aimed to implement a carefully curated set of animations on the client&apos;s public website, with the goal of elevating the brand experience and improving user engagement.
+            As a contracted UX designer and developer, I was engaged to enhance Northern Trust&apos;s global website through carefully chosen micro-interactions and transitions. The initial 6-week project aimed to implement a focused set of animations on the client&apos;s public website, with the goal of elevating the brand experience and improving user engagement.
           </p>
         </section>
 

@@ -87,12 +87,12 @@ export default function GrowthOSPage() {
               <span className="go-group-label">Everything in Get Running + Get Growing</span>
               <ul className="go-list">
                 <li>CRM, unified inbox, webchat widget</li>
-                <li>Missed call text-back, review requests, lead follow-up</li>
-                <li>Booking calendar, rebooking + referral engine</li>
+                <li>Missed call text-back, review requests, customer follow-through</li>
+                <li>Booking and scheduling, rebooking + referral engine</li>
                 <li>Invoicing, Text2Pay, proposals &amp; estimates</li>
                 <li>Document &amp; contract signing</li>
                 <li>Social media scheduler</li>
-                <li>Lead capture funnels + email newsletter</li>
+                <li>Customer inquiry funnels + email newsletter</li>
                 <li>Pipeline view + quarterly calls</li>
               </ul>
             </div>
@@ -169,7 +169,7 @@ export default function GrowthOSPage() {
           <h2 className="go-h2 go-h2--light">What you own when you leave.</h2>
           <div className="go-ownership-body">
             <p>
-              All contact data, lead history, and email lists are yours.
+              All contact data, inquiry history, and email lists are yours.
               Strategy docs, reports, and briefs we create together are yours.
             </p>
             <p>

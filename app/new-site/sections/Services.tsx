@@ -4,7 +4,7 @@ export default function Services() {
       title: 'Get Found \u0026 Get Customers',
       quote: 'I need a website that actually brings in business.',
       features: [
-        'Websites that convert visitors into leads',
+        'Websites that turn visitors into inquiries',
         'SEO so people actually find you',
         'Landing pages for campaigns \u0026 ads',
         'Google Business \u0026 local search setup',

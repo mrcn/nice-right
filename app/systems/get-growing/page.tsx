@@ -45,7 +45,7 @@ export default function GetGrowingPage() {
           <div className="gg-price-badge">$1,200 setup &middot; $247 /mo</div>
           <p className="gg-hero-sub">
             Your work is good. Customers leave happy. But most of them never hear from you again — and you never ask for the referral.
-            This tier builds the engine that follows up, re-engages, and compounds every good job you do.
+            This tier builds the system that brings customers back and makes each good job worth more.
             The work is already there. Now make it work harder.
           </p>
           <a href="#book" className="gg-btn-cta">Book a Free Call</a>
@@ -65,7 +65,7 @@ export default function GetGrowingPage() {
           <h2 className="gg-section-heading">Good work doesn&rsquo;t sell itself.</h2>
           <div className="gg-problem-cards">
             <div className="gg-problem-card">
-              <p>You did a great job. The customer was happy. But you never heard from them again — because nobody followed up.</p>
+              <p>You did a great job. The customer was happy. But you never heard from them again because nobody got back to them.</p>
             </div>
             <div className="gg-problem-card">
               <p>You&rsquo;ve got dozens of past customers sitting in your phone. They&rsquo;d probably hire you again. But you&rsquo;ve never asked.</p>
@@ -94,8 +94,8 @@ export default function GetGrowingPage() {
                 <li>Webchat widget — works on any website</li>
                 <li>Missed call text-back</li>
                 <li>Review requests — automated after every job</li>
-                <li>Lead follow-up sequence</li>
-                <li>Booking calendar</li>
+                <li>Customer follow-through sequence</li>
+                <li>Booking page</li>
               </ul>
             </div>
 
@@ -104,7 +104,7 @@ export default function GetGrowingPage() {
               <ul className="gg-feature-list gg-feature-list--detailed">
                 <li>
                   <strong>Rebooking automation</strong>
-                  <span> — Follows up with past customers at the right time, automatically.</span>
+                  <span> — Reaches out to past customers at the right time, automatically.</span>
                 </li>
                 <li>
                   <strong>Referral system</strong>
@@ -123,8 +123,8 @@ export default function GetGrowingPage() {
                   <span> — Schedule posts across platforms from one place.</span>
                 </li>
                 <li>
-                  <strong>Lead capture funnel</strong>
-                  <span> — A focused page built to turn visitors into leads.</span>
+                  <strong>Customer inquiry funnel</strong>
+                  <span> — A focused page built to turn visitors into conversations.</span>
                 </li>
                 <li>
                   <strong>Email newsletter</strong>
@@ -132,7 +132,7 @@ export default function GetGrowingPage() {
                 </li>
                 <li>
                   <strong>Pipeline view</strong>
-                  <span> — See every lead, where they are, what&rsquo;s next.</span>
+                  <span> — See every inquiry, where it stands, and what comes next.</span>
                 </li>
                 <li>
                   <strong>Quarterly strategy call</strong>
@@ -167,7 +167,7 @@ export default function GetGrowingPage() {
             </div>
           </div>
           <p className="gg-timeline-note">
-            For the first time, you&rsquo;ll have a clear picture of your lead pipeline.
+            For the first time, you&rsquo;ll have a clear picture of your inquiry pipeline.
           </p>
         </div>
       </section>
@@ -177,7 +177,7 @@ export default function GetGrowingPage() {
         <div className="gg-container">
           <h2 className="gg-section-heading gg-section-heading--light">Your data is yours.</h2>
           <div className="gg-ownership-body">
-            <p>Contacts, leads, form submissions, and your email list are all yours. Full export any time.</p>
+            <p>Contacts, inquiries, form submissions, and your email list are all yours. Full export any time.</p>
             <p>The automations and funnels run inside our platform. If you ever want to take them in-house, we&rsquo;ll transfer everything to a GHL account in your name.</p>
           </div>
         </div>

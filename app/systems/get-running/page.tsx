@@ -5,7 +5,7 @@ import { buildSeoMetadata } from '@/app/_shared/seo';
 const page = {
   title: 'Get Running | Nice Right',
   description:
-    'A starter business automation system for missed calls, CRM, reviews, web chat, booking, and lead follow-up.',
+    'A starter business automation system for missed calls, CRM, reviews, web chat, scheduling, and customer follow-through.',
   path: '/systems/get-running/',
 };
 
@@ -39,13 +39,13 @@ export default function GetRunningPage() {
         <div className="gr-container">
           <span className="gr-label">Tier 1 — Systems</span>
           <h1 className="gr-hero-h1">
-            <span className="gr-hero-line1">Stop losing leads</span>
+            <span className="gr-hero-line1">Stop losing good jobs</span>
             <span className="gr-hero-line2">you don&apos;t know about.</span>
           </h1>
           <div className="gr-price-badge">$700 setup &middot; $97 /mo</div>
           <p className="gr-hero-sub">
             Built for businesses with nothing automated yet. The phone rings and
-            nobody follows up. A job finishes and no one asks for a review. A
+            nobody gets back to them. A job finishes and no one asks for a review. A
             form gets submitted and two days pass in silence. This fixes all of
             that.
           </p>
@@ -64,7 +64,7 @@ export default function GetRunningPage() {
       <section className="gr-problem gr-warm">
         <div className="gr-container">
           <h2 className="gr-section-h2">
-            You&apos;re working. The follow-up isn&apos;t.
+            You&apos;re working. The next step isn&apos;t.
           </h2>
           <div className="gr-problem-cards">
             <div className="gr-problem-card">
@@ -139,14 +139,14 @@ export default function GetRunningPage() {
             <li className="gr-feature-row">
               <span className="gr-feature-arrow" aria-hidden="true">→</span>
               <div>
-                <strong>Lead follow-up</strong> — The moment someone reaches
+                <strong>Customer follow-through</strong> — The moment someone reaches
                 out, a 3-message sequence starts automatically.
               </div>
             </li>
             <li className="gr-feature-row">
               <span className="gr-feature-arrow" aria-hidden="true">→</span>
               <div>
-                <strong>Booking calendar</strong> — Clients pick a time
+                <strong>Booking page</strong> — Clients pick a time
                 directly. Embeds on any website. No phone tag.
               </div>
             </li>
@@ -200,7 +200,7 @@ export default function GetRunningPage() {
             Your data is yours.
           </h2>
           <p className="gr-ownership-p">
-            Your contact list, lead history, and conversation logs are yours.
+            Your contact list, inquiry history, and conversation logs are yours.
             Export any time, no questions asked.
           </p>
           <p className="gr-ownership-p">

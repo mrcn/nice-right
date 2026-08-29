@@ -16,7 +16,7 @@ const LEVERS: Array<{
     id: 'get_more_customers',
     title: 'Get More Customers',
     blurb:
-      'Findability, reviews, and local presence decide whether jobs find you — or your competitor.',
+      'Findability, reviews, and local visibility decide whether customers find you or your competitor.',
   },
   {
     id: 'charge_more',
@@ -28,13 +28,13 @@ const LEVERS: Array<{
     id: 'keep_customers',
     title: 'Keep Customers',
     blurb:
-      'Retention and repeat work come from clear offers, follow-up paths, and a site that keeps working after the click.',
+      'Retention and repeat work come from clear offers, useful reminders, and a site that keeps working after the click.',
   },
   {
     id: 'cut_the_waste',
     title: 'Cut the Waste',
     blurb:
-      'Slow pages, dead CTAs, and rented leads burn budget. Owned assets stop the leak.',
+      'Slow pages, dead CTAs, and paid referrals burn budget. Owned assets stop the leak.',
   },
 ];
 

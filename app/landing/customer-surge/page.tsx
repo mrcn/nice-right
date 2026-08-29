@@ -103,32 +103,32 @@ export default function CustomerSurgeLanding() {
             {
               num: '01',
               title: 'Customer Acquisition Engine',
-              desc: 'Description for Customer Acquisition Engine phase goes here.',
+              desc: 'Make the right local customers notice you, understand the offer, and take the next step.',
             },
             {
               num: '02',
               title: 'Irresistible Offer Architecture',
-              desc: 'Description for Irresistible Offer Architecture phase goes here.',
+              desc: 'Turn a vague promotion into a clear reason to choose you now.',
             },
             {
               num: '03',
               title: 'Social Proof Amplification',
-              desc: 'Description for Social Proof Amplification phase goes here.',
+              desc: 'Put real customer outcomes where a new customer can see them before they decide.',
             },
             {
               num: '04',
-              title: 'Automated Follow-Up',
-              desc: 'Description for Automated Follow-Up phase goes here.',
+              title: 'Customer follow-through',
+              desc: 'Give every new inquiry a timely next step instead of leaving the response to memory.',
             },
             {
               num: '05',
               title: 'Referral Multiplication',
-              desc: 'Description for Referral Multiplication phase goes here.',
+              desc: 'Make it easy for happy customers to tell the next person about you.',
             },
             {
               num: '06',
               title: 'Retention & Ascension',
-              desc: 'Description for Retention & Ascension phase goes here.',
+              desc: 'Give existing customers a reason to return and a clear next service to consider.',
             },
             ].map((phase, i) => (
               <div
