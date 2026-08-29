@@ -26,8 +26,8 @@ export function BookingSection({ embedId }: BookingProps) {
             <CalEmbed
               embedId={embedId}
               calLink="niceright/30min"
-              loadingText="Loading calendar..."
-              ariaLabel="Booking calendar"
+              loadingText="Loading availability..."
+              ariaLabel="Book a call with Marcin"
               fallbackText={
                 <p className="cal-embed-fallback">
                   Taking a while?{' '}

@@ -103,27 +103,27 @@ export default function FillthechairLanding() {
             {
               num: '01',
               title: 'Confirmation Protocol',
-              desc: 'Description for Confirmation Protocol phase goes here.',
+              desc: 'Confirm appointments quickly and give people a simple way to reschedule before the chair goes empty.',
             },
             {
               num: '02',
               title: 'Waitlist Engine',
-              desc: 'Description for Waitlist Engine phase goes here.',
+              desc: 'Turn last-minute openings into filled appointments with a ready-to-contact waitlist.',
             },
             {
               num: '03',
               title: 'Reminder Matrix',
-              desc: 'Description for Reminder Matrix phase goes here.',
+              desc: 'Send the right reminder at the right time so fewer appointments disappear from the day.',
             },
             {
               num: '04',
               title: 'Pre-pay System',
-              desc: 'Description for Pre-pay System phase goes here.',
+              desc: "Collect deposits or prepayment when it fits the service and the customer's expectations.",
             },
             {
               num: '05',
               title: 'Recall Automation',
-              desc: 'Description for Recall Automation phase goes here.',
+              desc: 'Invite past customers back when they are due instead of relying on memory.',
             },
             ].map((phase, i) => (
               <div

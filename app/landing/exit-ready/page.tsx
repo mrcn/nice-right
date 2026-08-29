@@ -103,27 +103,27 @@ export default function ExitReadyLanding() {
             {
               num: '01',
               title: 'Systematization',
-              desc: 'Description for Systematization phase goes here.',
+              desc: 'Turn the work you do by memory into repeatable steps someone else can run.',
             },
             {
               num: '02',
               title: 'Documentation',
-              desc: 'Description for Documentation phase goes here.',
+              desc: 'Capture the decisions, checklists, and handoffs a buyer needs to understand the operation.',
             },
             {
               num: '03',
               title: 'Team Independence',
-              desc: 'Description for Team Independence phase goes here.',
+              desc: 'Build a team that can handle the day-to-day without every decision coming back to you.',
             },
             {
               num: '04',
               title: 'Financial Optimization',
-              desc: 'Description for Financial Optimization phase goes here.',
+              desc: 'Clean up the numbers, margins, and operating costs that shape the value of the business.',
             },
             {
               num: '05',
               title: 'Buyer Attractiveness',
-              desc: 'Description for Buyer Attractiveness phase goes here.',
+              desc: 'Present a business with clear systems, dependable performance, and less owner dependence.',
             },
             ].map((phase, i) => (
               <div

@@ -11,7 +11,7 @@ interface StatItem {
 
 const stats: StatItem[] = [
   { end: 290, suffix: '%', label: 'traffic growth for a home service company' },
-  { end: 12, suffix: 'x', label: 'more leads from the same site' },
+  { end: 12, suffix: 'x', label: 'more inquiries from the same site' },
   { end: 80, suffix: '%', label: 'time saved with workflow automation' },
 ];
 
@@ -39,7 +39,7 @@ const caseStudies: CaseStudy[] = [
     image: '/images/bankk.webp',
     alt: 'Northern Trust project',
     client: 'Northern Trust',
-    headline: 'Modernized a Fortune 500 web presence',
+    headline: 'Modernized a Fortune 500 website',
     description: 'Micro-interactions and animation that boosted engagement.',
   },
   {

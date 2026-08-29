@@ -11,10 +11,10 @@ const tiers = [
     tagline: 'Your business, findable and credible.',
     timeline: 'Typically 4–8 weeks',
     description:
-      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. Fix that. Website, local listings, email capture, a lead magnet that works before you spend a dollar on ads.",
+      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. Fix that. Website, local listings, email capture, a useful free resource that starts the conversation before you spend a dollar on ads.",
     deliverables: [
       '5-page website, mobile-optimized and SEO-ready',
-      'Email list + lead magnet + welcome sequence',
+      'Email list + free resource + welcome sequence',
       'Google Business Profile claimed and optimized',
       'Local directory listings — Yelp, Facebook + industry-specific',
       '30-day check-in to make sure it\'s working',

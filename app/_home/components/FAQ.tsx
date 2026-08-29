@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: 'How long until I see results?',
-    a: 'Most projects go live within 4 to 8 weeks. Quick wins like SEO fixes or conversion tweaks often show results within days. Bigger outcomes, like consistent leads and ranking for local searches, build over your first 2 to 3 months.',
+    a: 'Most projects go live within 4 to 8 weeks. Quick wins like SEO fixes or conversion tweaks often show results within days. Bigger outcomes, like consistent inquiries and better local search rankings, build over your first 2 to 3 months.',
   },
   {
     q: 'Do I own everything you build?',

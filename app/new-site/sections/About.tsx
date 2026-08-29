@@ -28,10 +28,9 @@ export default function About() {
               </p>
 
               <p>
-                No account managers. No juniors learning on your dime. When you
-                hire Nice Right, you work directly with me — the same person who
-                designed micro-interactions for Northern Trust and built a
-                restaurant&apos;s entire web presence over a weekend.
+                There&apos;s no handoff. When you hire Nice Right, you work directly with
+                me, the same person who designed micro-interactions for Northern Trust
+                and built a restaurant&apos;s website over a weekend.
               </p>
             </div>
 

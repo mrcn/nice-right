@@ -83,7 +83,7 @@ export default function CompetitorFuneralLanding() {
             </div>
             <div className="p-6 bg-gray-900/50 rounded-2xl border border-gray-800">
               <h3 className="text-xl font-semibold mb-3">Invisible to Customers</h3>
-              <p className="text-gray-400">You are page 3 of Google. No authority, no presence, no trust.</p>
+              <p className="text-gray-400">You are page 3 of Google. No authority, no visibility, no trust.</p>
             </div>
           </div>
         </div>
@@ -103,17 +103,17 @@ export default function CompetitorFuneralLanding() {
             {
               num: '01',
               title: 'Market Positioning',
-              desc: 'Description for Market Positioning phase goes here.',
+              desc: 'Make the difference clear before a prospect compares you on price.',
             },
             {
               num: '02',
               title: 'Competitive Intelligence',
-              desc: 'Description for Competitive Intelligence phase goes here.',
+              desc: 'Study what nearby competitors promise, then find the gaps you can credibly own.',
             },
             {
               num: '03',
               title: 'Category Domination',
-              desc: 'Description for Category Domination phase goes here.',
+              desc: 'Build the pages, proof, and local signals that make your name the obvious choice.',
             },
             ].map((phase, i) => (
               <div

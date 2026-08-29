@@ -12,7 +12,7 @@ const levers = [
     bullets: [
       'SEO-optimized website',
       'Google Business + local listings',
-      'Lead capture + email sequence',
+      'Inquiry capture + email sequence',
       'Paid traffic-ready landing pages',
     ],
     tag: 'Acquisition',

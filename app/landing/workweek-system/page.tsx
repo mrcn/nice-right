@@ -103,22 +103,22 @@ export default function WorkweekSystemLanding() {
             {
               num: '01',
               title: 'Time Audit & Delegation',
-              desc: 'Description for Time Audit & Delegation phase goes here.',
+              desc: 'Find the work only you can do, then hand off the rest with a clear brief.',
             },
             {
               num: '02',
               title: 'System Documentation',
-              desc: 'Description for System Documentation phase goes here.',
+              desc: 'Turn recurring tasks into checklists people can follow without asking you each time.',
             },
             {
               num: '03',
               title: 'Team Empowerment',
-              desc: 'Description for Team Empowerment phase goes here.',
+              desc: 'Give the team the context and authority to finish work without waiting for you.',
             },
             {
               num: '04',
               title: 'Automation Architecture',
-              desc: 'Description for Automation Architecture phase goes here.',
+              desc: 'Connect the repeatable steps so routine work keeps moving while you focus elsewhere.',
             },
             ].map((phase, i) => (
               <div

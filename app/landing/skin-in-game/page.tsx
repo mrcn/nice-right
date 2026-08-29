@@ -103,17 +103,17 @@ export default function SkinInGameLanding() {
             {
               num: '01',
               title: '$1K to Start',
-              desc: 'Description for $1K to Start phase goes here.',
+              desc: 'Start with the first practical system instead of waiting for a perfect rebuild.',
             },
             {
               num: '02',
               title: 'We Build Everything',
-              desc: 'Description for We Build Everything phase goes here.',
+              desc: 'We handle the site, offer, and customer path while you keep running the business.',
             },
             {
               num: '03',
               title: 'You Pay $9K Only From Profits',
-              desc: 'Description for You Pay $9K Only From Profits phase goes here.',
+              desc: 'Tie the rest of the investment to measurable profit so the risk stays shared.',
             },
             ].map((phase, i) => (
               <div

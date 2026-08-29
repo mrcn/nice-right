@@ -26,10 +26,10 @@ export function CalEmbed({
   embedId,
   calLink,
   config = { layout: 'month_view', theme: 'dark' },
-  loadingText = 'Loading calendar...',
+  loadingText = 'Loading availability...',
   fallbackText,
   containerStyle,
-  ariaLabel = 'Booking calendar',
+  ariaLabel = 'Book a call with Marcin',
   prefillParams,
 }: CalEmbedProps) {
   const [loaded, setLoaded] = useState(false);
@@ -140,7 +140,7 @@ export function CalEmbed({
 
   const defaultFallback = (
     <p className="cal-embed-fallback">
-      Calendar taking a while to load?{' '}
+      Availability taking a while to load?{' '}
       <a
         href={`https://cal.com/${calLink}`}
         target="_blank"
