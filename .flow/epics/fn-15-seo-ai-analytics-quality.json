@@ -1,14 +1,4 @@
 {
-  "id": "fn-15-seo-ai-analytics-quality",
-  "title": "SEO, AI readiness, and analytics quality pass",
-  "status": "planned",
-  "spec": ".flow/specs/fn-15-seo-ai-analytics-quality.md",
-  "tasks": [
-    ".flow/tasks/fn-15-seo-ai-analytics-quality.1.md",
-    ".flow/tasks/fn-15-seo-ai-analytics-quality.2.md",
-    ".flow/tasks/fn-15-seo-ai-analytics-quality.3.md",
-    ".flow/tasks/fn-15-seo-ai-analytics-quality.4.md"
-  ],
   "acceptance": [
     "build passes",
     "tests pass",
@@ -18,5 +8,39 @@
     "llms.txt is Nice Right-first",
     "analytics smoke evidence captured",
     "production audit passes"
-  ]
+  ],
+  "branch_name": null,
+  "completion_review_status": "unknown",
+  "completion_reviewed_at": null,
+  "default_impl": null,
+  "default_review": null,
+  "default_sync": null,
+  "depends_on_epics": [],
+  "id": "fn-15-seo-ai-analytics-quality",
+  "impl_review_rounds": {},
+  "plan_review_rounds": 0,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "ready": true,
+  "spec": ".flow/specs/fn-15-seo-ai-analytics-quality.md",
+  "status": "planned",
+  "tasks": [
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.1.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.2.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.3.md",
+    ".flow/tasks/fn-15-seo-ai-analytics-quality.4.md"
+  ],
+  "title": "SEO, AI readiness, and analytics quality pass",
+  "tracker": {
+    "baseHashFlow": null,
+    "baseHashTracker": null,
+    "depRelations": [],
+    "id": null,
+    "identifier": null,
+    "lastSyncedAt": null,
+    "mergeBaseFlow": null,
+    "mergeBaseTracker": null,
+    "url": null
+  },
+  "updated_at": "2026-08-29T21:40:17.505017Z"
 }

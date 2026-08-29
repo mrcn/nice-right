@@ -1,0 +1,16 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-08-29T21:39:50.031334Z",
+  "depends_on": [
+    "fn-15-seo-ai-analytics-quality.1"
+  ],
+  "id": "fn-15-seo-ai-analytics-quality.2",
+  "priority": 2,
+  "spec": "fn-15-seo-ai-analytics-quality",
+  "spec_path": ".flow/tasks/fn-15-seo-ai-analytics-quality.2.md",
+  "status": "todo",
+  "title": "Apply metadata and schema to public page families",
+  "updated_at": "2026-08-29T21:39:52.722017Z"
+}

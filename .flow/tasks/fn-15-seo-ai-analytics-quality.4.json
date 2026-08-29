@@ -1,0 +1,16 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-08-29T21:39:50.031621Z",
+  "depends_on": [
+    "fn-15-seo-ai-analytics-quality.3"
+  ],
+  "id": "fn-15-seo-ai-analytics-quality.4",
+  "priority": 4,
+  "spec": "fn-15-seo-ai-analytics-quality",
+  "spec_path": ".flow/tasks/fn-15-seo-ai-analytics-quality.4.md",
+  "status": "todo",
+  "title": "Analytics documentation and verification",
+  "updated_at": "2026-08-29T21:39:55.334963Z"
+}
