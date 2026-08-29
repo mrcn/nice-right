@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Internal evidence memo covering the Taqueria La Paz attribution correction, defensible metrics, and the research report workflow.">
+  <title>Nice Right: cleaner read of the numbers</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #17110d;
+      --ink-soft: #5d5148;
+      --cream: #fff8ec;
+      --paper: #fffdf8;
+      --line: #dfd2c1;
+      --orange: #ff4d00;
+      --orange-dark: #b93400;
+      --blue: #2563eb;
+      --lime: #b4f000;
+      --red-soft: #ffe0d4;
+      --blue-soft: #e5edff;
+      --lime-soft: #efffc2;
+      --shadow: 0 18px 60px rgba(51, 31, 13, 0.11);
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    a:focus-visible, summary:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+    .page { max-width: 1180px; margin: 0 auto; padding: 28px 28px 72px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 74px; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -0.04em; text-decoration: none; }
+    .brand-mark { width: 27px; height: 27px; display: grid; place-items: center; background: var(--orange); color: var(--ink); border-radius: 8px; font-size: 13px; transform: rotate(-7deg); }
+    .eyebrow, .label { font-size: 11px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+    .eyebrow { color: var(--orange-dark); }
+    .internal-badge { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border: 1px solid var(--ink); border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+    .internal-badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--lime); border: 1px solid var(--ink); }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr); gap: 48px; align-items: end; margin-bottom: 56px; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; letter-spacing: -0.04em; }
+    h1 { max-width: 760px; margin-bottom: 22px; font-size: clamp(3.9rem, 9vw, 8.4rem); line-height: 0.86; }
+    h2 { margin-bottom: 18px; font-size: clamp(2.5rem, 5vw, 4.7rem); line-height: 0.95; }
+    h3 { margin-bottom: 8px; font-size: 1rem; line-height: 1.2; letter-spacing: -0.02em; }
+    .dek { max-width: 660px; color: var(--ink-soft); font-size: clamp(1.05rem, 1.5vw, 1.28rem); }
+    .hero-note { padding: 26px; background: var(--ink); color: var(--cream); border-radius: 22px 22px 22px 4px; box-shadow: var(--shadow); }
+    .hero-note .label { color: var(--lime); margin-bottom: 14px; }
+    .hero-note strong { display: block; margin-bottom: 12px; font-size: 1.38rem; line-height: 1.15; }
+    .hero-note p { margin-bottom: 0; color: #e9dfd2; }
+
+    .section { margin-top: 76px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+    .section-head p { max-width: 470px; margin-bottom: 0; color: var(--ink-soft); font-size: 0.95rem; }
+    .correction { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr); gap: 0; overflow: hidden; background: var(--paper); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); }
+    .correction-main { padding: 34px; border-right: 1px solid var(--line); }
+    .correction-main .label { color: var(--orange-dark); margin-bottom: 17px; }
+    .correction-main h3 { max-width: 660px; font-family: "Instrument Serif", Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; line-height: 0.98; }
+    .correction-main p { max-width: 690px; color: var(--ink-soft); }
+    .quote-wrong { margin: 24px 0; padding: 16px 18px; background: var(--red-soft); border-left: 5px solid var(--orange); font-weight: 700; }
+    .correction-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--line); }
+    .fact { padding: 24px; background: var(--paper); }
+    .fact .label { color: var(--ink-soft); margin-bottom: 8px; }
+    .fact strong { display: block; margin-bottom: 5px; font-size: 1.22rem; line-height: 1.1; }
+    .fact p { margin-bottom: 0; color: var(--ink-soft); font-size: 0.88rem; }
+
+    .lift { display: grid; grid-template-columns: minmax(270px, 0.7fr) minmax(0, 1.3fr); gap: 30px; align-items: stretch; }
+    .lift-number { padding: 32px; background: var(--orange); border-radius: 22px 22px 22px 4px; display: flex; flex-direction: column; justify-content: space-between; min-height: 285px; }
+    .lift-number .label { margin-bottom: 20px; }
+    .big-number { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(5rem, 11vw, 9.6rem); line-height: 0.75; letter-spacing: -0.07em; }
+    .lift-number p { max-width: 260px; margin: 26px 0 0; font-size: 0.9rem; }
+    .lift-detail { padding: 4px 0 0; }
+    .lift-detail h3 { font-family: "Instrument Serif", Georgia, serif; font-size: 2rem; font-weight: 400; }
+    .bars { display: grid; gap: 18px; margin: 24px 0 20px; }
+    .bar-row { display: grid; grid-template-columns: 100px minmax(0, 1fr) 70px; align-items: center; gap: 12px; font-size: 0.85rem; }
+    .bar-row span:first-child { color: var(--ink-soft); }
+    .bar-track { height: 18px; background: #eadfd0; border-radius: 99px; overflow: hidden; }
+    .bar { height: 100%; background: var(--blue); border-radius: inherit; }
+    .bar.baseline { width: 30%; background: var(--ink); }
+    .bar.adjusted { width: 100%; background: var(--orange); }
+    .lift-detail .note { padding: 15px 17px; background: var(--lime-soft); border-left: 4px solid var(--lime); color: #3d481b; font-size: 0.9rem; }
+
+    .metric-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .metric { grid-column: span 4; padding: 24px; min-height: 230px; display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+    .metric:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .metric.wide { grid-column: span 6; }
+    .metric .label { margin-bottom: 26px; color: var(--blue); }
+    .metric h3 { margin-bottom: 11px; font-family: "Instrument Serif", Georgia, serif; font-size: 2.4rem; font-weight: 400; line-height: 0.95; }
+    .metric p { margin-bottom: 0; color: var(--ink-soft); font-size: 0.91rem; }
+    .metric .source { margin-top: auto; padding-top: 18px; color: var(--ink); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+    .metric.orange .label { color: var(--orange-dark); }
+    .metric.lime .label { color: #4f6800; }
+
+    .say-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .say-card { padding: 28px; border-radius: 20px; }
+    .say-card.good { background: var(--blue-soft); border: 1px solid #b8caff; }
+    .say-card.no { background: var(--red-soft); border: 1px solid #ffbda8; }
+    .say-card .label { margin-bottom: 16px; }
+    .say-card.good .label { color: var(--blue); }
+    .say-card.no .label { color: var(--orange-dark); }
+    .say-card blockquote { margin: 0; font-family: "Instrument Serif", Georgia, serif; font-size: 1.9rem; line-height: 1; }
+    .say-card p { margin: 17px 0 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+    .workflow { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); }
+    .step { position: relative; min-height: 150px; padding: 19px 14px 20px; border-right: 1px solid var(--line); }
+    .step:last-child { border-right: 0; }
+    .step::before { content: ""; display: block; width: 12px; height: 12px; margin-bottom: 34px; border-radius: 50%; background: var(--orange); border: 2px solid var(--ink); }
+    .step:nth-child(2)::before, .step:nth-child(5)::before { background: var(--blue); }
+    .step:nth-child(3)::before, .step:nth-child(6)::before { background: var(--lime); }
+    .step strong { display: block; margin-bottom: 5px; font-size: 0.86rem; line-height: 1.2; }
+    .step span { display: block; color: var(--ink-soft); font-size: 0.76rem; line-height: 1.35; }
+    .fabric-note { margin-top: 18px; padding: 18px 20px; background: var(--ink); color: var(--cream); border-radius: 14px; }
+    .fabric-note strong { color: var(--lime); }
+    .fabric-note code, code { font-family: "SFMono-Regular", Consolas, monospace; font-size: 0.86em; }
+
+    .bottom-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .panel { padding: 26px; background: var(--paper); border: 1px solid var(--line); border-radius: 18px; }
+    .panel h3 { margin-bottom: 18px; font-family: "Instrument Serif", Georgia, serif; font-size: 2rem; font-weight: 400; }
+    .link-list, .file-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .link-list a { display: flex; justify-content: space-between; gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--blue); font-weight: 700; text-decoration: none; }
+    .link-list a::after { content: "↗"; color: var(--orange); }
+    .file-list li { padding: 10px 12px; background: #f6eee2; border-radius: 8px; overflow-wrap: anywhere; }
+    .file-list code { color: var(--ink-soft); }
+    details { margin-top: 18px; border-top: 1px solid var(--line); }
+    summary { padding: 15px 0; cursor: pointer; font-weight: 800; }
+    details p { color: var(--ink-soft); font-size: 0.9rem; }
+    .footer { display: flex; justify-content: space-between; gap: 24px; margin-top: 66px; padding-top: 18px; border-top: 1px solid var(--ink); color: var(--ink-soft); font-size: 0.78rem; }
+
+    @media (max-width: 850px) {
+      .page { padding: 22px 18px 48px; }
+      .topbar { margin-bottom: 48px; }
+      .hero, .correction, .lift { grid-template-columns: 1fr; }
+      .correction-main { border-right: 0; border-bottom: 1px solid var(--line); }
+      .metric { grid-column: span 6; }
+      .metric.wide { grid-column: span 6; }
+      .workflow { grid-template-columns: repeat(4, 1fr); }
+      .step:nth-child(4) { border-right: 0; }
+      .step:nth-child(-n+4) { border-bottom: 1px solid var(--line); }
+      .step:nth-child(4)::after { display: none; }
+    }
+    @media (max-width: 570px) {
+      .topbar { align-items: flex-start; flex-direction: column; }
+      h1 { font-size: clamp(3.7rem, 18vw, 6rem); }
+      .section { margin-top: 55px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 12px; }
+      .correction-main, .fact, .lift-number, .panel, .say-card { padding: 22px; }
+      .correction-facts, .say-grid, .bottom-grid { grid-template-columns: 1fr; }
+      .metric, .metric.wide { grid-column: span 12; min-height: 200px; }
+      .workflow { grid-template-columns: 1fr 1fr; }
+      .step:nth-child(2), .step:nth-child(6) { border-right: 0; }
+      .step:nth-child(5), .step:nth-child(6), .step:nth-child(7) { border-bottom: 1px solid var(--line); }
+      .step:nth-child(7) { grid-column: span 2; min-height: auto; }
+      .footer { display: block; }
+      .footer span { display: block; margin-top: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .metric { transition: none; }
+      .metric:hover { transform: none; }
+    }
+    @media print {
+      :root { --cream: #fff; --paper: #fff; --shadow: none; }
+      body { font-size: 11pt; }
+      .page { max-width: none; padding: 0; }
+      .topbar { margin-bottom: 36px; }
+      .section { margin-top: 42px; break-inside: avoid; }
+      .metric:hover { transform: none; box-shadow: none; }
+      a { text-decoration: none; }
+      .link-list a::after { content: ""; }
+      .hero-note, .lift-number, .fabric-note { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .metric, .panel, .correction, .say-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="https://niceright.co/" aria-label="Nice Right home"><span class="brand-mark">N</span><span>nice right</span></a>
+      <span class="internal-badge">Internal evidence memo</span>
+    </header>
+
+    <section class="hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Portfolio research / 29 August 2026</p>
+        <h1 id="page-title">A cleaner read of the numbers.</h1>
+        <p class="dek">The correction to the Taqueria traffic story, the metrics we can stand behind, and the checks now built into report production.</p>
+      </div>
+      <aside class="hero-note">
+        <p class="label">Decision</p>
+        <strong>The data supports a traffic story.</strong>
+        <p>It does not yet support an authorship, lead, or revenue story. That distinction stays visible here.</p>
+      </aside>
+    </section>
+
+    <section class="section" id="correction" aria-labelledby="correction-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">01 / correction</p>
+          <h2 id="correction-title">The email label was too strong.</h2>
+        </div>
+        <p>GA4 gave us a source label and a campaign name. It did not give us the person or company behind them.</p>
+      </div>
+      <div class="correction">
+        <div class="correction-main">
+          <p class="label">What changed</p>
+          <h3>We should not call the 574 sessions the client's email campaign.</h3>
+          <p>The raw GA4 row is <code>Sailthru / email</code>, campaign <code>20251022_Newsletter_Chicago</code>. That is the right description. The operator is unknown.</p>
+          <div class="quote-wrong">Do not publish: "The client's newsletter generated 574 sessions."</div>
+          <p>Use this instead: "GA4 recorded 574 sessions tagged <code>Sailthru / email</code>. The campaign operator is unknown."</p>
+        </div>
+        <div class="correction-facts">
+          <div class="fact">
+            <p class="label">Sessions</p>
+            <strong>574</strong>
+            <p>Tagged Sailthru / email.</p>
+          </div>
+          <div class="fact">
+            <p class="label">Engaged</p>
+            <strong>8</strong>
+            <p>Only 1.4% of the row.</p>
+          </div>
+          <div class="fact">
+            <p class="label">Duration</p>
+            <strong>5.4 sec</strong>
+            <p>Average session duration.</p>
+          </div>
+          <div class="fact">
+            <p class="label">Bounce rate</p>
+            <strong>98.6%</strong>
+            <p>Traffic quality is poor.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lift" aria-labelledby="lift-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">02 / the number worth keeping</p>
+          <h2 id="lift-title">Still up. Still not causal.</h2>
+        </div>
+        <p>Removing the questionable source row makes the comparison more honest. It does not turn it into proof of Nice Right's impact.</p>
+      </div>
+      <div class="lift">
+        <div class="lift-number">
+          <p class="label">Quality-adjusted descriptive lift</p>
+          <div class="big-number">+233.3%</div>
+          <p>1,250 baseline sessions became 4,166 adjusted post-period sessions.</p>
+        </div>
+        <div class="lift-detail">
+          <h3>Same legacy GA4 property. Equal 12-month windows.</h3>
+          <div class="bars" aria-label="Session comparison">
+            <div class="bar-row"><span>Baseline</span><div class="bar-track"><div class="bar baseline"></div></div><strong>1,250</strong></div>
+            <div class="bar-row"><span>Adjusted</span><div class="bar-track"><div class="bar adjusted"></div></div><strong>4,166</strong></div>
+          </div>
+          <p class="note">The raw comparison was +279.2% from 1,250 to 4,740. The adjusted figure subtracts the mutually exclusive 574-session Sailthru row. That is a data-quality adjustment, not proof that every excluded session was invalid.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence" aria-labelledby="evidence-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">03 / safe evidence</p>
+          <h2 id="evidence-title">What the data can show.</h2>
+        </div>
+        <p>These are useful signals. They still need work-date matching and permission before they become public case-study copy.</p>
+      </div>
+      <div class="metric-grid">
+        <article class="metric wide">
+          <p class="label">Google Search / last 365 days</p>
+          <h3>1,922 clicks<br>68,908 impressions</h3>
+          <p>Taqueria La Paz's HTTPS property, measured from 28 August 2025 through 27 August 2026.</p>
+          <p class="source">GSC-TAQ / evidence-ready</p>
+        </article>
+        <article class="metric orange wide">
+          <p class="label">Google / organic</p>
+          <h3>2,829 sessions<br>1,139 engaged</h3>
+          <p>Across the available legacy trace. Engagement rate was 40.3%, with a 107-second average session duration.</p>
+          <p class="source">GA-TAQ-LEGACY / supporting</p>
+        </article>
+        <article class="metric lime">
+          <p class="label">Google Maps</p>
+          <h3>80 clicks<br>73 users</h3>
+          <p>Outbound clicks from the profile, with 69 engaged sessions. A strong local-intent signal.</p>
+          <p class="source">GA-TAQ-QUALITY / verify date</p>
+        </article>
+        <article class="metric">
+          <p class="label">Named referrals</p>
+          <h3>159 sessions<br>70 engaged</h3>
+          <p>WTTW, WBEZ, Chicago Sun-Times, and City Cast. Article URLs still need verification.</p>
+          <p class="source">GA-TAQ-QUALITY / verify pages</p>
+        </article>
+        <article class="metric orange">
+          <p class="label">Matched GSC months</p>
+          <h3>+1.6% clicks</h3>
+          <p>384 to 390 clicks. Impressions rose 6.7%, while relative CTR fell 4.8%. No large search lift is supported.</p>
+          <p class="source">GSC-TAQ / descriptive</p>
+        </article>
+        <article class="metric wide">
+          <p class="label">Conversion tracking</p>
+          <h3>Configured events<br>0 observed rows</h3>
+          <p>Purchase and lead-style events exist in the GA4 settings, but the queried reports returned no occurrences. This is a tracking gap, not proof that no business happened.</p>
+          <p class="source">GA-TAQ-QUALITY / fix tracking</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="language" aria-labelledby="language-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">04 / wording guardrails</p>
+          <h2 id="language-title">Say this. Not that.</h2>
+        </div>
+        <p>Facts first. Ownership and causality require a separate check.</p>
+      </div>
+      <div class="say-grid">
+        <article class="say-card good">
+          <p class="label">Evidence-ready</p>
+          <blockquote>"Google Search recorded 1,922 clicks and 68,908 impressions."</blockquote>
+          <p>It names the system, the property, the dates, and the measured outcome.</p>
+        </article>
+        <article class="say-card no">
+          <p class="label">Not approved</p>
+          <blockquote>"Nice Right drove 279% growth."</blockquote>
+          <p>No intervention date, control series, CRM join, or clean attribution supports that sentence.</p>
+        </article>
+        <article class="say-card good">
+          <p class="label">Evidence-ready</p>
+          <blockquote>"574 sessions were tagged Sailthru / email."</blockquote>
+          <p>This reports what GA4 says without inventing campaign ownership.</p>
+        </article>
+        <article class="say-card no">
+          <p class="label">Not approved</p>
+          <blockquote>"The client's newsletter generated 574 sessions."</blockquote>
+          <p>The campaign operator is unknown, and the row has weak engagement signals.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="workflow" aria-labelledby="workflow-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">05 / report production</p>
+          <h2 id="workflow-title">The check comes before the claim.</h2>
+        </div>
+        <p>The repeatable order is now explicit. A nice-looking chart never gets to outrun its source.</p>
+      </div>
+      <div class="workflow" aria-label="Research report workflow">
+        <div class="step"><strong>Collect raw data</strong><span>GA4, GSC, RDAP, Wayback</span></div>
+        <div class="step"><strong>Trace dimensions</strong><span>Source, medium, campaign, dates</span></div>
+        <div class="step"><strong>Test quality</strong><span>Engagement, duration, bounce</span></div>
+        <div class="step"><strong>Calculate lift</strong><span>Equal windows, caveats attached</span></div>
+        <div class="step"><strong>Write claims</strong><span>Each claim gets sources</span></div>
+        <div class="step"><strong>Unslop</strong><span>Plain voice, no invented certainty</span></div>
+        <div class="step"><strong>Render and verify</strong><span>HTML, PDF, screenshots, links</span></div>
+      </div>
+      <div class="fabric-note"><strong>Where Fabric fits.</strong> This run used Fabric's <code>fabric_exec</code> to coordinate file reads, data checks, edits, rendering, and link verification. It is a procedural workflow, not yet a named reusable Fabric workflow.</div>
+    </section>
+
+    <section class="section" id="outputs" aria-labelledby="outputs-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">06 / outputs</p>
+          <h2 id="outputs-title">The files to keep close.</h2>
+        </div>
+        <p>The report set is corrected, unslopped, rendered, and available for internal review.</p>
+      </div>
+      <div class="bottom-grid">
+        <div class="panel">
+          <h3>Open the reports</h3>
+          <ul class="link-list">
+            <li><a href="https://share.onorca.dev/a/6aGJwEwkbyjN">Visual second-pass report</a></li>
+            <li><a href="https://share.onorca.dev/a/u1fb35nfAo1m">Full text second-pass report</a></li>
+          </ul>
+          <details>
+            <summary>What changed in the project</summary>
+            <p><code>CLAUDE.md</code> now requires the unslop pass and the report quality gate. <code>scripts/research/report_quality_check.py</code> checks style tripwires, source and caveat coverage, lift sections, screenshots, PDF pages, and secret-shaped strings.</p>
+          </details>
+        </div>
+        <div class="panel">
+          <h3>Source register</h3>
+          <ul class="file-list">
+            <li><code>portfolio-second-pass-evidence.json</code></li>
+            <li><code>portfolio-second-pass-lift.json</code></li>
+            <li><code>portfolio-second-pass-taqueria-sailthru.json</code></li>
+            <li><code>portfolio-second-pass-taqueria-attribution.json</code></li>
+            <li><code>report_quality_check.py</code></li>
+          </ul>
+          <details>
+            <summary>What is still missing</summary>
+            <p>Confirmed work dates, client permission, verified referral article URLs, a clean intervention window, and a CRM or revenue join. Until then, use the evidence as internal proof, not as finished case-study copy.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>Nice Right / internal evidence memo</span>
+      <span>Prepared 29 August 2026 / no live website changes</span>
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,3928 @@
+{
+  "claim_cards": [
+    {
+      "caveat": "Visibility, not leads or sales; work-date matching, authorship, and client permission remain required.",
+      "claim": "Google Search recorded 1,922 clicks and 68,908 impressions for taquerialapazchicago.com from 28 Aug 2025 through 27 Aug 2026.",
+      "evidence": "GSC HTTPS property; exact 365-day slice from daily API data.",
+      "id": "C1",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Strongest new dated case-study metric.",
+      "sources": [
+        "GSC-TAQ"
+      ],
+      "status": "EVIDENCE-READY / PERMISSION + ATTRIBUTION CHECK"
+    },
+    {
+      "caveat": "Partial current-property window; older property is not included. Confirm migration boundary and permission.",
+      "claim": "The current GA4 property recorded 1,124 sessions from April through August 2026; 673 sessions (59.9%) were attributed to Organic Search.",
+      "evidence": "Property 530891840; five reported months; created 1 Apr 2026.",
+      "id": "C2",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Secondary supporting metric.",
+      "sources": [
+        "GA-TAQ-CURRENT"
+      ],
+      "status": "EVIDENCE-READY / MIGRATION CHECK"
+    },
+    {
+      "caveat": "Public/domain availability is not a Nice Right start date or authorship proof.",
+      "claim": "The domain was registered 9 Feb 2024; the earliest returned Wayback homepage capture is 27 Apr 2024; 10 deduplicated HTML captures run through 15 Feb 2026.",
+      "evidence": "RDAP and Wayback CDX/root capture inventory.",
+      "id": "C3",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Timeline caption only.",
+      "sources": [
+        "RDAP-TAQ",
+        "CDX-TAQ"
+      ],
+      "status": "PROVENANCE ONLY"
+    },
+    {
+      "caveat": "Events are tracking signals, not qualified leads or booked calls; no CRM join is connected.",
+      "claim": "Nice Right\u2019s current GA4 property recorded 259 sessions, 233 users, 17 form_start events, and 17 cta_click events from March through August 2026.",
+      "evidence": "Property 529974758; six reported months.",
+      "id": "C4",
+      "project": "Nice Right",
+      "recommended_use": "Private funnel debugging.",
+      "sources": [
+        "GA-NR"
+      ],
+      "status": "INTERNAL INSTRUMENTATION ONLY"
+    },
+    {
+      "caveat": "Low-volume branded visibility; not a growth or client-result claim.",
+      "claim": "Search Console recorded 12 clicks and 619 impressions for sc-domain:niceright.co from 15 Apr 2025 through 27 Aug 2026; \u201cnice right\u201d generated 7 clicks.",
+      "evidence": "Domain-level GSC property; 157 daily rows and 3 query rows.",
+      "id": "C5",
+      "project": "Nice Right",
+      "recommended_use": "Private baseline.",
+      "sources": [
+        "GSC-NR"
+      ],
+      "status": "INTERNAL VISIBILITY SIGNAL"
+    },
+    {
+      "caveat": "Public presence is not proof of ownership, authorship, or SEO success.",
+      "claim": "The UXOXO domain has an RDAP registration lower bound of 9 Nov 2023; Wayback\u2019s earliest returned homepage capture is 9 Jan 2024; 12 deduplicated HTML captures run through 4 Mar 2025.",
+      "evidence": "RDAP and Wayback CDX inventory.",
+      "id": "C6",
+      "project": "UXOXO",
+      "recommended_use": "Founder/brand chronology.",
+      "sources": [
+        "RDAP-UX",
+        "CDX-UX"
+      ],
+      "status": "PROVENANCE ONLY"
+    },
+    {
+      "caveat": "The split may be migration or duplicate instrumentation; GSC returned zero clicks.",
+      "claim": "Two separate GA4 properties exist: 42 sessions across Apr\u2013Jul 2024 and 756 sessions across Oct 2024\u2013Aug 2026.",
+      "evidence": "Properties 436318262 and 462480631 have separate creation dates and streams.",
+      "id": "C7",
+      "project": "UXOXO",
+      "recommended_use": "Internal measurement audit only.",
+      "sources": [
+        "GA-UX-OLD",
+        "GA-UX-NEW"
+      ],
+      "status": "DO NOT COMBINE / MEASUREMENT HISTORY"
+    },
+    {
+      "caveat": "A live current page is not evidence of traffic or product-market outcome.",
+      "claim": "Dummy Reader\u2019s domain registration lower bound is 10 Dec 2025 and its GA4 property was created 25 Mar 2026, but the historical report returned zero data rows.",
+      "evidence": "RDAP, GA4 Admin/Data API, and zero Wayback CDX captures.",
+      "id": "C8",
+      "project": "Dummy Reader",
+      "recommended_use": "Setup chronology only.",
+      "sources": [
+        "RDAP-DUMMY",
+        "GA-DUMMY",
+        "CDX-DUMMY"
+      ],
+      "status": "NO RESULT DATA"
+    },
+    {
+      "caveat": "The subtraction is a data-quality adjustment, not proof that every excluded session was automated or invalid. The campaign operator is unknown. GSC matched months do not show a comparable large search lift, and Nice Right causality remains unproven.",
+      "claim": "After excluding the 574-session Sailthru / email attribution spike, the same legacy GA4 property still shows a descriptive 233.3% year-over-year session lift: 1,250 in Apr 2024\u2013Mar 2025 to 4,166 in Apr 2025\u2013Mar 2026.",
+      "evidence": "Equal-length, same-property comparison; raw post total 4,740 less the mutually exclusive 574-session Sailthru / email row.",
+      "id": "C9",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Internal hypothesis only until the intervention window and traffic quality are confirmed.",
+      "sources": [
+        "GA-TAQ-LEGACY",
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "QUALITY-ADJUSTED DESCRIPTIVE LIFT / NOT CAUSAL"
+    },
+    {
+      "caveat": "This is descriptive year-over-year movement, not causal lift; no pre-April-2025 GSC history is available.",
+      "claim": "In matched Apr\u2013Jun months, GSC clicks moved from 384 to 390 (+1.6%) year over year; impressions rose 6.7% while CTR fell 4.8% relatively.",
+      "evidence": "Same calendar months, same HTTPS GSC property.",
+      "id": "C10",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Use to prevent overclaiming a large search lift.",
+      "sources": [
+        "GSC-TAQ"
+      ],
+      "status": "MATCHED-SEASON SEARCH RESULT / SMALL CHANGE"
+    },
+    {
+      "caveat": "Short current-property window with no seasonality control; higher organic share does not mean more total demand.",
+      "claim": "Within the current GA4 property, Organic Search share rose from 49.6% in Apr\u2013May 2026 to 73.7% in Jul\u2013Aug 2026 (+24.1 percentage points), while average monthly sessions fell 30.9%.",
+      "evidence": "Equal two-month windows within property 530891840.",
+      "id": "C11",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Internal channel-mix diagnosis.",
+      "sources": [
+        "GA-TAQ-CURRENT"
+      ],
+      "status": "DESCRIPTIVE MIX SHIFT / VOLUME DOWN"
+    },
+    {
+      "caveat": "August contributes 80.4% of post-period sessions and Organic Search share falls 7.7 percentage points; no control or business-outcome join exists.",
+      "claim": "Nice Right\u2019s average monthly sessions rose 198.5% from the first three reported months (65 total) to the last three (194 total); the median-month lift is 121.4%.",
+      "evidence": "Equal three-month windows in property 529974758.",
+      "id": "C12",
+      "project": "Nice Right",
+      "recommended_use": "Private instrumentation review only.",
+      "sources": [
+        "GA-NR"
+      ],
+      "status": "DESCRIPTIVE TRAFFIC PULSE / NOT CAUSAL"
+    },
+    {
+      "caveat": "The campaign operator is unknown. This does not prove the restaurant ran a newsletter, and the traffic quality is poor: 5.4 seconds average duration, 1.005 page views/session, 98.6% bounce rate.",
+      "claim": "The October 2025 spike was tagged Sailthru / email under campaign 20251022_Newsletter_Chicago: 574 sessions arrived on 22-28 October, but only 8 engaged.",
+      "evidence": "Raw GA4 source/medium, campaign, date, and engagement reports.",
+      "id": "C13",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Exclude from case-study lift claims until the campaign is identified.",
+      "sources": [
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "DATA-QUALITY / ATTRIBUTION BLOCKED"
+    },
+    {
+      "caveat": "This is a source-level traffic signal, not proof of Nice Right authorship, leads, or revenue. Its exact date span follows the property data, April 2024 through April 2026.",
+      "claim": "Across the available legacy GA4 period, Google / organic produced 2,829 sessions and 1,139 engaged sessions, with a 40.3% engagement rate and 107-second average session duration.",
+      "evidence": "Aggregate GA4 source/medium report for property 436955005.",
+      "id": "C14",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Better supporting evidence than the Sailthru spike; still needs work-date matching.",
+      "sources": [
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "EVIDENCE-READY / SEARCH ACQUISITION"
+    },
+    {
+      "caveat": "These are outbound click events, not completed directions, visits, calls, or orders.",
+      "claim": "The legacy GA4 property recorded 80 outbound Google Maps click events from 73 users, including 69 engaged sessions. It also recorded 29 Instagram and 19 Facebook click events.",
+      "evidence": "GA4 click event report grouped by link URL.",
+      "id": "C15",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Local-intent support in a case study, after client permission.",
+      "sources": [
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "EVIDENCE-READY / BEHAVIOR PROXY"
+    },
+    {
+      "caveat": "GA4 records referring domains, not article URLs or who secured the mentions. Verify the pages before calling this press coverage or earned media.",
+      "claim": "Named referral domains sent 159 sessions and 70 engaged sessions in the available legacy GA4 period: WTTW 81/35, WBEZ 43/23, Chicago Sun-Times 23/4, and City Cast 12/8.",
+      "evidence": "GA4 aggregate source/medium report.",
+      "id": "C16",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Promising lead for a separate referral/source investigation.",
+      "sources": [
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "EVIDENCE-READY / REFERRAL SIGNAL"
+    },
+    {
+      "caveat": "A zero event row does not prove that no calls, orders, or leads happened. It proves only that these configured GA4 events were not observed in the queried properties and window.",
+      "claim": "The GA4 properties have conversion-style key events configured, but the report returned no observed purchase, close_convert_lead, or qualify_lead events.",
+      "evidence": "GA4 Admin key-event configuration plus event/key-event report for legacy property 436955005 and current property 530891840.",
+      "id": "C17",
+      "project": "Taqueria La Paz",
+      "recommended_use": "Tracking-fix requirement, not portfolio copy.",
+      "sources": [
+        "GA-TAQ-QUALITY"
+      ],
+      "status": "TRACKING GAP / NO OBSERVED CONVERSION"
+    }
+  ],
+  "generated_at": "2026-08-27T17:42:14",
+  "google_identity_coverage": [
+    {
+      "ga4_targets": 2,
+      "gsc_targets": 2,
+      "identity_label": "marcin.uxa Google identity"
+    },
+    {
+      "ga4_targets": 4,
+      "gsc_targets": 1,
+      "identity_label": "uxoxo.xyz Google identity"
+    }
+  ],
+  "lift_metrics": {
+    "comparisons": {
+      "nice_right": {
+        "comparison": "First three reported months vs last three reported months",
+        "concentration": {
+          "august_sessions": 156,
+          "august_share_of_post_percent": 80.4,
+          "post_period_sessions": 194
+        },
+        "event_rates": {
+          "cta_click": {
+            "absolute_rate_lift_pp": 8.76,
+            "baseline_events": 0,
+            "baseline_rate_percent": 0.0,
+            "metric": "cta_click",
+            "post_events": 17,
+            "post_rate_percent": 8.76,
+            "relative_rate_lift_percent": null
+          },
+          "form_start": {
+            "absolute_rate_lift_pp": 8.76,
+            "baseline_events": 0,
+            "baseline_rate_percent": 0.0,
+            "metric": "form_start",
+            "post_events": 17,
+            "post_rate_percent": 8.76,
+            "relative_rate_lift_percent": null
+          },
+          "tool_scan_submit": {
+            "absolute_rate_lift_pp": 1.03,
+            "baseline_events": 0,
+            "baseline_rate_percent": 0.0,
+            "metric": "tool_scan_submit",
+            "post_events": 2,
+            "post_rate_percent": 1.03,
+            "relative_rate_lift_percent": null
+          }
+        },
+        "months": {
+          "baseline": [
+            "202603",
+            "202604",
+            "202605"
+          ],
+          "post": [
+            "202606",
+            "202607",
+            "202608"
+          ]
+        },
+        "organic_search_sessions": {
+          "absolute_monthly_lift": -1,
+          "baseline_median_month": 3,
+          "baseline_monthly_average": 2,
+          "baseline_months": [
+            "202603",
+            "202604",
+            "202605"
+          ],
+          "baseline_total": 6,
+          "median_relative_lift_percent": -66.7,
+          "metric": "sessions",
+          "post_median_month": 1,
+          "post_monthly_average": 1,
+          "post_months": [
+            "202606",
+            "202607",
+            "202608"
+          ],
+          "post_total": 3,
+          "relative_lift_percent": -50.0
+        },
+        "organic_share": {
+          "absolute_rate_lift_pp": -7.68,
+          "baseline_rate_percent": 9.23,
+          "metric": "Organic Search share",
+          "post_rate_percent": 1.55,
+          "relative_rate_lift_percent": -83.2
+        },
+        "sessions": {
+          "absolute_monthly_lift": 43,
+          "baseline_median_month": 14,
+          "baseline_monthly_average": 21.6667,
+          "baseline_months": [
+            "202603",
+            "202604",
+            "202605"
+          ],
+          "baseline_total": 65,
+          "median_relative_lift_percent": 121.4,
+          "metric": "sessions",
+          "post_median_month": 31,
+          "post_monthly_average": 64.6667,
+          "post_months": [
+            "202606",
+            "202607",
+            "202608"
+          ],
+          "post_total": 194,
+          "relative_lift_percent": 198.5
+        }
+      },
+      "taqueria_current": {
+        "comparison": "First two reported months vs last two reported months of current property",
+        "months": {
+          "baseline": [
+            "202604",
+            "202605"
+          ],
+          "post": [
+            "202607",
+            "202608"
+          ]
+        },
+        "organic_sessions": {
+          "absolute_monthly_lift": 4,
+          "baseline_median_month": 150,
+          "baseline_monthly_average": 150,
+          "baseline_months": [
+            "202604",
+            "202605"
+          ],
+          "baseline_total": 300,
+          "median_relative_lift_percent": 2.7,
+          "metric": "sessions",
+          "post_median_month": 154,
+          "post_monthly_average": 154,
+          "post_months": [
+            "202607",
+            "202608"
+          ],
+          "post_total": 308,
+          "relative_lift_percent": 2.7
+        },
+        "organic_share": {
+          "absolute_rate_lift_pp": 24.1,
+          "baseline_rate_percent": 49.59,
+          "metric": "Organic Search share",
+          "post_rate_percent": 73.68,
+          "relative_rate_lift_percent": 48.6
+        },
+        "sessions": {
+          "absolute_monthly_lift": -93.5,
+          "baseline_median_month": 302.5,
+          "baseline_monthly_average": 302.5,
+          "baseline_months": [
+            "202604",
+            "202605"
+          ],
+          "baseline_total": 605,
+          "median_relative_lift_percent": -30.9,
+          "metric": "sessions",
+          "post_median_month": 209,
+          "post_monthly_average": 209,
+          "post_months": [
+            "202607",
+            "202608"
+          ],
+          "post_total": 418,
+          "relative_lift_percent": -30.9
+        }
+      },
+      "taqueria_gsc": {
+        "full_retained_window": {
+          "clicks": 2576,
+          "end": "2026-08-27",
+          "impressions": 96795,
+          "start": "2025-04-15"
+        },
+        "matched_calendar_windows": {
+          "Apr-Aug": {
+            "absolute_click_lift": -22,
+            "absolute_ctr_lift_pp": -0.02,
+            "absolute_impression_lift": -758,
+            "baseline_clicks": 668,
+            "baseline_ctr_percent": 2.32,
+            "baseline_impressions": 28775,
+            "baseline_months": [
+              "2025-04",
+              "2025-05",
+              "2025-06",
+              "2025-07",
+              "2025-08"
+            ],
+            "post_clicks": 646,
+            "post_ctr_percent": 2.31,
+            "post_impressions": 28017,
+            "post_months": [
+              "2026-04",
+              "2026-05",
+              "2026-06",
+              "2026-07",
+              "2026-08"
+            ],
+            "relative_click_lift_percent": -3.3,
+            "relative_ctr_lift_percent": -0.7,
+            "relative_impression_lift_percent": -2.6
+          },
+          "Apr-Jun": {
+            "absolute_click_lift": 6,
+            "absolute_ctr_lift_pp": -0.11,
+            "absolute_impression_lift": 1096,
+            "baseline_clicks": 384,
+            "baseline_ctr_percent": 2.35,
+            "baseline_impressions": 16328,
+            "baseline_months": [
+              "2025-04",
+              "2025-05",
+              "2025-06"
+            ],
+            "post_clicks": 390,
+            "post_ctr_percent": 2.24,
+            "post_impressions": 17424,
+            "post_months": [
+              "2026-04",
+              "2026-05",
+              "2026-06"
+            ],
+            "relative_click_lift_percent": 1.6,
+            "relative_ctr_lift_percent": -4.8,
+            "relative_impression_lift_percent": 6.7
+          }
+        }
+      },
+      "taqueria_legacy": {
+        "comparison": "Same-property matched 12-month period: Apr 2024\u2013Mar 2025 vs Apr 2025\u2013Mar 2026",
+        "months": {
+          "baseline": [
+            "202404",
+            "202405",
+            "202406",
+            "202407",
+            "202408",
+            "202409",
+            "202410",
+            "202411",
+            "202412",
+            "202501",
+            "202502",
+            "202503"
+          ],
+          "post": [
+            "202504",
+            "202505",
+            "202506",
+            "202507",
+            "202508",
+            "202509",
+            "202510",
+            "202511",
+            "202512",
+            "202601",
+            "202602",
+            "202603"
+          ]
+        },
+        "organic_sessions": {
+          "absolute_monthly_lift": 150,
+          "baseline_median_month": 0,
+          "baseline_monthly_average": 46.4167,
+          "baseline_months": [
+            "202404",
+            "202405",
+            "202406",
+            "202407",
+            "202408",
+            "202409",
+            "202410",
+            "202411",
+            "202412",
+            "202501",
+            "202502",
+            "202503"
+          ],
+          "baseline_total": 557,
+          "median_relative_lift_percent": null,
+          "metric": "sessions",
+          "post_median_month": 184.5,
+          "post_monthly_average": 196.4167,
+          "post_months": [
+            "202504",
+            "202505",
+            "202506",
+            "202507",
+            "202508",
+            "202509",
+            "202510",
+            "202511",
+            "202512",
+            "202601",
+            "202602",
+            "202603"
+          ],
+          "post_total": 2357,
+          "relative_lift_percent": 323.2
+        },
+        "organic_share": {
+          "absolute_rate_lift_pp": 5.17,
+          "baseline_rate_percent": 44.56,
+          "metric": "Organic Search share",
+          "post_rate_percent": 49.73,
+          "relative_rate_lift_percent": 11.6
+        },
+        "quality_adjusted_sessions": {
+          "adjusted_post_sessions": 4166,
+          "adjusted_relative_lift_percent": 233.3,
+          "adjustment_note": "Subtracts the mutually exclusive Sailthru / email source row from the post period. This is a data-quality adjustment, not proof that every excluded session was automated or invalid.",
+          "baseline_sessions": 1250,
+          "excluded_sailthru_sessions": 574,
+          "raw_post_sessions": 4740,
+          "raw_relative_lift_percent": 279.2
+        },
+        "sailthru_attribution": {
+          "average_session_duration_seconds": 5.388966,
+          "bounce_rate_percent": 98.61,
+          "campaign": "20251022_Newsletter_Chicago",
+          "engaged_sessions": 8,
+          "engagement_rate_percent": 1.39,
+          "operator": "unknown",
+          "quality": "low",
+          "sessions": 574,
+          "source_medium": "Sailthru / email"
+        },
+        "sessions": {
+          "absolute_monthly_lift": 290.8333,
+          "baseline_median_month": 20.5,
+          "baseline_monthly_average": 104.1667,
+          "baseline_months": [
+            "202404",
+            "202405",
+            "202406",
+            "202407",
+            "202408",
+            "202409",
+            "202410",
+            "202411",
+            "202412",
+            "202501",
+            "202502",
+            "202503"
+          ],
+          "baseline_total": 1250,
+          "median_relative_lift_percent": 1470.7,
+          "metric": "sessions",
+          "post_median_month": 322,
+          "post_monthly_average": 395,
+          "post_months": [
+            "202504",
+            "202505",
+            "202506",
+            "202507",
+            "202508",
+            "202509",
+            "202510",
+            "202511",
+            "202512",
+            "202601",
+            "202602",
+            "202603"
+          ],
+          "post_total": 4740,
+          "relative_lift_percent": 279.2
+        }
+      }
+    },
+    "definition": {
+      "absolute_lift": "post minus baseline",
+      "causal_lift": "incremental change attributable to an intervention; not estimable from these connected properties without intervention dates and a control/comparison series",
+      "rate_lift_pp": "post rate minus baseline rate, in percentage points",
+      "relative_lift_percent": "(post minus baseline) divided by baseline"
+    },
+    "generated_at": "2026-08-29T11:45:28",
+    "interpretation": [
+      "Nice Right has a descriptive session lift (+198.5% in three-month average; +121.4% by monthly median), but August contributes 80.4% of post-period sessions and Organic Search share falls 7.7 percentage points. Treat it as a traffic pulse, not causal lift.",
+      "Taqueria legacy GA4 shows a raw +279.2% same-property year-over-year session change. After excluding the 574-session Sailthru / email row, the descriptive change is still +233.3% (1,250 to 4,166). The campaign operator is unknown, its traffic quality is poor, and neither number is causal lift.",
+      "Taqueria GSC matched Apr-Jun clicks are nearly flat (+1.6%) and matched Apr-Aug clicks are down 3.3%; the search data does not support a large year-over-year lift in the available comparable months.",
+      "Taqueria current-property GA4 shifts toward Organic Search (+24.1 percentage points in share) while equal two-month session averages fall 30.9%; mix improvement and volume lift are not the same thing."
+    ],
+    "not_estimable": {
+      "Dummy Reader": "No GA4 rows means no baseline/post comparison.",
+      "Nice Right_business_outcome": "GA4 form_start/cta_click events are not joined to booked calls, leads, or revenue.",
+      "UXOXO": "Two GA4 properties are separated by a measurement split; a single lift would falsely assume continuity.",
+      "difference_in_differences": "No untreated control site or randomized exposure series is connected."
+    },
+    "research_id": "nice-right-portfolio-second-pass-lift"
+  },
+  "limitations": [
+    "GA4 history begins at the API-valid reporting floor but is bounded by each property\u2019s creation and first-data dates.",
+    "Search Console performance starts at the retained window; pre-April-2025 probes test retention, not absence of earlier traffic.",
+    "GA4 properties with overlapping project names are preserved separately; no migration properties were summed.",
+    "Wayback CDX is queried as an inventory; replay fetches are deferred when the service rate-limits this IP.",
+    "RDAP dates are registration lower bounds, not work-start dates.",
+    "Empty archive results do not prove a domain never existed.",
+    "Wayback direct replay was rate-limited from this machine; historical screenshots were obtained through image.thum.io pointed at exact Wayback URLs.",
+    "Current screenshots were captured through the user\u2019s Brave session over CDP; no Orca Browser was used.",
+    "No claim establishes Nice Right authorship without project records and permission.",
+    "Lift calculations are descriptive comparisons; causal/incremental lift requires an intervention date and control/comparison series.",
+    "GA4 default-channel labels do not establish campaign ownership. Source/medium, campaign, quality, and operator must be checked separately."
+  ],
+  "projects": {
+    "Dummy Reader": {
+      "ga4": {
+        "channels": {},
+        "created": "2026-03-25T17:16:19.806Z",
+        "events": {},
+        "first_month": null,
+        "identity_label": "uxoxo.xyz Google identity",
+        "last_month": null,
+        "month_count": 0,
+        "monthly": [],
+        "property_id": "529935066",
+        "stream": {
+          "createTime": "2026-03-25T17:16:45.825Z",
+          "defaultUri": "https://dummyreader.com",
+          "displayName": "Dummy Reader",
+          "measurementId": "G-ZM9RKQSKEB",
+          "name": "properties/529935066/dataStreams/14227313193",
+          "type": "WEB_DATA_STREAM",
+          "updateTime": "2026-03-25T17:16:45.825Z"
+        },
+        "top_landing_pages": [],
+        "totals": {
+          "engagedSessions": 0,
+          "eventCount": 0,
+          "newUsers": 0,
+          "screenPageViews": 0,
+          "sessions": 0,
+          "totalUsers": 0
+        }
+      },
+      "public": {
+        "current": {
+          "body_sha256": "7b6d18814ae1440cb4c2aea19eeab193bfd83951f6d9db4cd91179b8d4a54002",
+          "bytes": 59982,
+          "final_url": "https://dummyreader.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {
+            "canonical": "https://dummyreader.com",
+            "description": "AI transforms entire books into modern audiobooks. Upload old literature, dense papers, or foreign texts \u2014 hear them read back clearly. From $1.50/book.",
+            "og:description": "AI transforms entire books into modern, clear audiobooks. Upload old literature, foreign texts, or dense papers \u2014 hear them read back perfectly.",
+            "og:title": "Any book. Any language. Rewritten for your ears.",
+            "og:url": "https://dummyreader.com"
+          },
+          "sample_links": [],
+          "status": 200,
+          "text_excerpt": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "text_sha256": "e92037defcf2fabe17980ce2f23b42e1ffc33a43f96b7dfd0d7979b94a9f3675",
+          "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "url": "https://dummyreader.com/"
+        },
+        "domain": "dummyreader.com",
+        "project": "Dummy Reader",
+        "public_endpoints": [
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "sitemap_directives": [],
+            "status": 200,
+            "url": "https://dummyreader.com/robots.txt"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/sitemap.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/wp-sitemap.xml"
+          }
+        ],
+        "rdap": {
+          "events": [
+            {
+              "action": "registration",
+              "date": "2025-12-10T14:52:08Z"
+            },
+            {
+              "action": "expiration",
+              "date": "2026-12-10T14:52:08Z"
+            },
+            {
+              "action": "last changed",
+              "date": "2026-04-24T18:02:35Z"
+            },
+            {
+              "action": "last update of RDAP database",
+              "date": "2026-08-27T22:19:36Z"
+            }
+          ],
+          "final_url": "https://rdap.verisign.com/com/v1/domain/dummyreader.com",
+          "http_status": 200,
+          "name": "DUMMYREADER.COM",
+          "status": "ok",
+          "status_values": [
+            "client transfer prohibited"
+          ]
+        },
+        "wayback": {
+          "capture_count": 0,
+          "capture_years": [],
+          "cdx_url": "https://web.archive.org/cdx/search/cdx?url=dummyreader.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "root_captures": [],
+          "status": "ok"
+        }
+      }
+    },
+    "Exact spelling check": {
+      "public": {
+        "current": null,
+        "domain": "uxoxox.xyz",
+        "project": "Exact spelling check",
+        "public_endpoints": [
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/robots.txt",
+            "status": 0,
+            "url": "https://uxoxox.xyz/robots.txt"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/sitemap.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/sitemap.xml"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/sitemap_index.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/sitemap_index.xml"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/wp-sitemap.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/wp-sitemap.xml"
+          }
+        ],
+        "rdap": {
+          "final_url": "https://rdap.centralnic.com/xyz/domain/uxoxox.xyz",
+          "http_status": 404,
+          "response_excerpt": "{\"rdapConformance\":[\"icann_rdap_response_profile_1\",\"icann_rdap_technical_implementation_guide_1\",\"rdap_level_0\"],\"lang\":\"en\",\"objectClassName\":\"error\",\"notices\":[{\"title\":\"Status Codes\",\"description\":[\"For more information on domain status codes, please visit https:\\/\\/icann.org\\/epp\"],\"links\":[{\"t",
+          "status": "not_found_or_error"
+        },
+        "wayback": {
+          "capture_count": 0,
+          "capture_years": [],
+          "cdx_url": "https://web.archive.org/cdx/search/cdx?url=uxoxox.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "root_captures": [],
+          "status": "ok"
+        }
+      }
+    },
+    "Nice Right": {
+      "ga4": {
+        "channels": {
+          "Direct": 226,
+          "Organic Search": 9,
+          "Organic Social": 23,
+          "Unassigned": 1
+        },
+        "created": "2026-03-25T19:31:15.869Z",
+        "events": {
+          "click": 3,
+          "cta_click": 17,
+          "element_hover": 19,
+          "file_download": 1,
+          "form_start": 17,
+          "nav_click": 18,
+          "pricing_view": 135,
+          "scroll": 165,
+          "scroll_depth": 233,
+          "section_view": 101,
+          "tool_scan_submit": 2
+        },
+        "first_month": "202603",
+        "identity_label": "uxoxo.xyz Google identity",
+        "last_month": "202608",
+        "month_count": 6,
+        "monthly": [
+          {
+            "engagedSessions": 6,
+            "eventCount": 104,
+            "newUsers": 11,
+            "screenPageViews": 19,
+            "sessions": 14,
+            "totalUsers": 11,
+            "yearMonth": "202603"
+          },
+          {
+            "engagedSessions": 12,
+            "eventCount": 162,
+            "newUsers": 44,
+            "screenPageViews": 44,
+            "sessions": 42,
+            "totalUsers": 42,
+            "yearMonth": "202604"
+          },
+          {
+            "engagedSessions": 5,
+            "eventCount": 57,
+            "newUsers": 9,
+            "screenPageViews": 11,
+            "sessions": 9,
+            "totalUsers": 8,
+            "yearMonth": "202605"
+          },
+          {
+            "engagedSessions": 0,
+            "eventCount": 174,
+            "newUsers": 6,
+            "screenPageViews": 56,
+            "sessions": 7,
+            "totalUsers": 7,
+            "yearMonth": "202606"
+          },
+          {
+            "engagedSessions": 22,
+            "eventCount": 650,
+            "newUsers": 14,
+            "screenPageViews": 188,
+            "sessions": 31,
+            "totalUsers": 14,
+            "yearMonth": "202607"
+          },
+          {
+            "engagedSessions": 15,
+            "eventCount": 777,
+            "newUsers": 150,
+            "screenPageViews": 167,
+            "sessions": 156,
+            "totalUsers": 151,
+            "yearMonth": "202608"
+          }
+        ],
+        "property_id": "529974758",
+        "stream": {
+          "createTime": "2026-03-25T19:31:34.096Z",
+          "defaultUri": "https://niceright.co",
+          "displayName": "Nice Right",
+          "measurementId": "G-ZX3QC73LKS",
+          "name": "properties/529974758/dataStreams/14227910903",
+          "type": "WEB_DATA_STREAM",
+          "updateTime": "2026-03-25T19:31:34.096Z"
+        },
+        "top_landing_pages": [
+          {
+            "eventCount": 1573,
+            "landingPagePlusQueryString": "/",
+            "screenPageViews": 379,
+            "sessions": 181,
+            "totalUsers": 168
+          },
+          {
+            "eventCount": 119,
+            "landingPagePlusQueryString": "/scan/",
+            "screenPageViews": 31,
+            "sessions": 31,
+            "totalUsers": 31
+          },
+          {
+            "eventCount": 38,
+            "landingPagePlusQueryString": "/work/healthcare-real-estate",
+            "screenPageViews": 12,
+            "sessions": 11,
+            "totalUsers": 11
+          },
+          {
+            "eventCount": 28,
+            "landingPagePlusQueryString": "/studies/understand-first-run/",
+            "screenPageViews": 8,
+            "sessions": 6,
+            "totalUsers": 4
+          },
+          {
+            "eventCount": 9,
+            "landingPagePlusQueryString": "/?gtm_latency=1",
+            "screenPageViews": 3,
+            "sessions": 3,
+            "totalUsers": 3
+          },
+          {
+            "eventCount": 10,
+            "landingPagePlusQueryString": "/work/northern-trust",
+            "screenPageViews": 3,
+            "sessions": 3,
+            "totalUsers": 3
+          },
+          {
+            "eventCount": 48,
+            "landingPagePlusQueryString": "/notes/ai-coding-uat-practitioners-guide/",
+            "screenPageViews": 24,
+            "sessions": 2,
+            "totalUsers": 2
+          },
+          {
+            "eventCount": 7,
+            "landingPagePlusQueryString": "/work/green-goods",
+            "screenPageViews": 2,
+            "sessions": 2,
+            "totalUsers": 2
+          },
+          {
+            "eventCount": 3,
+            "landingPagePlusQueryString": "/?fbclid=IwY2xjawRBzVtleHRuA2FlbQIxMQBzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeP1U5D8nmNb4APzCg2jcnLNUQ5uocOmA-RiXRYfNms_GRLSeZTJNEK83IWjg_aem_7VL__MQMhCD0_FM5H5c1mA",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEe1nd-LHqc4Z14h-koko7Gq9_h2iPBER_aUABXNfc6Jz8rpkzPo9H_S4-KmfE_aem_wM4mtBfJ6ycHqiGDJJVt9Q",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 3,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEe8PrRaF1t7muwO4WRlfiwgfrm7oG8p-aC1tKKSgVdpeAebGPacxjLXMGeL1w_aem_zTRzFZ_VxcpDxNQsOsZBbw",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 3,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEeIURq5ReN-39KlKlTuWohZhp4eG9GbvBKm3aqvMkIohjNMDBMiZRX6U5v2Jo_aem_vrFEuG76bgmWUJ2WOx6udA",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEeTsx7omh9gpEx8vMgPfJZyJIg_MJ1IwQHF4qZQCN1rUBuAVaohxFzNvwPtQg_aem_19Q-Tl5EX5aJ6XovMD0LDQ",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEeYCAfi7t3Gp4YMdbcTbO2z_CPtBoVbCGBX6sKfb3wzjwOCzWfUUdajrNsJv4_aem_6fmU-Pg6rY4PLbQ-OfahGw",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEeheLkYM8PdprS4DJ0aWBtsUWtm_bqEMxzBMLhChJNK87v9p8kTLMe5D-lrqg_aem_x89Brd6XY7UWXXxCRV3CPA",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEem05eIWmHZjpkXe8NToxOWOVYR2wOzpV6236jxEFtkClXf2UYixNITkgRDOY_aem_KdgsXPeDc2wscRSEqSSKRQ",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEenJUK0bY_u-TGaAdLsNGUrO2gdNwdlxWjH3pPg_2njX2s7TF9c8qKVEC2HYA_aem_ffWLLjo5jTTLUUsXGENgbw",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 3,
+            "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEepYmJ4WEFf5gJn8_pypkfKG7iN6kIsE2W6qoWhGPd6NxRVcwhWzoPBGjTXiY_aem_OzDTeu4CmO7t0EsJtu868g",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 4,
+            "landingPagePlusQueryString": "/labs/understand",
+            "screenPageViews": 1,
+            "sessions": 1,
+            "totalUsers": 1
+          },
+          {
+            "eventCount": 18,
+            "landingPagePlusQueryString": "/notes/ai-coding-uat-practitioners-guide",
+            "screenPageViews": 6,
+            "sessions": 1,
+            "totalUsers": 1
+          }
+        ],
+        "totals": {
+          "engagedSessions": 60,
+          "eventCount": 1924,
+          "newUsers": 234,
+          "screenPageViews": 485,
+          "sessions": 259,
+          "totalUsers": 233
+        }
+      },
+      "gsc": {
+        "daily_rows": 157,
+        "first_nonzero_click_date": "2026-03-29",
+        "identity_label": "uxoxo.xyz Google identity",
+        "latest_12_months": {
+          "clicks": 12,
+          "end": "2026-08-27",
+          "impressions": 619,
+          "start": "2025-08-28"
+        },
+        "monthly": [
+          {
+            "clicks": 1,
+            "impressions": 5,
+            "month": "2026-03"
+          },
+          {
+            "clicks": 1,
+            "impressions": 148,
+            "month": "2026-04"
+          },
+          {
+            "clicks": 4,
+            "impressions": 167,
+            "month": "2026-05"
+          },
+          {
+            "clicks": 2,
+            "impressions": 91,
+            "month": "2026-06"
+          },
+          {
+            "clicks": 3,
+            "impressions": 107,
+            "month": "2026-07"
+          },
+          {
+            "clicks": 1,
+            "impressions": 101,
+            "month": "2026-08"
+          }
+        ],
+        "pre_retention_probe": {
+          "row_count": 0,
+          "status": "ok"
+        },
+        "site_url": "sc-domain:niceright.co",
+        "sitemaps": [],
+        "top_pages": [
+          {
+            "clicks": 11,
+            "ctr": 0.030470914127423823,
+            "impressions": 361,
+            "keys": [
+              "https://niceright.co/"
+            ],
+            "position": 4.595567867036011
+          },
+          {
+            "clicks": 1,
+            "ctr": 0.00392156862745098,
+            "impressions": 255,
+            "keys": [
+              "https://niceright.co/notes/ai-coding-uat-practitioners-guide/"
+            ],
+            "position": 9.486274509803922
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 18,
+            "keys": [
+              "https://niceright.co/#contact"
+            ],
+            "position": 4.722222222222222
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 22,
+            "keys": [
+              "https://niceright.co/#results"
+            ],
+            "position": 4.272727272727273
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 22,
+            "keys": [
+              "https://niceright.co/#services"
+            ],
+            "position": 4.272727272727273
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 24,
+            "keys": [
+              "https://niceright.co/notes"
+            ],
+            "position": 4.166666666666666
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 4,
+            "keys": [
+              "https://niceright.co/notes/cost-of-acting-on-attention/"
+            ],
+            "position": 5.75
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 9,
+            "keys": [
+              "https://niceright.co/studies"
+            ],
+            "position": 4.444444444444445
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 1,
+            "keys": [
+              "https://niceright.co/studies/"
+            ],
+            "position": 3
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 1,
+            "keys": [
+              "https://niceright.co/studies/understand-first-run/"
+            ],
+            "position": 4
+          }
+        ],
+        "top_queries": [
+          {
+            "clicks": 7,
+            "ctr": 0.02681992337164751,
+            "impressions": 261,
+            "keys": [
+              "nice right"
+            ],
+            "position": 3.89272030651341
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 3,
+            "keys": [
+              "how should i evaluate vendor claims around \u201cmcp support\u201d or \u201cagentic integration\u201d?"
+            ],
+            "position": 10
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 3,
+            "keys": [
+              "right nice"
+            ],
+            "position": 29.333333333333332
+          }
+        ],
+        "total_clicks": 12,
+        "total_impressions": 619,
+        "window": {
+          "end": "2026-08-27",
+          "start": "2025-04-15"
+        }
+      },
+      "public": {
+        "current": {
+          "body_sha256": "58034586d6a9f9a51df5bc2e968a96618daa1959346b856962e66bee8a864465",
+          "bytes": 104684,
+          "final_url": "https://niceright.co/",
+          "headings": [
+            {
+              "tag": "h2",
+              "text": "There are only four ways to grow a business."
+            },
+            {
+              "tag": "h3",
+              "text": "Get More Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Charge More"
+            },
+            {
+              "tag": "h3",
+              "text": "Keep Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut the Waste"
+            },
+            {
+              "tag": "h2",
+              "text": "Numbers from real projects"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut deal-closing time by 40%"
+            },
+            {
+              "tag": "h3",
+              "text": "Modernized a Fortune 500 web presence"
+            },
+            {
+              "tag": "h3",
+              "text": "Built a verified impact platform for conservation"
+            },
+            {
+              "tag": "h2",
+              "text": "What it's like working together"
+            },
+            {
+              "tag": "h2",
+              "text": "Three ways to work together."
+            },
+            {
+              "tag": "h3",
+              "text": "The Digital Foundation"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Experiment"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Partnership"
+            },
+            {
+              "tag": "h2",
+              "text": "Let's figure out what would work for your business"
+            },
+            {
+              "tag": "h3",
+              "text": "I'm Marcin."
+            }
+          ],
+          "link_count": 31,
+          "meta": {
+            "canonical": "https://niceright.co/",
+            "description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:title": "Nice Right | Digital Growth Partner for Small Businesses",
+            "og:url": "https://niceright.co/"
+          },
+          "sample_links": [
+            "#main-content",
+            "/",
+            "/#services",
+            "/#results",
+            "/studies",
+            "/notes",
+            "/#contact",
+            "#contact",
+            "/work/healthcare-real-estate",
+            "/work/northern-trust",
+            "/work/green-goods",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+          ],
+          "status": 200,
+          "text_excerpt": "Nice Right | Digital Growth Partner for Small Businesses Skip to main content Nice Right Services Results Studies Notes Book a Free Call Get found by people looking for you right now. For owners who already run a home service business. I build the digital side \u2014 so your phone and calendar do more of the selling. Get More Customers Charge More Keep Customers Cut the Waste 100+ projects \u00b7 13+ years \u00b7 Done-for-you Book Your Free Strategy Call 30 minutes. The Work \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps How Businesses Grow There are only four ways to grow a business. More customers. Bigger transactions. More repeat business. Less overhead. Every dollar of growth comes from one of these levers \u2014 and most businesses are stuck on one or two. Where are you stuck? 01 Get More Customers \u201c I feel invisible online. People who need exac",
+          "text_sha256": "7bd1fee5ff52d2a95be82dda9758a0cf2cd3871113eab6bcd8365ca6534874bc",
+          "title": "Nice Right | Digital Growth Partner for Small Businesses",
+          "url": "https://niceright.co/"
+        },
+        "domain": "niceright.co",
+        "project": "Nice Right",
+        "public_endpoints": [
+          {
+            "bytes": 116,
+            "excerpt": "# *\nUser-agent: *\nAllow: /\n\n# Host\nHost: https://niceright.co\n\n# Sitemaps\nSitemap: https://niceright.co/sitemap.xml\n",
+            "final_url": "https://niceright.co/robots.txt",
+            "sha256": "5d814d48f960678c6dd424377c88527c890a58f174c051380e4652662e503b85",
+            "sitemap_directives": [
+              "https://niceright.co/sitemap.xml"
+            ],
+            "status": 200,
+            "url": "https://niceright.co/robots.txt"
+          },
+          {
+            "bytes": 5021,
+            "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" xmlns:mobile=\"http://www.google.com/schemas/sitemap-mobile/1.0\" xmlns:image=\"http://www.google.com/schemas/sitemap-image/1.1\" xmlns:video=\"http://www.google.com/schemas/sitemap-video/1.1\">\n<url><loc>https://niceright.co/blog/google-analytics-cross-domain/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/google-analytics-scroll-tracking/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/blockchain-art-economics/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/cost-of-acting-on-attention/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/ai-coding-uat-practitioners-guide/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/practice-is-the-moat/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</c",
+            "final_url": "https://niceright.co/sitemap.xml",
+            "lastmod_count": 28,
+            "loc_count": 28,
+            "sample_lastmods": [
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z"
+            ],
+            "sample_locs": [
+              "https://niceright.co/blog/google-analytics-cross-domain/",
+              "https://niceright.co/blog/google-analytics-scroll-tracking/",
+              "https://niceright.co/blog/blockchain-art-economics/",
+              "https://niceright.co/notes/cost-of-acting-on-attention/",
+              "https://niceright.co/notes/ai-coding-uat-practitioners-guide/",
+              "https://niceright.co/notes/practice-is-the-moat/",
+              "https://niceright.co/notes/multi-agent-qa-pipeline/",
+              "https://niceright.co/notes/cicd-pipeline-ai-coding/"
+            ],
+            "sha256": "16ced92997d8e1ea663d26b79ad9a71cab18ebeaae165bade571ce093d9d33b7",
+            "status": 200,
+            "url": "https://niceright.co/sitemap.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://niceright.co/sitemap_index.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://niceright.co/wp-sitemap.xml"
+          }
+        ],
+        "rdap": {
+          "final_url": "https://rdap.org/domain/niceright.co",
+          "http_status": 404,
+          "response_excerpt": "{\"rdapConformance\":[\"rdap_level_0\"],\"lang\":\"en\",\"errorCode\":404,\"title\":\"No RDAP service is available for this resource\"}",
+          "status": "not_found_or_error"
+        },
+        "wayback": {
+          "capture_count": 0,
+          "capture_years": [],
+          "cdx_url": "https://web.archive.org/cdx/search/cdx?url=niceright.co%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "root_captures": [],
+          "status": "ok"
+        }
+      }
+    },
+    "Taqueria La Paz": {
+      "attribution_quality": {
+        "conversion_tracking_gap": {
+          "current_configured": [
+            "purchase",
+            "close_convert_lead",
+            "qualify_lead"
+          ],
+          "legacy_configured": [
+            "purchase"
+          ],
+          "observed_configured_event_rows": []
+        },
+        "correction": {
+          "correct_wording": "Sailthru / email attribution with campaign 20251022_Newsletter_Chicago",
+          "operator": "unknown",
+          "previous_wording": "Email sessions",
+          "reason": "GA4 source/medium and campaign identify tracking values, not who owned or sent the campaign."
+        },
+        "google_organic": {
+          "averageSessionDuration": 106.991161,
+          "bounceRate": 0.597384,
+          "engagedSessions": 1139,
+          "engagementRate": 0.402616,
+          "eventCount": 10442,
+          "screenPageViews": 3486,
+          "sessionSourceMedium": "google / organic",
+          "sessions": 2829,
+          "totalUsers": 2133
+        },
+        "key_events_configured": {
+          "current": [
+            {
+              "countingMethod": "ONCE_PER_EVENT",
+              "createTime": "2026-04-01T19:06:18.101891Z",
+              "eventName": "purchase",
+              "name": "properties/530891840/keyEvents/14295014198"
+            },
+            {
+              "countingMethod": "ONCE_PER_EVENT",
+              "createTime": "2026-04-01T19:04:33.642604Z",
+              "custom": true,
+              "deletable": true,
+              "eventName": "close_convert_lead",
+              "name": "properties/530891840/keyEvents/14295044251"
+            },
+            {
+              "countingMethod": "ONCE_PER_EVENT",
+              "createTime": "2026-04-01T19:04:33.642604Z",
+              "custom": true,
+              "deletable": true,
+              "eventName": "qualify_lead",
+              "name": "properties/530891840/keyEvents/14295044252"
+            }
+          ],
+          "legacy": [
+            {
+              "countingMethod": "ONCE_PER_EVENT",
+              "createTime": "2024-04-17T20:22:58.101712Z",
+              "eventName": "purchase",
+              "name": "properties/436955005/keyEvents/7871402311"
+            }
+          ],
+          "observed_event_rows": [
+            {
+              "eventCount": 7030,
+              "eventName": "page_view",
+              "keyEvents": 0,
+              "totalUsers": 4941
+            },
+            {
+              "eventCount": 6008,
+              "eventName": "session_start",
+              "keyEvents": 0,
+              "totalUsers": 4939
+            },
+            {
+              "eventCount": 4963,
+              "eventName": "first_visit",
+              "keyEvents": 0,
+              "totalUsers": 4938
+            },
+            {
+              "eventCount": 2640,
+              "eventName": "user_engagement",
+              "keyEvents": 0,
+              "totalUsers": 1896
+            },
+            {
+              "eventCount": 647,
+              "eventName": "scroll",
+              "keyEvents": 0,
+              "totalUsers": 577
+            },
+            {
+              "eventCount": 139,
+              "eventName": "click",
+              "keyEvents": 0,
+              "totalUsers": 122
+            },
+            {
+              "eventCount": 1719,
+              "eventName": "page_view",
+              "keyEvents": 0,
+              "totalUsers": 896
+            },
+            {
+              "eventCount": 1127,
+              "eventName": "session_start",
+              "keyEvents": 0,
+              "totalUsers": 895
+            },
+            {
+              "eventCount": 1014,
+              "eventName": "user_engagement",
+              "keyEvents": 0,
+              "totalUsers": 505
+            },
+            {
+              "eventCount": 896,
+              "eventName": "first_visit",
+              "keyEvents": 0,
+              "totalUsers": 895
+            },
+            {
+              "eventCount": 153,
+              "eventName": "scroll",
+              "keyEvents": 0,
+              "totalUsers": 134
+            },
+            {
+              "eventCount": 9,
+              "eventName": "click",
+              "keyEvents": 0,
+              "totalUsers": 8
+            }
+          ]
+        },
+        "link_clicks": [
+          {
+            "engaged_sessions": 69,
+            "event_count": 80,
+            "url": "https://maps.app.goo.gl/i4y5wyXoCWqYR8Lc8",
+            "users": 73
+          },
+          {
+            "engaged_sessions": 24,
+            "event_count": 29,
+            "url": "https://www.instagram.com/taquerialapaz/",
+            "users": 26
+          },
+          {
+            "engaged_sessions": 18,
+            "event_count": 19,
+            "url": "https://www.facebook.com/LaPazChicago/",
+            "users": 19
+          },
+          {
+            "engaged_sessions": 6,
+            "event_count": 6,
+            "url": "https://www.tiktok.com/@lapaztaqueria",
+            "users": 6
+          },
+          {
+            "engaged_sessions": 4,
+            "event_count": 4,
+            "url": "https://www.yelp.com/biz/taqueria-la-paz-chicago-2",
+            "users": 4
+          },
+          {
+            "engaged_sessions": 1,
+            "event_count": 1,
+            "url": "tel:13124797825",
+            "users": 1
+          }
+        ],
+        "named_referrals": [
+          {
+            "averageSessionDuration": 94.01232,
+            "bounceRate": 0.567901,
+            "engagedSessions": 35,
+            "engagementRate": 0.432099,
+            "eventCount": 336,
+            "screenPageViews": 113,
+            "sessionSourceMedium": "wttw.com / referral",
+            "sessions": 81,
+            "totalUsers": 63
+          },
+          {
+            "averageSessionDuration": 167.718861,
+            "bounceRate": 0.465116,
+            "engagedSessions": 23,
+            "engagementRate": 0.534884,
+            "eventCount": 152,
+            "screenPageViews": 42,
+            "sessionSourceMedium": "wbez.org / referral",
+            "sessions": 43,
+            "totalUsers": 28
+          },
+          {
+            "averageSessionDuration": 69.901465,
+            "bounceRate": 0.826087,
+            "engagedSessions": 4,
+            "engagementRate": 0.173913,
+            "eventCount": 75,
+            "screenPageViews": 23,
+            "sessionSourceMedium": "chicago.suntimes.com / referral",
+            "sessions": 23,
+            "totalUsers": 18
+          },
+          {
+            "averageSessionDuration": 68.867719,
+            "bounceRate": 0.333333,
+            "engagedSessions": 8,
+            "engagementRate": 0.666667,
+            "eventCount": 46,
+            "screenPageViews": 14,
+            "sessionSourceMedium": "chicago.citycast.fm / referral",
+            "sessions": 12,
+            "totalUsers": 8
+          }
+        ],
+        "quality_adjusted_lift": {
+          "adjusted_post_sessions": 4166,
+          "adjusted_relative_lift_percent": 233.3,
+          "adjustment_note": "Subtracts the mutually exclusive Sailthru / email source row from the post period. This is a data-quality adjustment, not proof that every excluded session was automated or invalid.",
+          "baseline_sessions": 1250,
+          "excluded_sailthru_sessions": 574,
+          "raw_post_sessions": 4740,
+          "raw_relative_lift_percent": 279.2
+        },
+        "sailthru": {
+          "average_session_duration_seconds": 5.388966,
+          "bounce_rate": 0.986063,
+          "campaign": "20251022_Newsletter_Chicago",
+          "date_rows": [
+            {
+              "averageSessionDuration": 6.7616,
+              "bounceRate": 0.98325,
+              "date": "20251022",
+              "engagedSessions": 7,
+              "engagementRate": 0.01675,
+              "eventCount": 1494,
+              "screenPageViews": 418,
+              "screenPageViewsPerSession": 1,
+              "sessionSourceMedium": "Sailthru / email",
+              "sessions": 418,
+              "totalUsers": 414
+            },
+            {
+              "averageSessionDuration": 1.59044,
+              "bounceRate": 1,
+              "date": "20251023",
+              "engagedSessions": 0,
+              "engagementRate": 0,
+              "eventCount": 548,
+              "screenPageViews": 154,
+              "screenPageViewsPerSession": 1,
+              "sessionSourceMedium": "Sailthru / email",
+              "sessions": 154,
+              "totalUsers": 154
+            },
+            {
+              "averageSessionDuration": 2.75548,
+              "bounceRate": 1,
+              "date": "20251028",
+              "engagedSessions": 0,
+              "engagementRate": 0,
+              "eventCount": 13,
+              "screenPageViews": 4,
+              "screenPageViewsPerSession": 1,
+              "sessionSourceMedium": "Sailthru / email",
+              "sessions": 4,
+              "totalUsers": 4
+            },
+            {
+              "averageSessionDuration": 10.96532,
+              "bounceRate": 0,
+              "date": "20251024",
+              "engagedSessions": 1,
+              "engagementRate": 1,
+              "eventCount": 4,
+              "screenPageViews": 1,
+              "screenPageViewsPerSession": 1,
+              "sessionSourceMedium": "Sailthru / email",
+              "sessions": 1,
+              "totalUsers": 1
+            }
+          ],
+          "engaged_sessions": 8,
+          "engagement_rate": 0.013937,
+          "screen_page_views_per_session": null,
+          "sessions": 574,
+          "source_medium": "Sailthru / email",
+          "users": 572
+        }
+      },
+      "ga4_properties": [
+        {
+          "channels": {
+            "Direct": 1765,
+            "Email": 574,
+            "Organic Search": 2931,
+            "Organic Social": 532,
+            "Referral": 192,
+            "Unassigned": 28
+          },
+          "created": "2024-04-17T20:22:57.883Z",
+          "events": {
+            "click": 139,
+            "scroll": 647
+          },
+          "first_month": "202404",
+          "identity_label": "marcin.uxa Google identity",
+          "last_month": "202604",
+          "month_count": 25,
+          "monthly": [
+            {
+              "engagedSessions": 13,
+              "eventCount": 197,
+              "newUsers": 17,
+              "screenPageViews": 78,
+              "sessions": 27,
+              "totalUsers": 17,
+              "yearMonth": "202404"
+            },
+            {
+              "engagedSessions": 1,
+              "eventCount": 7,
+              "newUsers": 2,
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2,
+              "yearMonth": "202405"
+            },
+            {
+              "engagedSessions": 14,
+              "eventCount": 121,
+              "newUsers": 13,
+              "screenPageViews": 40,
+              "sessions": 24,
+              "totalUsers": 14,
+              "yearMonth": "202406"
+            },
+            {
+              "engagedSessions": 6,
+              "eventCount": 80,
+              "newUsers": 7,
+              "screenPageViews": 29,
+              "sessions": 17,
+              "totalUsers": 9,
+              "yearMonth": "202407"
+            },
+            {
+              "engagedSessions": 1,
+              "eventCount": 13,
+              "newUsers": 4,
+              "screenPageViews": 4,
+              "sessions": 4,
+              "totalUsers": 4,
+              "yearMonth": "202408"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 12,
+              "newUsers": 2,
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3,
+              "yearMonth": "202409"
+            },
+            {
+              "engagedSessions": 6,
+              "eventCount": 52,
+              "newUsers": 8,
+              "screenPageViews": 18,
+              "sessions": 16,
+              "totalUsers": 9,
+              "yearMonth": "202410"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 19,
+              "newUsers": 4,
+              "screenPageViews": 7,
+              "sessions": 5,
+              "totalUsers": 4,
+              "yearMonth": "202411"
+            },
+            {
+              "engagedSessions": 47,
+              "eventCount": 659,
+              "newUsers": 138,
+              "screenPageViews": 231,
+              "sessions": 166,
+              "totalUsers": 142,
+              "yearMonth": "202412"
+            },
+            {
+              "engagedSessions": 70,
+              "eventCount": 983,
+              "newUsers": 250,
+              "screenPageViews": 321,
+              "sessions": 289,
+              "totalUsers": 259,
+              "yearMonth": "202501"
+            },
+            {
+              "engagedSessions": 119,
+              "eventCount": 1157,
+              "newUsers": 279,
+              "screenPageViews": 374,
+              "sessions": 318,
+              "totalUsers": 289,
+              "yearMonth": "202502"
+            },
+            {
+              "engagedSessions": 108,
+              "eventCount": 1305,
+              "newUsers": 315,
+              "screenPageViews": 430,
+              "sessions": 379,
+              "totalUsers": 328,
+              "yearMonth": "202503"
+            },
+            {
+              "engagedSessions": 110,
+              "eventCount": 1105,
+              "newUsers": 249,
+              "screenPageViews": 356,
+              "sessions": 312,
+              "totalUsers": 259,
+              "yearMonth": "202504"
+            },
+            {
+              "engagedSessions": 109,
+              "eventCount": 1143,
+              "newUsers": 237,
+              "screenPageViews": 388,
+              "sessions": 326,
+              "totalUsers": 257,
+              "yearMonth": "202505"
+            },
+            {
+              "engagedSessions": 101,
+              "eventCount": 1024,
+              "newUsers": 232,
+              "screenPageViews": 325,
+              "sessions": 281,
+              "totalUsers": 241,
+              "yearMonth": "202506"
+            },
+            {
+              "engagedSessions": 83,
+              "eventCount": 921,
+              "newUsers": 210,
+              "screenPageViews": 317,
+              "sessions": 250,
+              "totalUsers": 221,
+              "yearMonth": "202507"
+            },
+            {
+              "engagedSessions": 105,
+              "eventCount": 1075,
+              "newUsers": 244,
+              "screenPageViews": 362,
+              "sessions": 295,
+              "totalUsers": 255,
+              "yearMonth": "202508"
+            },
+            {
+              "engagedSessions": 129,
+              "eventCount": 1158,
+              "newUsers": 258,
+              "screenPageViews": 385,
+              "sessions": 323,
+              "totalUsers": 271,
+              "yearMonth": "202509"
+            },
+            {
+              "engagedSessions": 238,
+              "eventCount": 4379,
+              "newUsers": 1100,
+              "screenPageViews": 1319,
+              "sessions": 1227,
+              "totalUsers": 1111,
+              "yearMonth": "202510"
+            },
+            {
+              "engagedSessions": 139,
+              "eventCount": 1484,
+              "newUsers": 332,
+              "screenPageViews": 492,
+              "sessions": 427,
+              "totalUsers": 359,
+              "yearMonth": "202511"
+            },
+            {
+              "engagedSessions": 103,
+              "eventCount": 1156,
+              "newUsers": 256,
+              "screenPageViews": 403,
+              "sessions": 332,
+              "totalUsers": 268,
+              "yearMonth": "202512"
+            },
+            {
+              "engagedSessions": 85,
+              "eventCount": 987,
+              "newUsers": 241,
+              "screenPageViews": 332,
+              "sessions": 295,
+              "totalUsers": 254,
+              "yearMonth": "202601"
+            },
+            {
+              "engagedSessions": 88,
+              "eventCount": 1102,
+              "newUsers": 261,
+              "screenPageViews": 377,
+              "sessions": 321,
+              "totalUsers": 275,
+              "yearMonth": "202602"
+            },
+            {
+              "engagedSessions": 80,
+              "eventCount": 1192,
+              "newUsers": 280,
+              "screenPageViews": 405,
+              "sessions": 351,
+              "totalUsers": 296,
+              "yearMonth": "202603"
+            },
+            {
+              "engagedSessions": 5,
+              "eventCount": 96,
+              "newUsers": 24,
+              "screenPageViews": 32,
+              "sessions": 31,
+              "totalUsers": 30,
+              "yearMonth": "202604"
+            }
+          ],
+          "property_id": "436955005",
+          "stream": {
+            "createTime": "2024-04-17T20:22:58.101Z",
+            "defaultUri": "https://taquerialapazchicago.com",
+            "displayName": "taquerialapazchicago.com",
+            "measurementId": "G-Z57Q7TJG98",
+            "name": "properties/436955005/dataStreams/7871402308",
+            "type": "WEB_DATA_STREAM",
+            "updateTime": "2024-04-17T20:22:58.101Z"
+          },
+          "top_landing_pages": [
+            {
+              "eventCount": 13917,
+              "landingPagePlusQueryString": "/",
+              "screenPageViews": 4521,
+              "sessions": 3644,
+              "totalUsers": 2948
+            },
+            {
+              "eventCount": 3671,
+              "landingPagePlusQueryString": "/?menu=",
+              "screenPageViews": 1268,
+              "sessions": 1145,
+              "totalUsers": 1078
+            },
+            {
+              "eventCount": 1422,
+              "landingPagePlusQueryString": "/amp/",
+              "screenPageViews": 593,
+              "sessions": 427,
+              "totalUsers": 400
+            },
+            {
+              "eventCount": 170,
+              "landingPagePlusQueryString": "/contact-us/",
+              "screenPageViews": 51,
+              "sessions": 49,
+              "totalUsers": 48
+            },
+            {
+              "eventCount": 34,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR0Uy6THbPY9J95CcSCBZNYW1Vkt9qrCGiJKgDve33k8BVkncC6hQ9GuVC8_aem_VgKc2ZVvLnFFeTPDxT-ZdA",
+              "screenPageViews": 12,
+              "sessions": 11,
+              "totalUsers": 11
+            },
+            {
+              "eventCount": 22,
+              "landingPagePlusQueryString": "/?fbclid=IwQ0xDSwMIMfFleHRuA2FlbQIxMQABHlHaqEz4rKd20askpprtSdRhklvok8UWjkUhyLK5NqOpkpUdWCENY_Ge9znq_aem_Kfv4ohomAGdc1djxNHkXHw",
+              "screenPageViews": 8,
+              "sessions": 8,
+              "totalUsers": 6
+            },
+            {
+              "eventCount": 8,
+              "landingPagePlusQueryString": "/?fbclid=IwQ0xDSwKnAl5jbGNrAqcCUmV4dG4DYWVtAjExAAEeq5_z7fnQKEiq1jpMO-RtX6TV5_q_4Ihyeg1Dxu-XisJwDw1AuzxAhaGvde4_aem_ugTYo0RVhSe_vojVAHRyug",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 10,
+              "landingPagePlusQueryString": "/taqueria-la-paz-menu/",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 5,
+              "landingPagePlusQueryString": "/?fbclid=IwQ0xDSwNsdDtleHRuA2FlbQIxMQABHrptacwD3-2Gd098LlaPUJBZsNDFsnaXEmlAhPHsnnZAi-nhLE-waTbuZeQy_aem_9cAKVIf0m1p6VfxHYrlbiA",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 7,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR13hAXRLWtRxYJmPL2z-L_zsvcnJqUldTIPgaTHaRIf8idX3EOqYfAXMzw_aem_JostTd2wztbwVLzxwWjQ-w",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 7,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR1HJTWsLi9vKvCMF7z7MzTQG0CfEzwf8-ni6jebnwfum62Q7wGRizyYlIY_aem_SVrDPba61nFAbQxP1WPT-w",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 9,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR2JrKwqwvrFLXtEtdaSY_qly1wOd0eL2sDZMyiyIc1Yk2VXl47JHTsxNCE_aem_IUmyUFtV3G9ZYjetOU-6hw",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 8,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR34-DWBtkFuK0ys9pKZGo9czj25p32QLsYjn0y1wrPzip_Zkk-pzpdrr-0_aem_MuDS_4d9lOftQIuyQtakDA",
+              "screenPageViews": 3,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 8,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR3c71QpW46ICHnEP9nR84JE6R89sog7NObQ8UUvGcQvGgQQpVT1Uwsp0cE_aem_oF9hUr3A0W4a-UWx7KF00Q",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR4UeN074M-ywwBWNaQP9RZ5Ts8hX-CZiiFQdJgUw9SVVdRp8pzrqf-Pq1Uk2A_aem_zJNpn7LJcj7W2NsuagEggQ",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR4W10e_hFiKBtu_-ZOE5IRarvsutMaF418rW-qkua_N7aR8K2NisvjY54AszQ_aem_VPmhpNCiXGXaqXg70Q9TIQ",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR4uDB9Sp9JchimfwsPicB3NRflEtJeCzfstHg8mPIbcNniEdW8Zz_YHVJ-KTQ_aem_j5XfGBjeG3tJ0Pw0QjsDPQ",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 7,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR651qU94y2RD5i6MrIYhNNdX-AEidcdG0RqxbO3O8Uc5p_cA14QOOHlr49ZRg_aem_1ucup5UIVSR6lTOlo7NA9g",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 9,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR69pivLF4zfX7ZINyRuK4zJhJMaQ-lCsF2A69QBFqgd7TlB_hk112k1CT4FOw_aem_fO_EwqmaTgrjzaigUY4Ouw",
+              "screenPageViews": 3,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 7,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAAR7W9ZwBDHifdOna31LGC0Uaa-bZrVIl5NHfbzUDETEQxdRkgJ5TygeussD3UA_aem_-UeJqq0JUJ2b4iVwpAEbkw",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            }
+          ],
+          "totals": {
+            "engagedSessions": 1764,
+            "eventCount": 21427,
+            "newUsers": 4963,
+            "screenPageViews": 7030,
+            "sessions": 6021,
+            "totalUsers": 5177
+          }
+        },
+        {
+          "channels": {
+            "AI Assistant": 3,
+            "Direct": 427,
+            "Organic Search": 673,
+            "Organic Social": 11,
+            "Referral": 9,
+            "Unassigned": 5
+          },
+          "created": "2026-04-01T19:04:33.124Z",
+          "events": {
+            "click": 9,
+            "scroll": 153
+          },
+          "first_month": "202604",
+          "identity_label": "uxoxo.xyz Google identity",
+          "last_month": "202608",
+          "month_count": 5,
+          "monthly": [
+            {
+              "engagedSessions": 110,
+              "eventCount": 1137,
+              "newUsers": 213,
+              "screenPageViews": 397,
+              "sessions": 262,
+              "totalUsers": 213,
+              "yearMonth": "202604"
+            },
+            {
+              "engagedSessions": 102,
+              "eventCount": 1331,
+              "newUsers": 284,
+              "screenPageViews": 469,
+              "sessions": 343,
+              "totalUsers": 291,
+              "yearMonth": "202605"
+            },
+            {
+              "engagedSessions": 51,
+              "eventCount": 475,
+              "newUsers": 80,
+              "screenPageViews": 166,
+              "sessions": 101,
+              "totalUsers": 84,
+              "yearMonth": "202606"
+            },
+            {
+              "engagedSessions": 120,
+              "eventCount": 994,
+              "newUsers": 169,
+              "screenPageViews": 350,
+              "sessions": 218,
+              "totalUsers": 174,
+              "yearMonth": "202607"
+            },
+            {
+              "engagedSessions": 101,
+              "eventCount": 973,
+              "newUsers": 149,
+              "screenPageViews": 335,
+              "sessions": 200,
+              "totalUsers": 160,
+              "yearMonth": "202608"
+            }
+          ],
+          "property_id": "530891840",
+          "stream": {
+            "createTime": "2026-04-01T19:06:18.101Z",
+            "defaultUri": "https://taquerialapazchicago.com/",
+            "displayName": "Taqueria La Paz",
+            "measurementId": "G-SF9J78TKXM",
+            "name": "properties/530891840/dataStreams/14295014199",
+            "type": "WEB_DATA_STREAM",
+            "updateTime": "2026-04-01T19:06:18.101Z"
+          },
+          "top_landing_pages": [
+            {
+              "eventCount": 3552,
+              "landingPagePlusQueryString": "/",
+              "screenPageViews": 1264,
+              "sessions": 747,
+              "totalUsers": 620
+            },
+            {
+              "eventCount": 706,
+              "landingPagePlusQueryString": "/?menu=",
+              "screenPageViews": 244,
+              "sessions": 178,
+              "totalUsers": 173
+            },
+            {
+              "eventCount": 357,
+              "landingPagePlusQueryString": "/menu/",
+              "screenPageViews": 132,
+              "sessions": 108,
+              "totalUsers": 95
+            },
+            {
+              "eventCount": 57,
+              "landingPagePlusQueryString": "/about/",
+              "screenPageViews": 20,
+              "sessions": 18,
+              "totalUsers": 18
+            },
+            {
+              "eventCount": 39,
+              "landingPagePlusQueryString": "/contact/",
+              "screenPageViews": 13,
+              "sessions": 12,
+              "totalUsers": 12
+            },
+            {
+              "eventCount": 17,
+              "landingPagePlusQueryString": "/?fbclid=IwY2xjawToid9wZG9mBWV4dG4DYWVtAjEwAGJyaWQRMXFmQ29wd1BiYkRhZk83UUNzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEexCvrJdKgV405iriSTm7HwYnrurFXZ3ulM81ZrudTF_b96DCP98KpS2WzJpw_aem_0Mw6bXNlooUebWe7FOfUyQ",
+              "screenPageViews": 6,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 9,
+              "landingPagePlusQueryString": "/about-us",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 11,
+              "landingPagePlusQueryString": "/contact-us",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 9,
+              "landingPagePlusQueryString": "/franchising",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 9,
+              "landingPagePlusQueryString": "/stores",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 5,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHmc3lRWV8rqlxninQ0tUmnypyc-WpfQfwvdVXvOAtnwHrzmMB-iHeaPpUkOf_aem_P6g1eSavpPXj17WUlgnGHw",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 8,
+              "landingPagePlusQueryString": "/amp/",
+              "screenPageViews": 4,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 4,
+              "landingPagePlusQueryString": "/?fbclid=IwY2xjawT7S3BwZG9mA2V4dG4DYWVtAjExAHNydGMGYXBwX2lkDzQwOTk2MjYyMzA4NTYwOQABHibRGTNdWiiZ6t-WpbHA-PUYJjWaZIfIutpjw0tFZNYmGUoKRSZjr-PEf_7i_aem_g8cp7yenMFxMlK4an7IJfQ",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 13,
+              "landingPagePlusQueryString": "/?fbclid=IwY2xjawTuz4pwZG9mAWV4dG4DYWVtAjExAHNydGMGYXBwX2lkDDM1MDY4NTUzMTcyOAABHtLyZ-XFokEKWlLLEQqprBo8UqEK01hvQMd-JGQTzkQU0ecXTvnLAH4kofjJ_aem_ttkkj2Bady5uXEedsS3Qkw",
+              "screenPageViews": 5,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHnAfi8KY6jQd4ier_vef-OHiw4FxGgW6NhxJKjvFuzu7us0y4-JAC7PdCmpa_aem_L8VIiq3XfViwqKzxLQ4RPQ",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 5,
+              "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQKNjYyODU2ODM3OQABHvovYQ3D79tLHxF6iEdLYPoTX20Cj_SObsKlhsFMAuwceI3N0h4bXU0xUPxc_aem__sJ4Ab_Jsjp9n4vpMrkhGw",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/?fbclid=Iwb21leATu0A5jbGNrBO7PinBkb2YBZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMzUwNjg1NTMxNzI4AAEe0vJn5cWiQQpaUssRCqmsGjxSoQrTWG9Ax34kZBPORBTR5xdO-csAfiSh-Mk_aem_ttkkj2Bady5uXEedsS3Qkw",
+              "screenPageViews": 2,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/?fbclid=IwcGRvZgFleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeHvKes4qGDeuZVajqB29OC9yWAukbxdlnE8qLd3VvPslfc-l5stR71zXujfs_aem_gJoVVdaBlOAEST0tNeit3Q",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 4,
+              "landingPagePlusQueryString": "/?fbclid=IwcGRvZgFmZGlkFlDGu4FZQRWd-4f8MLXUe1x3YPXGnntleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAo2NjI4NTY4Mzc5AAEeu9qDgIUGLjpz7E30AZHTL2k1ZM9TErrO0YoEcj4Y6Fz697ywk3NzJzKDkPM_aem_pVYitUPi5yrJy5t6KTBKQA",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/?fbclid=IwcGRvZgRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR54x5huar_-pCwUJEkZdIBeA4RoThZxd1xEvcw7HV07TO_u_4S-jgxAIPgyfw_aem_RIgpBGtBO_uhOarREyLhBg",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            }
+          ],
+          "totals": {
+            "engagedSessions": 484,
+            "eventCount": 4910,
+            "newUsers": 895,
+            "screenPageViews": 1717,
+            "sessions": 1124,
+            "totalUsers": 922
+          }
+        }
+      ],
+      "gsc": {
+        "daily_rows": 500,
+        "first_nonzero_click_date": "2025-04-15",
+        "identity_label": "marcin.uxa Google identity",
+        "latest_12_months": {
+          "clicks": 1922,
+          "end": "2026-08-27",
+          "impressions": 68908,
+          "start": "2025-08-28"
+        },
+        "monthly": [
+          {
+            "clicks": 79,
+            "impressions": 3328,
+            "month": "2025-04"
+          },
+          {
+            "clicks": 176,
+            "impressions": 6761,
+            "month": "2025-05"
+          },
+          {
+            "clicks": 129,
+            "impressions": 6239,
+            "month": "2025-06"
+          },
+          {
+            "clicks": 125,
+            "impressions": 6057,
+            "month": "2025-07"
+          },
+          {
+            "clicks": 159,
+            "impressions": 6390,
+            "month": "2025-08"
+          },
+          {
+            "clicks": 154,
+            "impressions": 5380,
+            "month": "2025-09"
+          },
+          {
+            "clicks": 292,
+            "impressions": 5479,
+            "month": "2025-10"
+          },
+          {
+            "clicks": 179,
+            "impressions": 4666,
+            "month": "2025-11"
+          },
+          {
+            "clicks": 176,
+            "impressions": 5432,
+            "month": "2025-12"
+          },
+          {
+            "clicks": 143,
+            "impressions": 5842,
+            "month": "2026-01"
+          },
+          {
+            "clicks": 143,
+            "impressions": 6242,
+            "month": "2026-02"
+          },
+          {
+            "clicks": 175,
+            "impressions": 6962,
+            "month": "2026-03"
+          },
+          {
+            "clicks": 134,
+            "impressions": 6361,
+            "month": "2026-04"
+          },
+          {
+            "clicks": 155,
+            "impressions": 6365,
+            "month": "2026-05"
+          },
+          {
+            "clicks": 101,
+            "impressions": 4698,
+            "month": "2026-06"
+          },
+          {
+            "clicks": 142,
+            "impressions": 6010,
+            "month": "2026-07"
+          },
+          {
+            "clicks": 114,
+            "impressions": 4583,
+            "month": "2026-08"
+          }
+        ],
+        "pre_retention_probe": {
+          "row_count": 0,
+          "status": "ok"
+        },
+        "site_url": "https://taquerialapazchicago.com/",
+        "sitemaps": [
+          {
+            "contents": [
+              {
+                "indexed": "0",
+                "submitted": "8",
+                "type": "web"
+              }
+            ],
+            "errors": "0",
+            "isPending": false,
+            "isSitemapsIndex": true,
+            "lastDownloaded": "2026-08-25T07:35:16.436Z",
+            "lastSubmitted": "2026-04-04T15:47:30.525Z",
+            "path": "https://taquerialapazchicago.com/wp-sitemap.xml",
+            "warnings": "2"
+          }
+        ],
+        "top_pages": [
+          {
+            "clicks": 2228,
+            "ctr": 0.02320374092627501,
+            "impressions": 96019,
+            "keys": [
+              "https://taquerialapazchicago.com/"
+            ],
+            "position": 11.637727949676627
+          },
+          {
+            "clicks": 369,
+            "ctr": 0.015106234903999672,
+            "impressions": 24427,
+            "keys": [
+              "https://taquerialapazchicago.com/?menu"
+            ],
+            "position": 4.3865804233020835
+          },
+          {
+            "clicks": 25,
+            "ctr": 0.008327781479013991,
+            "impressions": 3002,
+            "keys": [
+              "https://taquerialapazchicago.com/menu/"
+            ],
+            "position": 4.414390406395736
+          },
+          {
+            "clicks": 4,
+            "ctr": 0.001332001332001332,
+            "impressions": 3003,
+            "keys": [
+              "https://taquerialapazchicago.com/contact-us/"
+            ],
+            "position": 7.204795204795205
+          },
+          {
+            "clicks": 3,
+            "ctr": 0.000980392156862745,
+            "impressions": 3060,
+            "keys": [
+              "https://taquerialapazchicago.com/about/"
+            ],
+            "position": 5.569934640522876
+          },
+          {
+            "clicks": 1,
+            "ctr": 0.0003176620076238882,
+            "impressions": 3148,
+            "keys": [
+              "https://taquerialapazchicago.com/contact/"
+            ],
+            "position": 5.184879288437103
+          },
+          {
+            "clicks": 0,
+            "ctr": 0,
+            "impressions": 4,
+            "keys": [
+              "https://taquerialapazchicago.com/contact-us/amp/"
+            ],
+            "position": 7.5
+          }
+        ],
+        "top_queries": [
+          {
+            "clicks": 696,
+            "ctr": 0.10100130605137135,
+            "impressions": 6891,
+            "keys": [
+              "taqueria la paz"
+            ],
+            "position": 2.267450297489479
+          },
+          {
+            "clicks": 578,
+            "ctr": 0.09948364888123924,
+            "impressions": 5810,
+            "keys": [
+              "la paz restaurants"
+            ],
+            "position": 1.863855421686747
+          },
+          {
+            "clicks": 152,
+            "ctr": 0.056716417910447764,
+            "impressions": 2680,
+            "keys": [
+              "la paz restaurant"
+            ],
+            "position": 5.0197761194029855
+          },
+          {
+            "clicks": 101,
+            "ctr": 0.0608433734939759,
+            "impressions": 1660,
+            "keys": [
+              "la paz taqueria"
+            ],
+            "position": 4.42289156626506
+          },
+          {
+            "clicks": 84,
+            "ctr": 0.019952494061757718,
+            "impressions": 4210,
+            "keys": [
+              "la paz"
+            ],
+            "position": 9.6
+          },
+          {
+            "clicks": 65,
+            "ctr": 0.032082922013820334,
+            "impressions": 2026,
+            "keys": [
+              "taqueria la paz menu"
+            ],
+            "position": 2.8879565646594276
+          },
+          {
+            "clicks": 38,
+            "ctr": 0.07436399217221135,
+            "impressions": 511,
+            "keys": [
+              "taqueria la paz chicago"
+            ],
+            "position": 1.8747553816046967
+          },
+          {
+            "clicks": 28,
+            "ctr": 0.04416403785488959,
+            "impressions": 634,
+            "keys": [
+              "la paz restaurantes"
+            ],
+            "position": 1.0173501577287065
+          },
+          {
+            "clicks": 16,
+            "ctr": 0.0025396825396825397,
+            "impressions": 6300,
+            "keys": [
+              "food near me"
+            ],
+            "position": 20.744920634920636
+          },
+          {
+            "clicks": 16,
+            "ctr": 0.14035087719298245,
+            "impressions": 114,
+            "keys": [
+              "la paz chicago"
+            ],
+            "position": 1.1754385964912282
+          },
+          {
+            "clicks": 16,
+            "ctr": 0.07960199004975124,
+            "impressions": 201,
+            "keys": [
+              "la paz menu"
+            ],
+            "position": 15.059701492537313
+          },
+          {
+            "clicks": 14,
+            "ctr": 0.07329842931937172,
+            "impressions": 191,
+            "keys": [
+              "la paz tacos"
+            ],
+            "position": 3.8900523560209423
+          },
+          {
+            "clicks": 14,
+            "ctr": 0.007106598984771574,
+            "impressions": 1970,
+            "keys": [
+              "tacos near me"
+            ],
+            "position": 11.67766497461929
+          },
+          {
+            "clicks": 13,
+            "ctr": 0.029345372460496615,
+            "impressions": 443,
+            "keys": [
+              "restaurante la paz"
+            ],
+            "position": 2.711060948081264
+          },
+          {
+            "clicks": 10,
+            "ctr": 0.02237136465324385,
+            "impressions": 447,
+            "keys": [
+              "men\u00fa de taqueria la paz"
+            ],
+            "position": 2.8344519015659957
+          },
+          {
+            "clicks": 10,
+            "ctr": 0.008183306055646482,
+            "impressions": 1222,
+            "keys": [
+              "mexican food near me"
+            ],
+            "position": 13.129296235679215
+          },
+          {
+            "clicks": 9,
+            "ctr": 0.0028662420382165603,
+            "impressions": 3140,
+            "keys": [
+              "restaurants near me"
+            ],
+            "position": 35.04363057324841
+          },
+          {
+            "clicks": 7,
+            "ctr": 0.011627906976744186,
+            "impressions": 602,
+            "keys": [
+              "taqueria la paz photos"
+            ],
+            "position": 3.4833887043189367
+          },
+          {
+            "clicks": 6,
+            "ctr": 0.00823045267489712,
+            "impressions": 729,
+            "keys": [
+              "mexican restaurants near me"
+            ],
+            "position": 23.001371742112482
+          },
+          {
+            "clicks": 6,
+            "ctr": 0.13333333333333333,
+            "impressions": 45,
+            "keys": [
+              "taqueria paz"
+            ],
+            "position": 3.1777777777777776
+          }
+        ],
+        "total_clicks": 2576,
+        "total_impressions": 96795,
+        "window": {
+          "end": "2026-08-27",
+          "start": "2025-04-15"
+        }
+      },
+      "public": {
+        "current": {
+          "body_sha256": "136bcecfc79609c12c8fe881b19a189bc11620eccad445e1ef53ebb688ed9fdf",
+          "bytes": 169,
+          "final_url": "https://taquerialapazchicago.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://taquerialapazchicago.com/"
+        },
+        "domain": "taquerialapazchicago.com",
+        "project": "Taqueria La Paz",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869268.434\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/robots.txt",
+            "sha256": "7d99cfa4c2f0df9698c603383f84a224b7f87823c101a2c20e688b07b02901b7",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869268.768\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "affd4ade494cad0c85ca0e36a4edaa449a66b9740d847bbf8d88bdd291b0a886",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869269.074\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "3195c78183a598068cb820688fac96fd7a68ae28b3810cde589aa01e8b257726",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869269.409\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "8db12fc185081a925a56a04edfe0870830b5abd0c463dfad2462e1aaca05657d",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/wp-sitemap.xml"
+          }
+        ],
+        "rdap": {
+          "events": [
+            {
+              "action": "registration",
+              "date": "2024-02-09T22:59:06Z"
+            },
+            {
+              "action": "expiration",
+              "date": "2027-02-09T22:59:06Z"
+            },
+            {
+              "action": "last changed",
+              "date": "2026-01-25T09:15:07Z"
+            },
+            {
+              "action": "last update of RDAP database",
+              "date": "2026-08-27T22:21:21Z"
+            }
+          ],
+          "final_url": "https://rdap.verisign.com/com/v1/domain/taquerialapazchicago.com",
+          "http_status": 200,
+          "name": "TAQUERIALAPAZCHICAGO.COM",
+          "status": "ok",
+          "status_values": [
+            "client transfer prohibited",
+            "client update prohibited"
+          ]
+        },
+        "wayback": {
+          "capture_count": 10,
+          "capture_years": [
+            "2024",
+            "2025",
+            "2026"
+          ],
+          "cdx_url": "https://web.archive.org/cdx/search/cdx?url=taquerialapazchicago.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "root_captures": [
+            {
+              "digest": "KP24LZ7PDUXTTI5CQLCBXNKDM2454QUS",
+              "length": "33029",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240427133354"
+            },
+            {
+              "digest": "MGASBIBIC7KHFHTBFECK5VBOBOQP2UWC",
+              "length": "40612",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240815025355"
+            },
+            {
+              "digest": "UZ3O3U72PALYAO3BL572F343T4AMP62R",
+              "length": "42832",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20241215011254"
+            },
+            {
+              "digest": "3BAT4BI5SF2MMCNQXEWR7GP3G5WO4UDQ",
+              "length": "32825",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20250327083554"
+            },
+            {
+              "digest": "67OYH7KL3GEQXISRGJPEJD2Y7TGC2FU6",
+              "length": "32989",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20251027121421"
+            },
+            {
+              "digest": "77RU7Q7XVS6LI24LM6F2JCF7TNZPEZAF",
+              "length": "48218",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20260215044138"
+            }
+          ],
+          "status": "ok"
+        }
+      }
+    },
+    "UXOXO": {
+      "ga4_properties": [
+        {
+          "channels": {
+            "Direct": 38,
+            "Organic Search": 4
+          },
+          "created": "2024-04-12T21:49:27.415Z",
+          "events": {
+            "click": 4,
+            "scroll": 8,
+            "video_progress": 18,
+            "video_start": 18
+          },
+          "first_month": "202404",
+          "identity_label": "uxoxo.xyz Google identity",
+          "last_month": "202407",
+          "month_count": 4,
+          "monthly": [
+            {
+              "engagedSessions": 3,
+              "eventCount": 33,
+              "newUsers": 5,
+              "screenPageViews": 9,
+              "sessions": 8,
+              "totalUsers": 5,
+              "yearMonth": "202404"
+            },
+            {
+              "engagedSessions": 0,
+              "eventCount": 15,
+              "newUsers": 3,
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3,
+              "yearMonth": "202405"
+            },
+            {
+              "engagedSessions": 4,
+              "eventCount": 31,
+              "newUsers": 6,
+              "screenPageViews": 6,
+              "sessions": 6,
+              "totalUsers": 6,
+              "yearMonth": "202406"
+            },
+            {
+              "engagedSessions": 9,
+              "eventCount": 115,
+              "newUsers": 25,
+              "screenPageViews": 31,
+              "sessions": 25,
+              "totalUsers": 25,
+              "yearMonth": "202407"
+            }
+          ],
+          "property_id": "436318262",
+          "stream": {
+            "createTime": "2024-04-12T21:49:52.701Z",
+            "defaultUri": "https://www.uxoxo.xyz",
+            "displayName": "uxoxo.xyz",
+            "measurementId": "G-9BRJ87HMQD",
+            "name": "properties/436318262/dataStreams/7842131571",
+            "type": "WEB_DATA_STREAM",
+            "updateTime": "2024-04-12T21:49:52.701Z"
+          },
+          "top_landing_pages": [
+            {
+              "eventCount": 179,
+              "landingPagePlusQueryString": "/",
+              "screenPageViews": 43,
+              "sessions": 39,
+              "totalUsers": 36
+            },
+            {
+              "eventCount": 10,
+              "landingPagePlusQueryString": "/portfolio-item/improve-ecommerce-converstion-with-ux-improvements-to-navigation-taxonomy-seo/",
+              "screenPageViews": 4,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 5,
+              "landingPagePlusQueryString": "/portfolio-item/transitions-and-micro-interactions-for-a-fortune-500-financial-company/",
+              "screenPageViews": 2,
+              "sessions": 1,
+              "totalUsers": 1
+            }
+          ],
+          "totals": {
+            "engagedSessions": 16,
+            "eventCount": 194,
+            "newUsers": 39,
+            "screenPageViews": 49,
+            "sessions": 42,
+            "totalUsers": 39
+          }
+        },
+        {
+          "channels": {
+            "Direct": 599,
+            "Organic Search": 71,
+            "Organic Social": 25,
+            "Referral": 41,
+            "Unassigned": 20
+          },
+          "created": "2024-10-10T15:46:08.295Z",
+          "events": {
+            "click": 6,
+            "form_start": 3,
+            "form_submit": 3,
+            "scroll": 75
+          },
+          "first_month": "202410",
+          "identity_label": "marcin.uxa Google identity",
+          "last_month": "202608",
+          "month_count": 23,
+          "monthly": [
+            {
+              "engagedSessions": 1,
+              "eventCount": 83,
+              "newUsers": 27,
+              "screenPageViews": 27,
+              "sessions": 28,
+              "totalUsers": 28,
+              "yearMonth": "202410"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 59,
+              "newUsers": 17,
+              "screenPageViews": 17,
+              "sessions": 18,
+              "totalUsers": 18,
+              "yearMonth": "202411"
+            },
+            {
+              "engagedSessions": 9,
+              "eventCount": 97,
+              "newUsers": 22,
+              "screenPageViews": 31,
+              "sessions": 28,
+              "totalUsers": 24,
+              "yearMonth": "202412"
+            },
+            {
+              "engagedSessions": 3,
+              "eventCount": 124,
+              "newUsers": 35,
+              "screenPageViews": 37,
+              "sessions": 42,
+              "totalUsers": 42,
+              "yearMonth": "202501"
+            },
+            {
+              "engagedSessions": 8,
+              "eventCount": 91,
+              "newUsers": 21,
+              "screenPageViews": 31,
+              "sessions": 23,
+              "totalUsers": 21,
+              "yearMonth": "202502"
+            },
+            {
+              "engagedSessions": 4,
+              "eventCount": 48,
+              "newUsers": 11,
+              "screenPageViews": 15,
+              "sessions": 14,
+              "totalUsers": 12,
+              "yearMonth": "202503"
+            },
+            {
+              "engagedSessions": 6,
+              "eventCount": 69,
+              "newUsers": 15,
+              "screenPageViews": 22,
+              "sessions": 18,
+              "totalUsers": 16,
+              "yearMonth": "202504"
+            },
+            {
+              "engagedSessions": 13,
+              "eventCount": 165,
+              "newUsers": 41,
+              "screenPageViews": 51,
+              "sessions": 43,
+              "totalUsers": 41,
+              "yearMonth": "202505"
+            },
+            {
+              "engagedSessions": 6,
+              "eventCount": 96,
+              "newUsers": 27,
+              "screenPageViews": 30,
+              "sessions": 28,
+              "totalUsers": 27,
+              "yearMonth": "202506"
+            },
+            {
+              "engagedSessions": 11,
+              "eventCount": 145,
+              "newUsers": 37,
+              "screenPageViews": 49,
+              "sessions": 39,
+              "totalUsers": 37,
+              "yearMonth": "202507"
+            },
+            {
+              "engagedSessions": 10,
+              "eventCount": 225,
+              "newUsers": 69,
+              "screenPageViews": 70,
+              "sessions": 70,
+              "totalUsers": 69,
+              "yearMonth": "202508"
+            },
+            {
+              "engagedSessions": 0,
+              "eventCount": 29,
+              "newUsers": 9,
+              "screenPageViews": 9,
+              "sessions": 9,
+              "totalUsers": 9,
+              "yearMonth": "202509"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 123,
+              "newUsers": 34,
+              "screenPageViews": 34,
+              "sessions": 35,
+              "totalUsers": 35,
+              "yearMonth": "202510"
+            },
+            {
+              "engagedSessions": 3,
+              "eventCount": 134,
+              "newUsers": 42,
+              "screenPageViews": 42,
+              "sessions": 42,
+              "totalUsers": 42,
+              "yearMonth": "202511"
+            },
+            {
+              "engagedSessions": 1,
+              "eventCount": 72,
+              "newUsers": 23,
+              "screenPageViews": 23,
+              "sessions": 23,
+              "totalUsers": 23,
+              "yearMonth": "202512"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 118,
+              "newUsers": 36,
+              "screenPageViews": 37,
+              "sessions": 36,
+              "totalUsers": 36,
+              "yearMonth": "202601"
+            },
+            {
+              "engagedSessions": 13,
+              "eventCount": 246,
+              "newUsers": 75,
+              "screenPageViews": 77,
+              "sessions": 66,
+              "totalUsers": 66,
+              "yearMonth": "202602"
+            },
+            {
+              "engagedSessions": 7,
+              "eventCount": 145,
+              "newUsers": 43,
+              "screenPageViews": 44,
+              "sessions": 40,
+              "totalUsers": 39,
+              "yearMonth": "202603"
+            },
+            {
+              "engagedSessions": 2,
+              "eventCount": 101,
+              "newUsers": 30,
+              "screenPageViews": 30,
+              "sessions": 31,
+              "totalUsers": 31,
+              "yearMonth": "202604"
+            },
+            {
+              "engagedSessions": 7,
+              "eventCount": 91,
+              "newUsers": 25,
+              "screenPageViews": 32,
+              "sessions": 28,
+              "totalUsers": 25,
+              "yearMonth": "202605"
+            },
+            {
+              "engagedSessions": 3,
+              "eventCount": 96,
+              "newUsers": 27,
+              "screenPageViews": 27,
+              "sessions": 27,
+              "totalUsers": 27,
+              "yearMonth": "202606"
+            },
+            {
+              "engagedSessions": 18,
+              "eventCount": 204,
+              "newUsers": 54,
+              "screenPageViews": 59,
+              "sessions": 55,
+              "totalUsers": 54,
+              "yearMonth": "202607"
+            },
+            {
+              "engagedSessions": 0,
+              "eventCount": 42,
+              "newUsers": 13,
+              "screenPageViews": 13,
+              "sessions": 13,
+              "totalUsers": 13,
+              "yearMonth": "202608"
+            }
+          ],
+          "property_id": "462480631",
+          "stream": {
+            "createTime": "2024-10-10T15:46:08.609Z",
+            "defaultUri": "http://uxoxo.xyz",
+            "displayName": "uxoxo.xyz",
+            "measurementId": "G-HDXTKXMRDB",
+            "name": "properties/462480631/dataStreams/9793727104",
+            "type": "WEB_DATA_STREAM",
+            "updateTime": "2024-10-10T15:46:08.609Z"
+          },
+          "top_landing_pages": [
+            {
+              "eventCount": 2292,
+              "landingPagePlusQueryString": "/",
+              "screenPageViews": 715,
+              "sessions": 658,
+              "totalUsers": 645
+            },
+            {
+              "eventCount": 51,
+              "landingPagePlusQueryString": "/portfolio/green-goods-a-biodiversity-impact-platform/",
+              "screenPageViews": 16,
+              "sessions": 16,
+              "totalUsers": 16
+            },
+            {
+              "eventCount": 31,
+              "landingPagePlusQueryString": "/health-is-wealth-building-retirement-funds-through-healthy-living/",
+              "screenPageViews": 10,
+              "sessions": 10,
+              "totalUsers": 10
+            },
+            {
+              "eventCount": 28,
+              "landingPagePlusQueryString": "/portfolio/designing-developing-mirco-interactions-for-northern-trusts-corporate-website/",
+              "screenPageViews": 10,
+              "sessions": 8,
+              "totalUsers": 8
+            },
+            {
+              "eventCount": 21,
+              "landingPagePlusQueryString": "/portfolio/designing-a-custom-healthcare-real-estate-investment-portal/",
+              "screenPageViews": 7,
+              "sessions": 7,
+              "totalUsers": 7
+            },
+            {
+              "eventCount": 21,
+              "landingPagePlusQueryString": "/poshmark-social-media-meets-ecommerce/",
+              "screenPageViews": 6,
+              "sessions": 6,
+              "totalUsers": 6
+            },
+            {
+              "eventCount": 31,
+              "landingPagePlusQueryString": "/ux-designer-in-2025/",
+              "screenPageViews": 11,
+              "sessions": 5,
+              "totalUsers": 5
+            },
+            {
+              "eventCount": 12,
+              "landingPagePlusQueryString": "/apps/understand/terms/",
+              "screenPageViews": 7,
+              "sessions": 4,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 13,
+              "landingPagePlusQueryString": "/?page_id=2",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 12,
+              "landingPagePlusQueryString": "/defi-ning-the-future-loans-that-pay-themselves-and-other-financial-shenanigans/",
+              "screenPageViews": 5,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 11,
+              "landingPagePlusQueryString": "/dynamic-visions-the-intersection-of-art-and-economics-in-nfts/",
+              "screenPageViews": 3,
+              "sessions": 3,
+              "totalUsers": 3
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/author/marcin-uxagmail-com/",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/decentering-the-engineer-softwares-next-act/",
+              "screenPageViews": 2,
+              "sessions": 2,
+              "totalUsers": 2
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/?gtm_latency=1",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 5,
+              "landingPagePlusQueryString": "/?p=881",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 4,
+              "landingPagePlusQueryString": "/?p=989",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/beyond-the-to-do-list-busyness-and-meaningful-work/",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 6,
+              "landingPagePlusQueryString": "/contact",
+              "screenPageViews": 2,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 3,
+              "landingPagePlusQueryString": "/ctrlaltdesign-navigating-the-challenges-of-ux-integration/",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            },
+            {
+              "eventCount": 4,
+              "landingPagePlusQueryString": "/meeting-with-stakeholders-insights-for-ux-designers-and-leaders/",
+              "screenPageViews": 1,
+              "sessions": 1,
+              "totalUsers": 1
+            }
+          ],
+          "totals": {
+            "engagedSessions": 131,
+            "eventCount": 2603,
+            "newUsers": 733,
+            "screenPageViews": 807,
+            "sessions": 756,
+            "totalUsers": 735
+          }
+        }
+      ],
+      "gsc": {
+        "daily_rows": 500,
+        "first_nonzero_click_date": null,
+        "identity_label": "marcin.uxa Google identity",
+        "latest_12_months": {
+          "clicks": 0,
+          "end": "2026-08-27",
+          "impressions": 0,
+          "start": "2025-08-28"
+        },
+        "monthly": [
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-04"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-05"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-06"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-07"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-08"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-09"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-10"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-11"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2025-12"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-01"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-02"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-03"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-04"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-05"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-06"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-07"
+          },
+          {
+            "clicks": 0,
+            "impressions": 0,
+            "month": "2026-08"
+          }
+        ],
+        "pre_retention_probe": {
+          "row_count": 0,
+          "status": "ok"
+        },
+        "site_url": "http://uxoxo.xyz/",
+        "sitemaps": [],
+        "top_pages": [],
+        "top_queries": [],
+        "total_clicks": 0,
+        "total_impressions": 0,
+        "window": {
+          "end": "2026-08-27",
+          "start": "2025-04-15"
+        }
+      },
+      "public": {
+        "current": {
+          "body_sha256": "8794ab800d9a334d14a3f94102cf3b534006c6510401c49933d62e5a0328c492",
+          "bytes": 169,
+          "final_url": "https://uxoxo.xyz/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://uxoxo.xyz/"
+        },
+        "domain": "uxoxo.xyz",
+        "project": "UXOXO",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869235.536\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/robots.txt",
+            "sha256": "baf1522a21dbca9789b364150ce2cbc52cd25dcfb3f1af0d2dd89a7efd9afc6f",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://uxoxo.xyz/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869235.869\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "2ad0ae32dd2636e8b1f013e5ee2e89a6767088db61b9c087b901e905cc06c184",
+            "status": 202,
+            "url": "https://uxoxo.xyz/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869236.120\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "0d6a760e5a7c2dfd9fb6bb87f39fb83c44fc8d0d27c02030a84ea2f3ff53cee8",
+            "status": 202,
+            "url": "https://uxoxo.xyz/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869236.426\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "a8adeef110f57e849232acdc015ac7eccd3a3f6840b47dad57591b86df835ae0",
+            "status": 202,
+            "url": "https://uxoxo.xyz/wp-sitemap.xml"
+          }
+        ],
+        "rdap": {
+          "events": [
+            {
+              "action": "registration",
+              "date": "2023-11-09T18:48:26.0Z"
+            },
+            {
+              "action": "expiration",
+              "date": "2026-11-09T23:59:59.0Z"
+            },
+            {
+              "action": "last update of RDAP database",
+              "date": "2026-08-27T22:20:37.0Z"
+            },
+            {
+              "action": "last changed",
+              "date": "2025-12-02T12:01:09.0Z"
+            }
+          ],
+          "final_url": "https://rdap.centralnic.com/xyz/domain/uxoxo.xyz",
+          "http_status": 200,
+          "name": "uxoxo.xyz",
+          "status": "ok",
+          "status_values": [
+            "client transfer prohibited"
+          ]
+        },
+        "wayback": {
+          "capture_count": 12,
+          "capture_years": [
+            "2024",
+            "2025"
+          ],
+          "cdx_url": "https://web.archive.org/cdx/search/cdx?url=uxoxo.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "root_captures": [
+            {
+              "digest": "OW74B52OVJIM6LW3ZDLBHD4UNZ3QIL4C",
+              "length": "17608",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240109174843"
+            },
+            {
+              "digest": "DDGSP2SDBER32BCYCYGRLJATCVIJBGFT",
+              "length": "31880",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240508223938"
+            },
+            {
+              "digest": "KUTTK5DSE7TCTKGJ66MX3XU46TLEBP63",
+              "length": "18869",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523022440"
+            },
+            {
+              "digest": "B62UZP5YXVISKE6QVIXQ63AQZ33EOLLR",
+              "length": "18900",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523041444"
+            },
+            {
+              "digest": "UQFK3GJYKOXYGSHSBOEAJOBPCT5IX34A",
+              "length": "21938",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905151529"
+            },
+            {
+              "digest": "UXIBLBGSSSW2GDZ7T5SRBD5434QJZ77X",
+              "length": "21933",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905160127"
+            },
+            {
+              "digest": "5VMOORBMY2222QKN5NOTIKFZNL5ZNGIZ",
+              "length": "12849",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240909192833"
+            },
+            {
+              "digest": "FOZE2FJTNN2M4RTRZ7BLCI3YUQ2TQX4V",
+              "length": "13172",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20241115100049"
+            },
+            {
+              "digest": "6U5QORBQJNAM7MDMNABNH5FDBI3R33KK",
+              "length": "25937",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250302113946"
+            },
+            {
+              "digest": "ICGBHEEDUS4OCQUCJI4KO7ZDFU24B5IY",
+              "length": "25957",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250304114157"
+            }
+          ],
+          "status": "ok"
+        }
+      }
+    }
+  },
+  "pulled_at": "2026-08-27",
+  "quality_correction": {
+    "correct_wording": "Sailthru / email attribution with campaign 20251022_Newsletter_Chicago",
+    "operator": "unknown",
+    "previous_wording": "Email sessions",
+    "reason": "GA4 source/medium and campaign identify tracking values, not who owned or sent the campaign."
+  },
+  "research_id": "nice-right-portfolio-second-pass",
+  "scope": [
+    "Nice Right",
+    "Dummy Reader",
+    "UXOXO",
+    "Taqueria La Paz",
+    "exact spelling check: uxoxox.xyz"
+  ],
+  "screenshots": [
+    {
+      "error": null,
+      "key": "niceright-current",
+      "meta": {
+        "height": 10164,
+        "ready": "complete",
+        "url": "https://niceright.co/",
+        "width": 1440
+      },
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/niceright-current.png",
+      "source_type": "current Brave capture",
+      "status": 200,
+      "title": "Nice Right | Digital Growth Partner for Small Businesses",
+      "url": "https://niceright.co/"
+    },
+    {
+      "error": null,
+      "key": "dummyreader-current",
+      "meta": {
+        "height": 8088,
+        "ready": "complete",
+        "url": "https://dummyreader.com/",
+        "width": 1440
+      },
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/dummyreader-current.png",
+      "source_type": "current Brave capture",
+      "status": 200,
+      "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+      "url": "https://dummyreader.com/"
+    },
+    {
+      "error": null,
+      "key": "uxoxo-current",
+      "meta": {
+        "height": 4707,
+        "ready": "complete",
+        "url": "https://uxoxo.xyz/",
+        "width": 1440
+      },
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-current.png",
+      "source_type": "current Brave capture",
+      "status": 202,
+      "title": "UXOXO | Kiss Bad UX Goodbye \ud83d\udc4b - UXOXO",
+      "url": "https://uxoxo.xyz/"
+    },
+    {
+      "error": null,
+      "key": "taqueria-current",
+      "meta": {
+        "height": 7793,
+        "ready": "interactive",
+        "url": "https://taquerialapazchicago.com/",
+        "width": 1440
+      },
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-current.png",
+      "source_type": "current Brave capture",
+      "status": 202,
+      "title": "Robot Challenge Screen",
+      "url": "https://taquerialapazchicago.com/"
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20240109174843/http://uxoxo.xyz/",
+      "bytes": 1420331,
+      "key": "uxoxo-2024-01-09-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2024-01-09-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20240109174843/http://uxoxo.xyz/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2024-01-09-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20240109174843/http://uxoxo.xyz/",
+      "stderr": ""
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20250304114157/https://uxoxo.xyz/",
+      "bytes": 932526,
+      "key": "uxoxo-2025-03-04-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2025-03-04-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20250304114157/https://uxoxo.xyz/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2025-03-04-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20250304114157/https://uxoxo.xyz/",
+      "stderr": ""
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20240427133354/https://taquerialapazchicago.com/",
+      "bytes": 168210,
+      "key": "taqueria-2024-04-27-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-04-27-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20240427133354/https://taquerialapazchicago.com/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-04-27-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20240427133354/https://taquerialapazchicago.com/",
+      "stderr": ""
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20241215011254/https://taquerialapazchicago.com/",
+      "bytes": 352575,
+      "key": "taqueria-2024-12-15-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-12-15-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20241215011254/https://taquerialapazchicago.com/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-12-15-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20241215011254/https://taquerialapazchicago.com/",
+      "stderr": ""
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20250327084308/https://taquerialapazchicago.com/contact-us/",
+      "bytes": 379432,
+      "key": "taqueria-2025-03-27-contact-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2025-03-27-contact-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20250327084308/https://taquerialapazchicago.com/contact-us/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2025-03-27-contact-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20250327084308/https://taquerialapazchicago.com/contact-us/",
+      "stderr": ""
+    },
+    {
+      "archive_url": "https://web.archive.org/web/20260215044138/https://taquerialapazchicago.com/",
+      "bytes": 352567,
+      "key": "taqueria-2026-02-15-wayback",
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2026-02-15-wayback.png",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20260215044138/https://taquerialapazchicago.com/",
+      "screenshot": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2026-02-15-wayback.png",
+      "source_type": "Wayback historical capture via image.thum.io",
+      "source_url": "https://web.archive.org/web/20260215044138/https://taquerialapazchicago.com/",
+      "stderr": ""
+    }
+  ],
+  "source_snapshots": {
+    "brave": "docs/research/portfolio-second-pass-brave-captures.json",
+    "google": "docs/research/portfolio-second-pass-google.json",
+    "historical_screenshots": "docs/research/portfolio-second-pass-historical-captures.json",
+    "public": "docs/research/portfolio-second-pass-public.json",
+    "taqueria_attribution": "docs/research/portfolio-second-pass-taqueria-attribution.json",
+    "taqueria_sailthru": "docs/research/portfolio-second-pass-taqueria-sailthru.json"
+  },
+  "sources": [
+    {
+      "detail": "yearMonth/channel/event/landing-page report; API window 2015-08-14\u20132026-08-27",
+      "id": "GA-NR",
+      "kind": "authenticated API",
+      "title": "GA4 Data API \u2014 Nice Right property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/529974758:runReport"
+    },
+    {
+      "detail": "daily/page/query reports; retained window 2025-04-15\u20132026-08-27",
+      "id": "GSC-NR",
+      "kind": "authenticated API",
+      "title": "Search Console API \u2014 sc-domain:niceright.co",
+      "url": "https://www.googleapis.com/webmasters/v3/sites/sc-domain%3Aniceright.co/searchAnalytics/query"
+    },
+    {
+      "detail": "property 530891840; current data Apr\u2013Aug 2026",
+      "id": "GA-TAQ-CURRENT",
+      "kind": "authenticated API",
+      "title": "GA4 Data API \u2014 Taqueria current property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/530891840:runReport"
+    },
+    {
+      "detail": "property 436955005; Apr 2024\u2013Apr 2026; not summed",
+      "id": "GA-TAQ-LEGACY",
+      "kind": "authenticated API",
+      "title": "GA4 Data API \u2014 Taqueria legacy property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/436955005:runReport"
+    },
+    {
+      "detail": "daily/page/query reports; retained window 2025-04-15\u20132026-08-27",
+      "id": "GSC-TAQ",
+      "kind": "authenticated API",
+      "title": "Search Console API \u2014 Taqueria HTTPS property",
+      "url": "https://www.googleapis.com/webmasters/v3/sites/https%3A%2F%2Ftaquerialapazchicago.com%2F/searchAnalytics/query"
+    },
+    {
+      "detail": "property 436318262; Apr\u2013Jul 2024; separate stream",
+      "id": "GA-UX-OLD",
+      "kind": "authenticated API",
+      "title": "GA4 Data API \u2014 UXOXO April property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/436318262:runReport"
+    },
+    {
+      "detail": "property 462480631; Oct 2024\u2013Aug 2026; separate stream",
+      "id": "GA-UX-NEW",
+      "kind": "authenticated API",
+      "title": "GA4 Data API \u2014 UXOXO October property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/462480631:runReport"
+    },
+    {
+      "detail": "property created 2026-03-25; zero data rows",
+      "id": "GA-DUMMY",
+      "kind": "authenticated API",
+      "title": "GA4 Admin/Data API \u2014 Dummy Reader property",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/529935066:runReport"
+    },
+    {
+      "detail": "registration event 2024-02-09; lower bound only",
+      "id": "RDAP-TAQ",
+      "kind": "public registry",
+      "title": "RDAP \u2014 taquerialapazchicago.com",
+      "url": "https://rdap.verisign.com/com/v1/domain/taquerialapazchicago.com"
+    },
+    {
+      "detail": "registration event 2025-12-10; lower bound only",
+      "id": "RDAP-DUMMY",
+      "kind": "public registry",
+      "title": "RDAP \u2014 dummyreader.com",
+      "url": "https://rdap.verisign.com/com/v1/domain/dummyreader.com"
+    },
+    {
+      "detail": "registration event 2023-11-09; lower bound only",
+      "id": "RDAP-UX",
+      "kind": "public registry",
+      "title": "RDAP \u2014 uxoxo.xyz",
+      "url": "https://rdap.centralnic.com/xyz/domain/uxoxo.xyz"
+    },
+    {
+      "detail": "10 deduplicated HTML captures, 2024\u20132026",
+      "id": "CDX-TAQ",
+      "kind": "public archive index",
+      "title": "Wayback CDX \u2014 taquerialapazchicago.com",
+      "url": "https://web.archive.org/cdx/search/cdx?url=taquerialapazchicago.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026"
+    },
+    {
+      "detail": "12 deduplicated HTML captures, 2024\u20132025",
+      "id": "CDX-UX",
+      "kind": "public archive index",
+      "title": "Wayback CDX \u2014 uxoxo.xyz",
+      "url": "https://web.archive.org/cdx/search/cdx?url=uxoxo.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026"
+    },
+    {
+      "detail": "zero matching HTML captures returned",
+      "id": "CDX-NR",
+      "kind": "public archive index",
+      "title": "Wayback CDX \u2014 niceright.co",
+      "url": "https://web.archive.org/cdx/search/cdx?url=niceright.co%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026"
+    },
+    {
+      "detail": "zero matching HTML captures returned",
+      "id": "CDX-DUMMY",
+      "kind": "public archive index",
+      "title": "Wayback CDX \u2014 dummyreader.com",
+      "url": "https://web.archive.org/cdx/search/cdx?url=dummyreader.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026"
+    },
+    {
+      "detail": "source/medium/campaign/referrer/engagement/link/key-event reports; October 2025 and full available property period",
+      "id": "GA-TAQ-QUALITY",
+      "kind": "authenticated API",
+      "title": "GA4 Data API, Taqueria attribution-quality reports",
+      "url": "https://analyticsdata.googleapis.com/v1beta/properties/436955005:runReport"
+    }
+  ]
+}

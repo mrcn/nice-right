@@ -1,0 +1,2030 @@
+{
+  "domains": {
+    "dummyreader.com": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "7b6d18814ae1440cb4c2aea19eeab193bfd83951f6d9db4cd91179b8d4a54002",
+            "bytes": 59982,
+            "final_url": "https://dummyreader.com/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {
+              "canonical": "https://dummyreader.com",
+              "description": "AI transforms entire books into modern audiobooks. Upload old literature, dense papers, or foreign texts \u2014 hear them read back clearly. From $1.50/book.",
+              "og:description": "AI transforms entire books into modern, clear audiobooks. Upload old literature, foreign texts, or dense papers \u2014 hear them read back perfectly.",
+              "og:title": "Any book. Any language. Rewritten for your ears.",
+              "og:url": "https://dummyreader.com"
+            },
+            "sample_links": [],
+            "status": 200,
+            "text_excerpt": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+            "text_sha256": "e92037defcf2fabe17980ce2f23b42e1ffc33a43f96b7dfd0d7979b94a9f3675",
+            "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+            "url": "https://dummyreader.com/"
+          }
+        ],
+        "domain": "dummyreader.com",
+        "public_endpoints": [
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "sitemap_directives": [],
+            "status": 200,
+            "url": "https://dummyreader.com/robots.txt"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/sitemap.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://dummyreader.com/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "7b6d18814ae1440cb4c2aea19eeab193bfd83951f6d9db4cd91179b8d4a54002",
+          "bytes": 59982,
+          "final_url": "https://dummyreader.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {
+            "canonical": "https://dummyreader.com",
+            "description": "AI transforms entire books into modern audiobooks. Upload old literature, dense papers, or foreign texts \u2014 hear them read back clearly. From $1.50/book.",
+            "og:description": "AI transforms entire books into modern, clear audiobooks. Upload old literature, foreign texts, or dense papers \u2014 hear them read back perfectly.",
+            "og:title": "Any book. Any language. Rewritten for your ears.",
+            "og:url": "https://dummyreader.com"
+          },
+          "sample_links": [],
+          "status": 200,
+          "text_excerpt": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "text_sha256": "e92037defcf2fabe17980ce2f23b42e1ffc33a43f96b7dfd0d7979b94a9f3675",
+          "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "url": "https://dummyreader.com/"
+        }
+      },
+      "project": "Dummy Reader",
+      "rdap": {
+        "events": [
+          {
+            "action": "registration",
+            "date": "2025-12-10T14:52:08Z"
+          },
+          {
+            "action": "expiration",
+            "date": "2026-12-10T14:52:08Z"
+          },
+          {
+            "action": "last changed",
+            "date": "2026-04-24T18:02:35Z"
+          },
+          {
+            "action": "last update of RDAP database",
+            "date": "2026-08-27T22:19:36Z"
+          }
+        ],
+        "final_url": "https://rdap.verisign.com/com/v1/domain/dummyreader.com",
+        "http_status": 200,
+        "name": "DUMMYREADER.COM",
+        "status": "ok",
+        "status_values": [
+          "client transfer prohibited"
+        ]
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 0,
+          "capture_years": [],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=dummyreader.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [],
+          "status": "ok"
+        },
+        "root_captures": []
+      }
+    },
+    "niceright.co": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "58034586d6a9f9a51df5bc2e968a96618daa1959346b856962e66bee8a864465",
+            "bytes": 104684,
+            "final_url": "https://niceright.co/",
+            "headings": [
+              {
+                "tag": "h2",
+                "text": "There are only four ways to grow a business."
+              },
+              {
+                "tag": "h3",
+                "text": "Get More Customers"
+              },
+              {
+                "tag": "h3",
+                "text": "Charge More"
+              },
+              {
+                "tag": "h3",
+                "text": "Keep Customers"
+              },
+              {
+                "tag": "h3",
+                "text": "Cut the Waste"
+              },
+              {
+                "tag": "h2",
+                "text": "Numbers from real projects"
+              },
+              {
+                "tag": "h3",
+                "text": "Cut deal-closing time by 40%"
+              },
+              {
+                "tag": "h3",
+                "text": "Modernized a Fortune 500 web presence"
+              },
+              {
+                "tag": "h3",
+                "text": "Built a verified impact platform for conservation"
+              },
+              {
+                "tag": "h2",
+                "text": "What it's like working together"
+              },
+              {
+                "tag": "h2",
+                "text": "Three ways to work together."
+              },
+              {
+                "tag": "h3",
+                "text": "The Digital Foundation"
+              },
+              {
+                "tag": "h3",
+                "text": "The Growth Experiment"
+              },
+              {
+                "tag": "h3",
+                "text": "The Growth Partnership"
+              },
+              {
+                "tag": "h2",
+                "text": "Let's figure out what would work for your business"
+              },
+              {
+                "tag": "h3",
+                "text": "I'm Marcin."
+              }
+            ],
+            "link_count": 31,
+            "meta": {
+              "canonical": "https://niceright.co/",
+              "description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+              "og:description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+              "og:title": "Nice Right | Digital Growth Partner for Small Businesses",
+              "og:url": "https://niceright.co/"
+            },
+            "sample_links": [
+              "#main-content",
+              "/",
+              "/#services",
+              "/#results",
+              "/studies",
+              "/notes",
+              "/#contact",
+              "#contact",
+              "/work/healthcare-real-estate",
+              "/work/northern-trust",
+              "/work/green-goods",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+            ],
+            "status": 200,
+            "text_excerpt": "Nice Right | Digital Growth Partner for Small Businesses Skip to main content Nice Right Services Results Studies Notes Book a Free Call Get found by people looking for you right now. For owners who already run a home service business. I build the digital side \u2014 so your phone and calendar do more of the selling. Get More Customers Charge More Keep Customers Cut the Waste 100+ projects \u00b7 13+ years \u00b7 Done-for-you Book Your Free Strategy Call 30 minutes. The Work \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps How Businesses Grow There are only four ways to grow a business. More customers. Bigger transactions. More repeat business. Less overhead. Every dollar of growth comes from one of these levers \u2014 and most businesses are stuck on one or two. Where are you stuck? 01 Get More Customers \u201c I feel invisible online. People who need exac",
+            "text_sha256": "7bd1fee5ff52d2a95be82dda9758a0cf2cd3871113eab6bcd8365ca6534874bc",
+            "title": "Nice Right | Digital Growth Partner for Small Businesses",
+            "url": "https://niceright.co/"
+          }
+        ],
+        "domain": "niceright.co",
+        "public_endpoints": [
+          {
+            "bytes": 116,
+            "excerpt": "# *\nUser-agent: *\nAllow: /\n\n# Host\nHost: https://niceright.co\n\n# Sitemaps\nSitemap: https://niceright.co/sitemap.xml\n",
+            "final_url": "https://niceright.co/robots.txt",
+            "sha256": "5d814d48f960678c6dd424377c88527c890a58f174c051380e4652662e503b85",
+            "sitemap_directives": [
+              "https://niceright.co/sitemap.xml"
+            ],
+            "status": 200,
+            "url": "https://niceright.co/robots.txt"
+          },
+          {
+            "bytes": 5021,
+            "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" xmlns:mobile=\"http://www.google.com/schemas/sitemap-mobile/1.0\" xmlns:image=\"http://www.google.com/schemas/sitemap-image/1.1\" xmlns:video=\"http://www.google.com/schemas/sitemap-video/1.1\">\n<url><loc>https://niceright.co/blog/google-analytics-cross-domain/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/google-analytics-scroll-tracking/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/blockchain-art-economics/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/cost-of-acting-on-attention/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/ai-coding-uat-practitioners-guide/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/practice-is-the-moat/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</c",
+            "final_url": "https://niceright.co/sitemap.xml",
+            "lastmod_count": 28,
+            "loc_count": 28,
+            "sample_lastmods": [
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z"
+            ],
+            "sample_locs": [
+              "https://niceright.co/blog/google-analytics-cross-domain/",
+              "https://niceright.co/blog/google-analytics-scroll-tracking/",
+              "https://niceright.co/blog/blockchain-art-economics/",
+              "https://niceright.co/notes/cost-of-acting-on-attention/",
+              "https://niceright.co/notes/ai-coding-uat-practitioners-guide/",
+              "https://niceright.co/notes/practice-is-the-moat/",
+              "https://niceright.co/notes/multi-agent-qa-pipeline/",
+              "https://niceright.co/notes/cicd-pipeline-ai-coding/"
+            ],
+            "sha256": "16ced92997d8e1ea663d26b79ad9a71cab18ebeaae165bade571ce093d9d33b7",
+            "status": 200,
+            "url": "https://niceright.co/sitemap.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://niceright.co/sitemap_index.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://niceright.co/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "58034586d6a9f9a51df5bc2e968a96618daa1959346b856962e66bee8a864465",
+          "bytes": 104684,
+          "final_url": "https://niceright.co/",
+          "headings": [
+            {
+              "tag": "h2",
+              "text": "There are only four ways to grow a business."
+            },
+            {
+              "tag": "h3",
+              "text": "Get More Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Charge More"
+            },
+            {
+              "tag": "h3",
+              "text": "Keep Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut the Waste"
+            },
+            {
+              "tag": "h2",
+              "text": "Numbers from real projects"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut deal-closing time by 40%"
+            },
+            {
+              "tag": "h3",
+              "text": "Modernized a Fortune 500 web presence"
+            },
+            {
+              "tag": "h3",
+              "text": "Built a verified impact platform for conservation"
+            },
+            {
+              "tag": "h2",
+              "text": "What it's like working together"
+            },
+            {
+              "tag": "h2",
+              "text": "Three ways to work together."
+            },
+            {
+              "tag": "h3",
+              "text": "The Digital Foundation"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Experiment"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Partnership"
+            },
+            {
+              "tag": "h2",
+              "text": "Let's figure out what would work for your business"
+            },
+            {
+              "tag": "h3",
+              "text": "I'm Marcin."
+            }
+          ],
+          "link_count": 31,
+          "meta": {
+            "canonical": "https://niceright.co/",
+            "description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:title": "Nice Right | Digital Growth Partner for Small Businesses",
+            "og:url": "https://niceright.co/"
+          },
+          "sample_links": [
+            "#main-content",
+            "/",
+            "/#services",
+            "/#results",
+            "/studies",
+            "/notes",
+            "/#contact",
+            "#contact",
+            "/work/healthcare-real-estate",
+            "/work/northern-trust",
+            "/work/green-goods",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+          ],
+          "status": 200,
+          "text_excerpt": "Nice Right | Digital Growth Partner for Small Businesses Skip to main content Nice Right Services Results Studies Notes Book a Free Call Get found by people looking for you right now. For owners who already run a home service business. I build the digital side \u2014 so your phone and calendar do more of the selling. Get More Customers Charge More Keep Customers Cut the Waste 100+ projects \u00b7 13+ years \u00b7 Done-for-you Book Your Free Strategy Call 30 minutes. The Work \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps How Businesses Grow There are only four ways to grow a business. More customers. Bigger transactions. More repeat business. Less overhead. Every dollar of growth comes from one of these levers \u2014 and most businesses are stuck on one or two. Where are you stuck? 01 Get More Customers \u201c I feel invisible online. People who need exac",
+          "text_sha256": "7bd1fee5ff52d2a95be82dda9758a0cf2cd3871113eab6bcd8365ca6534874bc",
+          "title": "Nice Right | Digital Growth Partner for Small Businesses",
+          "url": "https://niceright.co/"
+        }
+      },
+      "project": "Nice Right",
+      "rdap": {
+        "final_url": "https://rdap.org/domain/niceright.co",
+        "http_status": 404,
+        "response_excerpt": "{\"rdapConformance\":[\"rdap_level_0\"],\"lang\":\"en\",\"errorCode\":404,\"title\":\"No RDAP service is available for this resource\"}",
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 0,
+          "capture_years": [],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=niceright.co%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [],
+          "status": "ok"
+        },
+        "root_captures": []
+      }
+    },
+    "taquerialapazchicago.com": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "136bcecfc79609c12c8fe881b19a189bc11620eccad445e1ef53ebb688ed9fdf",
+            "bytes": 169,
+            "final_url": "https://taquerialapazchicago.com/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {},
+            "sample_links": [],
+            "status": 202,
+            "text_excerpt": "",
+            "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "title": "",
+            "url": "https://taquerialapazchicago.com/"
+          }
+        ],
+        "domain": "taquerialapazchicago.com",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869268.434\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/robots.txt",
+            "sha256": "7d99cfa4c2f0df9698c603383f84a224b7f87823c101a2c20e688b07b02901b7",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869268.768\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "affd4ade494cad0c85ca0e36a4edaa449a66b9740d847bbf8d88bdd291b0a886",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869269.074\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "3195c78183a598068cb820688fac96fd7a68ae28b3810cde589aa01e8b257726",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869269.409\"></meta></head></html>",
+            "final_url": "https://taquerialapazchicago.com/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "8db12fc185081a925a56a04edfe0870830b5abd0c463dfad2462e1aaca05657d",
+            "status": 202,
+            "url": "https://taquerialapazchicago.com/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "136bcecfc79609c12c8fe881b19a189bc11620eccad445e1ef53ebb688ed9fdf",
+          "bytes": 169,
+          "final_url": "https://taquerialapazchicago.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://taquerialapazchicago.com/"
+        }
+      },
+      "project": "Taqueria La Paz",
+      "rdap": {
+        "events": [
+          {
+            "action": "registration",
+            "date": "2024-02-09T22:59:06Z"
+          },
+          {
+            "action": "expiration",
+            "date": "2027-02-09T22:59:06Z"
+          },
+          {
+            "action": "last changed",
+            "date": "2026-01-25T09:15:07Z"
+          },
+          {
+            "action": "last update of RDAP database",
+            "date": "2026-08-27T22:21:21Z"
+          }
+        ],
+        "final_url": "https://rdap.verisign.com/com/v1/domain/taquerialapazchicago.com",
+        "http_status": 200,
+        "name": "TAQUERIALAPAZCHICAGO.COM",
+        "status": "ok",
+        "status_values": [
+          "client transfer prohibited",
+          "client update prohibited"
+        ]
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 10,
+          "capture_years": [
+            "2024",
+            "2025",
+            "2026"
+          ],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=taquerialapazchicago.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [
+            {
+              "digest": "KP24LZ7PDUXTTI5CQLCBXNKDM2454QUS",
+              "length": "33029",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240427133354"
+            },
+            {
+              "digest": "MGASBIBIC7KHFHTBFECK5VBOBOQP2UWC",
+              "length": "40612",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240815025355"
+            },
+            {
+              "digest": "UZ3O3U72PALYAO3BL572F343T4AMP62R",
+              "length": "42832",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20241215011254"
+            },
+            {
+              "digest": "3BAT4BI5SF2MMCNQXEWR7GP3G5WO4UDQ",
+              "length": "32825",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20250327083554"
+            },
+            {
+              "digest": "67OYH7KL3GEQXISRGJPEJD2Y7TGC2FU6",
+              "length": "32989",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20251027121421"
+            },
+            {
+              "digest": "77RU7Q7XVS6LI24LM6F2JCF7TNZPEZAF",
+              "length": "48218",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20260215044138"
+            },
+            {
+              "digest": "HTPUXM7MU2OQ26LBDJ6KP5L45RP4534A",
+              "length": "6920",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/amp/",
+              "statuscode": "200",
+              "timestamp": "20251027125029"
+            },
+            {
+              "digest": "MGPA2MJIUYUBIETYUVQMEGYOH5EEUCQY",
+              "length": "9948",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/amp/",
+              "statuscode": "200",
+              "timestamp": "20260215044151"
+            },
+            {
+              "digest": "TZ5Y5I4GHK7YW3IOWX7AAI2LYHSHCLBG",
+              "length": "25272",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/contact-us/",
+              "statuscode": "200",
+              "timestamp": "20250327084308"
+            },
+            {
+              "digest": "QTRQ7MBWDLXGNJDIS54SW3ASEYDNAHGQ",
+              "length": "25326",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/contact-us/",
+              "statuscode": "200",
+              "timestamp": "20251027122712"
+            }
+          ],
+          "status": "ok"
+        },
+        "root_captures": [
+          {
+            "digest": "KP24LZ7PDUXTTI5CQLCBXNKDM2454QUS",
+            "length": "33029",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20240427133354"
+          },
+          {
+            "digest": "MGASBIBIC7KHFHTBFECK5VBOBOQP2UWC",
+            "length": "40612",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20240815025355"
+          },
+          {
+            "digest": "UZ3O3U72PALYAO3BL572F343T4AMP62R",
+            "length": "42832",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20241215011254"
+          },
+          {
+            "digest": "3BAT4BI5SF2MMCNQXEWR7GP3G5WO4UDQ",
+            "length": "32825",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20250327083554"
+          },
+          {
+            "digest": "67OYH7KL3GEQXISRGJPEJD2Y7TGC2FU6",
+            "length": "32989",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20251027121421"
+          },
+          {
+            "digest": "77RU7Q7XVS6LI24LM6F2JCF7TNZPEZAF",
+            "length": "48218",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20260215044138"
+          }
+        ]
+      }
+    },
+    "uxoxo.xyz": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "8794ab800d9a334d14a3f94102cf3b534006c6510401c49933d62e5a0328c492",
+            "bytes": 169,
+            "final_url": "https://uxoxo.xyz/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {},
+            "sample_links": [],
+            "status": 202,
+            "text_excerpt": "",
+            "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "title": "",
+            "url": "https://uxoxo.xyz/"
+          }
+        ],
+        "domain": "uxoxo.xyz",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869235.536\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/robots.txt",
+            "sha256": "baf1522a21dbca9789b364150ce2cbc52cd25dcfb3f1af0d2dd89a7efd9afc6f",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://uxoxo.xyz/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869235.869\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "2ad0ae32dd2636e8b1f013e5ee2e89a6767088db61b9c087b901e905cc06c184",
+            "status": 202,
+            "url": "https://uxoxo.xyz/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869236.120\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "0d6a760e5a7c2dfd9fb6bb87f39fb83c44fc8d0d27c02030a84ea2f3ff53cee8",
+            "status": 202,
+            "url": "https://uxoxo.xyz/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869236.426\"></meta></head></html>",
+            "final_url": "https://uxoxo.xyz/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "a8adeef110f57e849232acdc015ac7eccd3a3f6840b47dad57591b86df835ae0",
+            "status": 202,
+            "url": "https://uxoxo.xyz/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "8794ab800d9a334d14a3f94102cf3b534006c6510401c49933d62e5a0328c492",
+          "bytes": 169,
+          "final_url": "https://uxoxo.xyz/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://uxoxo.xyz/"
+        }
+      },
+      "project": "UXOXO",
+      "rdap": {
+        "events": [
+          {
+            "action": "registration",
+            "date": "2023-11-09T18:48:26.0Z"
+          },
+          {
+            "action": "expiration",
+            "date": "2026-11-09T23:59:59.0Z"
+          },
+          {
+            "action": "last update of RDAP database",
+            "date": "2026-08-27T22:20:37.0Z"
+          },
+          {
+            "action": "last changed",
+            "date": "2025-12-02T12:01:09.0Z"
+          }
+        ],
+        "final_url": "https://rdap.centralnic.com/xyz/domain/uxoxo.xyz",
+        "http_status": 200,
+        "name": "uxoxo.xyz",
+        "status": "ok",
+        "status_values": [
+          "client transfer prohibited"
+        ]
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 12,
+          "capture_years": [
+            "2024",
+            "2025"
+          ],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=uxoxo.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [
+            {
+              "digest": "OW74B52OVJIM6LW3ZDLBHD4UNZ3QIL4C",
+              "length": "17608",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240109174843"
+            },
+            {
+              "digest": "DDGSP2SDBER32BCYCYGRLJATCVIJBGFT",
+              "length": "31880",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240508223938"
+            },
+            {
+              "digest": "KUTTK5DSE7TCTKGJ66MX3XU46TLEBP63",
+              "length": "18869",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523022440"
+            },
+            {
+              "digest": "B62UZP5YXVISKE6QVIXQ63AQZ33EOLLR",
+              "length": "18900",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523041444"
+            },
+            {
+              "digest": "UQFK3GJYKOXYGSHSBOEAJOBPCT5IX34A",
+              "length": "21938",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905151529"
+            },
+            {
+              "digest": "UXIBLBGSSSW2GDZ7T5SRBD5434QJZ77X",
+              "length": "21933",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905160127"
+            },
+            {
+              "digest": "5VMOORBMY2222QKN5NOTIKFZNL5ZNGIZ",
+              "length": "12849",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240909192833"
+            },
+            {
+              "digest": "FOZE2FJTNN2M4RTRZ7BLCI3YUQ2TQX4V",
+              "length": "13172",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20241115100049"
+            },
+            {
+              "digest": "6U5QORBQJNAM7MDMNABNH5FDBI3R33KK",
+              "length": "25937",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250302113946"
+            },
+            {
+              "digest": "ICGBHEEDUS4OCQUCJI4KO7ZDFU24B5IY",
+              "length": "25957",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250304114157"
+            },
+            {
+              "digest": "4GLLMZGZQQPMAHQ7HQOZNMXPT3CO4OPY",
+              "length": "9654",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/category/blog/",
+              "statuscode": "200",
+              "timestamp": "20240523023252"
+            },
+            {
+              "digest": "XLYN3BGI5NPII6NUCKIAH3ZRCBNVL7DE",
+              "length": "9669",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/category/blog/",
+              "statuscode": "200",
+              "timestamp": "20240523053424"
+            }
+          ],
+          "status": "ok"
+        },
+        "root_captures": [
+          {
+            "digest": "OW74B52OVJIM6LW3ZDLBHD4UNZ3QIL4C",
+            "length": "17608",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240109174843"
+          },
+          {
+            "digest": "DDGSP2SDBER32BCYCYGRLJATCVIJBGFT",
+            "length": "31880",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240508223938"
+          },
+          {
+            "digest": "KUTTK5DSE7TCTKGJ66MX3XU46TLEBP63",
+            "length": "18869",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240523022440"
+          },
+          {
+            "digest": "B62UZP5YXVISKE6QVIXQ63AQZ33EOLLR",
+            "length": "18900",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240523041444"
+          },
+          {
+            "digest": "UQFK3GJYKOXYGSHSBOEAJOBPCT5IX34A",
+            "length": "21938",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240905151529"
+          },
+          {
+            "digest": "UXIBLBGSSSW2GDZ7T5SRBD5434QJZ77X",
+            "length": "21933",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240905160127"
+          },
+          {
+            "digest": "5VMOORBMY2222QKN5NOTIKFZNL5ZNGIZ",
+            "length": "12849",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240909192833"
+          },
+          {
+            "digest": "FOZE2FJTNN2M4RTRZ7BLCI3YUQ2TQX4V",
+            "length": "13172",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20241115100049"
+          },
+          {
+            "digest": "6U5QORBQJNAM7MDMNABNH5FDBI3R33KK",
+            "length": "25937",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20250302113946"
+          },
+          {
+            "digest": "ICGBHEEDUS4OCQUCJI4KO7ZDFU24B5IY",
+            "length": "25957",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20250304114157"
+          }
+        ]
+      }
+    },
+    "uxoxox.xyz": {
+      "current": {
+        "attempts": [
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/",
+            "status": 0,
+            "url": "https://uxoxox.xyz/"
+          },
+          {
+            "bytes": null,
+            "final_url": "http://uxoxox.xyz/",
+            "status": 0,
+            "url": "http://uxoxox.xyz/"
+          }
+        ],
+        "domain": "uxoxox.xyz",
+        "public_endpoints": [
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/robots.txt",
+            "status": 0,
+            "url": "https://uxoxox.xyz/robots.txt"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/sitemap.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/sitemap.xml"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/sitemap_index.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/sitemap_index.xml"
+          },
+          {
+            "bytes": null,
+            "final_url": "https://uxoxox.xyz/wp-sitemap.xml",
+            "status": 0,
+            "url": "https://uxoxox.xyz/wp-sitemap.xml"
+          }
+        ]
+      },
+      "project": "Exact spelling check",
+      "rdap": {
+        "final_url": "https://rdap.centralnic.com/xyz/domain/uxoxox.xyz",
+        "http_status": 404,
+        "response_excerpt": "{\"rdapConformance\":[\"icann_rdap_response_profile_1\",\"icann_rdap_technical_implementation_guide_1\",\"rdap_level_0\"],\"lang\":\"en\",\"objectClassName\":\"error\",\"notices\":[{\"title\":\"Status Codes\",\"description\":[\"For more information on domain status codes, please visit https:\\/\\/icann.org\\/epp\"],\"links\":[{\"t",
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 0,
+          "capture_years": [],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=uxoxox.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [],
+          "status": "ok"
+        },
+        "root_captures": []
+      }
+    },
+    "www.dummyreader.com": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "7b6d18814ae1440cb4c2aea19eeab193bfd83951f6d9db4cd91179b8d4a54002",
+            "bytes": 59982,
+            "final_url": "https://dummyreader.com/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {
+              "canonical": "https://dummyreader.com",
+              "description": "AI transforms entire books into modern audiobooks. Upload old literature, dense papers, or foreign texts \u2014 hear them read back clearly. From $1.50/book.",
+              "og:description": "AI transforms entire books into modern, clear audiobooks. Upload old literature, foreign texts, or dense papers \u2014 hear them read back perfectly.",
+              "og:title": "Any book. Any language. Rewritten for your ears.",
+              "og:url": "https://dummyreader.com"
+            },
+            "sample_links": [],
+            "status": 200,
+            "text_excerpt": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+            "text_sha256": "e92037defcf2fabe17980ce2f23b42e1ffc33a43f96b7dfd0d7979b94a9f3675",
+            "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+            "url": "https://www.dummyreader.com/"
+          }
+        ],
+        "domain": "www.dummyreader.com",
+        "public_endpoints": [
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "sitemap_directives": [],
+            "status": 200,
+            "url": "https://www.dummyreader.com/robots.txt"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://www.dummyreader.com/sitemap.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://www.dummyreader.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 31379,
+            "excerpt": "<!DOCTYPE html><!--RBW47kOL2dnNYO_5BJPk4--><html lang=\"en\" class=\"inter_31011fd-module__jtyeTG__variable fraunces_76caedf2-module__rBFFUa__variable\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, viewport-fit=cover\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/83afe278b6a6bb3c-s.p.3a6ba036.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/f09f1e5369ac4c93-s.p.4d6ff478.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/87cf1e55e1a970eb.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/bd98b6592f523056.css\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/chunks/28ecdffcb64ee4fb.css\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/691d640dd1298ee5.js\"/><script src=\"/_next/static/chunks/3a8d56a421c7d20b.js\" async=\"\"></script><script src=\"/_next/static/chunks/370d8a13ab0e40e9.js\" async=\"\"></script><script src=\"/_next/static/chunks/11fe018d7d0805f3.js\" async=\"\"></script><script src=\"/_next/static/chunks/4a0898171cb5614f.js\" async=\"\"></script><script src=\"/_next/static/chunks/turbopack-a82e668c138bc928.js\" async=\"\"></script><script src=\"/_next/static/chunks/67065d82eac7",
+            "final_url": "https://dummyreader.com/waitlist",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "262b00848a296f89b728d2907df644ef43753931ad20643240355cbc0c22bd47",
+            "status": 200,
+            "url": "https://www.dummyreader.com/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "7b6d18814ae1440cb4c2aea19eeab193bfd83951f6d9db4cd91179b8d4a54002",
+          "bytes": 59982,
+          "final_url": "https://dummyreader.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {
+            "canonical": "https://dummyreader.com",
+            "description": "AI transforms entire books into modern audiobooks. Upload old literature, dense papers, or foreign texts \u2014 hear them read back clearly. From $1.50/book.",
+            "og:description": "AI transforms entire books into modern, clear audiobooks. Upload old literature, foreign texts, or dense papers \u2014 hear them read back perfectly.",
+            "og:title": "Any book. Any language. Rewritten for your ears.",
+            "og:url": "https://dummyreader.com"
+          },
+          "sample_links": [],
+          "status": 200,
+          "text_excerpt": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "text_sha256": "e92037defcf2fabe17980ce2f23b42e1ffc33a43f96b7dfd0d7979b94a9f3675",
+          "title": "Dummy Reader \u2014 Any book, any language, rewritten for you.",
+          "url": "https://www.dummyreader.com/"
+        }
+      },
+      "project": "Dummy Reader",
+      "rdap": {
+        "final_url": "https://rdap.verisign.com/com/v1/domain/www.dummyreader.com",
+        "http_status": 404,
+        "response_excerpt": null,
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 0,
+          "capture_years": [],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=www.dummyreader.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [],
+          "status": "ok"
+        },
+        "root_captures": []
+      }
+    },
+    "www.niceright.co": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "58034586d6a9f9a51df5bc2e968a96618daa1959346b856962e66bee8a864465",
+            "bytes": 104684,
+            "final_url": "https://niceright.co/",
+            "headings": [
+              {
+                "tag": "h2",
+                "text": "There are only four ways to grow a business."
+              },
+              {
+                "tag": "h3",
+                "text": "Get More Customers"
+              },
+              {
+                "tag": "h3",
+                "text": "Charge More"
+              },
+              {
+                "tag": "h3",
+                "text": "Keep Customers"
+              },
+              {
+                "tag": "h3",
+                "text": "Cut the Waste"
+              },
+              {
+                "tag": "h2",
+                "text": "Numbers from real projects"
+              },
+              {
+                "tag": "h3",
+                "text": "Cut deal-closing time by 40%"
+              },
+              {
+                "tag": "h3",
+                "text": "Modernized a Fortune 500 web presence"
+              },
+              {
+                "tag": "h3",
+                "text": "Built a verified impact platform for conservation"
+              },
+              {
+                "tag": "h2",
+                "text": "What it's like working together"
+              },
+              {
+                "tag": "h2",
+                "text": "Three ways to work together."
+              },
+              {
+                "tag": "h3",
+                "text": "The Digital Foundation"
+              },
+              {
+                "tag": "h3",
+                "text": "The Growth Experiment"
+              },
+              {
+                "tag": "h3",
+                "text": "The Growth Partnership"
+              },
+              {
+                "tag": "h2",
+                "text": "Let's figure out what would work for your business"
+              },
+              {
+                "tag": "h3",
+                "text": "I'm Marcin."
+              }
+            ],
+            "link_count": 31,
+            "meta": {
+              "canonical": "https://niceright.co/",
+              "description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+              "og:description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+              "og:title": "Nice Right | Digital Growth Partner for Small Businesses",
+              "og:url": "https://niceright.co/"
+            },
+            "sample_links": [
+              "#main-content",
+              "/",
+              "/#services",
+              "/#results",
+              "/studies",
+              "/notes",
+              "/#contact",
+              "#contact",
+              "/work/healthcare-real-estate",
+              "/work/northern-trust",
+              "/work/green-goods",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+              "https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+            ],
+            "status": 200,
+            "text_excerpt": "Nice Right | Digital Growth Partner for Small Businesses Skip to main content Nice Right Services Results Studies Notes Book a Free Call Get found by people looking for you right now. For owners who already run a home service business. I build the digital side \u2014 so your phone and calendar do more of the selling. Get More Customers Charge More Keep Customers Cut the Waste 100+ projects \u00b7 13+ years \u00b7 Done-for-you Book Your Free Strategy Call 30 minutes. The Work \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps How Businesses Grow There are only four ways to grow a business. More customers. Bigger transactions. More repeat business. Less overhead. Every dollar of growth comes from one of these levers \u2014 and most businesses are stuck on one or two. Where are you stuck? 01 Get More Customers \u201c I feel invisible online. People who need exac",
+            "text_sha256": "7bd1fee5ff52d2a95be82dda9758a0cf2cd3871113eab6bcd8365ca6534874bc",
+            "title": "Nice Right | Digital Growth Partner for Small Businesses",
+            "url": "https://www.niceright.co/"
+          }
+        ],
+        "domain": "www.niceright.co",
+        "public_endpoints": [
+          {
+            "bytes": 116,
+            "excerpt": "# *\nUser-agent: *\nAllow: /\n\n# Host\nHost: https://niceright.co\n\n# Sitemaps\nSitemap: https://niceright.co/sitemap.xml\n",
+            "final_url": "https://niceright.co/robots.txt",
+            "sha256": "5d814d48f960678c6dd424377c88527c890a58f174c051380e4652662e503b85",
+            "sitemap_directives": [
+              "https://niceright.co/sitemap.xml"
+            ],
+            "status": 200,
+            "url": "https://www.niceright.co/robots.txt"
+          },
+          {
+            "bytes": 5021,
+            "excerpt": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:news=\"http://www.google.com/schemas/sitemap-news/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\" xmlns:mobile=\"http://www.google.com/schemas/sitemap-mobile/1.0\" xmlns:image=\"http://www.google.com/schemas/sitemap-image/1.1\" xmlns:video=\"http://www.google.com/schemas/sitemap-video/1.1\">\n<url><loc>https://niceright.co/blog/google-analytics-cross-domain/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/google-analytics-scroll-tracking/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/blog/blockchain-art-economics/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/cost-of-acting-on-attention/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/ai-coding-uat-practitioners-guide/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>\n<url><loc>https://niceright.co/notes/practice-is-the-moat/</loc><lastmod>2026-08-26T14:12:36.273Z</lastmod><changefreq>daily</c",
+            "final_url": "https://niceright.co/sitemap.xml",
+            "lastmod_count": 28,
+            "loc_count": 28,
+            "sample_lastmods": [
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z",
+              "2026-08-26T14:12:36.273Z"
+            ],
+            "sample_locs": [
+              "https://niceright.co/blog/google-analytics-cross-domain/",
+              "https://niceright.co/blog/google-analytics-scroll-tracking/",
+              "https://niceright.co/blog/blockchain-art-economics/",
+              "https://niceright.co/notes/cost-of-acting-on-attention/",
+              "https://niceright.co/notes/ai-coding-uat-practitioners-guide/",
+              "https://niceright.co/notes/practice-is-the-moat/",
+              "https://niceright.co/notes/multi-agent-qa-pipeline/",
+              "https://niceright.co/notes/cicd-pipeline-ai-coding/"
+            ],
+            "sha256": "16ced92997d8e1ea663d26b79ad9a71cab18ebeaae165bade571ce093d9d33b7",
+            "status": 200,
+            "url": "https://www.niceright.co/sitemap.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://www.niceright.co/sitemap_index.xml"
+          },
+          {
+            "bytes": 24059,
+            "excerpt": "<!DOCTYPE html><html lang=\"en\" class=\"__variable_f367f3 __variable_bbcc58\"><head><meta charSet=\"utf-8\"/><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/><link rel=\"preload\" href=\"/_next/static/media/9cc5b37ab1350db7.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e4af272ccee01ff0-s.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"preload\" href=\"/_next/static/media/e6099e249fd938cc.p.woff2\" as=\"font\" crossorigin=\"\" type=\"font/woff2\"/><link rel=\"stylesheet\" href=\"/_next/static/css/aadd03deba720036.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"stylesheet\" href=\"/_next/static/css/16083c294dba3fa9.css\" crossorigin=\"\" data-precedence=\"next\"/><link rel=\"preload\" as=\"script\" fetchPriority=\"low\" href=\"/_next/static/chunks/webpack-0af254f9b1a8d137.js\" crossorigin=\"\"/><script src=\"/_next/static/chunks/fd9d1056-55e8cca577ba762a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/8069-b211f84a2708a670.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/main-app-110a24efb98f8f2a.js\" async=\"\" crossorigin=\"\"></script><script src=\"/_next/static/chunks/c15bf2b0-d655bd5d551e8c35.js\" async=\"\"></script><script src=\"/_next/static/chunks/3696-74bc09579791d91d.js\" async=\"\"></script><script src=\"/_next/static/chunks/4992-537336174dacbac6.js\" async=\"\"></script><script src=",
+            "final_url": "https://niceright.co/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "32ea7196e8dbe9d0ea9ebeea52b206a3139a111e18ef7af66c1184df62760010",
+            "status": 404,
+            "url": "https://www.niceright.co/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "58034586d6a9f9a51df5bc2e968a96618daa1959346b856962e66bee8a864465",
+          "bytes": 104684,
+          "final_url": "https://niceright.co/",
+          "headings": [
+            {
+              "tag": "h2",
+              "text": "There are only four ways to grow a business."
+            },
+            {
+              "tag": "h3",
+              "text": "Get More Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Charge More"
+            },
+            {
+              "tag": "h3",
+              "text": "Keep Customers"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut the Waste"
+            },
+            {
+              "tag": "h2",
+              "text": "Numbers from real projects"
+            },
+            {
+              "tag": "h3",
+              "text": "Cut deal-closing time by 40%"
+            },
+            {
+              "tag": "h3",
+              "text": "Modernized a Fortune 500 web presence"
+            },
+            {
+              "tag": "h3",
+              "text": "Built a verified impact platform for conservation"
+            },
+            {
+              "tag": "h2",
+              "text": "What it's like working together"
+            },
+            {
+              "tag": "h2",
+              "text": "Three ways to work together."
+            },
+            {
+              "tag": "h3",
+              "text": "The Digital Foundation"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Experiment"
+            },
+            {
+              "tag": "h3",
+              "text": "The Growth Partnership"
+            },
+            {
+              "tag": "h2",
+              "text": "Let's figure out what would work for your business"
+            },
+            {
+              "tag": "h3",
+              "text": "I'm Marcin."
+            }
+          ],
+          "link_count": 31,
+          "meta": {
+            "canonical": "https://niceright.co/",
+            "description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:description": "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+            "og:title": "Nice Right | Digital Growth Partner for Small Businesses",
+            "og:url": "https://niceright.co/"
+          },
+          "sample_links": [
+            "#main-content",
+            "/",
+            "/#services",
+            "/#results",
+            "/studies",
+            "/notes",
+            "/#contact",
+            "#contact",
+            "/work/healthcare-real-estate",
+            "/work/northern-trust",
+            "/work/green-goods",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/",
+            "https://www.linkedin.com/in/mklaudiusz/details/recommendations/"
+          ],
+          "status": 200,
+          "text_excerpt": "Nice Right | Digital Growth Partner for Small Businesses Skip to main content Nice Right Services Results Studies Notes Book a Free Call Get found by people looking for you right now. For owners who already run a home service business. I build the digital side \u2014 so your phone and calendar do more of the selling. Get More Customers Charge More Keep Customers Cut the Waste 100+ projects \u00b7 13+ years \u00b7 Done-for-you Book Your Free Strategy Call 30 minutes. The Work \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps \u00b7 Conversion-Optimized Websites \u00b7 Custom Web Applications \u00b7 AI Chatbots \u00b7 LLM Integrations \u00b7 Workflow Automation \u00b7 SEO That Works \u00b7 Google Business Optimization \u00b7 Landing Pages \u00b7 E-commerce Solutions \u00b7 Customer Portals \u00b7 Email Automation \u00b7 Smart Forms \u00b7 Analytics Dashboards \u00b7 Internal Tools \u00b7 API Integrations \u00b7 Proof-of-Concept Apps How Businesses Grow There are only four ways to grow a business. More customers. Bigger transactions. More repeat business. Less overhead. Every dollar of growth comes from one of these levers \u2014 and most businesses are stuck on one or two. Where are you stuck? 01 Get More Customers \u201c I feel invisible online. People who need exac",
+          "text_sha256": "7bd1fee5ff52d2a95be82dda9758a0cf2cd3871113eab6bcd8365ca6534874bc",
+          "title": "Nice Right | Digital Growth Partner for Small Businesses",
+          "url": "https://www.niceright.co/"
+        }
+      },
+      "project": "Nice Right",
+      "rdap": {
+        "final_url": "https://rdap.org/domain/www.niceright.co",
+        "http_status": 404,
+        "response_excerpt": "{\"rdapConformance\":[\"rdap_level_0\"],\"lang\":\"en\",\"errorCode\":404,\"title\":\"No RDAP service is available for this resource\"}",
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 0,
+          "capture_years": [],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=www.niceright.co%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [],
+          "status": "ok"
+        },
+        "root_captures": []
+      }
+    },
+    "www.taquerialapazchicago.com": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "737ed8c470238a22d04266df7fe8759b3304254054f13b8001f9abb09167632b",
+            "bytes": 169,
+            "final_url": "https://www.taquerialapazchicago.com/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {},
+            "sample_links": [],
+            "status": 202,
+            "text_excerpt": "",
+            "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "title": "",
+            "url": "https://www.taquerialapazchicago.com/"
+          }
+        ],
+        "domain": "www.taquerialapazchicago.com",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869297.822\"></meta></head></html>",
+            "final_url": "https://www.taquerialapazchicago.com/robots.txt",
+            "sha256": "571c743ad9e348f43bb6a9b25cfa60a919ad6a309c95a98fb6fa5c035040f02c",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://www.taquerialapazchicago.com/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869298.113\"></meta></head></html>",
+            "final_url": "https://www.taquerialapazchicago.com/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "08665a1ea70bed3ee32d2a90bb3fe0e5725b18ddecb88f938cf4f60430aa9898",
+            "status": 202,
+            "url": "https://www.taquerialapazchicago.com/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869298.518\"></meta></head></html>",
+            "final_url": "https://www.taquerialapazchicago.com/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "081301fd1dffbb0d5a32c33ef33049bbb657b8d55a8237d840e08d9a5a998ce9",
+            "status": 202,
+            "url": "https://www.taquerialapazchicago.com/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869298.842\"></meta></head></html>",
+            "final_url": "https://www.taquerialapazchicago.com/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "2bdb8cabe307a445b505dd8aa102f0db60f3fc81e770b51fecc84fc8f006cfff",
+            "status": 202,
+            "url": "https://www.taquerialapazchicago.com/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "737ed8c470238a22d04266df7fe8759b3304254054f13b8001f9abb09167632b",
+          "bytes": 169,
+          "final_url": "https://www.taquerialapazchicago.com/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://www.taquerialapazchicago.com/"
+        }
+      },
+      "project": "Taqueria La Paz",
+      "rdap": {
+        "final_url": "https://rdap.verisign.com/com/v1/domain/www.taquerialapazchicago.com",
+        "http_status": 404,
+        "response_excerpt": null,
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 10,
+          "capture_years": [
+            "2024",
+            "2025",
+            "2026"
+          ],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=www.taquerialapazchicago.com%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [
+            {
+              "digest": "KP24LZ7PDUXTTI5CQLCBXNKDM2454QUS",
+              "length": "33029",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240427133354"
+            },
+            {
+              "digest": "MGASBIBIC7KHFHTBFECK5VBOBOQP2UWC",
+              "length": "40612",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20240815025355"
+            },
+            {
+              "digest": "UZ3O3U72PALYAO3BL572F343T4AMP62R",
+              "length": "42832",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20241215011254"
+            },
+            {
+              "digest": "3BAT4BI5SF2MMCNQXEWR7GP3G5WO4UDQ",
+              "length": "32825",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20250327083554"
+            },
+            {
+              "digest": "67OYH7KL3GEQXISRGJPEJD2Y7TGC2FU6",
+              "length": "32989",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20251027121421"
+            },
+            {
+              "digest": "77RU7Q7XVS6LI24LM6F2JCF7TNZPEZAF",
+              "length": "48218",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/",
+              "statuscode": "200",
+              "timestamp": "20260215044138"
+            },
+            {
+              "digest": "HTPUXM7MU2OQ26LBDJ6KP5L45RP4534A",
+              "length": "6920",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/amp/",
+              "statuscode": "200",
+              "timestamp": "20251027125029"
+            },
+            {
+              "digest": "MGPA2MJIUYUBIETYUVQMEGYOH5EEUCQY",
+              "length": "9948",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/amp/",
+              "statuscode": "200",
+              "timestamp": "20260215044151"
+            },
+            {
+              "digest": "TZ5Y5I4GHK7YW3IOWX7AAI2LYHSHCLBG",
+              "length": "25272",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/contact-us/",
+              "statuscode": "200",
+              "timestamp": "20250327084308"
+            },
+            {
+              "digest": "QTRQ7MBWDLXGNJDIS54SW3ASEYDNAHGQ",
+              "length": "25326",
+              "mimetype": "text/html",
+              "original": "https://taquerialapazchicago.com/contact-us/",
+              "statuscode": "200",
+              "timestamp": "20251027122712"
+            }
+          ],
+          "status": "ok"
+        },
+        "root_captures": [
+          {
+            "digest": "KP24LZ7PDUXTTI5CQLCBXNKDM2454QUS",
+            "length": "33029",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20240427133354"
+          },
+          {
+            "digest": "MGASBIBIC7KHFHTBFECK5VBOBOQP2UWC",
+            "length": "40612",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20240815025355"
+          },
+          {
+            "digest": "UZ3O3U72PALYAO3BL572F343T4AMP62R",
+            "length": "42832",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20241215011254"
+          },
+          {
+            "digest": "3BAT4BI5SF2MMCNQXEWR7GP3G5WO4UDQ",
+            "length": "32825",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20250327083554"
+          },
+          {
+            "digest": "67OYH7KL3GEQXISRGJPEJD2Y7TGC2FU6",
+            "length": "32989",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20251027121421"
+          },
+          {
+            "digest": "77RU7Q7XVS6LI24LM6F2JCF7TNZPEZAF",
+            "length": "48218",
+            "mimetype": "text/html",
+            "original": "https://taquerialapazchicago.com/",
+            "statuscode": "200",
+            "timestamp": "20260215044138"
+          }
+        ]
+      }
+    },
+    "www.uxoxo.xyz": {
+      "current": {
+        "attempts": [
+          {
+            "body_sha256": "da69f9b1c5bba20c87370149ee518cc5baa57aad38538d4420c53b793e175a2f",
+            "bytes": 169,
+            "final_url": "https://www.uxoxo.xyz/",
+            "headings": [],
+            "link_count": 0,
+            "meta": {},
+            "sample_links": [],
+            "status": 202,
+            "text_excerpt": "",
+            "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "title": "",
+            "url": "https://www.uxoxo.xyz/"
+          }
+        ],
+        "domain": "www.uxoxo.xyz",
+        "public_endpoints": [
+          {
+            "bytes": 179,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipc:187.14.238.172:1787869263.637\"></meta></head></html>",
+            "final_url": "https://www.uxoxo.xyz/robots.txt",
+            "sha256": "af2d2a1bd90269dddeb818eff6594d3e69ab428471041bb4eceee69dc3e39bf0",
+            "sitemap_directives": [],
+            "status": 202,
+            "url": "https://www.uxoxo.xyz/robots.txt"
+          },
+          {
+            "bytes": 180,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap.xml&y=ipc:187.14.238.172:1787869263.891\"></meta></head></html>",
+            "final_url": "https://www.uxoxo.xyz/sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "ae4f14088508602fae0427c5a241d912166a0b2e455e687a28b0b4abbf38d3b8",
+            "status": 202,
+            "url": "https://www.uxoxo.xyz/sitemap.xml"
+          },
+          {
+            "bytes": 186,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fsitemap_index.xml&y=ipc:187.14.238.172:1787869264.145\"></meta></head></html>",
+            "final_url": "https://www.uxoxo.xyz/sitemap_index.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "f9583e48be20c245902c0e791c445460fc5f503cdc33d7a15ba4ad49ee1d2ff5",
+            "status": 202,
+            "url": "https://www.uxoxo.xyz/sitemap_index.xml"
+          },
+          {
+            "bytes": 183,
+            "excerpt": "<html><head><link rel=\"icon\" href=\"data:;\"><meta http-equiv=\"refresh\" content=\"0;/.well-known/sgcaptcha/?r=%2Fwp-sitemap.xml&y=ipc:187.14.238.172:1787869264.475\"></meta></head></html>",
+            "final_url": "https://www.uxoxo.xyz/wp-sitemap.xml",
+            "lastmod_count": 0,
+            "loc_count": 0,
+            "sample_lastmods": [],
+            "sample_locs": [],
+            "sha256": "133d78bc44249494f0a804c33472089d084ddba9e8f1ad5197f6e03563fafc30",
+            "status": 202,
+            "url": "https://www.uxoxo.xyz/wp-sitemap.xml"
+          }
+        ],
+        "selected": {
+          "body_sha256": "da69f9b1c5bba20c87370149ee518cc5baa57aad38538d4420c53b793e175a2f",
+          "bytes": 169,
+          "final_url": "https://www.uxoxo.xyz/",
+          "headings": [],
+          "link_count": 0,
+          "meta": {},
+          "sample_links": [],
+          "status": 202,
+          "text_excerpt": "",
+          "text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "title": "",
+          "url": "https://www.uxoxo.xyz/"
+        }
+      },
+      "project": "UXOXO",
+      "rdap": {
+        "final_url": "https://rdap.centralnic.com/xyz/domain/www.uxoxo.xyz",
+        "http_status": 404,
+        "response_excerpt": "{\"rdapConformance\":[\"icann_rdap_response_profile_1\",\"icann_rdap_technical_implementation_guide_1\",\"rdap_level_0\"],\"lang\":\"en\",\"objectClassName\":\"error\",\"notices\":[{\"title\":\"Status Codes\",\"description\":[\"For more information on domain status codes, please visit https:\\/\\/icann.org\\/epp\"],\"links\":[{\"t",
+        "status": "not_found_or_error"
+      },
+      "wayback": {
+        "cdx": {
+          "capture_count": 12,
+          "capture_years": [
+            "2024",
+            "2025"
+          ],
+          "http_status": 200,
+          "request_url": "https://web.archive.org/cdx/search/cdx?url=www.uxoxo.xyz%2F%2A&output=json&filter=statuscode%3A200&filter=mimetype%3Atext%2Fhtml&collapse=digest&from=2010&to=2026&fl=timestamp%2Coriginal%2Cstatuscode%2Cmimetype%2Cdigest%2Clength&limit=2000",
+          "rows": [
+            {
+              "digest": "OW74B52OVJIM6LW3ZDLBHD4UNZ3QIL4C",
+              "length": "17608",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240109174843"
+            },
+            {
+              "digest": "DDGSP2SDBER32BCYCYGRLJATCVIJBGFT",
+              "length": "31880",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240508223938"
+            },
+            {
+              "digest": "KUTTK5DSE7TCTKGJ66MX3XU46TLEBP63",
+              "length": "18869",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523022440"
+            },
+            {
+              "digest": "B62UZP5YXVISKE6QVIXQ63AQZ33EOLLR",
+              "length": "18900",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240523041444"
+            },
+            {
+              "digest": "UQFK3GJYKOXYGSHSBOEAJOBPCT5IX34A",
+              "length": "21938",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905151529"
+            },
+            {
+              "digest": "UXIBLBGSSSW2GDZ7T5SRBD5434QJZ77X",
+              "length": "21933",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240905160127"
+            },
+            {
+              "digest": "5VMOORBMY2222QKN5NOTIKFZNL5ZNGIZ",
+              "length": "12849",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20240909192833"
+            },
+            {
+              "digest": "FOZE2FJTNN2M4RTRZ7BLCI3YUQ2TQX4V",
+              "length": "13172",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20241115100049"
+            },
+            {
+              "digest": "6U5QORBQJNAM7MDMNABNH5FDBI3R33KK",
+              "length": "25937",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250302113946"
+            },
+            {
+              "digest": "ICGBHEEDUS4OCQUCJI4KO7ZDFU24B5IY",
+              "length": "25957",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/",
+              "statuscode": "200",
+              "timestamp": "20250304114157"
+            },
+            {
+              "digest": "4GLLMZGZQQPMAHQ7HQOZNMXPT3CO4OPY",
+              "length": "9654",
+              "mimetype": "text/html",
+              "original": "http://uxoxo.xyz/category/blog/",
+              "statuscode": "200",
+              "timestamp": "20240523023252"
+            },
+            {
+              "digest": "XLYN3BGI5NPII6NUCKIAH3ZRCBNVL7DE",
+              "length": "9669",
+              "mimetype": "text/html",
+              "original": "https://uxoxo.xyz/category/blog/",
+              "statuscode": "200",
+              "timestamp": "20240523053424"
+            }
+          ],
+          "status": "ok"
+        },
+        "root_captures": [
+          {
+            "digest": "OW74B52OVJIM6LW3ZDLBHD4UNZ3QIL4C",
+            "length": "17608",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240109174843"
+          },
+          {
+            "digest": "DDGSP2SDBER32BCYCYGRLJATCVIJBGFT",
+            "length": "31880",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240508223938"
+          },
+          {
+            "digest": "KUTTK5DSE7TCTKGJ66MX3XU46TLEBP63",
+            "length": "18869",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240523022440"
+          },
+          {
+            "digest": "B62UZP5YXVISKE6QVIXQ63AQZ33EOLLR",
+            "length": "18900",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240523041444"
+          },
+          {
+            "digest": "UQFK3GJYKOXYGSHSBOEAJOBPCT5IX34A",
+            "length": "21938",
+            "mimetype": "text/html",
+            "original": "http://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240905151529"
+          },
+          {
+            "digest": "UXIBLBGSSSW2GDZ7T5SRBD5434QJZ77X",
+            "length": "21933",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240905160127"
+          },
+          {
+            "digest": "5VMOORBMY2222QKN5NOTIKFZNL5ZNGIZ",
+            "length": "12849",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20240909192833"
+          },
+          {
+            "digest": "FOZE2FJTNN2M4RTRZ7BLCI3YUQ2TQX4V",
+            "length": "13172",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20241115100049"
+          },
+          {
+            "digest": "6U5QORBQJNAM7MDMNABNH5FDBI3R33KK",
+            "length": "25937",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20250302113946"
+          },
+          {
+            "digest": "ICGBHEEDUS4OCQUCJI4KO7ZDFU24B5IY",
+            "length": "25957",
+            "mimetype": "text/html",
+            "original": "https://uxoxo.xyz/",
+            "statuscode": "200",
+            "timestamp": "20250304114157"
+          }
+        ]
+      }
+    }
+  },
+  "notes": [
+    "Wayback CDX is queried as an inventory; replay fetches are deferred when the service rate-limits this IP.",
+    "RDAP dates are registration lower bounds, not work-start dates.",
+    "Empty archive results do not prove a domain never existed."
+  ],
+  "projects": {
+    "Dummy Reader": {
+      "domain_variants": [
+        "dummyreader.com",
+        "www.dummyreader.com"
+      ]
+    },
+    "Exact spelling check": {
+      "domain_variants": [
+        "uxoxox.xyz"
+      ]
+    },
+    "Nice Right": {
+      "domain_variants": [
+        "niceright.co",
+        "www.niceright.co"
+      ]
+    },
+    "Taqueria La Paz": {
+      "domain_variants": [
+        "taquerialapazchicago.com",
+        "www.taquerialapazchicago.com"
+      ]
+    },
+    "UXOXO": {
+      "domain_variants": [
+        "uxoxo.xyz",
+        "www.uxoxo.xyz"
+      ]
+    }
+  },
+  "pulled_at": "2026-08-27T17:19:06"
+}

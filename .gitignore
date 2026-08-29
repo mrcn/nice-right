@@ -12,6 +12,10 @@
 .swarm/
 .hive/
 .sisyphus/
+
+# Local agent/session state and throwaway research captures
+/.pi/
+/tmp/
 .claude/agents/
 .claude/commands/
 .claude/skills/
