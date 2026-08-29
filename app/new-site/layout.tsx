@@ -34,6 +34,7 @@ export const metadata: Metadata = {
       'Your customers are looking for you right now. I help small businesses get found online.',
     type: 'website',
   },
+  robots: { index: false, follow: false },
 };
 
 export default function RootLayout({
