@@ -104,6 +104,6 @@ Head: same font/preconnect setup as V1.
 ## Done summary
 Created the V2 Trust-First stacked ContactSection demo. The bio panel appears before the full-width call stub, with a 280x360 photo, centered heading, direct contact cards below, responsive stacking, keyboard focus, and reduced-motion fallback.
 ## Evidence
-- Commits: dc2f1f2da3727f5aae9d0b1787ad96d59fee5610
-- Tests: served http://127.0.0.1:8766/contact-demo-1.html and contact-demo-2.html, V1/V2 photo asset checks, V2 structural order, responsive, focus, hover, reduced-motion acceptance checks, npm run build (73 application routes)
-- PRs:
+- Commits: d457bc1ce5d8ef5ed76d14b55c83da95697bb759
+- Tests: served contact-demo-1.html and contact-demo-2.html, V1/V2 photo and noindex checks, V2 structure, responsive, focus, hover, reduced-motion, and sitemap checks, npm run build (73 application routes)
+- PRs: #38

@@ -99,8 +99,8 @@ Head: same font/preconnect setup as V1. **This file works at `file://`** — no 
 - [ ] 840px max-width feels focused, not wide
 - [ ] Section has 120px top/bottom padding
 ## Done summary
-Created `public/contact-demo-3.html` — a Minimal/Focused contact section variant with no photo or bio panel, a centered Instrument Serif heading, a full-width teal-bordered cal-stub (500px tall), and plain text contact links. Works at `file://` with no image dependencies.
+Created the V3 Minimal/Focused ContactSection demo. It removes photo, biography, stats, and card treatment so the centered heading, focused call stub, and plain contact links carry the hypothesis; the page works from file:// and respects noindex, focus, and reduced-motion safeguards.
 ## Evidence
-- Commits: f17eeec577ee15eeef4cbb18dafd0ebf705950ba
-- Tests:
+- Commits: 8d6736421717a42de95197e275003c797e8bd01d
+- Tests: served contact-demo-1.html, contact-demo-2.html, and contact-demo-3.html, V3 file:// asset and no-photo/no-bio/no-card checks, all demo noindex and sitemap checks, npm run build (73 application routes), npm test (41 tests)
 - PRs:
