@@ -34,8 +34,8 @@ Reference: `silverthreadlabs/bloggen-seo-starter` CSP pattern (covers GA4 + Cal.
 - [ ] securityheaders.com rates the site A (or document specific B-grade items as accepted tradeoffs)
 - [ ] `npm run build` succeeds
 ## Done summary
-Removed nested <html>/<head>/<body> tags from 8 landing page layouts, replacing each with a `<>{children}</>` fragment. All metadata and viewport exports preserved for App Router merging.
+Added security headers and CSP in PR #12.
 ## Evidence
-- Commits: b666064c0cbc2c95ba7834adb0121bbff290a0d8
-- Tests: npm run build, npm test
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28

@@ -45,8 +45,8 @@ Discovery + measurement (R5/R6) and remaining docs (R7). No `tool_calculator_use
 - [ ] `npm test` and `npm run lint` pass
 
 ## Done summary
-Promoted /scan from Nav, Hero secondary, Services, and Footer (primary #contact intact). Added tool_scan_submit, tool_email_capture, tool_report_cta_click with domain-only/no-PII params; updated analytics-event-map, llms.txt, lead-gen-tools-plan (scanner-first, calculators deferred, Mailchimp, Turnstile-on-POSTs). next-sitemap does not exclude /scan; Playwright promo path extended. npm test 35 passed; lint shows only pre-existing new-site warnings/errors.
+Recorded the shipped scan promotion, analytics, and documentation updates from PR #27.
 ## Evidence
-- Commits: HEAD
-- Tests: vitest 35 passed
-- PRs:
+- Commits: 25bd83ec701ff21b62565afd7826ae2a0b4aefd7
+- Tests: npm test, npm run build, live scanner smoke verification
+- PRs: #27

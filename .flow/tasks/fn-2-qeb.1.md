@@ -1,3 +1,7 @@
+# fn-2-qeb.1 Nav solid prop + work layout shell
+## Description
+Extract shared v9 tokens and add the solid navigation and work-layout shell.
+
 ## Goal
 Extract v9 CSS tokens to shared file; add Nav solid prop with correct anchor links; create work layout shell.
 
@@ -76,8 +80,8 @@ This covers the body background bleed from root `app/layout.tsx` which sets `#fa
 - [ ] No TypeScript errors
 
 ## Done summary
-- Task completed
+Implemented and merged the v9 navigation and work-layout shell in PR #8.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 2620730b94c36625438a57e38ecf7e96512429a0, 5d33235e2a1791fb060b2b95be77441d5d4055dd
+- Tests: npm test, npm run build
+- PRs: #8, #30

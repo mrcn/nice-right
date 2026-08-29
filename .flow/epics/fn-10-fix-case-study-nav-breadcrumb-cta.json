@@ -12,7 +12,7 @@
   "plan_review_status": "unknown",
   "plan_reviewed_at": null,
   "spec_path": ".flow/specs/fn-10-fix-case-study-nav-breadcrumb-cta.md",
-  "status": "open",
+  "status": "done",
   "title": "Fix case-study nav + breadcrumb, CTA, visual hierarchy",
-  "updated_at": "2026-04-10T15:42:07.957755Z"
+  "updated_at": "2026-08-29T20:50:49.899879Z"
 }

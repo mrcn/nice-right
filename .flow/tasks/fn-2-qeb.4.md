@@ -1,3 +1,7 @@
+# fn-2-qeb.4 CSS cleanup and old system removal
+## Description
+Remove orphaned work CSS files and run the final work-page smoke test.
+
 ## Goal
 Delete orphaned old CSS files and verify no references remain. Final smoke test.
 
@@ -32,8 +36,8 @@ After tasks 2+3 remove all these imports, this grep should return empty.
 - [ ] `app/page.css` untouched
 
 ## Done summary
-- Task completed
+Merged the old work CSS cleanup in PR #8; the remaining FAQ section-label styling was recovered in PR #30.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 2620730b94c36625438a57e38ecf7e96512429a0, 5d33235e2a1791fb060b2b95be77441d5d4055dd
+- Tests: npm test, npm run build
+- PRs: #8, #30

@@ -38,8 +38,8 @@ Four homepage components lack ARIA: `Pricing.tsx`, `Services.tsx`, `Proof.tsx`, 
 - [ ] `npm run build` succeeds
 - [ ] Does NOT touch: Hero.tsx, ServicesCarousel.tsx, Testimonials.tsx, FAQ.tsx (fn-2-gfq territory)
 ## Done summary
-Added ARIA labels to Pricing, Services, Proof, and Footer components, implemented Tab/Escape focus trap for Nav mobile menu, and added vitest-axe automated accessibility tests for Footer and Nav components.
+Implemented the homepage accessibility sweep and automated axe coverage in PR #12.
 ## Evidence
-- Commits: 5faa2cbc757b02994715316577c31e6fa5ec9279
-- Tests: npm test
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28

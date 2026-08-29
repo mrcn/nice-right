@@ -49,8 +49,8 @@ Create two new shared components (`Breadcrumb` and `CaseCTA`) and wire them into
 - [ ] `npm run lint` passes
 - [ ] CTA copy confirmed by user (Q5 resolved) before merging
 ## Done summary
-- Task completed
+Implemented Breadcrumb and CaseCTA in PR #17.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 16282f5, 892b48b, df4439b
+- Tests: npm test, npm run build
+- PRs: #17, #18, #19

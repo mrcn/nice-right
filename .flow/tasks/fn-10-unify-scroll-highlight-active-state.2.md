@@ -96,8 +96,8 @@ Update the Active State Indicators and ScrollSpy sections from "NONE" to impleme
 - [ ] `npm run build` succeeds
 - [ ] Visually: dimmed tiers return to full opacity after scrolling fully past the Pricing section in both directions
 ## Done summary
-Removed `once: true` class leak from Pricing.tsx section ScrollTrigger, added onLeave/onLeaveBack callbacks to clean up highlight + active-tier classes; replaced hardcoded CSS values with --v9-highlight-* tokens; updated brand-guidelines.md and interaction-design-analysis.md to document the implemented pattern.
+Fixed Pricing class leakage and adopted shared tokens in PR #14.
 ## Evidence
-- Commits: 2534a994b960d5cb645bbd2762c247552e32d847
-- Tests: npm run build, npx tsc --noEmit (pre-existing errors only), npm test (4 tests passed)
-- PRs:
+- Commits: a37bd96c1cd1bc8cabf0bcb86bafb52027961bad
+- Tests: npm test, npm run build
+- PRs: #14

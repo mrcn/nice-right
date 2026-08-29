@@ -1,3 +1,7 @@
+# fn-2-qeb.2 Work index page reskin to v9
+## Description
+Rewrite the work index page as the v9 full-bleed list layout.
+
 ## Goal
 Rewrite work index page to v9 — full-bleed vertical list layout. Remove old CSS import atomically.
 
@@ -72,8 +76,8 @@ Full-bleed vertical list (not grid). Each item is a wide horizontal strip on des
 - [ ] `export const metadata` title/description unchanged
 
 ## Done summary
-- Task completed
+Implemented and merged the v9 work index reskin in PR #8.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 2620730b94c36625438a57e38ecf7e96512429a0, 5d33235e2a1791fb060b2b95be77441d5d4055dd
+- Tests: npm test, npm run build
+- PRs: #8, #30

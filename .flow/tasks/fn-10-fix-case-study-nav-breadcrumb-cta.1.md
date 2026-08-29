@@ -30,8 +30,8 @@ Add a `.v9-nav--solid-dark` CSS variant and a `variant` prop to `Nav.tsx` so the
 - [ ] `npm run build` passes
 - [ ] `npm run lint` passes
 ## Done summary
-- Task completed
+Implemented the dark work-page navigation variant in PR #17.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 16282f5, 892b48b, df4439b
+- Tests: npm test, npm run build
+- PRs: #17, #18, #19

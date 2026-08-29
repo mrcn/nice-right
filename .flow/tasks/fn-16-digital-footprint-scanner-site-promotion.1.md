@@ -47,20 +47,8 @@ Unblock `/api/*` by leaving production static export and proving Route Handlers 
 - [x] `npm run lint` passes on touched files
 
 ## Done summary
-Left production static export for Route Handlers (R1 + partial R7).
-
-- Removed `output: 'export'` and `distDir`; sitemap now writes to `public/`
-- Removed vercel.json `outputDirectory`; CSP allowlists challenges.cloudflare.com
-- Added `GET /api/health` (`force-dynamic`); kept `images.unoptimized: true`
-- Added `.env.example` (PSI, Turnstile, Resend, DataForSEO, Upstash, Mailchimp)
-- README documents serverful deploy + env; eslint ignoreDuringBuilds for pre-existing lint debt
-- Playwright: disambiguated CTA selectors, WebKit-safe waits, retries=2
-
-Proof: `npm run build` + `next start` → `curl -sfL http://127.0.0.1:3000/api/health` 200.
-Playwright `npx playwright test --workers=1`: 12 passed (3 flaky via retries).
-Gap: no Vercel preview URL in this worktree — local `next start` is the proof stand-in.
+Recorded the shipped static-export and environment/CSP scaffold from PR #27.
 ## Evidence
-- Commits: c48d872, 454d2db
-- Tests: npm test, npx next lint --file app/api/health/route.ts --file next.config.js --file next-sitemap.config.js --file e2e/conversion-path.spec.ts, npx playwright test --workers=1, curl -sfL http://127.0.0.1:3000/api/health
-- PRs:
-stage: plan-sync - ran [no-drift; downstream .2-.5 unchanged] (model: session)
+- Commits: 25bd83ec701ff21b62565afd7826ae2a0b4aefd7
+- Tests: npm test, npm run build, live scanner smoke verification
+- PRs: #27

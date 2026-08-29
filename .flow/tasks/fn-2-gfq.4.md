@@ -147,8 +147,8 @@ Repo-scout confirmed `.v9-case-img img` already has `width: 100%; height: 100%; 
 - [ ] ServicesCarousel still animates normally without reduced-motion or pause
 - [ ] `npm run build` passes
 ## Done summary
-Raised all sub-0.75rem font-size values to 0.75rem in Services.tsx, Pricing.tsx, and Proof.tsx. Pure CSS value changes only — 9 violations fixed across 3 files.
+Implemented responsive layout and carousel behavior fixes in PRs #9 and #10.
 ## Evidence
-- Commits: cbe2c80bd4e4241614b99556f07f942dd0fd9b11
-- Tests: npm run build
-- PRs:
+- Commits: 2c37916f2820f80e801f5d7c0bfec25b767a9d2e, 2012fc0cb9be75b4f6deedb58c76585edc6c307d
+- Tests: npm test, npm run build, axe accessibility tests
+- PRs: #9, #10

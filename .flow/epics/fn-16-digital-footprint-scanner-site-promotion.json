@@ -14,7 +14,7 @@
   "plan_review_status": "ship",
   "plan_reviewed_at": "2026-08-21T19:38:53.503265Z",
   "spec_path": ".flow/specs/fn-16-digital-footprint-scanner-site-promotion.md",
-  "status": "open",
+  "status": "done",
   "title": "Digital Footprint Scanner + Site Promotion",
   "tracker": {
     "baseHashFlow": null,
@@ -27,5 +27,5 @@
     "mergeBaseTracker": null,
     "url": null
   },
-  "updated_at": "2026-08-21T19:38:53.504452Z"
+  "updated_at": "2026-08-29T20:48:46.946869Z"
 }

@@ -44,8 +44,8 @@ Public `/scan` experience (R3 + R4 UI): free snapshot score/headlines, email gat
 - [ ] `npm test`, lint, and relevant Playwright spec pass
 
 ## Done summary
-Built /scan UI: form (URL+name+city), free score+findings, loading/timeout UX, shared Turnstile reset on every scan+email submit, email gate POST /api/lead with {email,turnstileToken,scanId,marketingConsent}, aria-live status/alerts, buildSeoMetadata (indexable). Playwright e2e/scan.spec.ts happy path + reset-on-retry (mocked APIs); unit tests for error-map.
+Recorded the shipped scan-page UI, email gate, accessibility, and report flow from PR #27.
 ## Evidence
-- Commits:
-- Tests: npm test, npx playwright test e2e/scan.spec.ts --project=chromium --retries=0
-- PRs:
+- Commits: 25bd83ec701ff21b62565afd7826ae2a0b4aefd7
+- Tests: npm test, npm run build, live scanner smoke verification
+- PRs: #27

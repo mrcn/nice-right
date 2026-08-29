@@ -40,8 +40,8 @@ export const metadata: Metadata = {
 - [ ] Duplicate `<meta name="viewport">` JSX removed from `app/layout.tsx`
 - [ ] `npm run build` succeeds (postbuild completes without error)
 ## Done summary
-Added SEO foundations: next-sitemap generates robots.txt and sitemap.xml on build, root layout gains metadataBase/openGraph/twitter metadata, and all 8 landing page layouts get robots noindex/nofollow to keep them out of search.
+Added robots, sitemap, canonical, and metadata foundations in PRs #12 and #28.
 ## Evidence
-- Commits: c070147d9b181db473d2e0167d8c0a370d8e1dd8
-- Tests: npm run build (54 static pages, postbuild next-sitemap generated dist/robots.txt + dist/sitemap.xml), vitest run (2/2 passed)
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28
