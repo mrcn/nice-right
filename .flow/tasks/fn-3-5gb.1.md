@@ -110,8 +110,8 @@ Right col — bio + contacts:
 - [ ] Stacks correctly ≤900px with bio above cal-stub
 - [ ] Section has 120px top/bottom padding
 ## Done summary
-Created the V1 Side-by-Side ContactSection demo. It shows the calendar stub and constrained bio at once, with direct contact cards, vivid palette candidates, responsive stacking, keyboard focus, hover feedback, and reduced-motion fallback.
+Created the V1 Side-by-Side ContactSection demo. It shows the call stub and constrained bio at once, with direct contact cards, vivid palette candidates, responsive stacking, keyboard focus, hover feedback, and reduced-motion fallback.
 ## Evidence
-- Commits: b26f1cb5a3ed4c87ef23905982f9aa794555161c
+- Commits: 1113c9cf6553a1897e0d665e7a0ce4d097cbb530
 - Tests: served http://127.0.0.1:8766/contact-demo-1.html, served image asset check, V1 structural, responsive, focus, hover, reduced-motion acceptance checks
-- PRs:
+- PRs: #37
