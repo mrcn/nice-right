@@ -19,9 +19,8 @@ Make the AI/crawler orientation files match the public Nice Right business and c
 - [ ] Sitemap still excludes noindex/staging/legacy aliases.
 
 ## Done summary
-The Nice Right-first crawler orientation is planned and will be completed after public metadata coverage.
-
+The crawler orientation file is Nice Right-first, lists canonical public pages and offers, and explicitly excludes lab, landing, legacy writing, and staging paths from canonical search interpretation.
 ## Evidence
-- Commits:
-- Tests:
+- Commits: 19e2c0c60025bd17e249b2e0761b636effce8e35
+- Tests: llms.txt static policy audit: Nice Right-first, canonical public links, explicit noncanonical paths
 - PRs:
