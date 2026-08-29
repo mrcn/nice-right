@@ -85,7 +85,7 @@ export default function Services() {
             Find Out What Would Work for You
           </a>
           <p className="mt-4 text-sm" style={{ color: 'var(--nr-text-dim)' }}>
-            Not sure which of these you need? That\'s what the Growth Audit
+            Not sure which of these you need? That&apos;s what the Growth Audit
             answers.
           </p>
         </div>

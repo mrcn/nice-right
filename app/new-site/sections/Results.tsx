@@ -88,7 +88,7 @@ export default function Results() {
 
         <div className="text-center">
           <a href="#contact" className="nr-btn nr-btn-accent">
-            See What\'s Possible for Your Business
+            See What&apos;s Possible for Your Business
           </a>
           <p className="mt-4 text-sm" style={{ color: 'var(--nr-text-dim)' }}>
             Every project on this page started with a single conversation.
