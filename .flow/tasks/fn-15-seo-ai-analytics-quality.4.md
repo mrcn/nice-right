@@ -25,9 +25,8 @@ Keep analytics instrumentation unchanged unless a real break is found; document 
 - [ ] Post-deploy live audit verifies metadata/schema/llms/sitemap/analytics basics.
 
 ## Done summary
-Analytics documentation and verification are planned and will be completed after crawler artifacts.
-
+Analytics instrumentation remains intact and documented. A live Playwright probe observed the GA4 loader, a 204 collection response, section_view, scroll_depth, and pricing_view events, plus UTM persistence; the live metadata audit covered public and private routes, sitemap exclusions, llms.txt, and JSON-LD.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 19e2c0c60025bd17e249b2e0761b636effce8e35, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm run build (73 routes), npm test (41 tests), live analytics smoke: GA collect 204, dataLayer section_view/scroll_depth/pricing_view, UTM persistence, live metadata audit: 20 production pages, sitemap and llms policy pass
+- PRs: #33, #34
