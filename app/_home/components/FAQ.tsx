@@ -215,9 +215,20 @@ export function FAQ() {
           padding: 0 28px;
         }
 
+        .v9-section-label {
+          display: block;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.7rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: #0B8A6E;
+          margin: 0 0 14px;
+        }
+
         .v9-faq-header {
           text-align: center;
-          margin-bottom: 56px;
+          margin-bottom: 48px;
         }
 
         .v9-faq-heading {
