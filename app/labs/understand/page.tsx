@@ -352,7 +352,7 @@ export default function UnderstandPage() {
             <div className="u-pillars-grid" style={{ marginTop: 40 }}>
               <a className="u-pillar" href="/labs/understand/examples/aesop-fables-retold-audio/" data-understand-event="understand_example_clicked" data-understand-label="aesop" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div className="u-pillar-icon">♪</div>
-                <h3 className="u-pillar-h3"><em>Aesop's Fables</em> retold for listening.</h3>
+                <h3 className="u-pillar-h3"><em>Aesop&apos;s Fables</em> retold for listening.</h3>
                 <p>Five public-domain fables with original text, clearer retellings, what changed, what stayed close, and audio ready to play.</p>
               </a>
               <div className="u-pillar">

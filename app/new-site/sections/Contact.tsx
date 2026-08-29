@@ -4,7 +4,7 @@ export default function Contact() {
       <div className="nr-container">
         <div className="text-center mb-12">
           <h2 className="mb-4">
-            Let's figure out what would work for your business
+            Let&apos;s figure out what would work for your business
           </h2>
           <p className="text-lg" style={{ color: 'var(--nr-text-muted)' }}>
             30 minutes. No pitch, no pressure — just an honest conversation.

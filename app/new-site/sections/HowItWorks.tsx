@@ -27,7 +27,7 @@ export default function HowItWorks() {
           <p className="nr-section-label">How It Works</p>
           <h2 className="mb-4">Simple process. Real results.</h2>
           <p className="text-lg" style={{ color: 'var(--nr-text-muted)' }}>
-            No jargon, no mystery. Here\'s what working together looks like.
+            No jargon, no mystery. Here&apos;s what working together looks like.
           </p>
         </div>
 

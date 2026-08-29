@@ -4,7 +4,7 @@ export default function About() {
       <div className="nr-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="order-2 lg:order-1">
-            <h2 className="mb-6">Hi, I'm Marcin.</h2>
+            <h2 className="mb-6">Hi, I&apos;m Marcin.</h2>
 
             <div
               className="space-y-4"
@@ -31,7 +31,7 @@ export default function About() {
                 No account managers. No juniors learning on your dime. When you
                 hire Nice Right, you work directly with me — the same person who
                 designed micro-interactions for Northern Trust and built a
-                restaurant's entire web presence over a weekend.
+                restaurant&apos;s entire web presence over a weekend.
               </p>
             </div>
 

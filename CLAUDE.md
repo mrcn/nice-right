@@ -54,6 +54,18 @@ npm run lint
 - ALWAYS run tests after making code changes
 - ALWAYS verify build succeeds before committing
 
+## Research report standard
+
+- Run the `unslop` pass before sharing any report. Remove generic filler, promotional language, unexplained jargon, curly quotes, em-dash-heavy prose, and title-case headings. Keep a human voice, short sentences, and specific verbs.
+- Run `python3 scripts/research/report_quality_check.py` before sharing the research report set. Treat a failed check as a blocker, not a cosmetic warning.
+- Treat every number as a claim. Include its source, property/site ID, date range, calculation, and limitation next to it.
+- Never turn a GA4 channel label into a campaign-owner claim. Check source, medium, campaign, referrer, traffic quality, and operator separately.
+- Label comparisons as descriptive lift, matched-season movement, or causal/incremental lift. Do not call a change causal without an intervention date, a control/comparison series, and a validated business outcome.
+- Keep duplicate or migrated analytics properties separate. Do not sum them for a stronger headline.
+- Include negative findings and data-quality warnings. A polished artifact is not evidence by itself.
+- For screenshots, record the browser/source, timestamp or archive URL, response state, and whether the image is current or historical.
+- Before delivery, validate JSON, source links, screenshot loads, rendered/PDF overflow, share links, and secret leakage.
+
 ## Security Rules
 
 - NEVER hardcode API keys, secrets, or credentials in source files

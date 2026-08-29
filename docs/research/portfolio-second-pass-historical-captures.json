@@ -1,0 +1,65 @@
+{
+  "captured_at": "2026-08-27T17:31:45",
+  "results": [
+    {
+      "key": "uxoxo-2024-01-09-wayback",
+      "archive_url": "https://web.archive.org/web/20240109174843/http://uxoxo.xyz/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20240109174843/http://uxoxo.xyz/",
+      "summary": "200 image/png 1420331",
+      "stderr": "",
+      "bytes": 1420331,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2024-01-09-wayback.png"
+    },
+    {
+      "key": "uxoxo-2025-03-04-wayback",
+      "archive_url": "https://web.archive.org/web/20250304114157/https://uxoxo.xyz/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20250304114157/https://uxoxo.xyz/",
+      "summary": "200 image/png 932526",
+      "stderr": "",
+      "bytes": 932526,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/uxoxo-2025-03-04-wayback.png"
+    },
+    {
+      "key": "taqueria-2024-04-27-wayback",
+      "archive_url": "https://web.archive.org/web/20240427133354/https://taquerialapazchicago.com/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20240427133354/https://taquerialapazchicago.com/",
+      "summary": "200 image/png 168210",
+      "stderr": "",
+      "bytes": 168210,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-04-27-wayback.png"
+    },
+    {
+      "key": "taqueria-2024-12-15-wayback",
+      "archive_url": "https://web.archive.org/web/20241215011254/https://taquerialapazchicago.com/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20241215011254/https://taquerialapazchicago.com/",
+      "summary": "200 image/png 352575",
+      "stderr": "",
+      "bytes": 352575,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2024-12-15-wayback.png"
+    },
+    {
+      "key": "taqueria-2025-03-27-contact-wayback",
+      "archive_url": "https://web.archive.org/web/20250327084308/https://taquerialapazchicago.com/contact-us/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20250327084308/https://taquerialapazchicago.com/contact-us/",
+      "summary": "200 image/png 379432",
+      "stderr": "",
+      "bytes": 379432,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2025-03-27-contact-wayback.png"
+    },
+    {
+      "key": "taqueria-2026-02-15-wayback",
+      "archive_url": "https://web.archive.org/web/20260215044138/https://taquerialapazchicago.com/",
+      "proxy_url": "https://image.thum.io/get/width/1440/crop/1600/noanimate/https://web.archive.org/web/20260215044138/https://taquerialapazchicago.com/",
+      "summary": "200 image/png 352567",
+      "stderr": "",
+      "bytes": 352567,
+      "is_png": true,
+      "path": "/Users/marcin/orca/nice-right/docs/research/second-pass-screenshots/taqueria-2026-02-15-wayback.png"
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "comparisons": {
+    "nice_right": {
+      "comparison": "First three reported months vs last three reported months",
+      "concentration": {
+        "august_sessions": 156,
+        "august_share_of_post_percent": 80.4,
+        "post_period_sessions": 194
+      },
+      "event_rates": {
+        "cta_click": {
+          "absolute_rate_lift_pp": 8.76,
+          "baseline_events": 0,
+          "baseline_rate_percent": 0.0,
+          "metric": "cta_click",
+          "post_events": 17,
+          "post_rate_percent": 8.76,
+          "relative_rate_lift_percent": null
+        },
+        "form_start": {
+          "absolute_rate_lift_pp": 8.76,
+          "baseline_events": 0,
+          "baseline_rate_percent": 0.0,
+          "metric": "form_start",
+          "post_events": 17,
+          "post_rate_percent": 8.76,
+          "relative_rate_lift_percent": null
+        },
+        "tool_scan_submit": {
+          "absolute_rate_lift_pp": 1.03,
+          "baseline_events": 0,
+          "baseline_rate_percent": 0.0,
+          "metric": "tool_scan_submit",
+          "post_events": 2,
+          "post_rate_percent": 1.03,
+          "relative_rate_lift_percent": null
+        }
+      },
+      "months": {
+        "baseline": [
+          "202603",
+          "202604",
+          "202605"
+        ],
+        "post": [
+          "202606",
+          "202607",
+          "202608"
+        ]
+      },
+      "organic_search_sessions": {
+        "absolute_monthly_lift": -1,
+        "baseline_median_month": 3,
+        "baseline_monthly_average": 2,
+        "baseline_months": [
+          "202603",
+          "202604",
+          "202605"
+        ],
+        "baseline_total": 6,
+        "median_relative_lift_percent": -66.7,
+        "metric": "sessions",
+        "post_median_month": 1,
+        "post_monthly_average": 1,
+        "post_months": [
+          "202606",
+          "202607",
+          "202608"
+        ],
+        "post_total": 3,
+        "relative_lift_percent": -50.0
+      },
+      "organic_share": {
+        "absolute_rate_lift_pp": -7.68,
+        "baseline_rate_percent": 9.23,
+        "metric": "Organic Search share",
+        "post_rate_percent": 1.55,
+        "relative_rate_lift_percent": -83.2
+      },
+      "sessions": {
+        "absolute_monthly_lift": 43,
+        "baseline_median_month": 14,
+        "baseline_monthly_average": 21.6667,
+        "baseline_months": [
+          "202603",
+          "202604",
+          "202605"
+        ],
+        "baseline_total": 65,
+        "median_relative_lift_percent": 121.4,
+        "metric": "sessions",
+        "post_median_month": 31,
+        "post_monthly_average": 64.6667,
+        "post_months": [
+          "202606",
+          "202607",
+          "202608"
+        ],
+        "post_total": 194,
+        "relative_lift_percent": 198.5
+      }
+    },
+    "taqueria_current": {
+      "comparison": "First two reported months vs last two reported months of current property",
+      "months": {
+        "baseline": [
+          "202604",
+          "202605"
+        ],
+        "post": [
+          "202607",
+          "202608"
+        ]
+      },
+      "organic_sessions": {
+        "absolute_monthly_lift": 4,
+        "baseline_median_month": 150,
+        "baseline_monthly_average": 150,
+        "baseline_months": [
+          "202604",
+          "202605"
+        ],
+        "baseline_total": 300,
+        "median_relative_lift_percent": 2.7,
+        "metric": "sessions",
+        "post_median_month": 154,
+        "post_monthly_average": 154,
+        "post_months": [
+          "202607",
+          "202608"
+        ],
+        "post_total": 308,
+        "relative_lift_percent": 2.7
+      },
+      "organic_share": {
+        "absolute_rate_lift_pp": 24.1,
+        "baseline_rate_percent": 49.59,
+        "metric": "Organic Search share",
+        "post_rate_percent": 73.68,
+        "relative_rate_lift_percent": 48.6
+      },
+      "sessions": {
+        "absolute_monthly_lift": -93.5,
+        "baseline_median_month": 302.5,
+        "baseline_monthly_average": 302.5,
+        "baseline_months": [
+          "202604",
+          "202605"
+        ],
+        "baseline_total": 605,
+        "median_relative_lift_percent": -30.9,
+        "metric": "sessions",
+        "post_median_month": 209,
+        "post_monthly_average": 209,
+        "post_months": [
+          "202607",
+          "202608"
+        ],
+        "post_total": 418,
+        "relative_lift_percent": -30.9
+      }
+    },
+    "taqueria_gsc": {
+      "full_retained_window": {
+        "clicks": 2576,
+        "end": "2026-08-27",
+        "impressions": 96795,
+        "start": "2025-04-15"
+      },
+      "matched_calendar_windows": {
+        "Apr-Aug": {
+          "absolute_click_lift": -22,
+          "absolute_ctr_lift_pp": -0.02,
+          "absolute_impression_lift": -758,
+          "baseline_clicks": 668,
+          "baseline_ctr_percent": 2.32,
+          "baseline_impressions": 28775,
+          "baseline_months": [
+            "2025-04",
+            "2025-05",
+            "2025-06",
+            "2025-07",
+            "2025-08"
+          ],
+          "post_clicks": 646,
+          "post_ctr_percent": 2.31,
+          "post_impressions": 28017,
+          "post_months": [
+            "2026-04",
+            "2026-05",
+            "2026-06",
+            "2026-07",
+            "2026-08"
+          ],
+          "relative_click_lift_percent": -3.3,
+          "relative_ctr_lift_percent": -0.7,
+          "relative_impression_lift_percent": -2.6
+        },
+        "Apr-Jun": {
+          "absolute_click_lift": 6,
+          "absolute_ctr_lift_pp": -0.11,
+          "absolute_impression_lift": 1096,
+          "baseline_clicks": 384,
+          "baseline_ctr_percent": 2.35,
+          "baseline_impressions": 16328,
+          "baseline_months": [
+            "2025-04",
+            "2025-05",
+            "2025-06"
+          ],
+          "post_clicks": 390,
+          "post_ctr_percent": 2.24,
+          "post_impressions": 17424,
+          "post_months": [
+            "2026-04",
+            "2026-05",
+            "2026-06"
+          ],
+          "relative_click_lift_percent": 1.6,
+          "relative_ctr_lift_percent": -4.8,
+          "relative_impression_lift_percent": 6.7
+        }
+      }
+    },
+    "taqueria_legacy": {
+      "comparison": "Same-property matched 12-month period: Apr 2024\u2013Mar 2025 vs Apr 2025\u2013Mar 2026",
+      "months": {
+        "baseline": [
+          "202404",
+          "202405",
+          "202406",
+          "202407",
+          "202408",
+          "202409",
+          "202410",
+          "202411",
+          "202412",
+          "202501",
+          "202502",
+          "202503"
+        ],
+        "post": [
+          "202504",
+          "202505",
+          "202506",
+          "202507",
+          "202508",
+          "202509",
+          "202510",
+          "202511",
+          "202512",
+          "202601",
+          "202602",
+          "202603"
+        ]
+      },
+      "organic_sessions": {
+        "absolute_monthly_lift": 150,
+        "baseline_median_month": 0,
+        "baseline_monthly_average": 46.4167,
+        "baseline_months": [
+          "202404",
+          "202405",
+          "202406",
+          "202407",
+          "202408",
+          "202409",
+          "202410",
+          "202411",
+          "202412",
+          "202501",
+          "202502",
+          "202503"
+        ],
+        "baseline_total": 557,
+        "median_relative_lift_percent": null,
+        "metric": "sessions",
+        "post_median_month": 184.5,
+        "post_monthly_average": 196.4167,
+        "post_months": [
+          "202504",
+          "202505",
+          "202506",
+          "202507",
+          "202508",
+          "202509",
+          "202510",
+          "202511",
+          "202512",
+          "202601",
+          "202602",
+          "202603"
+        ],
+        "post_total": 2357,
+        "relative_lift_percent": 323.2
+      },
+      "organic_share": {
+        "absolute_rate_lift_pp": 5.17,
+        "baseline_rate_percent": 44.56,
+        "metric": "Organic Search share",
+        "post_rate_percent": 49.73,
+        "relative_rate_lift_percent": 11.6
+      },
+      "quality_adjusted_sessions": {
+        "adjusted_post_sessions": 4166,
+        "adjusted_relative_lift_percent": 233.3,
+        "adjustment_note": "Subtracts the mutually exclusive Sailthru / email source row from the post period. This is a data-quality adjustment, not proof that every excluded session was automated or invalid.",
+        "baseline_sessions": 1250,
+        "excluded_sailthru_sessions": 574,
+        "raw_post_sessions": 4740,
+        "raw_relative_lift_percent": 279.2
+      },
+      "sailthru_attribution": {
+        "average_session_duration_seconds": 5.388966,
+        "bounce_rate_percent": 98.61,
+        "campaign": "20251022_Newsletter_Chicago",
+        "engaged_sessions": 8,
+        "engagement_rate_percent": 1.39,
+        "operator": "unknown",
+        "quality": "low",
+        "sessions": 574,
+        "source_medium": "Sailthru / email"
+      },
+      "sessions": {
+        "absolute_monthly_lift": 290.8333,
+        "baseline_median_month": 20.5,
+        "baseline_monthly_average": 104.1667,
+        "baseline_months": [
+          "202404",
+          "202405",
+          "202406",
+          "202407",
+          "202408",
+          "202409",
+          "202410",
+          "202411",
+          "202412",
+          "202501",
+          "202502",
+          "202503"
+        ],
+        "baseline_total": 1250,
+        "median_relative_lift_percent": 1470.7,
+        "metric": "sessions",
+        "post_median_month": 322,
+        "post_monthly_average": 395,
+        "post_months": [
+          "202504",
+          "202505",
+          "202506",
+          "202507",
+          "202508",
+          "202509",
+          "202510",
+          "202511",
+          "202512",
+          "202601",
+          "202602",
+          "202603"
+        ],
+        "post_total": 4740,
+        "relative_lift_percent": 279.2
+      }
+    }
+  },
+  "definition": {
+    "absolute_lift": "post minus baseline",
+    "causal_lift": "incremental change attributable to an intervention; not estimable from these connected properties without intervention dates and a control/comparison series",
+    "rate_lift_pp": "post rate minus baseline rate, in percentage points",
+    "relative_lift_percent": "(post minus baseline) divided by baseline"
+  },
+  "generated_at": "2026-08-29T11:45:28",
+  "interpretation": [
+    "Nice Right has a descriptive session lift (+198.5% in three-month average; +121.4% by monthly median), but August contributes 80.4% of post-period sessions and Organic Search share falls 7.7 percentage points. Treat it as a traffic pulse, not causal lift.",
+    "Taqueria legacy GA4 shows a raw +279.2% same-property year-over-year session change. After excluding the 574-session Sailthru / email row, the descriptive change is still +233.3% (1,250 to 4,166). The campaign operator is unknown, its traffic quality is poor, and neither number is causal lift.",
+    "Taqueria GSC matched Apr-Jun clicks are nearly flat (+1.6%) and matched Apr-Aug clicks are down 3.3%; the search data does not support a large year-over-year lift in the available comparable months.",
+    "Taqueria current-property GA4 shifts toward Organic Search (+24.1 percentage points in share) while equal two-month session averages fall 30.9%; mix improvement and volume lift are not the same thing."
+  ],
+  "not_estimable": {
+    "Dummy Reader": "No GA4 rows means no baseline/post comparison.",
+    "Nice Right_business_outcome": "GA4 form_start/cta_click events are not joined to booked calls, leads, or revenue.",
+    "UXOXO": "Two GA4 properties are separated by a measurement split; a single lift would falsely assume continuity.",
+    "difference_in_differences": "No untreated control site or randomized exposure series is connected."
+  },
+  "research_id": "nice-right-portfolio-second-pass-lift"
+}

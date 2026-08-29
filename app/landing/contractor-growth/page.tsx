@@ -102,7 +102,7 @@ export default function ContractorGrowthLanding() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-serif mb-6">
-              You're Losing{' '}
+              You&apos;re Losing{' '}
               <span className="text-red-400">$50K+ Every Month</span> to
               Competitors With Worse Reviews
             </h2>
@@ -130,7 +130,7 @@ export default function ContractorGrowthLanding() {
               </h3>
               <p className="text-gray-400">
                 Waiting for word-of-mouth is like waiting for lightning to
-                strike. You can't scale a business on hope.
+                strike. You can&apos;t scale a business on hope.
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export default function ContractorGrowthLanding() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Brutal Seasonality</h3>
               <p className="text-gray-400">
-                One slow month and you're dipping into savings. Your crew is
+                One slow month and you&apos;re dipping into savings. Your crew is
                 idle while competitors stay busy.
               </p>
             </div>
@@ -175,8 +175,8 @@ export default function ContractorGrowthLanding() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Price Shoppers</h3>
               <p className="text-gray-400">
-                When you do get leads, they're comparing you to the cheapest
-                option. You're competing on price, not value.
+                When you do get leads, they&apos;re comparing you to the cheapest
+                option. You&apos;re competing on price, not value.
               </p>
             </div>
           </div>
@@ -461,7 +461,7 @@ export default function ContractorGrowthLanding() {
           </h2>
 
           <p className="text-xl text-gray-400 mb-8">
-            Applications are reviewed within 24 hours. If we're a fit, you'll
+            Applications are reviewed within 24 hours. If we&apos;re a fit, you&apos;ll
             receive a detailed audit of your current market position and a
             roadmap to $500K+ in new revenue.
           </p>
@@ -489,7 +489,7 @@ export default function ContractorGrowthLanding() {
       {/* FOOTER */}
       <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
         <div className="max-w-4xl mx-auto text-center text-gray-500 text-sm">
-          <p>© 2026 Nice Right. Chicago's Northwest Side.</p>
+          <p>© 2026 Nice Right. Chicago&apos;s Northwest Side.</p>
           <p className="mt-2">
             Guarantees subject to qualification and contract terms.
           </p>

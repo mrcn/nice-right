@@ -12,7 +12,7 @@ export default function Footer() {
           <p className="text-sm opacity-80">
             © 2026 Nice Right. Digital growth for small businesses.
           </p>
-          <p className="text-sm opacity-60">Chicago's Northwest Side</p>
+          <p className="text-sm opacity-60">Chicago&apos;s Northwest Side</p>
         </div>
       </div>
     </footer>

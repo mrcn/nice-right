@@ -72,7 +72,7 @@ export default function Testimonials() {
                 className="font-serif italic text-lg"
                 style={{ color: 'var(--nr-text-muted)' }}
               >
-                "{t.quote}"
+                &quot;{t.quote}&quot;
               </p>
             </div>
           ))}
