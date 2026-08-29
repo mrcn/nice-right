@@ -7,7 +7,7 @@
   "plan_review_status": "unknown",
   "plan_reviewed_at": null,
   "spec_path": ".flow/specs/fn-7-hta.md",
-  "status": "open",
+  "status": "done",
   "title": "Mobile padding fix: green border overlaps text in Services + Pricing",
-  "updated_at": "2026-03-31T16:23:31.279684Z"
+  "updated_at": "2026-08-29T20:49:32.937194Z"
 }

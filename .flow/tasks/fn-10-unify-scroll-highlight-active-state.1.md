@@ -58,8 +58,8 @@ Note: `color-mix()` derives bg from the existing `--v9-accent` token. Do not har
 - [ ] `npm run build` succeeds
 - [ ] Visually: active Services column shows green bg tint; easing feels snappy (not spring)
 ## Done summary
-Added 5 --v9-highlight-* tokens to tokens.css :root block and updated Services.tsx scroll-highlight CSS to use them, replacing hardcoded opacity, pixel values, and hex colors with token references; background transition kept at 0.2s ease-out to prevent scrub flicker.
+Implemented shared scroll-highlight tokens and Services active-state unification in PR #14.
 ## Evidence
-- Commits: 168d4e7cd6c2d59dc20c771cdfd236bef508b09d
-- Tests: npx tsc --noEmit, npm test (vitest run — 4 tests passed)
-- PRs:
+- Commits: a37bd96c1cd1bc8cabf0bcb86bafb52027961bad
+- Tests: npm test, npm run build
+- PRs: #14

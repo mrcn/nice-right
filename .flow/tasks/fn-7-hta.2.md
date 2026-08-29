@@ -7,8 +7,8 @@ TBD
 - [ ] TBD
 
 ## Done summary
-- Task completed
+Implemented the mobile Pricing padding fix in the merged scroll-highlight work.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 8ed2efc, f822585
+- Tests: npm test, npm run build
+- PRs: #11

@@ -31,8 +31,8 @@
 - [ ] Hero pin does not jump on iOS Safari (test on real device or BrowserStack)
 - [ ] `prefers-reduced-motion: reduce` disables hero scroll animation (no movement)
 ## Done summary
-Created `app/_shared/gsap-init.ts` with `initGSAP()` that registers ScrollTrigger once globally, sets `ignoreMobileResize: true`, and calls `normalizeScroll(true)` on touch devices. Replaced `gsap.registerPlugin(ScrollTrigger)` in all 8 home components with the shared init, and added `anticipatePin: 1` to pinned ScrollTrigger instances in Hero.tsx and Services.tsx.
+Implemented shared GSAP initialization and iOS scroll handling in PR #12.
 ## Evidence
-- Commits: e66bf0cd8dc2d923b98a291401762260f94b0020
-- Tests: npm run build, npm test (vitest run — 2 tests passed)
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28

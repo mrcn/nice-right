@@ -38,8 +38,8 @@ That's the entire change. Do NOT activate a column or call `animateBullets` in `
 - [ ] TypeScript: no errors (`npx tsc --noEmit`)
 
 ## Done summary
-- Task completed
+Implemented the Services onEnterBack reverse-scroll fix in the merged scroll-highlight work.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: c0459b2
+- Tests: npm test, npm run build
+- PRs: #11

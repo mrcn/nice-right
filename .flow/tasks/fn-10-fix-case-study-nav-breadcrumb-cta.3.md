@@ -33,8 +33,8 @@ Improve the typographic hierarchy on case study header sections and update docum
 - [ ] `npm run build` passes
 - [ ] `npm run lint` passes
 ## Done summary
-- Task completed
+Completed case-study visual hierarchy and copy updates in PRs #18 and #19.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 16282f5, 892b48b, df4439b
+- Tests: npm test, npm run build
+- PRs: #17, #18, #19

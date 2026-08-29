@@ -1,3 +1,7 @@
+# fn-2-qeb.3 Case study pages reskin to v9
+## Description
+Reskin all three case-study pages to the v9 shell while preserving content.
+
 ## Goal
 Reskin all 3 case study pages to v9. Remove old CSS import atomically with markup rewrite. Preserve all content: text, images, YouTube iframes.
 
@@ -74,8 +78,8 @@ Reskin all 3 case study pages to v9. Remove old CSS import atomically with marku
 - [ ] No TypeScript errors
 
 ## Done summary
-- Task completed
+Implemented and merged the v9 case-study reskin in PR #8.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: 2620730b94c36625438a57e38ecf7e96512429a0, 5d33235e2a1791fb060b2b95be77441d5d4055dd
+- Tests: npm test, npm run build
+- PRs: #8, #30

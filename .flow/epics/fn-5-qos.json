@@ -7,7 +7,7 @@
   "plan_review_status": "unknown",
   "plan_reviewed_at": null,
   "spec_path": ".flow/specs/fn-5-qos.md",
-  "status": "open",
+  "status": "done",
   "title": "Fix Services.tsx missing onEnterBack \u2014 green highlight lost on reverse scroll",
-  "updated_at": "2026-03-31T14:02:15.790783Z"
+  "updated_at": "2026-08-29T20:49:18.223873Z"
 }

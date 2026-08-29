@@ -117,8 +117,8 @@ IMPORTANT: The file is `app/_home/page.css`, NOT `app/page.css` (different files
 - [ ] Hero dot separator aria-hidden or opacity ≥ 0.35
 - [ ] `npm run build` passes
 ## Done summary
-Raised all sub-0.75rem font-size values to 0.75rem in Services.tsx, Pricing.tsx, and Proof.tsx. Pure CSS value changes only — 9 violations fixed across 3 files.
+Implemented the Nav, Hero, and Footer accessibility fixes in PR #9.
 ## Evidence
-- Commits: a7191e545eeba2287d2bc47585f1a7852ceb46ab
-- Tests: npm run build
-- PRs:
+- Commits: 2c37916f2820f80e801f5d7c0bfec25b767a9d2e, 2012fc0cb9be75b4f6deedb58c76585edc6c307d
+- Tests: npm test, npm run build, axe accessibility tests
+- PRs: #9, #10

@@ -34,8 +34,8 @@ Two CSS line changes in `app/_home/components/Pricing.tsx`.
 - [ ] TypeScript: no errors (`npx tsc --noEmit`)
 
 ## Done summary
-- Task completed
+Implemented the Pricing column padding fix in the merged scroll-highlight work.
 ## Evidence
-- Commits:
-- Tests:
-- PRs:
+- Commits: f822585
+- Tests: npm test, npm run build
+- PRs: #11

@@ -30,8 +30,8 @@
 - [ ] Font CSS variables `--font-inter` and `--font-instrument-serif` computed on landing pages
 - [ ] HTML validator finds single `<html>` element per page
 ## Done summary
-Removed nested <html>/<head>/<body> tags from 8 landing page layouts, replacing each with a `<>{children}</>` fragment. All metadata and viewport exports preserved for App Router merging.
+Removed nested HTML structure from landing layouts in PR #12.
 ## Evidence
-- Commits: 6bfa00c46450901ea3ff4232a3dea915daa9b112
-- Tests: npm run build
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28

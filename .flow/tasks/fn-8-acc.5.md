@@ -41,8 +41,8 @@ Verify Hero section has no above-fold `<img>` tag that would be the LCP element.
 - [ ] `npm run build` succeeds
 - [ ] NOTE: `images: { unoptimized: true }` stays in next.config.js — this task does NOT change it
 ## Done summary
-Added Vercel CDN image optimization config (avif/webp formats, 6 responsive sizes, 30-day TTL) to vercel.json. Fixed CLS by adding explicit width/height to bio photo in ContactSection and case study images in Proof; Hero has no img tags so no change needed.
+Implemented image optimization and explicit dimensions in PR #12.
 ## Evidence
-- Commits: 61e1f9e5221ac368dacd232d47b2b33850a0e4d4
-- Tests: npm run build, npm test (vitest: 2 passed)
-- PRs:
+- Commits: b2acf7c7ad2fcf57f429234b444a7d83b993b6fb, 363de53931cbb4d3b05367bb7b39e36272bdecaa, f9f3e8d2b1cd469f6c1d3a1764f41ac560aafe7d
+- Tests: npm test, npm run build, axe accessibility tests, analytics smoke verification
+- PRs: #12, #13, #28
