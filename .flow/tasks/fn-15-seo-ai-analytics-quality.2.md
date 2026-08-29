@@ -30,6 +30,6 @@ Apply explicit canonicals, page-specific Open Graph/Twitter metadata, breadcrumb
 ## Done summary
 Public page families emit explicit trailing-slash canonicals, page-specific Open Graph/Twitter metadata, and matching JSON-LD. The staging /new-site alias now emits noindex,nofollow; landing, lab, scanner, and legacy writing aliases remain excluded from search.
 ## Evidence
-- Commits: 19e2c0c60025bd17e249b2e0761b636effce8e35, cfe8bd73b8f9e9408ab9d151a1951fdbc6af7202
+- Commits: 19e2c0c60025bd17e249b2e0761b636effce8e35, c0bd8b73e759f0e14716013f1d226a7460261edf
 - Tests: npm run build (73 routes), npm test (41 tests), static SEO audit (69 built pages, 0 errors, 0 invalid JSON-LD), sitemap audit (28 URLs; private/legacy paths excluded)
-- PRs:
+- PRs: #33
