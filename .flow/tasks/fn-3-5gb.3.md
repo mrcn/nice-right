@@ -101,6 +101,6 @@ Head: same font/preconnect setup as V1. **This file works at `file://`** — no 
 ## Done summary
 Created the V3 Minimal/Focused ContactSection demo. It removes photo, biography, stats, and card treatment so the centered heading, focused call stub, and plain contact links carry the hypothesis; the page works from file:// and respects noindex, focus, and reduced-motion safeguards.
 ## Evidence
-- Commits: 8d6736421717a42de95197e275003c797e8bd01d
+- Commits: b4f58331c88677bd261cf47d5f7169fda92bf43f
 - Tests: served contact-demo-1.html, contact-demo-2.html, and contact-demo-3.html, V3 file:// asset and no-photo/no-bio/no-card checks, all demo noindex and sitemap checks, npm run build (73 application routes), npm test (41 tests)
-- PRs:
+- PRs: #39
