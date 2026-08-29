@@ -13,11 +13,8 @@
   --blue: #2563eb;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 }
-
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   margin: 0;
   background: var(--ink);
@@ -25,30 +22,24 @@ body {
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-
 a { color: inherit; }
-
 a:focus-visible {
   outline: 3px solid var(--teal);
   outline-offset: 4px;
 }
-
 .demo-page {
   min-height: 100dvh;
   background: var(--ink);
   padding: 40px 24px 96px;
 }
-
 .demo-wrap {
   width: min(1120px, 100%);
   margin: 0 auto;
 }
-
 .demo-meta {
   padding-bottom: 32px;
   border-bottom: 1px solid var(--line);
 }
-
 .demo-meta-top {
   display: flex;
   flex-wrap: wrap;
@@ -56,7 +47,6 @@ a:focus-visible {
   gap: 12px;
   margin-bottom: 20px;
 }
-
 .demo-label,
 .demo-variant,
 .demo-eyebrow,
@@ -70,16 +60,13 @@ a:focus-visible {
   line-height: 1.2;
   text-transform: uppercase;
 }
-
 .demo-label { color: var(--text-dim); }
-
 .demo-variant {
   border: 1px solid rgba(6, 214, 160, 0.34);
   border-radius: 999px;
   margin-left: auto;
   padding: 8px 12px;
 }
-
 .demo-meta h1 {
   max-width: 760px;
   margin: 0;
@@ -90,7 +77,6 @@ a:focus-visible {
   letter-spacing: -0.04em;
   line-height: 0.98;
 }
-
 .demo-hypothesis {
   max-width: 680px;
   margin: 18px 0 0;
@@ -98,14 +84,12 @@ a:focus-visible {
   font-size: 1rem;
   line-height: 1.65;
 }
-
 .palette-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
   margin: 20px 0 0;
 }
-
 .palette-option {
   display: flex;
   align-items: center;
@@ -118,22 +102,17 @@ a:focus-visible {
   font-size: 0.72rem;
   letter-spacing: 0.03em;
 }
-
 .palette-dot {
   width: 16px;
   height: 16px;
   border-radius: 50%;
   flex: 0 0 auto;
 }
-
 .palette-dot--electric { background: linear-gradient(135deg, var(--orange), var(--lime)); }
 .palette-dot--racing { background: var(--orange); }
 .palette-dot--sunburst { background: linear-gradient(135deg, #ffb300, var(--blue)); }
-
 .contact-section { padding: 120px 0; }
-
 .contact-header { margin-bottom: 56px; }
-
 .contact-header h2 {
   max-width: 820px;
   margin: 12px 0 14px;
@@ -144,33 +123,28 @@ a:focus-visible {
   letter-spacing: -0.035em;
   line-height: 1.04;
 }
-
 .contact-sub {
   margin: 0;
   color: var(--text-soft);
   font-size: 1.06rem;
   line-height: 1.6;
 }
-
 .contact-grid {
   display: grid;
   grid-template-columns: 5fr 4fr;
   gap: 64px;
   align-items: start;
 }
-
 .cal-frame {
   overflow: hidden;
   border: 1px solid rgba(6, 214, 160, 0.24);
   border-radius: 16px;
   background: var(--ink-soft);
 }
-
 .cal-label {
   padding: 16px 18px;
   border-bottom: 1px solid var(--line);
 }
-
 .cal-stub {
   display: grid;
   min-height: 500px;
@@ -182,7 +156,6 @@ a:focus-visible {
     var(--ink-soft);
   background-size: 36px 36px;
 }
-
 .cal-placeholder {
   color: var(--text-dim);
   font-size: 0.7rem;
@@ -191,14 +164,12 @@ a:focus-visible {
   text-align: center;
   text-transform: uppercase;
 }
-
 .bio-col {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
 }
-
 .bio-photo {
   display: block;
   width: 240px;
@@ -208,7 +179,6 @@ a:focus-visible {
   object-fit: cover;
   object-position: center top;
 }
-
 .bio-col h3 {
   margin: 0;
   color: var(--text);
@@ -218,7 +188,6 @@ a:focus-visible {
   letter-spacing: -0.03em;
   line-height: 1;
 }
-
 .bio-quote {
   max-width: 440px;
   margin: 0;
@@ -228,9 +197,7 @@ a:focus-visible {
   font-style: italic;
   line-height: 1.35;
 }
-
 .bio-quote em { color: var(--teal); }
-
 .bio-copy {
   max-width: 440px;
   margin: 0;
@@ -238,25 +205,21 @@ a:focus-visible {
   font-size: 0.95rem;
   line-height: 1.78;
 }
-
 .bio-stats {
   display: flex;
   gap: 28px;
 }
-
 .bio-stat {
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
-
 .bio-stat strong {
   color: var(--teal);
   font-family: "Instrument Serif", Georgia, serif;
   font-size: 1.55rem;
   font-weight: 400;
 }
-
 .bio-stat span {
   color: var(--text-dim);
   font-size: 0.68rem;
@@ -264,21 +227,18 @@ a:focus-visible {
   letter-spacing: 0.09em;
   text-transform: uppercase;
 }
-
 .bio-divider {
   width: 100%;
   margin: 0;
   border: 0;
   border-top: 1px solid var(--line);
 }
-
 .contact-cards {
   display: flex;
   flex-direction: column;
   gap: 12px;
   width: 100%;
 }
-
 .contact-card {
   display: flex;
   align-items: center;
@@ -291,13 +251,11 @@ a:focus-visible {
   text-decoration: none;
   transition: border-color 180ms var(--ease-out), transform 180ms var(--ease-out), background-color 180ms ease;
 }
-
 .contact-card:hover {
   border-color: var(--teal);
   background: rgba(6, 214, 160, 0.05);
   transform: translateY(-2px);
 }
-
 .contact-icon {
   display: grid;
   width: 40px;
@@ -308,25 +266,20 @@ a:focus-visible {
   background: rgba(6, 214, 160, 0.12);
   color: var(--teal);
 }
-
 .contact-icon svg { width: 19px; height: 19px; }
-
 .contact-card-copy {
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
-
 .contact-card-copy strong { color: var(--text); font-size: 0.9rem; }
 .contact-card-copy span { color: var(--text-soft); font-size: 0.82rem; }
-
 @media (max-width: 900px) {
   .contact-grid { grid-template-columns: 1fr; }
   .bio-col { order: -1; }
   .cal-frame { order: 1; }
   .bio-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 420px; }
 }
-
 @media (max-width: 640px) {
   .demo-page { padding-inline: 16px; }
   .palette-strip { grid-template-columns: 1fr; }
@@ -334,28 +287,23 @@ a:focus-visible {
   .contact-header { margin-bottom: 40px; }
   .cal-stub { min-height: 500px; }
 }
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
-
 .demo-v2 .demo-meta h1 {
   max-width: 900px;
   margin-inline: auto;
   text-align: center;
 }
-
 .demo-v2 .demo-hypothesis {
   margin-inline: auto;
   text-align: center;
 }
-
 .demo-v2 .demo-meta-top { justify-content: center; }
 .demo-v2 .demo-variant { margin-left: 0; }
 .demo-v2 .contact-header { text-align: center; }
 .demo-v2 .contact-header h2 { margin-inline: auto; }
-
 .v2-bio-panel {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -363,7 +311,6 @@ a:focus-visible {
   align-items: start;
   margin-bottom: 56px;
 }
-
 .v2-bio-photo {
   display: block;
   width: 280px;
@@ -373,7 +320,6 @@ a:focus-visible {
   object-fit: cover;
   object-position: center top;
 }
-
 .v2-bio-content {
   display: flex;
   flex-direction: column;
@@ -381,11 +327,9 @@ a:focus-visible {
   gap: 20px;
   padding-top: 4px;
 }
-
 .v2-bio-content h3 { font-size: 2.5rem; }
 .v2-bio-content .bio-quote,
 .v2-bio-content .bio-copy { max-width: 620px; }
-
 .v2-cal-frame {
   overflow: hidden;
   margin-bottom: 48px;
@@ -393,7 +337,6 @@ a:focus-visible {
   border-radius: 16px;
   background: var(--ink-soft);
 }
-
 .v2-cal-head {
   display: flex;
   flex-wrap: wrap;
@@ -402,29 +345,82 @@ a:focus-visible {
   padding: 20px 24px;
   border-bottom: 1px solid var(--line);
 }
-
 .v2-cal-head strong { color: var(--text); font-size: 0.95rem; }
 .v2-cal-head span { color: var(--text-soft); font-size: 0.82rem; }
 .v2-cal-frame .cal-stub { min-height: 500px; }
-
 .v2-contact-group { width: 100%; }
 .v2-contact-group .contact-kicker { margin: 0 0 16px; }
-
 .v2-contact-cards {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   width: 100%;
 }
-
 .v2-contact-cards .contact-card { flex: 1 1 260px; }
-
 @media (max-width: 768px) {
   .v2-bio-panel { grid-template-columns: 1fr; gap: 28px; }
   .v2-bio-photo { width: 100%; height: auto; aspect-ratio: 4 / 3; max-height: 480px; }
 }
-
 @media (max-width: 640px) {
   .v2-contact-cards { flex-direction: column; }
   .v2-contact-cards .contact-card { flex-basis: auto; width: 100%; }
+}
+.demo-v3 .demo-meta h1 {
+  max-width: 840px;
+  margin-inline: auto;
+  text-align: center;
+}
+.demo-v3 .demo-hypothesis {
+  margin-inline: auto;
+  text-align: center;
+}
+.demo-v3 .demo-meta-top { justify-content: center; }
+.demo-v3 .demo-variant { margin-left: 0; }
+.demo-v3 .contact-section {
+  width: min(840px, 100%);
+  margin-inline: auto;
+}
+.demo-v3 .contact-header {
+  margin-bottom: 48px;
+  text-align: center;
+}
+.demo-v3 .contact-header h2 {
+  max-width: 800px;
+  margin-inline: auto;
+  font-size: clamp(2.2rem, 5vw, 3.75rem);
+  line-height: 1.08;
+}
+.v3-cal-frame {
+  overflow: hidden;
+  margin-bottom: 40px;
+  border: 1px solid rgba(6, 214, 160, 0.24);
+  border-radius: 16px;
+  background: var(--ink-soft);
+}
+.v3-cal-label {
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--line);
+  color: var(--teal);
+  font-size: 0.69rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.v3-cal-frame .cal-stub { min-height: 500px; }
+.v3-contact-links {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  line-height: 1.7;
+  text-align: center;
+}
+.v3-contact-links p { margin: 0; }
+.v3-contact-links a {
+  color: var(--teal);
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+.v3-contact-links a:hover,
+.v3-contact-links a:focus-visible { text-decoration: underline; }
+@media (max-width: 640px) {
+  .v3-contact-links { font-size: 0.78rem; }
 }
