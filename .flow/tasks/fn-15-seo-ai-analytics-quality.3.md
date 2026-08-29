@@ -17,3 +17,11 @@ Make the AI/crawler orientation files match the public Nice Right business and c
 - [ ] Live/static `llms.txt` is Nice Right-first.
 - [ ] `llms.txt` links canonical public pages, not noindexed lab pages as primary canonical targets.
 - [ ] Sitemap still excludes noindex/staging/legacy aliases.
+
+## Done summary
+The Nice Right-first crawler orientation is planned and will be completed after public metadata coverage.
+
+## Evidence
+- Commits:
+- Tests:
+- PRs:

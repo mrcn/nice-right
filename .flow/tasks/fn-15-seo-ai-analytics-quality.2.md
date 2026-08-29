@@ -26,3 +26,11 @@ Apply explicit canonicals, page-specific Open Graph/Twitter metadata, breadcrumb
 - [ ] Every landing/lab page excluded from sitemap either emits `noindex,nofollow` or is a legacy redirect alias explicitly documented as excluded.
 - [ ] `/writing/` and representative `/writing/[slug]/` built HTML emit both `noindex,nofollow` and `/notes/` canonicals.
 - [ ] No noindexed/staging/legacy page is promoted as canonical.
+
+## Done summary
+Metadata and schema coverage is planned and will be completed in the next task branch.
+
+## Evidence
+- Commits:
+- Tests:
+- PRs:

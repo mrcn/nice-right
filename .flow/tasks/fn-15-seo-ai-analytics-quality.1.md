@@ -24,3 +24,10 @@ Create reusable metadata and JSON-LD helpers for canonical URLs, Open Graph/Twit
 - [ ] Root site/business JSON-LD still parses as JSON.
 - [ ] Existing LocalBusiness/WebSite facts are preserved or improved without inventing unverifiable claims.
 - [ ] No visible UI changes.
+
+## Done summary
+Shared SEO and schema helpers are present: absolute URLs, canonical metadata, Open Graph/Twitter defaults, and reusable JSON-LD builders for business, founder, breadcrumbs, articles, services, collections, and case studies.
+## Evidence
+- Commits: 19e2c0c60025bd17e249b2e0761b636effce8e35
+- Tests: npm run build (73 static pages), npm test (41 tests), npm run lint (exit 0; existing warnings)
+- PRs:

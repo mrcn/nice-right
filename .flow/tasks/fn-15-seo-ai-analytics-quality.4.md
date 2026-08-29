@@ -23,3 +23,11 @@ Keep analytics instrumentation unchanged unless a real break is found; document 
 - [ ] Static-export audit confirms public canonicals/schema and private noindex tags before deploy.
 - [ ] `npm run build` and `npm test` pass.
 - [ ] Post-deploy live audit verifies metadata/schema/llms/sitemap/analytics basics.
+
+## Done summary
+Analytics documentation and verification are planned and will be completed after crawler artifacts.
+
+## Evidence
+- Commits:
+- Tests:
+- PRs:
