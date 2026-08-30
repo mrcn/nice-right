@@ -7,22 +7,22 @@ export function Footer() {
         <div className="v9-footer-inner">
           <nav aria-label="Footer navigation">
             <a href="/#services" className="v9-footer-link">
-              Services
+              How it works
             </a>
             <a href="/#results" className="v9-footer-link">
-              Results
+              Proof
             </a>
-            <a href="/studies" className="v9-footer-link">
-              Studies
+            <a href="/work" className="v9-footer-link">
+              Work
             </a>
-            <a href="/notes" className="v9-footer-link">
-              Notes
+            <a href="/labs/understand/" className="v9-footer-link">
+              Understand lab
             </a>
             <a href="/#contact" className="v9-footer-link">
               Contact
             </a>
           </nav>
-          <p>&copy; 2026 Nice Right. Digital Partner for Growing Businesses.</p>
+          <p>&copy; 2026 Nice Right. Digital growth for local service businesses.</p>
           <p className="v9-footer-version">v{versionData.version}</p>
         </div>
       </footer>

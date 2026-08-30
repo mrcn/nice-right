@@ -109,24 +109,21 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
 
           {/* Desktop links */}
           <div className="v9-nav-links">
-            <a href="/#services" onClick={() => trackNavClick('services')}>
-              Services
+            <a href="/#services" onClick={() => trackNavClick('how_it_works')}>
+              How it works
             </a>
-            <a href="/#results" onClick={() => trackNavClick('results')}>
-              Results
+            <a href="/#results" onClick={() => trackNavClick('proof')}>
+              Proof
             </a>
-            <a href="/studies" onClick={() => trackNavClick('studies')}>
-              Studies
-            </a>
-            <a href="/notes" onClick={() => trackNavClick('notes')}>
-              Notes
+            <a href="/work" onClick={() => trackNavClick('work')}>
+              Work
             </a>
             <a
               href="/#contact"
               className="v9-nav-cta"
               onClick={() => trackCTAClick('nav_desktop', 'nav')}
             >
-              Book a Free Call
+              Book an audit call
             </a>
           </div>
 
@@ -158,37 +155,28 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
               href="/#services"
               onClick={() => {
                 handleLinkClick();
-                trackNavClick('services');
+                trackNavClick('how_it_works');
               }}
             >
-              Services
+              How it works
             </a>
             <a
               href="/#results"
               onClick={() => {
                 handleLinkClick();
-                trackNavClick('results');
+                trackNavClick('proof');
               }}
             >
-              Results
+              Proof
             </a>
             <a
-              href="/notes"
+              href="/work"
               onClick={() => {
                 handleLinkClick();
-                trackNavClick('notes');
+                trackNavClick('work');
               }}
             >
-              Notes
-            </a>
-            <a
-              href="/studies"
-              onClick={() => {
-                handleLinkClick();
-                trackNavClick('studies');
-              }}
-            >
-              Studies
+              Work
             </a>
             <a
               href="/#contact"
@@ -198,7 +186,7 @@ export function Nav({ defaultSolid, variant }: NavProps = {}) {
                 trackCTAClick('nav_mobile', 'nav');
               }}
             >
-              Book a Free Call
+              Book an audit call
             </a>
           </div>
         )}

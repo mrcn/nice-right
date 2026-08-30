@@ -7,55 +7,55 @@ import { trackSectionView } from '@/app/lib/analytics';
 const levers = [
   {
     num: '01',
-    title: 'Get More Customers',
-    quote: 'I feel invisible online. People who need exactly what I do can\'t find me.',
+    title: 'Be found',
+    quote: 'People search for what I do, but I do not show up when they need it.',
     bullets: [
-      'SEO-optimized website',
-      'Google Business + local listings',
-      'Inquiry capture + email sequence',
-      'Paid traffic-ready landing pages',
+      'Service pages built for local search',
+      'Google Business and local listings',
+      'Clear paths to call or request a quote',
+      'Mobile-first technical foundation',
     ],
-    tag: 'Acquisition',
-    context: 'The fix isn\'t ads — it\'s infrastructure. We make you findable, credible, and worth contacting.',
+    tag: 'Visibility',
+    context: 'We start where local customers look and remove the gaps that keep a good business out of the conversation.',
   },
   {
     num: '02',
-    title: 'Charge More',
-    quote: 'I keep losing bids to cheaper competitors. I can\'t raise my rates.',
+    title: 'Be chosen',
+    quote: 'People visit my site, but too few decide to call.',
     bullets: [
-      'Positioning and messaging overhaul',
-      'Social proof systems',
-      'Custom client-facing tools',
-      'Outcome-based packaging',
+      'Plain-English service positioning',
+      'Reviews and proof where decisions happen',
+      'A credible first impression on mobile',
+      'One clear next step on every page',
     ],
-    tag: 'Pricing Power',
-    context: 'A 1% price increase = 8% operating profit improvement. Credibility is what lets you charge more.',
+    tag: 'Trust',
+    context: 'Showing up is only half the job. The page has to make the next step feel obvious and safe.',
   },
   {
     num: '03',
-    title: 'Keep Customers',
-    quote: 'I spend all my time hunting new clients. My best ones disappear.',
+    title: 'Answer demand',
+    quote: 'Good inquiries come in when I am busy or after hours.',
     bullets: [
-      'Post-purchase email sequences',
-      'Automated rebooking flows',
-      'Loyalty and referral systems',
-      'CRM setup and automation',
+      'Tap-to-call and simple intake',
+      'Missed-call and inquiry follow-up',
+      'Scheduling and lead routing',
+      'A record of where inquiries came from',
     ],
-    tag: 'Retention',
-    context: 'Acquiring a customer costs 5–7× more than keeping one. Retention is the most underinvested lever.',
+    tag: 'Response',
+    context: 'A good lead is not useful if nobody answers. We make the handoff from interest to conversation easier to manage.',
   },
   {
     num: '04',
-    title: 'Cut the Waste',
-    quote: 'I\'m doing $10/hour tasks when I should be doing $500/hour work.',
+    title: 'Stay in touch',
+    quote: 'Past customers would hire me again, but I never follow up.',
     bullets: [
-      'Business process audit',
-      'Scheduling + intake automation',
-      'AI-assisted workflows',
-      'Custom internal tools',
+      'Review and referral requests',
+      'Rebooking reminders',
+      'Simple customer follow-up',
+      'A practical view of what is working',
     ],
-    tag: 'Operations',
-    context: 'Every hour in admin is an hour not selling. We automate the repetitive parts — AI where it fits.',
+    tag: 'Follow-through',
+    context: 'The next job often starts with someone who already knows your work. We give that relationship a way to continue.',
   },
 ];
 
@@ -356,7 +356,7 @@ export function Services() {
       <section
         ref={sectionRef}
         id="services"
-        aria-label="Services — four ways to grow a business"
+        aria-label="Where good local jobs get lost"
         className="v9-services v9-section-warm"
         data-services-mode="pending"
         data-services-pin-enabled="false"
@@ -366,14 +366,14 @@ export function Services() {
       >
         <div className="v9-services-container">
           <div className="v9-services-header">
-            <span className="v9-section-label">How Businesses Grow</span>
+            <span className="v9-section-label">Where good jobs get lost</span>
             <h2 className="v9-services-heading">
-              There are only four ways to grow a business.
+              More local customers need more than a ranking.
             </h2>
             <p className="v9-services-sub">
-              More customers. Bigger transactions. More repeat business. Less
-              overhead. Every dollar of growth comes from one of these levers —
-              and most businesses are stuck on one or two. Where are you stuck?
+              They have to find you, trust you, reach you, and hear from you
+              again. The audit traces that path and shows you where prospects
+              drop out.
             </p>
           </div>
 

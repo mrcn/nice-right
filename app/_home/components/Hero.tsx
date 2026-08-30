@@ -47,24 +47,26 @@ export function Hero() {
     <>
       <section ref={sectionRef} className="v9-hero v9-section-dark" id="hero">
         <div ref={contentRef} className="v9-hero-content">
+          <p className="v9-hero-kicker">For established Chicago home-service owners</p>
+
           <h1 className="v9-hero-h1">
             <span className="v9-hero-line1">Get found by people{' '}</span>
             <span className="v9-hero-line2">looking for you right now.</span>
           </h1>
 
           <p className="v9-hero-sub">
-            For owners who already run a home service business. I build the digital
-            side, so your phone and website do more of the selling.
+            I find where your website, Google profile, and follow-up lose good
+            prospects, then help fix the highest-value gaps.
           </p>
 
           <div className="v9-hero-levers">
-            <span className="v9-hero-lever">Get More Customers</span>
+            <span className="v9-hero-lever">Be found</span>
             <span className="v9-hero-lever-divider" aria-hidden="true" />
-            <span className="v9-hero-lever">Charge More</span>
+            <span className="v9-hero-lever">Be chosen</span>
             <span className="v9-hero-lever-divider" aria-hidden="true" />
-            <span className="v9-hero-lever">Keep Customers</span>
+            <span className="v9-hero-lever">Get the call</span>
             <span className="v9-hero-lever-divider" aria-hidden="true" />
-            <span className="v9-hero-lever">Cut the Waste</span>
+            <span className="v9-hero-lever">Follow through</span>
           </div>
 
           <div className="v9-hero-trust">
@@ -76,7 +78,7 @@ export function Hero() {
             <span className="v9-hero-dot" aria-hidden="true">
               &middot;
             </span>
-            <span>Done-for-you</span>
+            <span>One senior partner</span>
           </div>
 
 
@@ -89,12 +91,12 @@ export function Hero() {
               onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_hero'), 500); }}
               onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
             >
-              Book Your Free Strategy Call
+              Book an audit call
             </a>
           </div>
 
           <p className="v9-hero-micro">
-            30 minutes.
+            30 minutes. We&apos;ll find the first place to look.
           </p>
         </div>
       </section>
@@ -182,11 +184,22 @@ export function Hero() {
           animation: v9-line-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
         }
 
+        .v9-hero-kicker { animation: v9-fade-up 0.6s ease-out 1.12s both; }
         .v9-hero-sub    { animation: v9-fade-up 0.6s ease-out 1.2s both; }
         .v9-hero-levers { animation: v9-fade-up 0.6s ease-out 1.28s both; }
         .v9-hero-trust  { animation: v9-fade-up 0.6s ease-out 1.36s both; }
         .v9-hero-cta-wrap { animation: v9-fade-up 0.6s ease-out 1.44s both; }
         .v9-hero-micro  { animation: v9-fade-up 0.6s ease-out 1.52s both; }
+
+        .v9-hero-kicker {
+          margin: 0;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: clamp(0.68rem, 1.1vh, 0.78rem);
+          font-weight: 600;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: rgba(6, 214, 160, 0.82);
+        }
 
         .v9-hero-sub {
           max-width: 600px;
@@ -397,6 +410,7 @@ export function Hero() {
 
           .v9-hero-line1,
           .v9-hero-line2,
+          .v9-hero-kicker,
           .v9-hero-sub,
           .v9-hero-levers,
           .v9-hero-trust,

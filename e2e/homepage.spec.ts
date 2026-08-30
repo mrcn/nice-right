@@ -10,17 +10,21 @@ test('homepage loads and key sections render', async ({ page }) => {
   // Nav is visible
   await expect(page.locator('nav[aria-label="Main navigation"]')).toBeVisible();
 
-  // Hero section renders with headline
+  // Hero makes the buyer and job legible
   await expect(page.locator('#hero')).toBeVisible();
   await expect(page.locator('.v9-hero-h1')).toBeVisible();
+  await expect(page.locator('.v9-hero-kicker')).toContainText(/Chicago home-service/i);
+  await expect(page.locator('.v9-hero-sub')).toContainText(/website|Google profile|prospects/i);
 
   // Hero CTA button is present and links to #contact
   const heroCTA = page.locator('a.v9-btn-gradient').first();
   await expect(heroCTA).toBeVisible();
   await expect(heroCTA).toHaveAttribute('href', '#contact');
 
-  // Pricing section renders
+  // The page presents one audit offer, not a product menu
   await expect(page.locator('#pricing')).toBeVisible();
+  await expect(page.locator('#pricing')).toContainText(/Digital Growth Audit/);
+  await expect(page.locator('a[href="/scan/"]')).toHaveCount(0);
 
   // Contact / booking section renders
   await expect(page.locator('#contact')).toBeVisible();

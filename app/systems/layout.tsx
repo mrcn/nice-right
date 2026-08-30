@@ -1,5 +1,10 @@
+import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 import { Footer } from '@/app/_home/components/Footer';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 export default function SystemsLayout({ children }: { children: ReactNode }) {
   return (

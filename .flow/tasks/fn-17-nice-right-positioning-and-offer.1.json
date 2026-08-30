@@ -1,0 +1,14 @@
+{
+  "assignee": null,
+  "claim_note": "",
+  "claimed_at": null,
+  "created_at": "2026-08-29T23:30:24.737877Z",
+  "depends_on": [],
+  "id": "fn-17-nice-right-positioning-and-offer.1",
+  "priority": 1,
+  "spec": "fn-17-nice-right-positioning-and-offer",
+  "spec_path": ".flow/tasks/fn-17-nice-right-positioning-and-offer.1.md",
+  "status": "todo",
+  "title": "Consolidate Nice Right around one buyer, job, and audit offer",
+  "updated_at": "2026-08-29T23:30:24.737877Z"
+}

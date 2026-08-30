@@ -10,9 +10,9 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { end: 290, suffix: '%', label: 'traffic growth for a home service company' },
-  { end: 12, suffix: 'x', label: 'more inquiries from the same site' },
-  { end: 80, suffix: '%', label: 'time saved with workflow automation' },
+  { end: 100, suffix: '+', label: 'projects for small and mid-size businesses' },
+  { end: 13, suffix: '+', label: 'years across strategy, design, and code' },
+  { end: 1, suffix: '', label: 'senior person accountable from diagnosis to launch' },
 ];
 
 interface CaseStudy {
@@ -30,26 +30,26 @@ const caseStudies: CaseStudy[] = [
     image: '/images/nursing-home-money.webp',
     alt: 'Healthcare investment platform',
     client: 'Healthcare Platform',
-    headline: 'Cut deal-closing time by 40%',
+    headline: 'A portal for complex property deals',
     description:
-      'Custom portal connecting providers with property opportunities.',
+      'Connected providers and opportunities in one workflow.',
   },
   {
     href: '/work/northern-trust',
     image: '/images/bankk.webp',
     alt: 'Northern Trust project',
     client: 'Northern Trust',
-    headline: 'Modernized a Fortune 500 website',
-    description: 'Micro-interactions and animation that boosted engagement.',
+    headline: 'Interaction systems for a Fortune 500 site',
+    description: 'Designed motion and interface details for a public web experience.',
   },
   {
     href: '/work/green-goods',
     image: '/images/garden-money.webp',
     alt: 'Green Goods biodiversity platform',
     client: 'GreenPill Network',
-    headline: 'Built a verified impact platform for conservation',
+    headline: 'A public record for conservation work',
     description:
-      'Blockchain PWA tracking biodiversity actions with on-chain attestations.',
+      'A blockchain PWA for recording verified biodiversity actions.',
   },
 ];
 
@@ -178,8 +178,12 @@ export function Proof() {
         <div className="v9-proof-container">
           {/* Header */}
           <div className="v9-proof-header">
-            <p className="v9-section-label">Results</p>
-            <h2 className="v9-proof-heading">Numbers from real projects</h2>
+            <p className="v9-section-label">Selected work</p>
+            <h2 className="v9-proof-heading">Proof of how I work</h2>
+            <p className="v9-proof-intro">
+              These examples show the range of the work. The audit is where we decide
+              what applies to your business.
+            </p>
           </div>
 
           {/* Stats with glowing numbers */}
@@ -279,6 +283,15 @@ export function Proof() {
           line-height: 1.15;
           color: #ffffff;
           margin: 0;
+        }
+
+        .v9-proof-intro {
+          max-width: 560px;
+          margin: 16px auto 0;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.58);
         }
 
         /* --- Stats with glow --- */

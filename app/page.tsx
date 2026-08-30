@@ -2,9 +2,9 @@ import HomePageContent from './_home/page';
 import { buildSeoMetadata } from '@/app/_shared/seo';
 
 export const metadata = buildSeoMetadata({
-  title: 'Nice Right | Digital Growth Partner for Small Businesses',
+  title: 'Nice Right | Digital Growth for Chicago Home-Service Businesses',
   description:
-    "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+    'I help established Chicago home-service businesses find and fix the digital leaks that keep qualified local prospects from calling.',
   path: '/',
 });
 

@@ -32,3 +32,25 @@ D10 is required before live conversion claims are made.
 
 The existing site and internal documents may supply context, language, assets, and
 candidate hypotheses. They may not close D1–D10 by themselves.
+
+## Owner-approved working direction
+
+This is the direction for the next site pass. It is specific enough to test, but
+it is not market validation.
+
+- **Primary buyer:** An established owner-operated home-service business in
+  Chicago's Northwest Side, such as HVAC, plumbing, electrical, roofing, or
+  remodeling. The business has an existing website, no dedicated digital team,
+  and too much dependence on referrals or third-party lead sources.
+- **Job:** Find and fix the online leaks that keep qualified local prospects from
+  calling or booking, without making the owner become a marketing expert or buy a
+  full rebuild before knowing what is wrong.
+- **Entry offer:** A paid Digital Growth Audit covering the website, Google
+  presence, competitors, and inquiry path. It produces a prioritized plan and a
+  clear implementation recommendation.
+- **Working price hypothesis:** $1,500, credited toward implementation if the
+  client and Marcin continue together. The price still needs a live test against
+  the standalone $2,500 alternative in the offer research.
+- **Product boundary:** Understand remains a separate noindex lab at
+  `/labs/understand/`. The scanner remains unavailable until a new readiness gate
+  passes.
