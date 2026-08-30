@@ -3,13 +3,13 @@ import { test, expect } from '@playwright/test';
 test('lead gen funnel — CTA click reaches booking section', async ({ page }) => {
   await page.goto('/');
 
-  // Locate the hero CTA ("Book Your Free Strategy Call").
-  // Multiple gradient CTAs share the copy — take the first (hero).
+  // The single homepage CTA routes to the audit conversation.
+  // Multiple gradient CTAs share the copy, so take the first (hero).
   // Do not scrollIntoViewIfNeeded: GSAP entrance animations make the node
   // "unstable"/reattach under WebKit and race the scroll helper.
   const heroCTA = page
     .locator('a.v9-btn-gradient', {
-      hasText: 'Book Your Free Strategy Call',
+      hasText: 'Book an audit call',
     })
     .first();
   await expect(heroCTA).toBeVisible();
@@ -27,8 +27,10 @@ test('lead gen funnel — CTA click reaches booking section', async ({ page }) =
   await expect(contactSection.locator('.v1-cal-label-row')).toBeVisible();
 });
 
-test('nav Book a Call CTA reaches booking section', async ({ page }) => {
+test('nav audit CTA reaches booking section', async ({ page }) => {
   await page.goto('/');
+  await page.locator('#contact').waitFor({ state: 'attached' });
+  await page.evaluate(() => document.fonts?.ready);
 
   // Desktop nav CTA only (mobile overlay mounts a second .v9-nav-cta when open)
   const navCTA = page.locator('.v9-nav-links a.v9-nav-cta');

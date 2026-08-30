@@ -30,7 +30,7 @@ This document records what the website sends from the code side. It does not cla
 | `scroll_depth` | `app/hooks/useScrollDepth.ts`, mounted by `app/_home/page.tsx` | `depth` at 25, 50, 75, and 100; `page` |
 | `section_view` | `app/_home/components/Services.tsx` and `Pricing.tsx` | `section_name`, `page`; each tracked section guards repeat firing |
 | `faq_open` | `app/_home/components/FAQ.tsx` when an item opens | `question`, `index`, `page` |
-| `pricing_view` | `app/_home/components/Pricing.tsx` when a tier enters its active state | `tier_name`, `page` |
+| `pricing_view` | `app/_home/components/Pricing.tsx` when the Digital Growth Audit offer enters the viewport | `tier_name`, `page` |
 | `booking_complete` | `app/_shared/CalEmbed.tsx` after an accepted Cal.com `bookingSuccessful` message | `page`, `referrer` |
 | `contact_click` | `app/_home/components/ContactSection.tsx` email and LinkedIn links | `method`, `page` |
 | `nav_click` | `app/_home/components/Nav.tsx` desktop and mobile links | `label`, `page` |
@@ -40,7 +40,7 @@ This document records what the website sends from the code side. It does not cla
 | `tool_email_capture` | `app/scan/ScanExperience.tsx` after the report-send response | `tool`, optional `marketing_consent`, `duplicate`, `page`; never email |
 | `tool_report_cta_click` | `app/scan/ScanExperience.tsx` post-report strategy-call CTA | `tool`, `location`, `page` |
 
-`tool_calculator_use` is not shipped. The Phase 1 `/tools` calculators remain deferred.
+`tool_calculator_use` is not shipped. The Phase 1 `/tools` calculators remain deferred. Scanner events remain documented because the implementation is retained, but they should not fire while the scanner is paused.
 
 ## UTM capture and booking handoff
 
@@ -54,9 +54,9 @@ This document records what the website sends from the code side. It does not cla
 
 `app/_shared/CalEmbed.tsx` reads the stored values and merges them into Cal.com prefill parameters. Explicit `prefillParams` win if the same key is supplied by the caller.
 
-## Live smoke evidence
+## Previous live smoke evidence
 
-Run against `https://niceright.co/?utm_source=smoke&utm_medium=verification&utm_campaign=fn15` on 29 August 2026. The test did not submit a form, send an email, or create a booking.
+Run against `https://niceright.co/?utm_source=smoke&utm_medium=verification&utm_campaign=fn15` on 29 August 2026, before the scanner shutdown. The test did not submit a form, send an email, or create a booking.
 
 - GA loader: HTTP `200`
 - GA collection endpoint: HTTP `204`
@@ -64,8 +64,19 @@ Run against `https://niceright.co/?utm_source=smoke&utm_medium=verification&utm_
 - UTM persistence: `smoke`, `verification`, and `fn15` appeared in `sessionStorage`
 - Observed event pushes: `cta_click`, `element_hover`, `section_view`, `scroll_depth`, and `pricing_view`
 - Live homepage: HTTP `200`
-- Live `/scan`: HTTP `200`, with `noindex,nofollow`
+- Live `/scan`: HTTP `200`, with `noindex,nofollow` (before the scanner shutdown)
 - Homepage scan-link and free-scan promotion check: zero matches
+
+## Branch acceptance check
+
+The positioning branch changes the expected state to:
+
+- Built `/scan`: HTTP `404`, intentionally unavailable
+- Built `POST /api/scan` and `POST /api/lead`: HTTP `404` before provider work
+- Built `/labs/understand/`: HTTP `200`, with `noindex,nofollow`
+- Built `/systems/*`: HTTP `200`, with `noindex,nofollow`
+
+Rerun the production smoke check after this branch is deployed.
 
 The smoke test did not cover `faq_open`, `contact_click`, `booking_complete`, or the scanner submit/email events. Those require a separate controlled test because they change state or touch third-party services.
 

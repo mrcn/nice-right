@@ -3,22 +3,16 @@
 import { useEffect, useRef } from 'react';
 
 const services = [
-  'Conversion-Optimized Websites',
-  'Custom Web Applications',
-  'AI Chatbots',
-  'LLM Integrations',
-  'Workflow Automation',
-  'SEO That Works',
-  'Google Business Optimization',
-  'Landing Pages',
-  'E-commerce Solutions',
-  'Customer Portals',
-  'Email Automation',
-  'Smart Forms',
-  'Analytics Dashboards',
-  'Internal Tools',
-  'API Integrations',
-  'Proof-of-Concept Apps',
+  'Local search visibility',
+  'Service pages that convert',
+  'Mobile call paths',
+  'Google Business Profile',
+  'Review follow-up',
+  'Missed-call response',
+  'Quote request flow',
+  'Customer rebooking',
+  'Referral requests',
+  'Simple performance tracking',
 ];
 
 export function ServicesCarousel() {
@@ -45,7 +39,7 @@ export function ServicesCarousel() {
   return (
     <section className="services-carousel" aria-label="Services carousel">
       <div className="services-carousel-header">
-        <span className="services-carousel-label">The Work</span>
+        <span className="services-carousel-label">The path we fix</span>
       </div>
 
       <div className="services-carousel-container">

@@ -13,6 +13,7 @@ module.exports = {
     '/blog/poshmark-social-commerce',
     '/scan',
     '/scan/*',
+    '/systems/*',
     '/landing/*',
     '/labs/understand',
     '/labs/understand/*',

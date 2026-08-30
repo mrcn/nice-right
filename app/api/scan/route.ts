@@ -50,7 +50,16 @@ function json(body: JsonBody, status: number, headers?: HeadersInit): Response {
   return Response.json(body, { status, headers });
 }
 
+const scannerEnabled = process.env.NICE_RIGHT_SCANNER_ENABLED === 'true';
+
 export async function POST(request: Request): Promise<Response> {
+  if (!scannerEnabled) {
+    return json(
+      { error: 'not_found', message: 'Not found.' },
+      404,
+    );
+  }
+
   let body: unknown;
   try {
     body = await request.json();

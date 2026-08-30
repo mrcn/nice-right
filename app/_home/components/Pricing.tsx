@@ -2,243 +2,162 @@
 
 import { useEffect, useRef } from 'react';
 import { initGSAP, gsap, ScrollTrigger } from '@/app/_shared/gsap-init';
-import { trackCTAClick, trackPricingView, trackSectionView, trackElementHover } from '@/app/lib/analytics';
+import {
+  trackCTAClick,
+  trackElementHover,
+  trackPricingView,
+  trackSectionView,
+} from '@/app/lib/analytics';
 
-const tiers = [
+const auditDeliverables = [
+  'Website and mobile inquiry-path review',
+  'Google Business and local visibility check',
+  'Comparison with three local competitors',
+  'Prioritized Fix This Week / Month / Quarter plan',
+  '30-minute walkthrough and next-step recommendation',
+];
+
+const auditSteps = [
   {
-    num: '01',
-    name: 'The Digital Foundation',
-    tagline: 'Your business, findable and credible.',
-    timeline: 'Typically 4–8 weeks',
-    description:
-      "You've been meaning to fix the website for years. People are Googling you and finding nothing — or something that doesn't do you justice. Fix that. Website, local listings, email capture, a useful free resource that starts the conversation before you spend a dollar on ads.",
-    deliverables: [
-      '5-page website, mobile-optimized and SEO-ready',
-      'Email list + free resource + welcome sequence',
-      'Google Business Profile claimed and optimized',
-      'Local directory listings — Yelp, Facebook + industry-specific',
-      '30-day check-in to make sure it\'s working',
-    ],
-    pullQuote: 'I feel invisible online. People who need exactly what I do can\u2019t find me.',
+    number: '01',
+    title: 'Talk through the business',
+    body: 'We start with what you sell, who you want more of, and what currently feels stuck.',
   },
   {
-    num: '02',
-    name: 'The Growth Experiment',
-    tagline: 'One lever, tested and proven.',
-    timeline: 'First results in 30–45 days',
-    description:
-      'More customers. Higher prices. Better retention. Less waste. You know which one is holding you back. A lever gets picked. Something gets built to move it. Real results — fast.',
-    deliverables: [
-      'Working solution targeting your chosen growth lever',
-      'Whatever it takes: landing page, tool, automation, system',
-      'Launch strategy + early results',
-      'Real data to decide what comes next',
-    ],
-    pullQuote: 'I know what\u2019s holding me back. I just haven\u2019t had time to deal with it.',
+    number: '02',
+    title: 'See where prospects drop out',
+    body: 'I review the path from local search to call, form, or booked conversation.',
   },
   {
-    num: '03',
-    name: 'The Growth Partnership',
-    tagline: 'Your business, grown together.',
-    timeline: 'Ongoing \u2014 as long as it makes sense',
-    description:
-      "It\u2019s working. You just need it to work faster \u2014 and you need someone in your corner to keep pushing. Strategy, building, everything in between — in your corner, not on a retainer. Scope and price: we figure that out together.",
-    deliverables: [
-      'Deep-dive into your business, market, and opportunities',
-      'Ongoing strategy, brainstorming, prioritization',
-      'Whatever we build \u2014 systems, automation, tools, campaigns',
-      'Direct access \u2014 I answer in hours, not days',
-      'Scope and price defined together',
-    ],
-    pullQuote: 'It\u2019s working. I just need it to work faster \u2014 and I can\u2019t keep doing this alone.',
+    number: '03',
+    title: 'Choose the next move',
+    body: 'You leave with a ranked plan. If implementation makes sense, I can handle it.',
   },
 ];
 
 export function Pricing() {
   const sectionRef = useRef<HTMLElement>(null);
-  const tierHoverTimers = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+  const trackedViewRef = useRef(false);
   const ctaHoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     initGSAP();
     const section = sectionRef.current;
     if (!section) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const recordPricingView = () => {
+      if (trackedViewRef.current) return;
+      trackedViewRef.current = true;
+      trackSectionView('pricing');
+      trackPricingView('Digital Growth Audit');
+    };
 
     const ctx = gsap.context(() => {
-      const header = section.querySelector('.v9-pricing-header');
-      const interstitial = section.querySelector('.v9-pricing-interstitial');
-      const rows = section.querySelectorAll('.v9-pricing-tier');
+      const revealItems = section.querySelectorAll<HTMLElement>('[data-pricing-reveal]');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        recordPricingView();
+        gsap.set(revealItems, { clearProps: 'all' });
+        return;
+      }
 
-      gsap.fromTo(
-        header,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: header, start: 'top 85%', once: true },
-        }
-      );
-
-      gsap.fromTo(
-        interstitial,
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          ease: 'power3.out',
-          scrollTrigger: { trigger: interstitial, start: 'top 85%', once: true },
-        }
-      );
-
-      const rowsArr = Array.from(rows) as HTMLElement[];
-
-      gsap.fromTo(
-        rows,
-        { opacity: 0, y: 30 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          stagger: 0.12,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: rows[0],
-            start: 'top 85%',
-            once: true,
-          },
-          onComplete: () => { gsap.set(rows, { clearProps: 'opacity,transform' }); },
-        }
-      );
-
-      // Highlight each tier as it crosses the center of the viewport
       ScrollTrigger.create({
-        trigger: rows[0],
-        start: 'top 80%',
-        end: 'bottom top',
-        onEnter: () => {
-          section.classList.add('v9-pricing--highlight');
-          trackSectionView('pricing');
-        },
-        onLeave: () => {
-          section.classList.remove('v9-pricing--highlight');
-          rowsArr.forEach(r => r.classList.remove('v9-pricing-tier--active'));
-        },
-        onLeaveBack: () => {
-          section.classList.remove('v9-pricing--highlight');
-          rowsArr.forEach(r => r.classList.remove('v9-pricing-tier--active'));
-        },
+        trigger: section,
+        start: 'top 82%',
+        once: true,
+        onEnter: recordPricingView,
       });
 
-      rowsArr.forEach((row, i) => {
-        ScrollTrigger.create({
-          trigger: row,
-          start: 'top center',
-          end: 'bottom center',
-          onEnter: () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
-            row.classList.add('v9-pricing-tier--active');
-            trackPricingView(tiers[i].name);
+      gsap.fromTo(
+        revealItems,
+        { opacity: 0, y: 26 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.65,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: section, start: 'top 82%', once: true },
+          onComplete: () => {
+            gsap.set(revealItems, { clearProps: 'opacity,transform' });
           },
-          onEnterBack: () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
-            row.classList.add('v9-pricing-tier--active');
-          },
-          onLeaveBack: i === 0 ? () => {
-            rowsArr.forEach((r) => r.classList.remove('v9-pricing-tier--active'));
-          } : undefined,
-          onLeave: () => { row.classList.remove('v9-pricing-tier--active'); },
-        });
-      });
+        },
+      );
     }, section);
 
-    return () => { ctx.revert(); section.classList.remove('v9-pricing--highlight'); };
+    return () => {
+      ctx.revert();
+      if (ctaHoverTimer.current) clearTimeout(ctaHoverTimer.current);
+    };
   }, []);
 
   return (
     <>
-      <section
-        ref={sectionRef}
-        id="pricing"
-        className="v9-pricing v9-section-light"
-      >
+      <section ref={sectionRef} id="pricing" className="v9-pricing v9-section-light">
         <div className="v9-pricing-container">
-
-          <div className="v9-pricing-header">
-            <span className="v9-pricing-label">Investment</span>
-            <h2 className="v9-pricing-heading">Three ways to work together.</h2>
-          </div>
-
-          <div className="v9-pricing-interstitial">
-            <div className="v9-pricing-interstitial-statement">
-              Share what&apos;s not working.<br />
-              We&apos;ll figure out what fits.<br />
-              <em>Name your price.</em><br />
-              Let&apos;s get to work.<br />
-              Nice, right?
-            </div>
-            <p className="v9-pricing-interstitial-sub">
-              Every business is at a different stage — and every budget is
-              different too. Tell me the problem. The context fills itself in.
-
+          <div className="v9-pricing-header" data-pricing-reveal>
+            <span className="v9-pricing-label">How we start</span>
+            <h2 className="v9-pricing-heading">Start with the diagnosis.</h2>
+            <p className="v9-pricing-lede">
+              You do not need to decide whether you need a new website. I look at
+              the path from local search to phone call and show you where good
+              prospects drop away.
             </p>
           </div>
 
-          <div className="v9-pricing-tiers">
-            {tiers.map((tier) => (
-              <div
-                key={tier.num}
-                role="region"
-                aria-label={`Tier ${tier.num}: ${tier.name}`}
-                className="v9-pricing-tier"
-                onMouseEnter={() => {
-                  tierHoverTimers.current[tier.num] = setTimeout(() => {
-                    trackElementHover('pricing_tier', { tier_name: tier.name, tier_num: tier.num });
-                  }, 500);
-                }}
-                onMouseLeave={() => clearTimeout(tierHoverTimers.current[tier.num])}
-              >
-                <div className="v9-pricing-identity">
-                  <div className="v9-pricing-num">{tier.num}</div>
-                  <h3 className="v9-pricing-name">{tier.name}</h3>
-                  <p className="v9-pricing-tagline">{tier.tagline}</p>
-                  <span className="v9-pricing-timeline">{tier.timeline}</span>
-                </div>
+          <article className="v9-pricing-audit" data-pricing-reveal aria-labelledby="audit-title">
+            <div className="v9-pricing-audit-identity">
+              <div className="v9-pricing-num">01</div>
+              <h3 id="audit-title" className="v9-pricing-name">Digital Growth Audit</h3>
+              <p className="v9-pricing-tagline">Find the leak. Know what to do next.</p>
+              <p className="v9-pricing-timeline">Two weeks · $1,500</p>
+            </div>
 
-                <div className="v9-pricing-body">
-                  <p className="v9-pricing-desc">{tier.description}</p>
-                  <div className="v9-pricing-sublabel">What you get</div>
-                  <ul className="v9-pricing-list">
-                    {tier.deliverables.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="v9-pricing-audit-body">
+              <p className="v9-pricing-desc">
+                A focused look at your website, Google presence, competitors, and
+                inquiry path. You get a clear plan, not a list of ideas and not a
+                pitch for work you do not need.
+              </p>
+              <div className="v9-pricing-sublabel">What you get</div>
+              <ul className="v9-pricing-list">
+                {auditDeliverables.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
 
-                <div className="v9-pricing-action">
-                  <p className="v9-pricing-quote">&ldquo;{tier.pullQuote}&rdquo;</p>
-                </div>
+            <div className="v9-pricing-audit-investment">
+              <span className="v9-pricing-investment-label">Investment</span>
+              <strong>$1,500</strong>
+              <p>Credited toward implementation if we continue together.</p>
+            </div>
+          </article>
+
+          <div className="v9-pricing-process" data-pricing-reveal>
+            {auditSteps.map((step) => (
+              <div className="v9-pricing-process-step" key={step.number}>
+                <span className="v9-pricing-process-number">{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.body}</p>
               </div>
             ))}
           </div>
 
-          <div className="v9-pricing-bottom">
-            <p className="v9-pricing-micro">30 minutes. No pitch. Real talk.</p>
+          <div className="v9-pricing-bottom" data-pricing-reveal>
+            <p className="v9-pricing-micro">The audit is the starting point, not a commitment to a rebuild.</p>
             <a
               href="#contact"
               className="v9-btn v9-btn-gradient"
-              aria-label="Book Your Free Strategy Call — 30 minutes, no pitch"
+              aria-label="Book a Digital Growth Audit call"
               onClick={() => trackCTAClick('pricing_bottom', 'pricing')}
-              onMouseEnter={() => { ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500); }}
-              onMouseLeave={() => clearTimeout(ctaHoverTimer.current!)}
+              onMouseEnter={() => {
+                ctaHoverTimer.current = setTimeout(() => trackElementHover('cta_pricing_bottom'), 500);
+              }}
+              onMouseLeave={() => {
+                if (ctaHoverTimer.current) clearTimeout(ctaHoverTimer.current);
+              }}
             >
-              Book Your Free Strategy Call
+              Book an audit call
             </a>
           </div>
-
         </div>
       </section>
 
@@ -254,12 +173,13 @@ export function Pricing() {
           padding: 0 48px;
         }
 
-        /* Header */
         .v9-pricing-header {
-          margin-bottom: 72px;
+          max-width: 720px;
+          margin-bottom: 56px;
         }
 
-        .v9-pricing-label {
+        .v9-pricing-label,
+        .v9-pricing-investment-label {
           display: block;
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.75rem;
@@ -277,118 +197,93 @@ export function Pricing() {
           color: #0C1117;
           letter-spacing: -0.025em;
           line-height: 1.1;
-          margin: 0;
+          margin: 0 0 16px;
         }
 
-        /* Interstitial */
-        .v9-pricing-interstitial {
-          padding: 20px 0 36px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-          align-items: center;
-          margin-bottom: 0;
-        }
-
-        .v9-pricing-interstitial-statement {
-          font-family: var(--v9-font-heading);
-          font-size: clamp(1.6rem, 2.8vw, 2.2rem);
-          font-weight: 400;
-          color: #0C1117;
-          letter-spacing: -0.02em;
-          line-height: 1.2;
-        }
-
-        .v9-pricing-interstitial-statement em {
-          font-style: italic;
-          color: #0B8A6E;
-        }
-
-        .v9-pricing-interstitial-sub {
+        .v9-pricing-lede,
+        .v9-pricing-desc,
+        .v9-pricing-process-step p,
+        .v9-pricing-audit-investment p {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.9rem;
-          color: rgba(12, 17, 23, 0.55);
-          line-height: 1.7;
-          max-width: 380px;
+          color: rgba(12, 17, 23, 0.64);
+          line-height: 1.65;
+        }
+
+        .v9-pricing-lede {
+          max-width: 620px;
+          font-size: 1rem;
           margin: 0;
         }
 
-        /* Tiers */
-        .v9-pricing-tiers {
-          border-top: 1px solid rgba(12, 17, 23, 0.1);
-          margin-bottom: 80px;
-        }
-
-        .v9-pricing-tier {
+        .v9-pricing-audit {
           display: grid;
-          grid-template-columns: minmax(min(200px, 100%), 240px) 1fr minmax(min(200px, 100%), 260px);
-          border-bottom: 1px solid rgba(12, 17, 23, 0.07);
-          will-change: opacity;
+          grid-template-columns: minmax(190px, 0.8fr) minmax(0, 1.5fr) minmax(180px, 0.65fr);
+          border-top: 1px solid rgba(12, 17, 23, 0.12);
+          border-bottom: 1px solid rgba(12, 17, 23, 0.12);
+          background: #F8F7F4;
         }
 
-        /* Left: identity */
-        .v9-pricing-identity {
-          padding: 48px 40px 48px 40px;
-          border-right: 1px solid rgba(12, 17, 23, 0.06);
+        .v9-pricing-audit-identity,
+        .v9-pricing-audit-body,
+        .v9-pricing-audit-investment {
+          padding: 44px 36px;
         }
 
-        .v9-pricing-num {
+        .v9-pricing-audit-identity,
+        .v9-pricing-audit-body {
+          border-right: 1px solid rgba(12, 17, 23, 0.08);
+        }
+
+        .v9-pricing-num,
+        .v9-pricing-process-number {
           font-family: 'Inter', -apple-system, sans-serif;
           font-size: 0.75rem;
           font-weight: 600;
           letter-spacing: 0.12em;
-          text-transform: uppercase;
           color: #0B8A6E;
-          margin-bottom: 12px;
         }
+
+        .v9-pricing-num { margin-bottom: 12px; }
 
         .v9-pricing-name {
           font-family: var(--v9-font-heading);
-          font-size: 1.35rem;
+          font-size: clamp(1.5rem, 2.4vw, 2rem);
           font-weight: 400;
+          line-height: 1.1;
           color: #0C1117;
-          line-height: 1.2;
-          margin: 0 0 6px 0;
+          margin: 0 0 8px;
         }
 
         .v9-pricing-tagline {
           font-family: var(--v9-font-heading);
           font-style: italic;
-          font-size: 0.88rem;
+          font-size: 1rem;
           color: #0B8A6E;
           line-height: 1.4;
-          margin: 0 0 16px 0;
+          margin: 0 0 20px;
         }
 
         .v9-pricing-timeline {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          color: rgba(12, 17, 23, 0.55);
-          font-weight: 500;
-          line-height: 1.5;
-        }
-
-        /* Mid: body */
-        .v9-pricing-body {
-          padding: 48px 40px;
-          border-right: 1px solid rgba(12, 17, 23, 0.06);
+          font-size: 0.8rem;
+          font-weight: 600;
+          color: rgba(12, 17, 23, 0.58);
+          margin: 0;
         }
 
         .v9-pricing-desc {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.88rem;
-          color: rgba(12, 17, 23, 0.68);
-          line-height: 1.75;
-          margin: 0 0 24px 0;
+          font-size: 0.94rem;
+          margin: 0 0 24px;
+          max-width: 560px;
         }
 
         .v9-pricing-sublabel {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
+          font-size: 0.72rem;
           font-weight: 600;
           text-transform: uppercase;
           letter-spacing: 0.1em;
-          color: rgba(12, 17, 23, 0.55);
+          color: rgba(12, 17, 23, 0.5);
           margin-bottom: 12px;
         }
 
@@ -396,59 +291,96 @@ export function Pricing() {
           list-style: none;
           padding: 0;
           margin: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 7px;
+          display: grid;
+          gap: 8px;
         }
 
         .v9-pricing-list li {
-          font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.8rem;
-          color: rgba(12, 17, 23, 0.7);
-          padding-left: 16px;
           position: relative;
+          padding-left: 18px;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.86rem;
           line-height: 1.45;
+          color: rgba(12, 17, 23, 0.72);
         }
 
         .v9-pricing-list li::before {
-          content: '\u2192';
+          content: '→';
           position: absolute;
           left: 0;
           color: #0B8A6E;
           font-weight: 600;
         }
 
-        /* Right: pull quote */
-        .v9-pricing-action {
-          padding: 48px 40px 48px 40px;
+        .v9-pricing-audit-investment {
           display: flex;
-          align-items: center;
+          flex-direction: column;
+          justify-content: center;
         }
 
-        .v9-pricing-quote {
+        .v9-pricing-audit-investment .v9-pricing-investment-label {
+          margin-bottom: 8px;
+        }
+
+        .v9-pricing-audit-investment strong {
           font-family: var(--v9-font-heading);
-          font-style: italic;
-          font-size: clamp(1.1rem, 1.6vw, 1.4rem);
-          color: rgba(12, 17, 23, 0.62);
-          line-height: 1.5;
-          letter-spacing: -0.01em;
-          margin: 0;
+          font-size: clamp(2.4rem, 4vw, 3.5rem);
+          font-weight: 400;
+          line-height: 1;
+          color: #0C1117;
+          letter-spacing: -0.03em;
         }
 
-        /* Bottom CTA */
+        .v9-pricing-audit-investment p {
+          font-size: 0.8rem;
+          margin: 12px 0 0;
+        }
+
+        .v9-pricing-process {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0;
+          margin: 64px 0 72px;
+          border-bottom: 1px solid rgba(12, 17, 23, 0.1);
+        }
+
+        .v9-pricing-process-step {
+          padding: 0 32px 32px;
+          border-right: 1px solid rgba(12, 17, 23, 0.08);
+        }
+
+        .v9-pricing-process-step:first-child { padding-left: 0; }
+        .v9-pricing-process-step:last-child { border-right: 0; padding-right: 0; }
+
+        .v9-pricing-process-number { display: block; margin-bottom: 14px; }
+
+        .v9-pricing-process-step h3 {
+          font-family: var(--v9-font-heading);
+          font-size: 1.35rem;
+          font-weight: 400;
+          color: #0C1117;
+          line-height: 1.2;
+          margin: 0 0 8px;
+        }
+
+        .v9-pricing-process-step p {
+          font-size: 0.87rem;
+          margin: 0;
+          max-width: 280px;
+        }
+
         .v9-pricing-bottom {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
           text-align: center;
-          padding-top: 40px;
         }
 
         .v9-pricing-micro {
           font-family: 'Inter', -apple-system, sans-serif;
-          font-size: 0.75rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-          color: rgba(12, 17, 23, 0.55);
-          margin: 0 0 20px 0;
+          font-size: 0.78rem;
+          color: rgba(12, 17, 23, 0.56);
+          margin: 0 0 20px;
         }
 
         .v9-btn {
@@ -459,8 +391,8 @@ export function Pricing() {
           text-decoration: none;
           border: none;
           cursor: pointer;
-          transition: transform 0.25s ease, box-shadow 0.25s ease;
           text-align: center;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .v9-btn-gradient {
@@ -471,103 +403,61 @@ export function Pricing() {
           box-shadow: 0 4px 18px rgba(6, 214, 160, 0.28);
         }
 
-        .v9-btn-gradient:hover {
+        .v9-btn-gradient:hover,
+        .v9-btn-gradient:focus-visible {
           transform: translateY(-2px);
           box-shadow: 0 8px 28px rgba(6, 214, 160, 0.38);
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-          .v9-pricing-tier {
-            grid-template-columns: 200px 1fr;
-          }
+        .v9-btn-gradient:focus-visible {
+          outline: 3px solid rgba(6, 214, 160, 0.45);
+          outline-offset: 3px;
+        }
 
-          .v9-pricing-action {
+        @media (max-width: 900px) {
+          .v9-pricing-audit { grid-template-columns: 1fr 1.4fr; }
+          .v9-pricing-audit-investment {
             grid-column: 1 / -1;
-            padding: 0 0 40px 0;
-            border-right: none;
+            padding-top: 0;
+            border-top: 1px solid rgba(12, 17, 23, 0.08);
           }
-
-          .v9-pricing-identity {
-            border-right: 1px solid rgba(12, 17, 23, 0.06);
-          }
-
-          .v9-pricing-body {
-            border-right: none;
-          }
+          .v9-pricing-audit-identity { padding-right: 24px; }
+          .v9-pricing-audit-body { border-right: 0; padding-left: 24px; }
+          .v9-pricing-audit-investment { padding-left: 24px; padding-bottom: 36px; }
         }
 
-        @media (max-width: 768px) {
-          .v9-pricing-container {
-            padding: 0 24px;
+        @media (max-width: 700px) {
+          .v9-pricing { padding: 80px 0; }
+          .v9-pricing-container { padding: 0 24px; }
+          .v9-pricing-audit { display: block; }
+          .v9-pricing-audit-identity,
+          .v9-pricing-audit-body,
+          .v9-pricing-audit-investment {
+            border-right: 0;
+            padding: 30px 20px;
           }
-
-          .v9-pricing-interstitial {
-            grid-template-columns: 1fr;
-            gap: 20px;
+          .v9-pricing-audit-identity,
+          .v9-pricing-audit-body { border-bottom: 1px solid rgba(12, 17, 23, 0.08); }
+          .v9-pricing-audit-investment { padding-bottom: 32px; }
+          .v9-pricing-process { grid-template-columns: 1fr; gap: 28px; margin: 48px 0 56px; }
+          .v9-pricing-process-step,
+          .v9-pricing-process-step:first-child,
+          .v9-pricing-process-step:last-child {
+            padding: 0 0 28px;
+            border-right: 0;
+            border-bottom: 1px solid rgba(12, 17, 23, 0.08);
           }
-
-          .v9-pricing-tier {
-            grid-template-columns: 1fr;
-          }
-
-          .v9-pricing-identity {
-            padding: 40px 0 24px 16px;
-            border-right: none;
-            border-bottom: 1px solid rgba(12, 17, 23, 0.06);
-          }
-
-          .v9-pricing-body {
-            padding: 24px 0 24px 16px;
-            border-right: none;
-          }
-
-          .v9-pricing-action {
-            padding: 0 0 40px 16px;
-          }
-        }
-
-        @media (max-width: 640px) {
-          .v9-pricing {
-            padding: 80px 0;
-          }
-        }
-
-        /* Scroll highlight */
-        .v9-pricing--highlight .v9-pricing-tier {
-          opacity: var(--v9-highlight-dim);
-          transition: opacity var(--v9-highlight-duration) var(--v9-highlight-easing),
-                      box-shadow var(--v9-highlight-duration) var(--v9-highlight-easing),
-                      background var(--v9-highlight-duration) var(--v9-highlight-easing);
-        }
-
-        .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
-          transition: color var(--v9-highlight-duration) var(--v9-highlight-easing);
-        }
-
-        .v9-pricing--highlight .v9-pricing-tier--active {
-          opacity: 1;
-          box-shadow: inset var(--v9-highlight-inset-w) 0 0 var(--v9-accent);
-          background: var(--v9-highlight-bg);
-        }
-
-        .v9-pricing--highlight .v9-pricing-tier--active .v9-pricing-name {
-          color: var(--v9-accent);
+          .v9-pricing-process-step:last-child { border-bottom: 0; padding-bottom: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
           .v9-pricing-header,
-          .v9-pricing-interstitial,
-          .v9-pricing-tier {
+          .v9-pricing-audit,
+          .v9-pricing-process,
+          .v9-pricing-bottom {
             opacity: 1 !important;
             transform: none !important;
-            transition: none !important;
           }
-
-          .v9-pricing--highlight .v9-pricing-tier .v9-pricing-name {
-            transition: none !important;
-          }
-          /* bg tint intentionally preserved under reduced-motion */
         }
       `}</style>
     </>

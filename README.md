@@ -1,7 +1,7 @@
 # Nice Right
 
 A Next.js 14 website with GSAP animations, deployed serverfully on Vercel
-(Route Handlers under `app/api/*` power the Digital Footprint Scanner).
+(Route Handlers under `app/api/*` support health checks and paused tools).
 
 ## Quick Start
 
@@ -53,9 +53,9 @@ npm test
 
 This project uses Node.js 20.
 
-The Digital Footprint Scanner APIs require environment variables. Copy
-`.env.example` to `.env.local` and fill in values (never commit real
-secrets):
+The paused Digital Footprint Scanner retains its environment contract for a
+future relaunch. It is disabled by default. If it is resumed, copy
+`.env.example` to `.env.local` and fill in values (never commit real secrets):
 
 - `PAGESPEED_API_KEY` — Google PageSpeed Insights
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET_KEY` — Cloudflare Turnstile
@@ -66,8 +66,8 @@ secrets):
 - `MAILCHIMP_API_KEY` / `MAILCHIMP_SERVER_PREFIX` / `MAILCHIMP_LIST_ID` — marketing list
 
 On Vercel, set the same keys under **Project Settings → Environment
-Variables**. The site itself (`npm run dev`, `npm run build`) works without
-any of them; only the scanner API routes need them at request time.
+Variables** if the scanner is resumed. The site itself (`npm run dev`,
+`npm run build`) works without them.
 
 ## Deploy
 
@@ -94,14 +94,9 @@ R1 decision); revisit the image pipeline separately.
 
 Private
 
-## Local scanner checks
+## Scanner status
 
-Without Upstash/Turnstile env vars, `/api/scan` uses an in-memory store and accepts
-the UI mock Turnstile tokens so you can run a real scan against public sites.
-
-```bash
-npm run dev
-# other terminal:
-npm run test:scan-live
-```
-
+The Digital Footprint Scanner is paused. `/scan/`, `/api/scan`, and `/api/lead`
+return 404 by default, and the site does not link to them. The scanner code and
+its tests remain in the repository for a future relaunch after the product is
+ready.

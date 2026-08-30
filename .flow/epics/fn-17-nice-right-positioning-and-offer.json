@@ -1,0 +1,24 @@
+{
+  "branch_name": "mrcn/nice-right-positioning",
+  "created_at": "2026-08-29T23:29:38.680515Z",
+  "depends_on_epics": [],
+  "id": "fn-17-nice-right-positioning-and-offer",
+  "next_task": 1,
+  "plan_review_status": "unknown",
+  "plan_reviewed_at": null,
+  "spec_path": ".flow/specs/fn-17-nice-right-positioning-and-offer.md",
+  "status": "open",
+  "title": "Nice Right positioning and offer consolidation",
+  "tracker": {
+    "baseHashFlow": null,
+    "baseHashTracker": null,
+    "depRelations": [],
+    "id": null,
+    "identifier": null,
+    "lastSyncedAt": null,
+    "mergeBaseFlow": null,
+    "mergeBaseTracker": null,
+    "url": null
+  },
+  "updated_at": "2026-08-29T23:29:38.700731Z"
+}

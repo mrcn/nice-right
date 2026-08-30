@@ -69,9 +69,13 @@ export function ContactSection() {
           <div className="v1-contact-header">
             <p className="v1-eyebrow">Contact</p>
             <h2 className="v1-contact-heading">
-              Let&apos;s figure out what would work for your business
+              Let&apos;s find the leak.
             </h2>
-            <p className="v1-contact-sub">30 minutes.</p>
+            <p className="v1-contact-sub">
+              Thirty-minute audit call. We&apos;ll talk through where good local
+              prospects drop out and whether the Digital Growth Audit is the right
+              next step.
+            </p>
           </div>
 
           {/* Side-by-side grid */}
@@ -79,7 +83,7 @@ export function ContactSection() {
             {/* Left: Cal embed */}
             <div className="v1-cal-col">
               <div className="v1-cal-label-row">
-                <p>Pick a time</p>
+                <p>Book your audit call</p>
               </div>
               <CalEmbed
                 embedId="cal-embed-v9"

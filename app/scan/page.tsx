@@ -1,20 +1,15 @@
+import { notFound } from 'next/navigation';
 import { buildSeoMetadata } from '@/app/_shared/seo';
-import { ScanExperience } from './ScanExperience';
-import './scan.css';
 
-const page = {
-  title: 'Digital Footprint Scanner | Nice Right',
-  description:
-    'Free digital footprint snapshot for local businesses — score, headline findings, and an optional emailed report. No email required to see your score.',
-  path: '/scan/',
-};
+export const dynamic = 'force-dynamic';
 
-// Tool not ready for launch: keep off search indexes until re-linked (see llms.txt/sitemap excludes).
 export const metadata = buildSeoMetadata({
-  ...page,
+  title: 'Not found | Nice Right',
+  description: 'This Nice Right tool is not currently available.',
+  path: '/scan/',
   robots: { index: false, follow: false },
 });
 
-export default function ScanPage() {
-  return <ScanExperience />;
+export default function ScanPage(): never {
+  notFound();
 }
