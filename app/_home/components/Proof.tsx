@@ -20,6 +20,7 @@ interface CaseStudy {
   image: string;
   alt: string;
   client: string;
+  status: string;
   headline: string;
   description: string;
 }
@@ -30,6 +31,7 @@ const caseStudies: CaseStudy[] = [
     image: '/images/nursing-home-money.webp',
     alt: 'Healthcare investment platform',
     client: 'Healthcare Platform',
+    status: 'Historical · reported outcome',
     headline: 'A portal for complex property deals',
     description:
       'Connected providers and opportunities in one workflow.',
@@ -39,6 +41,7 @@ const caseStudies: CaseStudy[] = [
     image: '/images/bankk.webp',
     alt: 'Northern Trust project',
     client: 'Northern Trust',
+    status: 'Historical client work',
     headline: 'Interaction systems for a Fortune 500 site',
     description: 'Designed motion and interface details for a public web experience.',
   },
@@ -47,6 +50,7 @@ const caseStudies: CaseStudy[] = [
     image: '/images/garden-money.webp',
     alt: 'Green Goods biodiversity platform',
     client: 'GreenPill Network',
+    status: 'Unknown · verification pending',
     headline: 'A public record for conservation work',
     description:
       'A blockchain PWA for recording verified biodiversity actions.',
@@ -204,13 +208,14 @@ export function Proof() {
           {/* Case studies */}
           <div className="v9-cases-grid">
             {caseStudies.map((cs) => (
-              <a href={cs.href} key={cs.client} className="v9-case-card" aria-label={`Case study: ${cs.client} — ${cs.headline}`}>
+              <a href={cs.href} key={cs.client} className="v9-case-card" aria-label={`Case study: ${cs.client} — ${cs.status} — ${cs.headline}`}>
                 <div className="v9-case-img">
                   <img src={cs.image} alt={cs.alt} loading="lazy" width={1024} height={1024} />
                   <div className="v9-case-img-overlay" />
                 </div>
                 <div className="v9-case-body">
                   <span className="v9-case-client">{cs.client}</span>
+                  <span className="v9-case-status">{cs.status}</span>
                   <h3 className="v9-case-headline">{cs.headline}</h3>
                   <p className="v9-case-desc">{cs.description}</p>
                   <span className="v9-case-link">View case study &rarr;</span>
@@ -414,6 +419,17 @@ export function Proof() {
           text-transform: uppercase;
           color: #06D6A0;
           margin-bottom: 8px;
+        }
+
+        .v9-case-status {
+          display: block;
+          margin: -2px 0 12px;
+          font-family: 'Inter', -apple-system, sans-serif;
+          font-size: 0.68rem;
+          font-weight: 500;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: rgba(255, 255, 255, 0.46);
         }
 
         .v9-case-headline {

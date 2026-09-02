@@ -19,7 +19,7 @@ export const localBusinessSchema: JsonLd = {
   name: 'Nice Right',
   url: SITE_URL,
   description:
-    'Digital growth partner for small businesses — strategy, design, and SEO that turns your website into your best salesperson.',
+    'A $1,500 Digital Growth Audit for established Chicago home-service businesses, with clear next steps for fixing where qualified local prospects drop out.',
   founder: { '@id': `${SITE_URL}/#marcin-klaudiusz` },
   address: {
     '@type': 'PostalAddress',

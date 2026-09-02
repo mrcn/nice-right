@@ -35,6 +35,7 @@ export default function NorthernTrustPage() {
       />
       <header className="v9-case-header">
         <span className="v9-case-client">Northern Trust</span>
+        <span className="v9-case-status">Historical client work · no quantified outcome verified</span>
         <h1>Designing &amp; Developing Micro-Interactions for Northern Trust&apos;s Corporate Website</h1>
         <p className="v9-case-subtitle">
           Enhancing a global financial institution&apos;s online experience through carefully chosen micro-interactions and transitions.

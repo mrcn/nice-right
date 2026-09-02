@@ -2,9 +2,9 @@ import HomePageContent from './_home/page';
 import { buildSeoMetadata } from '@/app/_shared/seo';
 
 export const metadata = buildSeoMetadata({
-  title: 'Nice Right | Digital Growth for Chicago Home-Service Businesses',
+  title: 'Nice Right | Digital Growth Audit for Chicago Home-Service Businesses',
   description:
-    'I help established Chicago home-service businesses find and fix the digital leaks that keep qualified local prospects from calling.',
+    'A focused $1,500 Digital Growth Audit for established Chicago home-service businesses. Find where qualified local prospects drop out and know what to fix next.',
   path: '/',
 });
 

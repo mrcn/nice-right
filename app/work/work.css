@@ -121,6 +121,14 @@
   letter-spacing: 0.08em;
 }
 
+.v9-work-item-status {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.46);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .v9-work-item-content h2 {
   font-family: var(--v9-font-heading);
   font-size: clamp(1.4rem, 2vw, 2rem);
@@ -188,7 +196,17 @@
   color: var(--v9-accent-light);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.v9-case-status {
+  display: block;
   margin-bottom: 16px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.46);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .v9-case-header h1 {

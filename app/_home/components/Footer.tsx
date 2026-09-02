@@ -22,7 +22,10 @@ export function Footer() {
               Contact
             </a>
           </nav>
-          <p>&copy; 2026 Nice Right. Digital growth for local service businesses.</p>
+          <p>&copy; 2026 Nice Right. Digital Growth Audit for local service businesses.</p>
+          <p className="v9-footer-ownership">
+            <a href="https://uxoxo.xyz">A UXOXO product and portfolio umbrella.</a>
+          </p>
           <p className="v9-footer-version">v{versionData.version}</p>
         </div>
       </footer>
@@ -77,6 +80,14 @@ export function Footer() {
           font-size: 0.75rem;
           color: rgba(255, 255, 255, 0.55);
           margin-top: 8px;
+        }
+
+        .v9-footer p.v9-footer-ownership {
+          margin-top: 8px;
+        }
+
+        .v9-footer-ownership a {
+          color: rgba(255, 255, 255, 0.65);
         }
       `}</style>
     </>

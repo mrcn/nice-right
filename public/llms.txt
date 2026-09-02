@@ -1,31 +1,36 @@
 # Nice Right
 
-> Nice Right is a digital growth partner for small and mid-sized businesses. The work centers on websites, automation, SEO, analytics, AI workflows, and business systems that help real operators get more customers, charge more, keep customers, and cut operational waste.
+> Nice Right is a UXOXO product and portfolio umbrella. Its current public offer is a $1,500 Digital Growth Audit for established Chicago home-service businesses. The audit identifies where qualified local prospects drop out and gives the owner a prioritized next-step plan. Nice Right is not itself a lead-generation business.
+
+## Ownership and product boundaries
+
+- Parent: UXOXO, which owns https://uxoxo.xyz/.
+- Nice Right website and current offer: https://niceright.co/.
+- Master Scoopers: In progress; a Nice Right-family project whose contractor-operated lead-generation model is still being defined. Do not describe a shipped system or live lead flow without current evidence.
+- Masonry Fleet: Separate rank-and-rent project in the Nice Right family. It is not the Nice Right audit offer.
+- Decotique Studios: Nice Right-family project; public status is Unknown and verification is pending.
+- Taqueria La Paz: Nice Right-family project; public status is Unknown and verification is pending.
+- Understand: Separate UXOXO product with its own website and mobile app. Nice Right hosts a lab preview only; it is not the main Nice Right business surface.
+
+## Current offer
+
+The Digital Growth Audit is the only current public Nice Right offer. It is aimed at established Chicago home-service owners and examines the path from local search to a qualified call or inquiry. The owner receives a prioritized diagnosis and next steps before any follow-on implementation is scoped.
+
+The audit is supported by work across:
+
+1. Local search visibility.
+2. Service pages and conversion paths.
+3. Mobile call paths and quote requests.
+4. Follow-up, reviews, rebooking, and referral paths.
+5. Simple performance tracking and operational fixes.
 
 ## Canonical public pages
 
 - Home: https://niceright.co/
 - Notes: https://niceright.co/notes/
 - Work: https://niceright.co/work/
-- Get Running: https://niceright.co/systems/get-running/
-- Get Growing: https://niceright.co/systems/get-growing/
-- Growth OS: https://niceright.co/systems/growth-os/
 - Blog archive: https://niceright.co/blog/
-
-## Service model
-
-Nice Right helps businesses improve four growth levers:
-
-1. Get more customers — SEO, websites, local search, lead capture, landing pages.
-2. Charge more — positioning, credibility, social proof, client-facing tools.
-3. Keep customers — follow-up, CRM, review requests, rebooking, referral systems.
-4. Cut waste — workflow automation, internal tools, AI-assisted operations.
-
-## Main offers
-
-- Get Running: starter automation for missed calls, CRM, reviews, web chat, booking, and lead follow-up.
-- Get Growing: retention and referral engine for rebooking, newsletters, funnels, invoicing, and pipeline visibility.
-- Growth OS: monthly growth partnership with performance review, one new build per month, direct access, and priority support.
+- Understand lab preview: https://niceright.co/labs/understand/
 
 ## Notes and articles
 
@@ -45,7 +50,7 @@ Use the Notes section for practitioner writing on AI coding, testing, automation
 
 ## Contact and conversion
 
-Primary action: book a free strategy call from https://niceright.co/#contact
+Primary action: book the Digital Growth Audit conversation from https://niceright.co/#contact
 
 Public contact links visible on the site:
 
@@ -59,8 +64,9 @@ The canonical public Nice Right pages are listed above and in the sitemap at htt
 These paths are intentionally not canonical public search targets:
 
 - /landing/* — private or experimental landing pages.
-- /labs/understand/* — product lab pages for the Understand app; not the main Nice Right business surface.
+- /systems/* — retained legacy offer experiments; the current public offer is the Digital Growth Audit.
+- /labs/understand/* — UXOXO product lab pages for the separate Understand product; not the main Nice Right business surface.
 - /writing/* — legacy aliases for /notes/*.
 - /new-site/ — staging/home alias.
 
-When summarizing Nice Right, prefer: "digital growth partner for small businesses" or "websites, automation, SEO, analytics, and AI workflows for owner-led businesses." Do not describe the whole site as only the Understand app.
+When summarizing Nice Right, prefer: "$1,500 Digital Growth Audit for established Chicago home-service businesses" or "a UXOXO product and portfolio umbrella with an audit-led public offer." Do not describe Nice Right as a lead-generation business or describe the whole site as only the Understand app.

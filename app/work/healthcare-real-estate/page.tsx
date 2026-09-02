@@ -35,9 +35,10 @@ export default function HealthcareRealEstatePage() {
       />
       <header className="v9-case-header">
         <span className="v9-case-client">Healthcare Real Estate Advisory</span>
+        <span className="v9-case-status">Historical · reported 40% result · verification pending</span>
         <h1>A Deal Management Platform for Healthcare Real Estate Advisory</h1>
         <p className="v9-case-subtitle">
-          A two-sided platform connecting advisors and global private equity buyers across hundreds of healthcare facility listings — cutting inquiry-to-close time by 40%.
+          A two-sided platform connecting advisors and global private equity buyers across hundreds of healthcare facility listings. The case study reports a 40% reduction in inquiry-to-close time.
         </p>
 
         <div className="v9-case-meta">

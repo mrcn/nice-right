@@ -8,7 +8,7 @@ import { buildSeoMetadata } from '@/app/_shared/seo';
 const imageBase = '/images/studies/understand-first-run';
 
 const page = {
-  title: 'Understand - First Run | Nice Right',
+  title: 'Understand - First Run | UXOXO product study',
   description:
     "A present-state-first design retrospective for Understand's first-run experience.",
   path: '/studies/understand-first-run/',
@@ -71,7 +71,7 @@ export default function UnderstandFirstRunStudy() {
 
       <article className="v9-study-page v9-understand-study">
         <header className="v9-understand-hero">
-          <span className="v9-study-kicker">Design iteration study</span>
+          <span className="v9-study-kicker">UXOXO product study · Nice Right research surface</span>
           <h1>
             How should first-run get someone into the real Understand experience
             quickly?

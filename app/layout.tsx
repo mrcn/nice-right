@@ -21,18 +21,18 @@ const instrumentSerif = Instrument_Serif({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://niceright.co'),
-  title: 'Nice Right | Digital Growth Partner for Small Businesses',
+  title: 'Nice Right | Digital Growth Audit for Chicago Home-Service Businesses',
   description:
-    "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+    'A focused $1,500 Digital Growth Audit for established Chicago home-service businesses. Find where qualified local prospects drop out and know what to fix next.',
   verification: {
     google: 'CfE8x9Nuo2P24hcf7uBpetLTe0oIjLncdBzBA8JEA5g',
   },
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Nice Right | Digital Growth Partner for Small Businesses',
+    title: 'Nice Right | Digital Growth Audit for Chicago Home-Service Businesses',
     description:
-      "I help small businesses get found online and turn their website into their best salesperson. 100+ projects, 13 years experience, Chicago's Northwest Side.",
+      'A focused $1,500 Digital Growth Audit for established Chicago home-service businesses. Find where qualified local prospects drop out and know what to fix next.',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {

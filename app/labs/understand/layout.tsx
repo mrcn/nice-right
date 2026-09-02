@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from 'next';
 import '../../new-site/globals.css';
 
 export const metadata: Metadata = {
-  title: 'Understand — Listen to anything. Even Hegel.',
+  title: 'Understand | UXOXO product preview',
   description:
-    'A reader for dense texts. AI rewrites archaic prose, expands abbreviations, modernizes academic writing into something natural to hear on a walk. Fully on-device, by default. Currently in closed test on Android.',
+    'Understand is a UXOXO product with a Nice Right-hosted lab preview. It rewrites dense text for listening and is currently in closed testing on Android.',
   openGraph: {
-    title: 'Understand — Listen to anything. Even Hegel.',
+    title: 'Understand | UXOXO product preview',
     description:
       'A reader for dense texts. AI rewrites the words. You pick the register. Listen on a walk.',
     type: 'website',

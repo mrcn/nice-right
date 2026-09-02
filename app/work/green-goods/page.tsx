@@ -5,7 +5,7 @@ import { buildSeoMetadata } from '@/app/_shared/seo';
 const page = {
   title: 'Green Goods: Biodiversity Impact Platform | Nice Right',
   description:
-    'How I co-originated a blockchain-powered conservation tool — from a failed hackathon to two grants and a live community of gardeners.',
+    'How I co-originated a blockchain-powered conservation tool. Current status and outcome evidence require verification.',
   path: '/work/green-goods/',
 };
 
@@ -36,6 +36,7 @@ export default function GreenGoodsPage() {
       />
       <header className="v9-case-header">
         <span className="v9-case-client">GreenPill Network</span>
+        <span className="v9-case-status">Unknown · current status and outcome evidence pending</span>
         <h1>Green Goods: A Biodiversity Impact Platform</h1>
         <p className="v9-case-subtitle">
           Conservation work that goes undocumented goes unrewarded. We built

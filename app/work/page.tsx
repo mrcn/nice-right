@@ -33,10 +33,10 @@ export default function WorkIndex() {
       />
       <section className="v9-work-header">
         <p className="v9-work-label">Selected Work</p>
-        <h1>Projects That Moved the Needle</h1>
+        <h1>Selected projects and case studies</h1>
         <p className="v9-work-intro">
-          Real results for real businesses. Every project focused on
-          measurable outcomes.
+          Past client work and product studies, with relationship and evidence
+          status shown for each project.
         </p>
       </section>
 
@@ -47,11 +47,12 @@ export default function WorkIndex() {
           </div>
           <div className="v9-work-item-content">
             <span className="v9-work-item-client">Northern Trust</span>
+            <span className="v9-work-item-status">Historical client work</span>
             <h2>Corporate Website &amp; Animation System</h2>
             <p>
               Design and development of micro-interactions for Fortune 500
-              financial services. Improved engagement metrics and modernized
-              brand perception.
+              financial services. Quantified engagement outcomes are not
+              verified here.
             </p>
             <span className="v9-work-item-link">View case study →</span>
           </div>
@@ -68,10 +69,12 @@ export default function WorkIndex() {
           </div>
           <div className="v9-work-item-content">
             <span className="v9-work-item-client">Healthcare Investment Platform</span>
+            <span className="v9-work-item-status">Historical · reported outcome</span>
             <h2>Real Estate Investment Portal</h2>
             <p>
               Custom B2B platform connecting healthcare providers with
-              property opportunities. Reduced inquiry-to-close time by 40%.
+              property opportunities. The case study reports a 40% reduction
+              in inquiry-to-close time.
             </p>
             <span className="v9-work-item-link">View case study →</span>
           </div>
@@ -83,11 +86,12 @@ export default function WorkIndex() {
           </div>
           <div className="v9-work-item-content">
             <span className="v9-work-item-client">GreenPill Network</span>
+            <span className="v9-work-item-status">Unknown · verification pending</span>
             <h2>Biodiversity Impact Platform</h2>
             <p>
               Software to fund ecological gardens and track environmental
-              impact at scale. Gamified engagement increased participation
-              3x.
+              impact at scale. Current status and outcome evidence are not
+              verified here.
             </p>
             <span className="v9-work-item-link">View case study →</span>
           </div>

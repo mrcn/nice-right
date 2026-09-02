@@ -6,7 +6,7 @@ export default function StudiesIndex() {
     <main className="us-page">
       <div className="us-shell">
         <section className="us-hero">
-          <p className="us-eyebrow">Nice Right Labs · Understand</p>
+          <p className="us-eyebrow">UXOXO product · Understand studies</p>
           <h1>Understand Interface Studies</h1>
           <p className="us-lede">These are coded decision studies for the next Understand app. They are not a gallery of final screens. They are working arguments about how the product should think: what the user brings in, what the app transforms, how trust is earned, where audio performance belongs, and when growth asks should appear.</p>
           <div className="us-hero-links">

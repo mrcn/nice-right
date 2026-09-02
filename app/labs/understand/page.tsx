@@ -252,7 +252,7 @@ export default function UnderstandPage() {
           <div className="u-container">
             <div className="u-hero-grid">
               <div className="u-hero-text">
-                <div className="u-status-pill">Closed test live · Android · May 2026</div>
+                <div className="u-status-pill">UXOXO product · Nice Right lab preview · Closed test live · Android · May 2026</div>
                 <h1 className="u-h1">
                   An on-ramp to difficult text.
                   <br />
@@ -556,7 +556,8 @@ export default function UnderstandPage() {
         <footer className="u-footer">
           <div className="u-container u-footer-inner">
             <span>
-              © 2026 Understand · An experiment by{' '}
+              © 2026 Understand · A{' '}
+              <a href="https://uxoxo.xyz">UXOXO product</a> · lab preview on{' '}
               <a href="https://niceright.co">Nice Right</a>
             </span>
             <span className="u-footer-legal">
